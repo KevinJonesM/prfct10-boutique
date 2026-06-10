@@ -1,0 +1,116 @@
+:root {
+  --black: #5c5450;
+  --dark: #fff1f6;
+  --dark-card: #ffffff;
+  --gray-card: #f9d7e2;
+  --white: #fff9f5;
+  --soft-white: #fff3f7;
+  --cream: #fff9f5;
+  --peach: #f8c9b9;
+  --pink: #f7b6c8;
+  --baby-pink: #f9d7e2;
+  --mint: #bfe8d8;
+  --baby-blue: #bfddf6;
+  --lavender: #d8c7f3;
+  --gray-text: #8a7b75;
+  --dark-text: #5c5450;
+  --magenta: #e45a9b;
+  --line: rgba(92, 84, 80, 0.13);
+  --shadow-soft: 0 22px 60px rgba(188, 112, 146, 0.2);
+  --heading: "Nunito Sans", "Aptos Display", "Segoe UI Variable Display", "Segoe UI", Arial, Helvetica, sans-serif;
+  --body: "Nunito Sans", "Aptos", "Segoe UI", Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 12% 4%, rgba(249, 215, 226, 0.78), transparent 28%),
+    radial-gradient(circle at 86% 10%, rgba(191, 232, 216, 0.7), transparent 30%),
+    linear-gradient(180deg, var(--cream) 0%, #fff6fb 48%, #fff9f5 100%);
+  color: var(--dark-text);
+  font-family: var(--body);
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.section-heading {
+  font-family: var(--heading);
+  font-size: 6rem;
+  font-weight: 800;
+  line-height: 0.96;
+  letter-spacing: 0;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.eyebrow {
+  color: var(--mint);
+  font-family: var(--heading);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.button-link {
+  align-items: center;
+  border: 0;
+  display: inline-flex;
+  font-family: var(--heading);
+  font-weight: 800;
+  justify-content: center;
+  letter-spacing: 0.02em;
+  border-radius: 999px;
+  min-height: 52px;
+  padding: 0 26px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.button-link--magenta {
+  background: var(--magenta);
+  color: var(--white);
+  box-shadow: 0 16px 34px rgba(228, 90, 155, 0.24);
+}
+
+.button-link--dark {
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(92, 84, 80, 0.14);
+  color: var(--dark-text);
+}
+
+@media (max-width: 768px) {
+  .section-heading {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-heading {
+    font-size: 3rem;
+  }
+}

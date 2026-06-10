@@ -1,0 +1,179 @@
+.mint-cta {
+  background:
+    radial-gradient(circle at 8% 20%, rgba(255, 255, 255, 0.2) 0 90px, transparent 92px),
+    radial-gradient(circle at 88% 72%, rgba(255, 255, 255, 0.16) 0 110px, transparent 112px),
+    linear-gradient(135deg, #8adfcb 0%, #9be6d4 52%, #bff3e8 100%);
+  color: #fff9f5;
+  overflow: hidden;
+  padding: 96px 24px;
+  position: relative;
+  text-align: center;
+}
+
+.mint-cta__content {
+  margin: 0 auto;
+  max-width: 980px;
+  position: relative;
+  z-index: 2;
+}
+
+.mint-cta__eyebrow {
+  color: rgba(255, 249, 245, 0.92);
+  font-family: var(--heading);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.26em;
+  margin: 0 0 28px;
+  text-transform: uppercase;
+}
+
+.mint-cta__title {
+  color: #fff9f5;
+  font-family: var(--heading);
+  font-size: clamp(3rem, 6vw, 6rem);
+  font-weight: 950;
+  letter-spacing: 0.04em;
+  line-height: 0.95;
+  margin: 0 auto;
+  max-width: 900px;
+  text-shadow: 0 16px 38px rgba(67, 154, 139, 0.24);
+  text-transform: uppercase;
+}
+
+.mint-cta__text {
+  color: rgba(255, 249, 245, 0.95);
+  font-size: clamp(1rem, 1.35vw, 1.18rem);
+  font-weight: 700;
+  line-height: 1.7;
+  margin: 28px auto 0;
+  max-width: 620px;
+}
+
+.mint-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: center;
+  margin-top: 44px;
+}
+
+.mint-cta__button {
+  align-items: center;
+  border-radius: 999px;
+  display: inline-flex;
+  font-family: var(--heading);
+  font-size: 0.82rem;
+  font-weight: 900;
+  justify-content: center;
+  letter-spacing: 0.12em;
+  min-width: 210px;
+  padding: 16px 28px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background 250ms ease, box-shadow 250ms ease, transform 250ms ease;
+}
+
+.mint-cta__button--primary {
+  background: #e85f9f;
+  box-shadow: 0 18px 34px rgba(232, 95, 159, 0.28);
+  color: #ffffff;
+}
+
+.mint-cta__button--secondary {
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 16px 32px rgba(75, 160, 145, 0.16);
+  color: #5c5450;
+}
+
+.mint-cta__button:hover {
+  transform: translateY(-4px);
+}
+
+.mint-cta__button--primary:hover {
+  box-shadow: 0 22px 42px rgba(232, 95, 159, 0.34);
+}
+
+.mint-cta__button--secondary:hover {
+  background: #ffffff;
+}
+
+.mint-cta__shape {
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  pointer-events: none;
+  position: absolute;
+}
+
+.mint-cta__shape--left {
+  height: 180px;
+  left: 4%;
+  top: 16%;
+  width: 180px;
+}
+
+.mint-cta__shape--right {
+  bottom: 10%;
+  height: 240px;
+  right: 6%;
+  width: 240px;
+}
+
+.mint-cta__dots {
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.mint-cta__dots span {
+  background: rgba(255, 249, 245, 0.72);
+  border-radius: 50%;
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.44);
+  height: 9px;
+  position: absolute;
+  width: 9px;
+}
+
+.mint-cta__dots span:nth-child(1) {
+  left: 15%;
+  top: 24%;
+}
+
+.mint-cta__dots span:nth-child(2) {
+  right: 18%;
+  top: 30%;
+}
+
+.mint-cta__dots span:nth-child(3) {
+  bottom: 24%;
+  left: 24%;
+}
+
+.mint-cta__dots span:nth-child(4) {
+  bottom: 20%;
+  right: 28%;
+}
+
+@media (max-width: 768px) {
+  .mint-cta {
+    padding: 88px 20px;
+  }
+
+  .mint-cta__title {
+    font-size: clamp(2.6rem, 12vw, 4.4rem);
+  }
+
+  .mint-cta__text {
+    font-size: 1rem;
+  }
+
+  .mint-cta__actions {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .mint-cta__button {
+    max-width: 340px;
+    width: 100%;
+  }
+}

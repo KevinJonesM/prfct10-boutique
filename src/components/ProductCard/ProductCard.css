@@ -1,0 +1,216 @@
+.product-card {
+  min-width: 0;
+}
+
+.product-card__button {
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(92, 84, 80, 0.08);
+  border-radius: 22px;
+  box-shadow: 0 18px 44px rgba(188, 112, 146, 0.13);
+  color: var(--dark-text);
+  display: grid;
+  grid-template-rows: 285px auto;
+  min-height: 486px;
+  overflow: hidden;
+  padding: 0;
+  text-align: left;
+  transition: border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+  width: 100%;
+}
+
+.product-card__button:hover,
+.product-card__button:focus-visible {
+  border-color: rgba(228, 90, 155, 0.26);
+  box-shadow: 0 24px 60px rgba(188, 112, 146, 0.22);
+  outline: none;
+  transform: translateY(-5px);
+}
+
+.product-card__image {
+  background-color: #fff3f7;
+  background-position: center;
+  background-size: cover;
+  display: block;
+  min-height: 285px;
+  position: relative;
+  transform: scale(1);
+  filter: saturate(0.96) contrast(0.98) brightness(1.03);
+  transition: filter 220ms ease, transform 320ms ease;
+}
+
+.product-card__button:hover .product-card__image {
+  filter: saturate(1.04) contrast(1.04) brightness(1.08);
+  transform: scale(1.035);
+}
+
+.product-card__image::after {
+  background:
+    linear-gradient(180deg, transparent 44%, rgba(255, 249, 245, 0.18) 100%),
+    linear-gradient(135deg, rgba(247, 182, 200, 0.2), rgba(191, 232, 216, 0.12) 48%, rgba(216, 199, 243, 0.16));
+  content: "";
+  inset: 0;
+  mix-blend-mode: color;
+  position: absolute;
+}
+
+.product-card:nth-child(3n + 1) .product-card__image::after {
+  background:
+    linear-gradient(180deg, transparent 34%, rgba(255, 249, 245, 0.18) 100%),
+    linear-gradient(135deg, rgba(247, 182, 200, 0.28), rgba(255, 249, 245, 0.08));
+}
+
+.product-card:nth-child(3n + 2) .product-card__image::after {
+  background:
+    linear-gradient(180deg, transparent 34%, rgba(255, 249, 245, 0.18) 100%),
+    linear-gradient(135deg, rgba(191, 232, 216, 0.3), rgba(255, 249, 245, 0.1));
+}
+
+.product-card:nth-child(3n) .product-card__image::after {
+  background:
+    linear-gradient(180deg, transparent 34%, rgba(255, 249, 245, 0.2) 100%),
+    linear-gradient(135deg, rgba(191, 232, 216, 0.12), rgba(247, 182, 200, 0.14), rgba(216, 199, 243, 0.2));
+}
+
+/* Reemplaza estas rutas por imágenes reales de producto cuando las tengas listas. */
+.product-card__image--bar-grips {
+  background-image: url("/images/product-bar-grips.png");
+}
+
+.product-card__image--chalk {
+  background-image: url("/images/product-chalk-real.jpg");
+}
+
+.product-card__image--gel-heel {
+  background-image: url("/images/product-gel-heel.png");
+}
+
+.product-card__image--kinesio {
+  background-image: url("/images/product-kinesio-real.png");
+}
+
+.product-card__image--wrist-bands {
+  background-image: url("/images/product-wrist-bands.png");
+}
+
+.product-card__image--sweat-wristbands {
+  background-image: url("/images/product-wrist-bands.png");
+  background-position: center center;
+}
+
+.product-card__image--tiger-paws {
+  background-image: url("/images/product-tiger-paws.png");
+}
+
+.product-card__image--rhythm-toes {
+  background-image: url("/images/product-rhythm-toes.png");
+  background-position: center center;
+}
+
+.product-card__image--flex-strap {
+  background-image: url("/images/product-flex-strap.png");
+  background-position: center center;
+}
+
+.product-card__image--resistance-handles {
+  background-image: url("/images/product-resistance-handles.jpg");
+}
+
+.product-card__image--core-sliders {
+  background-image: url("/images/product-core-sliders.png");
+  background-position: center center;
+}
+
+.product-card__image--grip-loop {
+  background-image: url("/images/product-grip-loop.png");
+}
+
+.product-card__image--power-weights {
+  background-image: url("/images/product-weights.jpg");
+}
+
+.product-card__image--patella-band {
+  background-image: url("/images/product-patella-band.png");
+  background-position: center center;
+}
+
+.product-card__image--competition-glow {
+  background-image: url("/images/product-glitter-spray.png");
+  background-position: center center;
+}
+
+.product-card__image--hand-balm {
+  background-image: url("/images/coquet-balsamo-manos.png");
+  background-position: center center;
+}
+
+.product-card__image--medal-display {
+  background-image: url("/images/product-medal-display.png");
+}
+
+.product-card__content {
+  display: grid;
+  align-content: start;
+  gap: 9px;
+  min-height: 188px;
+  padding: 24px 22px 26px;
+  position: relative;
+}
+
+.product-card__dots {
+  display: flex;
+  gap: 5px;
+  position: absolute;
+  right: 22px;
+  top: 24px;
+}
+
+.product-card__dots span {
+  background: var(--magenta);
+  border-radius: 50%;
+  height: 6px;
+  width: 6px;
+}
+
+.product-card__dots span:last-child {
+  background: var(--mint);
+}
+
+.product-card__category {
+  color: #62bfa9;
+  font-family: var(--heading);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  max-width: calc(100% - 36px);
+  text-transform: uppercase;
+}
+
+.product-card__name {
+  color: var(--dark-text);
+  font-family: var(--heading);
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1.02;
+  text-transform: uppercase;
+}
+
+.product-card__description {
+  color: #756963;
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.55;
+  margin-top: 2px;
+  max-width: 95%;
+}
+
+@media (max-width: 480px) {
+  .product-card__button {
+    grid-template-rows: 300px auto;
+    min-height: 488px;
+  }
+
+  .product-card__image {
+    min-height: 300px;
+  }
+}

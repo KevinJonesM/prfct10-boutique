@@ -1,0 +1,78 @@
+.about {
+  background:
+    linear-gradient(90deg, rgba(255, 249, 245, 0.9) 0%, rgba(255, 243, 247, 0.72) 42%, rgba(191, 232, 216, 0.28) 100%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(249, 215, 226, 0.14)),
+    url("/images/background-nosotros-chalk.jpg") center / cover no-repeat;
+  color: var(--dark-text);
+  padding: 132px 24px;
+  position: relative;
+}
+
+.about__container {
+  align-items: center;
+  margin: 0 auto;
+  max-width: 1160px;
+}
+
+.about__content {
+  max-width: 45%;
+}
+
+.about__eyebrow {
+  color: var(--magenta);
+  font-family: var(--heading);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  margin: 0 0 18px;
+}
+
+.about__title {
+  font-family: var(--heading);
+  font-size: clamp(3rem, 5.2vw, 5rem);
+  font-weight: 950;
+  letter-spacing: 0;
+  line-height: 0.98;
+  margin: 0 0 28px;
+  text-transform: uppercase;
+}
+
+.about__content p {
+  color: #74665f;
+  font-weight: 700;
+  font-size: 1.06rem;
+  line-height: 1.8;
+}
+
+.about__content strong {
+  color: var(--magenta);
+  display: block;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin-top: 26px;
+}
+
+@media (max-width: 900px) {
+  .about__title {
+    font-size: 3.8rem;
+  }
+
+  .about__content {
+    max-width: 620px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about {
+    background:
+      linear-gradient(180deg, rgba(255, 249, 245, 0.92), rgba(255, 243, 247, 0.72)),
+      url("/images/background-nosotros-chalk.jpg") center / cover no-repeat;
+    padding: 94px 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about__title {
+    font-size: 2.8rem;
+  }
+}

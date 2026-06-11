@@ -1,6 +1,6 @@
 import "./BrandLines.css";
 
-const tags = ["Entrenamiento", "Competencia", "Equipos", "Personalizadas"];
+const tags = ["DISEÑO A MEDIDA", "LYCRAS & MESH", "SUBLIMADOS", "HOLOGRÁFICOS", "CRISTALES PREMIUM", "LOOK DE EQUIPO"];
 
 export default function BrandLines() {
   return (
@@ -17,14 +17,15 @@ export default function BrandLines() {
             <p className="brand-lines__eyebrow">MALLAS PRFCT10</p>
             <h2 className="brand-lines__title">BRILLO DE EQUIPO</h2>
             <p className="brand-lines__subtitle">
-              Mallas para equipos que quieren verse lindos, pulidos y listos para competir.
+              Mallas personalizadas para equipos que quieren verse altamente competitivos desde el primer saludo.
+              Diseño, telas, cristales y producción coordinada para equipos que quieren verse más profesionales, más unidos y más competitivos.
             </p>
             <div className="team-shine__tags">
               {tags.map((tag) => (
                 <span key={tag}>{tag}</span>
               ))}
             </div>
-            <a className="team-shine__button" href="#redes">Ver línea</a>
+            <a className="team-shine__button" href="#redes">SOLICITAR PROPUESTA</a>
           </div>
           <div className="team-shine__media">
             <img src="/images/collection-mallas.png" alt="Diseñadora creando una malla de gimnasia artística pastel" />

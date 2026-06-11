@@ -321,7 +321,11 @@ export const products = [
       "Apoyos de manos.",
       "Entrenamiento funcional."
     ],
-    imageClass: "product-card__image--wrist-bands"
+    imageClass: "product-card__image--wrist-bands",
+    galleryImages: [
+      "/images/product-wrist-support-lilac.png",
+      "/images/product-wrist-support-lifestyle.png"
+    ]
   },
   {
     id: "tiger-paws",
@@ -383,7 +387,12 @@ export const products = [
       "Apoyos de manos.",
       "Actividades con impacto repetitivo sobre muñecas."
     ],
-    imageClass: "product-card__image--tiger-paws"
+    imageClass: "product-card__image--tiger-paws",
+    galleryImages: [
+      "/images/product-tiger-paws-beige-portada.png",
+      "/images/product-tiger-paws-beam.png",
+      "/images/product-tiger-paws-team.png"
+    ]
   },
   {
     id: "rhythm-toes",
@@ -513,8 +522,8 @@ export const products = [
   },
   {
     id: "resistance-handles",
-    name: "Liga con Agarre",
-    brandName: "PRFCT10 Liga con Agarre",
+    name: "Ligas de Resistencia",
+    brandName: "PRFCT10 Ligas de Resistencia",
     category: "Preparación física",
     group: "Fuerza",
     price: "Desde $20",
@@ -695,8 +704,8 @@ export const products = [
   },
   {
     id: "power-weights",
-    name: "Pesas de Tobillo y Muñeca",
-    brandName: "PRFCT10 Pesas de Tobillo y Muñeca",
+    name: "Pesas para Tobillos y Muñecas",
+    brandName: "PRFCT10 Pesas para Tobillos y Muñecas",
     category: "Fuerza ligera",
     group: "Fuerza",
     price: "Desde $24",
@@ -757,8 +766,8 @@ export const products = [
   },
   {
     id: "patella-band",
-    name: "Banda de Rodilla",
-    brandName: "PRFCT10 Banda de Rodilla",
+    name: "Banda Patella",
+    brandName: "PRFCT10 Banda Patella",
     category: "Rodilla y soporte",
     group: "Soporte",
     price: "Desde $18",
@@ -814,7 +823,96 @@ export const products = [
       "Deportes con impacto repetitivo en rodillas.",
       "Preparación física bajo control."
     ],
-    imageClass: "product-card__image--patella-band"
+    imageClass: "product-card__image--patella-band",
+    galleryImages: [
+      "/images/product-patella-band-set.png",
+      "/images/product-patella-band-grey-front.png",
+      "/images/product-patella-band-grey-use.png",
+      "/images/product-patella-band-beige-closeup.png",
+      "/images/product-patella-band-collage.png"
+    ]
+  },
+  {
+    id: "soft-landing-ankle-braces",
+    name: "Tobillera Soft Landing",
+    brandName: "PRFCT10 Tobillera Soft Landing",
+    category: "Aterrizajes seguros",
+    group: "Soporte",
+    price: "Consultar",
+    description: "Compresión ajustable para entrenar con más seguridad y confianza.",
+    details:
+      "Soporte ligero y ajustable para entrenamientos, saltos y aterrizajes. Diseñada con bandas cruzadas, talón abierto, puntos antideslizantes y soporte lateral suave para acompañar a la gimnasta en días de mucho impacto.",
+    benefits: ["Compresión ajustable", "Talón abierto", "Antideslizante", "Soporte lateral"],
+    accordionBenefits: [
+      "Soporte cómodo y flexible para días de entrenamiento intenso.",
+      "Su diseño envolvente ayuda a que el tobillo se sienta más contenido durante saltos, carreras, aterrizajes y ejercicios de impacto.",
+      "El color beige la hace discreta, limpia y fácil de combinar con ropa deportiva, mallas o uniforme de entrenamiento."
+    ],
+    modeOfUse: [
+      "Coloca la tobillera alrededor del tobillo con el talón libre.",
+      "Ajusta las bandas cruzadas hasta lograr una compresión cómoda y firme.",
+      "Debe sentirse estable, pero no demasiado apretada. Si causa dolor, adormecimiento o molestia, debe aflojarse o retirarse.",
+      "Puede usarse durante entrenamientos de floor, vault, tumbling, conditioning o actividades deportivas de impacto moderado."
+    ],
+    faqs: [
+      {
+        question: "¿Viene por unidad o por par?",
+        answer: "Contenido: 1 par."
+      },
+      {
+        question: "¿Sirve para gimnasia?",
+        answer: "Sí. Es ideal para entrenamientos donde hay saltos, aterrizajes, carreras, drills y movimientos repetitivos."
+      },
+      {
+        question: "¿Es rígida?",
+        answer: "No. Es flexible y ligera, pensada para dar soporte sin sentirse aparatosa."
+      },
+      {
+        question: "¿Se puede usar con zapatos?",
+        answer: "Sí, por su diseño de talón abierto y ajuste flexible puede usarse descalza o con calzado deportivo, dependiendo de la actividad."
+      },
+      {
+        question: "¿Es para lesión?",
+        answer: "Es un soporte deportivo de compresión. No sustituye una evaluación médica ni tratamiento profesional."
+      }
+    ],
+    contraindications: [
+      "No usar si hay dolor fuerte, inflamación importante, fractura, esguince severo o lesión sin evaluación médica.",
+      "No debe quedar tan apretada que cause hormigueo, adormecimiento, cambio de color en la piel o molestia.",
+      "Si la atleta tiene una lesión activa o dolor persistente, se recomienda consultar con un profesional antes de usarla."
+    ],
+    specifications: [
+      "Producto: Tobillera deportiva ajustable.",
+      "Color: Beige.",
+      "Material: Polyester, cotton y spandex.",
+      "Diseño: Talón abierto.",
+      "Ajuste: Bandas cruzadas con velcro.",
+      "Interior: Puntos de silicona antideslizantes.",
+      "Soporte: Almohadilla lateral suave de silicona/gel.",
+      "Contenido: 1 par.",
+      "Uso recomendado: Entrenamiento deportivo."
+    ],
+    sportsUses: [
+      "Gimnasia artística.",
+      "Vault.",
+      "Floor.",
+      "Tumbling.",
+      "Saltos.",
+      "Aterrizajes.",
+      "Conditioning.",
+      "Danza deportiva.",
+      "Entrenamiento funcional.",
+      "Actividades de impacto moderado."
+    ],
+    imageClass: "product-card__image--soft-landing-ankle",
+    galleryImages: [
+      "/images/product-soft-landing-ankle-set.png",
+      "/images/product-soft-landing-ankle-lifestyle.png",
+      "/images/product-soft-landing-ankle-worn.png",
+      "/images/product-soft-landing-ankle-landing.png",
+      "/images/product-soft-landing-ankle-gel.png",
+      "/images/product-soft-landing-ankle-dots.png"
+    ]
   },
   {
     id: "competition-glow",

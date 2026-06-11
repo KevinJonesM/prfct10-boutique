@@ -76,17 +76,20 @@
   line-height: 0.92;
   margin: 0;
   max-width: 780px;
-  text-shadow: 0 12px 36px rgba(255, 255, 255, 0.55);
+  text-shadow:
+    0 9px 0 rgba(249, 215, 226, 0.66),
+    0 20px 42px rgba(255, 255, 255, 0.56);
   text-transform: uppercase;
 }
 
 .prfct-code__text {
   color: #5c5450;
-  font-weight: 700;
-  font-size: clamp(1rem, 1.4vw, 1.22rem);
+  font-weight: 400;
+  font-size: 1.125rem;
   line-height: 1.7;
   margin: 28px 0 0;
   max-width: 620px;
+  padding-right: 80px;
   text-shadow: 0 8px 26px rgba(255, 255, 255, 0.6);
 }
 
@@ -203,6 +206,10 @@
   .prfct-code__title {
     font-size: clamp(2.7rem, 12vw, 4.6rem);
     max-width: 95%;
+  }
+
+  .prfct-code__text {
+    padding-right: 0;
   }
 
   .prfct-code__item {

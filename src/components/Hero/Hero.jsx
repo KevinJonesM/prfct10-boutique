@@ -10,9 +10,9 @@ export default function Hero() {
         </div>
         <p className="hero__eyebrow">HECHO PARA GIMNASTAS</p>
         <h1 className="hero__title">
-          ENTRENA CON CONFIANZA.
+          ENTRENA CON CONFIANZA,
           <br />
-          BRILLA CON ESTILO.
+          BRILLA CON ESTILO
         </h1>
         <p className="hero__text">
           Accesorios, equipos y detalles pensados para acompañar cada práctica con seguridad, estilo y confianza.

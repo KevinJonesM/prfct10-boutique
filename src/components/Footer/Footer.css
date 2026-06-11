@@ -2,7 +2,7 @@
   background: transparent;
   color: #7b6d67;
   margin-top: 0;
-  padding: 0 24px 48px;
+  padding: 54px 24px 48px;
   position: relative;
   z-index: 2;
 }
@@ -15,7 +15,7 @@
 
 .footer__panel {
   background:
-    radial-gradient(circle at 7% 14%, rgba(249, 215, 226, 0.54) 0 58px, transparent 60px),
+    radial-gradient(circle at 50% 92%, rgba(249, 215, 226, 0.46) 0 62px, transparent 64px),
     radial-gradient(circle at 92% 18%, rgba(191, 232, 216, 0.48) 0 68px, transparent 70px),
     radial-gradient(circle at 82% 88%, rgba(216, 199, 243, 0.32) 0 54px, transparent 56px),
     rgba(255, 249, 245, 0.88);
@@ -54,13 +54,16 @@
 .footer__logo {
   align-items: center;
   display: flex;
-  height: 64px;
+  height: 82px;
   justify-content: center;
   position: relative;
-  width: 64px;
+  width: 82px;
 }
 
 .footer__logo img {
+  filter:
+    drop-shadow(0 12px 22px rgba(188, 112, 146, 0.18))
+    drop-shadow(0 0 14px rgba(255, 255, 255, 0.44));
   height: 100%;
   object-fit: contain;
   width: 100%;

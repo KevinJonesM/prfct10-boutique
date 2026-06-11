@@ -9,6 +9,7 @@ import BrandLines from "./components/BrandLines/BrandLines";
 import ProductModal from "./components/ProductModal/ProductModal";
 import PrfctCode from "./components/PrfctCode/PrfctCode";
 import About from "./components/About/About";
+import SocialCTA from "./components/SocialCTA/SocialCTA";
 import FinalCTA from "./components/FinalCTA/FinalCTA";
 import Footer from "./components/Footer/Footer";
 
@@ -33,8 +34,11 @@ export default function App() {
               <span key={index} style={{ "--dot-index": index }} />
             ))}
           </div>
-          <FinalCTA />
-          <Footer products={products} onSelectProduct={setSelectedProduct} />
+          <SocialCTA />
+          <div className="final-photo-wrap">
+            <FinalCTA />
+            <Footer products={products} onSelectProduct={setSelectedProduct} />
+          </div>
         </section>
       </main>
       <ProductModal product={selectedProduct} products={products} onClose={() => setSelectedProduct(null)} />

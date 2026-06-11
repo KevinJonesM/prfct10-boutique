@@ -36,7 +36,9 @@
   line-height: 0.95;
   margin: 0 auto;
   max-width: 900px;
-  text-shadow: 0 16px 38px rgba(67, 154, 139, 0.24);
+  text-shadow:
+    0 9px 0 rgba(67, 154, 139, 0.28),
+    0 18px 38px rgba(67, 154, 139, 0.24);
   text-transform: uppercase;
 }
 

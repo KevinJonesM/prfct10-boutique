@@ -51,17 +51,22 @@
 }
 
 .header__nav {
+  align-items: center;
   display: flex;
   gap: 28px;
   margin-left: auto;
 }
 
 .header__link {
+  align-items: center;
   color: #8a7b75;
+  display: inline-flex;
   font-family: var(--heading);
   font-size: 0.78rem;
   font-weight: 850;
   letter-spacing: 0.08em;
+  line-height: 1;
+  min-height: 32px;
   text-decoration: none;
   text-transform: uppercase;
   transition: color 180ms ease;
@@ -69,6 +74,80 @@
 
 .header__link:hover {
   color: var(--magenta);
+}
+
+.header__dropdown {
+  align-items: center;
+  display: inline-flex;
+  position: relative;
+}
+
+.header__dropdown-trigger {
+  gap: 6px;
+}
+
+.header__dropdown-trigger::after {
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid currentColor;
+  content: "";
+  margin-top: 2px;
+}
+
+.header__dropdown-menu {
+  background: rgba(255, 249, 245, 0.94);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(228, 90, 155, 0.12);
+  border-radius: 18px;
+  box-shadow: 0 20px 46px rgba(188, 112, 146, 0.16);
+  display: grid;
+  gap: 4px;
+  left: 50%;
+  min-width: 250px;
+  opacity: 0;
+  padding: 10px;
+  pointer-events: none;
+  position: absolute;
+  top: calc(100% + 18px);
+  transform: translate(-50%, 8px);
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+.header__dropdown-menu::before {
+  content: "";
+  height: 18px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: -18px;
+}
+
+.header__dropdown:hover .header__dropdown-menu,
+.header__dropdown:focus-within .header__dropdown-menu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+}
+
+.header__dropdown-menu a {
+  border-radius: 12px;
+  color: #74665f;
+  font-family: var(--heading);
+  font-size: 0.74rem;
+  font-weight: 850;
+  letter-spacing: 0.06em;
+  padding: 12px 14px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.header__dropdown-menu a:hover,
+.header__dropdown-menu a:focus {
+  background: rgba(249, 215, 226, 0.5);
+  color: var(--magenta);
+  outline: none;
+  transform: translateX(2px);
 }
 
 .header__whatsapp {
@@ -104,6 +183,10 @@
     gap: 16px;
     justify-content: center;
     order: 3;
+  }
+
+  .header__dropdown-menu {
+    min-width: 230px;
   }
 
   .header__whatsapp {

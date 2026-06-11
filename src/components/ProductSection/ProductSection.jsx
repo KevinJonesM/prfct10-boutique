@@ -12,15 +12,14 @@ const trainingProductIds = [
   "tiger-paws",
   "flex-strap-12",
   "resistance-handles",
-  "core-sliders",
-  "grip-loop",
   "power-weights",
-  "patella-band"
+  "patella-band",
+  "soft-landing-ankle-braces"
 ];
 
 const trainingCards = {
   "bar-grips": {
-    displayName: "Power Grips",
+    displayName: "Calleras",
     description: "Grips de cuero para mejorar el agarre en barras, proteger las manos y entrenar con más control cuando la exigencia sube."
   },
   chalk: {
@@ -28,44 +27,36 @@ const trainingCards = {
     description: "Bloque de magnesio para mantener las manos secas, mejorar el control y dar más seguridad antes de cada turno."
   },
   "wrist-bands": {
-    displayName: "Wrist Support",
+    displayName: "Soporte de Muñecas",
     description: "Soporte estructurado para muñecas durante ejercicios de impacto, fuerza o repetición. Ayuda a entrenar con más estabilidad."
   },
   "tiger-paws": {
-    displayName: "Wrist Guards",
+    displayName: "Protectores de Muñecas",
     description: "Protectores premium para muñecas en apoyos, acrobacias e impactos repetitivos. Ideales para cuidar lo que sostiene."
   },
   "kinesio-tape": {
-    displayName: "Kinesio Tape",
+    displayName: "Teipe Kinesio",
     description: "Cinta flexible para acompañar zonas sensibles y dar sensación de soporte sin limitar el movimiento de la gimnasta."
   },
   "flex-strap-12": {
-    displayName: "Flex Band",
+    displayName: "Ligas de Flexibilidad",
     description: "Liga de niveles para activación, flexibilidad, fuerza específica y preparación antes de entrenar."
   },
   "resistance-handles": {
-    displayName: "Power Band",
+    displayName: "Ligas de Resistencia",
     description: "Liga con agarre para activar hombros, brazos y piernas o reforzar fuerza con control antes de la práctica."
   },
-  "core-sliders": {
-    displayName: "Core Sliders",
-    description: "Discos deslizantes para trabajar abdomen, control corporal, hombros y estabilidad de forma divertida y retadora."
-  },
-  "grip-loop": {
-    displayName: "Grip Trainer",
-    description: "Ejercitador de dedos para fortalecer manos, agarre y antebrazos; un apoyo pequeño para rutinas de barras."
-  },
   "power-weights": {
-    displayName: "Power Weights",
+    displayName: "Pesas para Tobillos y Muñecas",
     description: "Pesas ligeras para fortalecer brazos, piernas y preparación física sin perder movilidad ni control."
   },
-  "patella-band": {
-    displayName: "Patella Strap",
-    description: "Banda de soporte bajo la rodilla para días de saltos, impacto y preparación física con más comodidad."
-  },
   "gel-heel-guards": {
-    displayName: "Heel Guards",
+    displayName: "Taloneras",
     description: "Protectores suaves para talones que ayudan a reducir molestias durante entrenamientos repetitivos o de impacto."
+  },
+  "soft-landing-ankle-braces": {
+    displayName: "Tobilleras de Aterrizajes",
+    description: "Compresión ajustable para entrenar con más seguridad y confianza."
   }
 };
 
@@ -96,7 +87,12 @@ const trainingExtraProducts = [
     contraindications: ["No usar demasiado apretadas.", "Suspender si causan irritación o incomodidad."],
     specifications: ["Par de muñequeras.", "Material textil suave.", "Uso deportivo.", "Lavables."],
     sportsUses: ["Gimnasia artística.", "Barras.", "Preparación física.", "Entrenamientos largos."],
-    imageClass: "product-card__image--sweat-wristbands"
+    imageClass: "product-card__image--sweat-wristbands",
+    galleryImages: [
+      "/images/product-sweat-wristbands-pastel.png",
+      "/images/product-sweat-wristbands-colors.png",
+      "/images/product-sweat-wristbands-lifestyle.png"
+    ]
   },
   {
     id: "hand-balm",
@@ -148,15 +144,6 @@ const shopLines = [
     tone: "cute"
   },
   {
-    title: "Ropa y mallas",
-    text: "Piezas cómodas y mallas para entrenar con estilo.",
-    button: "Ver línea",
-    href: "#brillo-equipo",
-    image: "/images/collection-ropa.png",
-    alt: "Ropa deportiva pastel para gimnastas",
-    tone: "wear"
-  },
-  {
     title: "Gimnasia mental",
     text: "Fidgets, puzzles y squishies para pensar, enfocarse y jugar mientras entrena su mente.",
     button: "Descubrir línea",
@@ -164,6 +151,15 @@ const shopLines = [
     image: "/images/mental-gymnastics.jpg",
     alt: "Recurso sensorial pastel para concentración y motricidad fina",
     tone: "mind"
+  },
+  {
+    title: "Ropa y mallas",
+    text: "Piezas cómodas, sets y mallas para entrenar, competir y verse impecable.",
+    button: "Ver línea",
+    href: "#ropa-mallas",
+    image: "/images/collection-ropa.png",
+    alt: "Ropa deportiva pastel para gimnastas",
+    tone: "wear"
   }
 ];
 
@@ -203,7 +199,13 @@ const coquetteItems = [
     {
       name: "Spray de escarcha",
       image: "/images/coquet-glitter-spray.png",
-      gallery: ["/images/coquet-glitter-spray.png"],
+      gallery: [
+        "/images/coquet-glitter-spray.png",
+        "/images/coquet-glitter-spray-carrusel-1.png",
+        "/images/coquet-glitter-spray-carrusel-2.png",
+        "/images/coquet-glitter-spray-carrusel-3.png",
+        "/images/coquet-glitter-spray-carrusel-4.png"
+      ],
     description: "Brillo en spray para cabello y cuerpo en presentaciones, fotos y competencia.",
     idealFor: "Competencias, exhibiciones, peinados y momentos especiales.",
     why: "Da ese toque final de brillo sin perder una estética limpia y bonita."
@@ -211,7 +213,11 @@ const coquetteItems = [
     {
       name: "Lazos de tul",
       image: "/images/coquet-lazos-tul.png",
-      gallery: ["/images/coquet-lazos-tul.png"],
+      gallery: [
+        "/images/coquet-lazos-tul.png",
+        "/images/coquet-lazos-tul-carrusel-1.png",
+        "/images/coquet-lazos-tul-carrusel-2.png"
+      ],
     description: "Lazos suaves y brillantes para completar peinados con un acabado delicado.",
     idealFor: "Competencias, entrenamientos, fotos y regalos.",
     why: "Son fáciles de combinar y hacen que el look se sienta más pulido."
@@ -219,7 +225,12 @@ const coquetteItems = [
     {
       name: "Peluflores",
       image: "/images/coquet-peluflores.png",
-      gallery: ["/images/coquet-peluflores.png"],
+      gallery: [
+        "/images/coquet-peluflores.png",
+        "/images/coquet-peluflores-carrusel-familia.png",
+        "/images/coquet-peluflores-carrusel-ramo.png",
+        "/images/coquet-peluflores-carrusel-closeup.png"
+      ],
     description: "Flores de peluche alegres para regalar, decorar o acompañar un kit PRFCT10.",
     idealFor: "Celebrar logros, decorar habitaciones y armar detalles cute.",
     why: "Son tiernas, coloridas y perfectas para reconocer cada avance."
@@ -240,10 +251,28 @@ const coquetteItems = [
     idealFor: "Competencias, entrenamientos, regalos y kits personalizados.",
     why: "Son coloridos, resistentes, combinables con charms y perfectos para que cada gimnasta lleve sus cosas con estilo."
   },
+  {
+    name: "Guardapolvos de Gimnasia",
+    image: "/images/coquet-guardapolvos-portada.png",
+    gallery: [
+      "/images/coquet-guardapolvos-portada.png",
+      "/images/coquet-guardapolvos-lifestyle.png",
+      "/images/coquet-guardapolvos-rosado.png",
+      "/images/coquet-guardapolvos-lila.png"
+    ],
+    description: "Guardapolvos prácticos para proteger, transportar y organizar mallas, accesorios y esenciales de competencia.",
+    idealFor: "Competencias, viajes, presentaciones, closets de gimnasia y kits de equipo.",
+    why: "Mantienen las piezas importantes ordenadas, protegidas y listas para salir con un look pulido.",
+    chips: ["Organización", "Competencia", "Viajes"]
+  },
     {
       name: "Charms de Gimnasia",
-      image: "/images/coquet-bisuteria.png",
-      gallery: ["/images/coquet-bisuteria.png", "/images/coquet-collares.png"],
+      image: "/images/coquet-charms-cover.png",
+      gallery: [
+        "/images/coquet-charms-cover.png",
+        "/images/coquet-charms-silicon-bag.png",
+        "/images/coquet-charms-tres-mujeres.png"
+      ],
     description: "Dijes decorativos inspirados en gimnasia para personalizar bolsos, termos, llaveros o accesorios.",
     idealFor: "Agregar un detalle especial al look de competencia o entrenamiento.",
     why: "Cada charm hace que sus accesorios se sientan únicos, cute y muy de gimnasta."
@@ -255,13 +284,94 @@ const coquetteItems = [
     description: "Termos prácticos y lindos para acompañar a la gimnasta durante entrenamientos, competencias y días largos en el gym.",
     idealFor: "Hidratación diaria, campamentos, competencias y entrenamientos.",
     why: "Son funcionales, combinan con su estilo y hacen que mantenerse hidratada también se vea cute."
+  },
+  {
+    name: "Amuleto",
+    modalName: "Amuleto Gimnasta",
+    modalCategory: "Coquetería de Gimnasia",
+    image: "/images/coquet-amuleto-portada.png",
+    gallery: [
+      "/images/coquet-amuleto-portada.png",
+      "/images/coquet-amuleto-lifestyle.png",
+      "/images/coquet-amuleto-azul.png",
+      "/images/coquet-amuleto-verde.png",
+      "/images/coquet-amuleto-rosado-closeup.png",
+      "/images/coquet-amuleto-rosado.png"
+    ],
+    description: "Pulsera ajustable con dije de gimnasia, creada para acompañar a cada atleta como un pequeño amuleto de confianza, motivación y buena energía antes de entrenar o competir.",
+    commercialDescription: "Un detalle lindo, ligero y significativo para gimnastas. El Amuleto Gimnasta combina una pulsera ajustable de color con un dije circular de gimnasia, perfecto para regalar, combinar con el look del gym o llevar como recordatorio de fuerza, valentía y seguridad.",
+    cardPhrase: "Un pequeño amuleto para entrenar con confianza y competir con brillo.",
+    colors: "Rosado, azul y verde.",
+    idealFor: "Regalos, competencias, amigas del equipo, detalles de motivación y bolsitas sorpresa.",
+    why: "Es un accesorio pequeño, fácil de llevar y lleno de intención para acompañar cada entrenamiento con buena energía.",
+    chips: ["Confianza", "Motivación", "Regalo cute"]
+  }
+  ,
+  {
+    name: "Pulsera Charm",
+    modalName: "Pulsera Charm Gimnasta",
+    modalCategory: "Coquetería de Gimnasia",
+    image: "/images/coquet-pulsera-charm-portada.png",
+    gallery: [
+      "/images/coquet-pulsera-charm-portada.png",
+      "/images/coquet-pulsera-charm-lila.png",
+      "/images/coquet-pulsera-charm-celeste.png",
+      "/images/coquet-pulsera-charm-azul.png",
+      "/images/coquet-pulsera-charm-lifestyle.png"
+    ],
+    description: "Pulsera multicapa con dije de gimnasia, detalle love y pieza central Gymnastics. Un accesorio lindo para llevar el amor por la gimnasia a todas partes.",
+    commercialDescription: "Un accesorio coquetico, liviano y lleno de personalidad para niñas y adolescentes que aman la gimnasia. Su diseño multicapa combina tiras de color, trenzado blanco, detalles metálicos y un charm colgante de gimnasta que le da ese toque especial de esto es mío. Perfecta para regalar, usar después del entrenamiento, llevar a competencias o combinar con el look del gym.",
+    loveList: [
+      "Diseño multicapa tipo wrap.",
+      "Detalle metálico love.",
+      "Pieza central con la palabra Gymnastics.",
+      "Charm colgante de gimnasta.",
+      "Liviana y fácil de usar.",
+      "Ideal para regalos, competencias y detalles de equipo."
+    ],
+    howToUse: "Colócala alrededor de la muñeca y ajústala suavemente hasta que quede cómoda. Úsala como accesorio diario, regalo especial o detalle motivacional antes de entrenar o competir.",
+    age: "Ideal para niñas, preadolescentes y adolescentes gimnastas. También es perfecta para mamás, coaches o fans de la gimnasia que quieran un detalle lindo.",
+    purpose: "Más que una pulsera, es un pequeño recordatorio de amor por la gimnasia, confianza y motivación.",
+    gymnastics: "Ayuda a reforzar el sentido de pertenencia, la ilusión por el deporte y ese toque emocional que muchas atletas aman llevar fuera del gimnasio.",
+    idealFor: "Regalos, competencias, amigas del equipo, detalles de motivación y looks del gym.",
+    why: "Tiene brillo, movimiento y significado: un accesorio pequeño que hace sentir la gimnasia cerca.",
+    chips: ["Multicapa", "Charm gimnasta", "Regalo cute"]
+  },
+  {
+    name: "Pulsera Love Charm",
+    modalName: "Pulsera Love Charm",
+    modalCategory: "Coqueteria de Gimnasia",
+    image: "/images/coquet-pulsera-love-charm-portada.png",
+    gallery: [
+      "/images/coquet-pulsera-love-charm-portada.png",
+      "/images/coquet-pulsera-love-charm-individual.png",
+      "/images/coquet-pulsera-love-charm-colores.png",
+      "/images/coquet-pulsera-love-charm-lifestyle.png"
+    ],
+    description: "Pulsera con detalle love, dije de gimnasia y acabado delicado para sumar un toque cute al look de cada gimnasta.",
+    commercialDescription: "Una pulsera delicada y llena de personalidad para gimnastas que aman los detalles con significado. Combina un charm love con un dije de gimnasia y colores faciles de regalar, coleccionar y combinar con el look del gym.",
+    loveList: [
+      "Portada con los tres colores principales.",
+      "Detalle metalico love.",
+      "Dije colgante de gimnasia.",
+      "Disponible en varios colores.",
+      "Ligera, dulce y facil de combinar."
+    ],
+    idealFor: "Regalos, competencias, amigas del equipo, bolsitas sorpresa y detalles de motivacion.",
+    why: "Es un accesorio pequeno, brillante y emocional que acompana la pasion por la gimnasia fuera del entrenamiento.",
+    chips: ["Love charm", "Gimnasia", "Regalo cute"]
   }
 ];
 
 const mentalItems = [
   {
     name: "Bolita Puzzle",
-    image: "/images/mental-gymnastics.jpg",
+    image: "/images/mental-bolita-puzzle-portada.png",
+    gallery: [
+      "/images/mental-bolita-puzzle-portada.png",
+      "/images/mental-bolita-puzzle-carrusel-1.png",
+      "/images/mental-bolita-puzzle-carrusel-2.png"
+    ],
     description: "Una pelota tipo puzzle con botones de colores que se presionan, mueven y combinan. Ideal para manos inquietas y momentos donde la gimnasta necesita enfocar su atención.",
     howToUse: "Presiona las bolitas de colores y muévelas de un espacio a otro hasta organizarlas por color. También puede usarse simplemente como fidget de mano.",
     age: "Desde 6 años en adelante.",
@@ -271,7 +381,12 @@ const mentalItems = [
   },
   {
     name: "Rueda Mental",
-    image: "/images/mental-gymnastics.jpg",
+    image: "/images/mental-rueda-mental-portada.png",
+    gallery: [
+      "/images/mental-rueda-mental-portada.png",
+      "/images/mental-rueda-mental-carrusel-2.png",
+      "/images/mental-rueda-mental-carrusel-3.png"
+    ],
     description: "Puzzle circular de doble cara con bolitas de colores y piezas giratorias. Un reto visual y táctil para mantener la mente activa.",
     howToUse: "Gira las secciones, mueve las bolitas por los canales y busca organizarlas por color o patrón.",
     age: "Desde 7 años en adelante.",
@@ -281,8 +396,13 @@ const mentalItems = [
   },
   {
     name: "Giro Puzzle",
-    image: "/images/mental-gymnastics.jpg",
-    gallery: ["/images/mental-gymnastics.jpg", "/images/mental-gymnastics.jpg", "/images/mental-gymnastics.jpg"],
+    image: "/images/mental-giro-puzzle-portada.png",
+    gallery: [
+      "/images/mental-giro-puzzle-portada.png",
+      "/images/mental-giro-puzzle-carrusel-1.png",
+      "/images/mental-giro-puzzle-carrusel-2.png",
+      "/images/mental-giro-puzzle-carrusel-3.png"
+    ],
     description: "Puzzle redondo con sistema giratorio y bolitas internas. Es divertido, colorido y retador sin sentirse complicado.",
     howToUse: "Gira las partes del puzzle, desliza las bolitas y busca completar combinaciones de color.",
     age: "Desde 6 años en adelante.",
@@ -292,7 +412,12 @@ const mentalItems = [
   },
   {
     name: "Squishy Dumpling",
-    image: "/images/mental-gymnastics.jpg",
+    image: "/images/mental-squishy-dumpling-portada.png",
+    gallery: [
+      "/images/mental-squishy-dumpling-portada.png",
+      "/images/mental-squishy-dumpling-carrusel-1.png",
+      "/images/mental-squishy-dumpling-carrusel-2.png"
+    ],
     description: "Un squishy suave, brillante y adorable con forma de dumpling. Perfecto para apretar, soltar y sentir alivio.",
     howToUse: "Se aprieta suavemente con la mano y vuelve poco a poco a su forma original.",
     age: "Desde 5 años en adelante.",
@@ -302,7 +427,12 @@ const mentalItems = [
   },
   {
     name: "Pulseras Unicornio",
-    image: "/images/mental-gymnastics.jpg",
+    image: "/images/mental-pulseras-unicornio-portada.png",
+    gallery: [
+      "/images/mental-pulseras-unicornio-portada.png",
+      "/images/mental-pulseras-unicornio-carrusel-1.png",
+      "/images/mental-pulseras-unicornio-carrusel-2.png"
+    ],
     description: "Pulseras elásticas sensoriales con textura de puntitos y diseño de unicornio. Cada pulsera tiene una cabeza de unicornio y una cola, manteniendo su forma correcta.",
     howToUse: "Se usan en la muñeca, se estiran suavemente, se enrollan y se manipulan con las manos como fidget.",
     age: "Desde 5 años en adelante.",
@@ -312,7 +442,12 @@ const mentalItems = [
   },
   {
     name: "Pelota Squishy",
-    image: "/images/mental-gymnastics.jpg",
+    image: "/images/mental-pelota-squishy-portada.png",
+    gallery: [
+      "/images/mental-pelota-squishy-portada.png",
+      "/images/mental-pelota-squishy-carrusel-1.png",
+      "/images/mental-pelota-squishy-carrusel-2.png"
+    ],
     description: "Pelota transparente con bolitas de colores en su interior. Suave, llamativa y perfecta para apretar.",
     howToUse: "Se toma con una o dos manos y se aprieta para mover las bolitas internas y sentir la textura.",
     age: "Desde 5 años en adelante.",
@@ -337,8 +472,51 @@ const mentalItems = [
   }
 ];
 
+const wearItems = [
+  {
+    name: "Tops",
+    image: "/images/collection-ropa.png",
+    gallery: ["/images/collection-ropa.png"],
+    description: "Tops cómodos para entrenar con libertad, soporte ligero y estilo PRFCT10.",
+    idealFor: "Prácticas, campamentos, calentamientos y días largos en el gimnasio.",
+    why: "Son piezas fáciles de combinar que mantienen el look deportivo, fresco y pulido."
+  },
+  {
+    name: "Shorts",
+    image: "/images/collection-ropa.png",
+    gallery: ["/images/collection-ropa.png"],
+    description: "Shorts suaves y prácticos para moverse con comodidad durante la práctica.",
+    idealFor: "Entrenamientos, viajes, campamentos y rutinas de preparación física.",
+    why: "Acompañan cada movimiento sin perder ese estilo limpio y cute de PRFCT10."
+  },
+  {
+    name: "Hoodies",
+    image: "/images/collection-ropa.png",
+    gallery: ["/images/collection-ropa.png"],
+    description: "Hoodies cozy para llegar al gym, viajar o descansar después de entrenar.",
+    idealFor: "Calentamientos, competencias, viajes y días de descanso.",
+    why: "Suman abrigo, comodidad y una presencia de equipo muy pulida."
+  }
+];
+
+const mentalDisplayOrder = [
+  "Puzzle Mágico",
+  "Rueda Mental",
+  "Giro Puzzle",
+  "Pulseras Unicornio",
+  "Squishy Dumpling",
+  "Pelota Squishy",
+  "Bolita Puzzle"
+];
+
+function orderItems(items, order) {
+  const rank = new Map(order.map((name, index) => [name, index]));
+  return [...items].sort((a, b) => (rank.get(a.name) ?? items.length) - (rank.get(b.name) ?? items.length));
+}
+
 function BoutiqueModal({ item, type, onClose }) {
   const [activeImage, setActiveImage] = useState(0);
+  const [openAccordion, setOpenAccordion] = useState("Lo que te va a encantar");
 
   useEffect(() => {
     if (!item) return undefined;
@@ -358,91 +536,123 @@ function BoutiqueModal({ item, type, onClose }) {
 
   useEffect(() => {
     setActiveImage(0);
+    setOpenAccordion("Lo que te va a encantar");
   }, [item]);
 
   if (!item) return null;
 
   const isMental = type === "mind";
+  const displayName = item.modalName || item.name;
   const gallery = item.gallery?.length ? item.gallery : isMental ? [item.image, item.image, item.image] : [item.image];
-  const whatsappLabel = `Hola, quiero información sobre ${item.name} PRFCT10.`;
+  const whatsappLabel = `Hola, quiero informacion sobre ${displayName} PRFCT10.`;
+  const categoryLabel = item.modalCategory || (isMental ? "Gimnasia Mental" : type === "wear" ? "Ropa y Mallas" : "Coqueteria PRFCT10");
+  const badges = item.chips || [categoryLabel, "PRFCT10"];
+  const accordionItems = isMental
+    ? [
+        { title: "Lo que te va a encantar", content: [item.description] },
+        { title: "Cómo se usa", content: [item.howToUse] },
+        { title: "Edad sugerida", content: [item.age] },
+        { title: "Finalidad", content: [item.purpose] },
+        { title: "Por qué ayuda en gimnasia", content: [item.gymnastics] }
+      ]
+    : [
+        { title: "Lo que te va a encantar", content: item.loveList || [item.commercialDescription || item.description] },
+        ...(item.colors ? [{ title: "Colores disponibles", content: [item.colors] }] : []),
+        ...(item.howToUse ? [{ title: "Modo de uso", content: [item.howToUse] }] : []),
+        ...(item.age ? [{ title: "Edad recomendada", content: [item.age] }] : []),
+        ...(item.purpose ? [{ title: "Finalidad", content: [item.purpose] }] : []),
+        ...(item.gymnastics ? [{ title: "Importancia para la gimnasia", content: [item.gymnastics] }] : []),
+        { title: "Ideal para", content: [item.idealFor] },
+        { title: "Por que les encanta", content: [item.why] }
+      ].filter((accordionItem) => accordionItem.content.some(Boolean));
 
   return (
-    <div className="boutique-modal" role="dialog" aria-modal="true" aria-labelledby="boutique-modal-title">
-      <button className="boutique-modal__overlay" onClick={onClose} type="button" aria-label="Cerrar detalles" />
-      <div className="boutique-modal__dialog">
-        <button className="boutique-modal__close" onClick={onClose} type="button" aria-label="Cerrar">
+    <div className="product-modal" role="dialog" aria-modal="true" aria-labelledby="boutique-modal-title">
+      <button className="product-modal__overlay" onClick={onClose} type="button" aria-label="Cerrar detalles" />
+      <div className="product-modal__dialog">
+        <button className="product-modal__close" onClick={onClose} type="button" aria-label="Cerrar">
           X
         </button>
-        <div className="boutique-modal__media">
-          <div className="boutique-modal__image-stage">
-            <img src={gallery[activeImage]} alt={item.name} />
-          </div>
+        <div className="product-modal__visual" aria-label={`Imagenes de ${displayName}`}>
+          <div className="product-modal__visual-bg boutique-modal__visual-bg" style={{ backgroundImage: `url(${gallery[activeImage]})` }} aria-hidden="true" />
+          <div className="product-modal__visual-gradient product-modal__visual-overlay" aria-hidden="true" />
+          <img className="product-modal__visual-image boutique-modal__visual-image" src={gallery[activeImage]} alt={displayName} />
+          <p className="product-modal__visual-caption">{displayName}</p>
+
           {gallery.length > 1 ? (
-            <div className="boutique-modal__thumbs" aria-label={`Modelos de ${item.name}`}>
-              {gallery.map((image, index) => (
-                <button
-                  aria-label={`Ver modelo ${index + 1} de ${item.name}`}
-                  className={activeImage === index ? "boutique-modal__thumb boutique-modal__thumb--active" : "boutique-modal__thumb"}
-                  key={`${image}-${index}`}
-                  onClick={() => setActiveImage(index)}
-                  type="button"
-                >
-                  <img src={image} alt="" />
-                </button>
-              ))}
-            </div>
+            <>
+              <button
+                className="product-modal__visual-nav product-modal__visual-nav--prev"
+                onClick={() => setActiveImage((current) => (current - 1 + gallery.length) % gallery.length)}
+                type="button"
+                aria-label="Imagen anterior"
+              >
+                &lt;
+              </button>
+              <button
+                className="product-modal__visual-nav product-modal__visual-nav--next"
+                onClick={() => setActiveImage((current) => (current + 1) % gallery.length)}
+                type="button"
+                aria-label="Siguiente imagen"
+              >
+                &gt;
+              </button>
+              <div className="product-modal__dots">
+                {gallery.map((image, index) => (
+                  <button
+                    className={activeImage === index ? "product-modal__dot product-modal__dot--active" : "product-modal__dot"}
+                    key={`${image}-${index}`}
+                    onClick={() => setActiveImage(index)}
+                    type="button"
+                    aria-label={`Ver modelo ${index + 1} de ${displayName}`}
+                  />
+                ))}
+              </div>
+            </>
           ) : null}
         </div>
-        <div className="boutique-modal__content">
-          <p className="boutique-modal__eyebrow">{isMental ? "Gimnasia Mental" : "Coquetería PRFCT10"}</p>
-          <h3 id="boutique-modal-title">{item.name}</h3>
-          <p className="boutique-modal__description">{item.description}</p>
 
-          {item.chips ? (
-            <div className="boutique-modal__chips">
-              {item.chips.map((chip) => (
-                <span key={chip}>{chip}</span>
-              ))}
-            </div>
-          ) : null}
+        <div className="product-modal__content product-modal__content-panel">
+          <p className="product-modal__category">Detalles del producto · {categoryLabel}</p>
+          <h2 className="product-modal__title" id="boutique-modal-title">{displayName}</h2>
+          <p className="product-modal__price">Consultar disponibilidad</p>
+          <p className="product-modal__description">{item.description}</p>
 
-          <div className="boutique-modal__details">
-            {isMental ? (
-              <>
-                <section>
-                  <strong>Cómo se usa</strong>
-                  <p>{item.howToUse}</p>
-                </section>
-                <section>
-                  <strong>Edad sugerida</strong>
-                  <p>{item.age}</p>
-                </section>
-                <section>
-                  <strong>Finalidad</strong>
-                  <p>{item.purpose}</p>
-                </section>
-                <section>
-                  <strong>Por qué ayuda en gimnasia</strong>
-                  <p>{item.gymnastics}</p>
-                </section>
-              </>
-            ) : (
-              <>
-                <section>
-                  <strong>Ideal para</strong>
-                  <p>{item.idealFor}</p>
-                </section>
-                <section>
-                  <strong>Por qué les encanta</strong>
-                  <p>{item.why}</p>
-                </section>
-              </>
-            )}
+          <div className="product-modal__badges" aria-label="Beneficios rápidos">
+            {badges.map((badge) => (
+              <span className="product-modal__badge" key={badge}>{badge}</span>
+            ))}
           </div>
 
-          <a className="boutique-modal__cta" href={createWhatsAppMessageLink(whatsappLabel)} rel="noreferrer" target="_blank">
+          <a className="product-modal__cta" href={createWhatsAppMessageLink(whatsappLabel)} rel="noreferrer" target="_blank">
             Pedir por WhatsApp
           </a>
+
+          <div className="product-modal__accordion">
+            {accordionItems.map((accordionItem) => (
+              <div
+                className={`product-modal__accordion-item ${openAccordion === accordionItem.title ? "product-modal__accordion-item--open" : ""}`}
+                key={accordionItem.title}
+              >
+                <button
+                  className="product-modal__accordion-header"
+                  onClick={() => setOpenAccordion((current) => (current === accordionItem.title ? "" : accordionItem.title))}
+                  type="button"
+                  aria-expanded={openAccordion === accordionItem.title}
+                >
+                  <span>{accordionItem.title}</span>
+                  <span className="product-modal__accordion-icon" aria-hidden="true">+</span>
+                </button>
+                <div className="product-modal__accordion-content">
+                  <ul>
+                    {accordionItem.content.map((line) => (
+                      <li key={line}>{line}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
@@ -450,6 +660,12 @@ function BoutiqueModal({ item, type, onClose }) {
 }
 
 function CollectionGrid({ id, eyebrow, title, text, items, modifier, onSelectItem }) {
+  const cardCategory = {
+    coquette: "Coquetería",
+    mind: "Gimnasia mental",
+    wear: "Ropa y mallas"
+  }[modifier];
+
   return (
     <section className={`collection-strip collection-strip--${modifier}`} id={id}>
       <div className="collection-strip__header">
@@ -463,17 +679,23 @@ function CollectionGrid({ id, eyebrow, title, text, items, modifier, onSelectIte
             className="collection-strip__card"
             key={item.name}
             onClick={() => onSelectItem(item, modifier)}
+            aria-label={item.cardPhrase ? `${item.name}. ${item.cardPhrase}` : item.name}
             type="button"
           >
             <img src={item.image} alt={item.name} />
             <span className="collection-strip__card-body">
-              <span className="collection-strip__card-kicker">{modifier === "mind" ? "Foco cute" : "Cute pick"}</span>
+              <span className="collection-strip__card-dots" aria-hidden="true">
+                <span />
+                <span />
+              </span>
+              <span className="collection-strip__card-kicker">{cardCategory}</span>
               <strong>{item.name}</strong>
-              <em>Ver detalles</em>
+              <em>Más detalles</em>
             </span>
           </button>
         ))}
       </div>
+      <a className="collection-strip__back" href="#productos">Volver a La Boutique</a>
     </section>
   );
 }
@@ -502,7 +724,11 @@ export default function ProductSection({ products, onSelectProduct }) {
         <div className="products__hero-fade" aria-hidden="true" />
         <div className="products__hero-content">
           <p className="products__eyebrow">PRODUCTOS PRFCT10</p>
-          <h2 className="products__title">Bienvenidos a la Boutique</h2>
+          <h2 className="products__title">
+            BIENVENIDOS A LA
+            <br />
+            BOUTIQUE
+          </h2>
           <p className="products__subtitle">
             Agarre, soporte, resistencia y control: todo para entrenar fuerte sin perder el estilo.
           </p>
@@ -517,7 +743,6 @@ export default function ProductSection({ products, onSelectProduct }) {
                 <img src={line.image} alt={line.alt} />
               </div>
               <div className="shop-line__body">
-                <span className="shop-line__label">{`Linea ${String(index + 1).padStart(2, "0")}`}</span>
                 <h3>{line.title}</h3>
                 <a href={line.href}>Ver detalles</a>
               </div>
@@ -544,26 +769,28 @@ export default function ProductSection({ products, onSelectProduct }) {
           </div>
         </aside>
 
-        <div className="products__catalog" id="product-grid">
-          <p className="products__catalog-eyebrow">Entrenamiento PRFCT10</p>
-          <h3 className="products__catalog-title">Artículos de Entrenamiento</h3>
-          <p className="products__catalog-description">
-            Todo para entrenar mejor, cuidarse más y avanzar con confianza: agarre, soporte, fuerza, recuperación y
-            detalles pensados para gimnastas que van por más.
-          </p>
-        </div>
+        <section className="training-strip" id="product-grid">
+          <div className="products__catalog">
+            <p className="products__catalog-eyebrow">Entrenamiento PRFCT10</p>
+            <h3 className="products__catalog-title">Artículos de Entrenamiento</h3>
+            <p className="products__catalog-description">
+              Todo para entrenar mejor, cuidarse más y avanzar con confianza: agarre, soporte, fuerza, recuperación y
+              detalles pensados para gimnastas que van por más.
+            </p>
+          </div>
 
-        <div className="products__grid">
-          {trainingProducts.map((product) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-              displayName={trainingCards[product.id]?.displayName}
-              trainingDescription={trainingCards[product.id]?.description || product.details}
-              onSelectProduct={onSelectProduct}
-            />
-          ))}
-        </div>
+          <div className="products__grid">
+            {trainingProducts.map((product) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                displayName={trainingCards[product.id]?.displayName}
+                onSelectProduct={onSelectProduct}
+              />
+            ))}
+          </div>
+          <a className="training-strip__back" href="#productos">Volver a La Boutique</a>
+        </section>
 
         <CollectionGrid
           id="coqueteria"
@@ -580,8 +807,18 @@ export default function ProductSection({ products, onSelectProduct }) {
           eyebrow="Juego y enfoque"
           title="Gimnasia Mental"
           text="Fidgets, puzzles y squishies pensados para acompañar a la gimnasta fuera del aparato: concentración, paciencia, calma, coordinación y enfoque antes o después de entrenar."
-          items={mentalItems}
+          items={orderItems(mentalItems, mentalDisplayOrder)}
           modifier="mind"
+          onSelectItem={(item, type) => setSelectedCollectionItem({ item, type })}
+        />
+
+        <CollectionGrid
+          id="ropa-mallas"
+          eyebrow="Ropa PRFCT10"
+          title="Ropa y Mallas"
+          text="Piezas cómodas, sets de entrenamiento y mallas personalizadas para verse lindas, entrenar con confianza y llegar listas a cada presentación."
+          items={wearItems}
+          modifier="wear"
           onSelectItem={(item, type) => setSelectedCollectionItem({ item, type })}
         />
       </div>

@@ -27,7 +27,7 @@ export default function Footer() {
           <h3>Explora</h3>
           <a href="#product-grid">Entrenamiento</a>
           <a href="#coqueteria">Coquetería</a>
-          <a href="#brillo-equipo">Ropa y mallas</a>
+          <a href="#ropa-mallas">Ropa y mallas</a>
           <a href="#gimnasia-mental">Gimnasia mental</a>
           <a href="#brillo-equipo">Brillo de equipo</a>
         </div>

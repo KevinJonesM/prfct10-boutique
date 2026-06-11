@@ -38,6 +38,13 @@ export default function ProductModal({ product, products = [], onClose }) {
 
   const galleryProducts = useMemo(() => {
     if (!product) return [];
+    if (product.galleryImages?.length) {
+      return product.galleryImages.map((image, index) => ({
+        ...product,
+        id: `${product.id}-gallery-${index}`,
+        image
+      }));
+    }
     return [product];
   }, [product]);
 
@@ -71,6 +78,7 @@ export default function ProductModal({ product, products = [], onClose }) {
   if (!product) return null;
 
   const activeProduct = galleryProducts[activeSlide] || product;
+  const activeImageStyle = activeProduct.image ? { backgroundImage: `url(${activeProduct.image})` } : undefined;
   const specifications = product.specifications || product.benefits;
   const accordionItems = [
     { title: "Lo que te va a encantar", content: product.accordionBenefits || product.benefits },
@@ -98,18 +106,18 @@ export default function ProductModal({ product, products = [], onClose }) {
         </button>
 
         <div className="product-modal__visual" aria-label="Imágenes del producto">
-          <div className={`product-modal__visual-bg ${activeProduct.imageClass}`} aria-hidden="true" />
+          <div className={`product-modal__visual-bg ${activeProduct.imageClass}`} style={activeImageStyle} aria-hidden="true" />
           <div className="product-modal__visual-gradient product-modal__visual-overlay" aria-hidden="true" />
-          <div className={`product-modal__visual-image ${activeProduct.imageClass}`} />
+          <div className={`product-modal__visual-image ${activeProduct.imageClass}`} style={activeImageStyle} />
           <p className="product-modal__visual-caption">{activeProduct.name}</p>
 
           {galleryProducts.length > 1 ? (
             <>
               <button className="product-modal__visual-nav product-modal__visual-nav--prev" onClick={goToPrevious} type="button" aria-label="Imagen anterior">
-                Anterior
+                &lt;
               </button>
               <button className="product-modal__visual-nav product-modal__visual-nav--next" onClick={goToNext} type="button" aria-label="Siguiente imagen">
-                Siguiente
+                &gt;
               </button>
               <div className="product-modal__dots">
                 {galleryProducts.map((item, index) => (

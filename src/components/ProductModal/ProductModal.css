@@ -6,7 +6,7 @@
   justify-content: center;
   padding: 22px;
   position: fixed;
-  z-index: 40;
+  z-index: 1200;
 }
 
 .product-modal__overlay {
@@ -147,36 +147,42 @@
 }
 
 .product-modal__visual-nav {
-  background: rgba(247, 247, 244, 0.76);
-  border: 1px solid rgba(8, 9, 9, 0.12);
+  align-items: center;
+  background: rgba(247, 247, 244, 0.82);
+  border: 1px solid rgba(8, 9, 9, 0.1);
   border-radius: 999px;
   color: var(--dark-text);
+  display: flex;
   font-family: var(--heading);
-  font-size: 0.66rem;
-  font-weight: 850;
-  letter-spacing: 0.1em;
-  min-height: 34px;
-  padding: 0 12px;
+  font-size: 1.15rem;
+  font-weight: 900;
+  height: 36px;
+  justify-content: center;
+  letter-spacing: 0;
+  line-height: 1;
+  padding: 0;
   position: absolute;
-  text-transform: uppercase;
-  top: 50%;
-  transform: translateY(-50%);
-  transition: background 180ms ease, transform 180ms ease;
+  bottom: 22px;
+  top: auto;
+  transform: none;
+  transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+  width: 36px;
   z-index: 4;
 }
 
 .product-modal__visual-nav:hover {
   background: var(--magenta);
   color: var(--white);
-  transform: translateY(-50%) translateY(-2px);
+  transform: translateY(-2px);
 }
 
 .product-modal__visual-nav--prev {
-  left: 18px;
+  left: auto;
+  right: 66px;
 }
 
 .product-modal__visual-nav--next {
-  right: 18px;
+  right: 22px;
 }
 
 .product-modal__dots {

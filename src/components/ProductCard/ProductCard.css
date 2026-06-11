@@ -1,5 +1,6 @@
 .product-card {
   min-width: 0;
+  width: 300px;
 }
 
 .product-card__button {
@@ -9,13 +10,13 @@
   box-shadow: 0 18px 44px rgba(188, 112, 146, 0.13);
   color: var(--dark-text);
   display: grid;
-  grid-template-rows: 285px auto;
-  min-height: 486px;
+  grid-template-rows: 226px 108px;
+  min-height: 334px;
   overflow: hidden;
   padding: 0;
   text-align: left;
   transition: border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
-  width: 100%;
+  width: 300px;
 }
 
 .product-card__button:hover,
@@ -31,7 +32,8 @@
   background-position: center;
   background-size: cover;
   display: block;
-  min-height: 285px;
+  height: 226px;
+  min-height: 226px;
   position: relative;
   transform: scale(1);
   filter: saturate(0.96) contrast(0.98) brightness(1.03);
@@ -89,16 +91,16 @@
 }
 
 .product-card__image--wrist-bands {
-  background-image: url("/images/product-wrist-bands.png");
+  background-image: url("/images/product-wrist-support-lilac.png");
 }
 
 .product-card__image--sweat-wristbands {
-  background-image: url("/images/product-wrist-bands.png");
+  background-image: url("/images/product-sweat-wristbands-pastel.png");
   background-position: center center;
 }
 
 .product-card__image--tiger-paws {
-  background-image: url("/images/product-tiger-paws.png");
+  background-image: url("/images/product-tiger-paws-beige-portada.png");
 }
 
 .product-card__image--rhythm-toes {
@@ -129,7 +131,12 @@
 }
 
 .product-card__image--patella-band {
-  background-image: url("/images/product-patella-band.png");
+  background-image: url("/images/product-patella-band-set.png");
+  background-position: center center;
+}
+
+.product-card__image--soft-landing-ankle {
+  background-image: url("/images/product-soft-landing-ankle-set.png");
   background-position: center center;
 }
 
@@ -148,11 +155,13 @@
 }
 
 .product-card__content {
-  display: grid;
   align-content: start;
-  gap: 9px;
-  min-height: 188px;
-  padding: 24px 22px 26px;
+  display: grid;
+  gap: 4px;
+  grid-template-rows: auto minmax(22px, 1fr) auto;
+  height: 108px;
+  min-height: 108px;
+  padding: 14px 16px 12px;
   position: relative;
 }
 
@@ -160,8 +169,8 @@
   display: flex;
   gap: 5px;
   position: absolute;
-  right: 22px;
-  top: 24px;
+  right: 16px;
+  top: 14px;
 }
 
 .product-card__dots span {
@@ -178,7 +187,7 @@
 .product-card__category {
   color: #62bfa9;
   font-family: var(--heading);
-  font-size: 0.68rem;
+  font-size: 0.56rem;
   font-weight: 800;
   letter-spacing: 0.16em;
   max-width: calc(100% - 36px);
@@ -187,30 +196,44 @@
 
 .product-card__name {
   color: var(--dark-text);
+  display: -webkit-box;
   font-family: var(--heading);
-  font-size: 1.6rem;
+  font-size: 1.05rem;
   font-weight: 800;
   letter-spacing: 0;
   line-height: 1.02;
+  overflow: hidden;
   text-transform: uppercase;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
-.product-card__description {
-  color: #756963;
-  font-size: 0.95rem;
-  font-weight: 500;
-  line-height: 1.55;
-  margin-top: 2px;
-  max-width: 95%;
+.product-card__details {
+  align-items: center;
+  background: linear-gradient(135deg, var(--magenta), #f28bbb);
+  border-radius: 999px;
+  color: #ffffff;
+  display: inline-flex;
+  font-family: var(--heading);
+  font-size: 0.62rem;
+  font-weight: 900;
+  justify-content: center;
+  letter-spacing: 0.06em;
+  align-self: end;
+  margin-top: 0;
+  min-height: 26px;
+  padding: 0 12px;
+  text-transform: uppercase;
+  width: fit-content;
 }
 
 @media (max-width: 480px) {
   .product-card__button {
-    grid-template-rows: 300px auto;
-    min-height: 488px;
+    grid-template-rows: 226px 108px;
+    min-height: 334px;
   }
 
   .product-card__image {
-    min-height: 300px;
+    min-height: 226px;
   }
 }

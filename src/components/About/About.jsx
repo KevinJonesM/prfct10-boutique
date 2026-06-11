@@ -19,7 +19,7 @@ export default function About() {
             Cada detalle suma: el agarre que da confianza, el soporte que acompaña, el accesorio que completa el
             look y el recuerdo que celebra cada logro.
           </p>
-          <strong>Detalles lindos. Entrenamiento en serio.</strong>
+          <strong>Entrena para ganar</strong>
         </div>
       </div>
     </section>

@@ -14,7 +14,18 @@ export default function Header() {
 
         <nav className="header__nav" aria-label="Navegación principal">
           <a className="header__link" href="#inicio">Inicio</a>
-          <a className="header__link" href="#productos">Productos</a>
+          <div className="header__dropdown">
+            <a className="header__link header__dropdown-trigger" href="#productos" aria-haspopup="true">
+              Boutique
+            </a>
+            <div className="header__dropdown-menu" aria-label="Departamentos de boutique">
+              <a href="#product-grid">Productos de entrenamiento</a>
+              <a href="#coqueteria">CoqueterÃ­a</a>
+              <a href="#gimnasia-mental">Gimnasia Mental</a>
+              <a href="#ropa-mallas">Ropa y Mallas</a>
+              <a href="#brillo-equipo">Brillo de Equipo</a>
+            </div>
+          </div>
           <a className="header__link" href="#standard">El estándar</a>
           <a className="header__link" href="#nosotros">Nosotros</a>
         </nav>

@@ -120,7 +120,14 @@ const trainingExtraProducts = [
     contraindications: ["No aplicar sobre heridas abiertas.", "Suspender si causa irritación o reacción."],
     specifications: ["Bálsamo hidratante.", "Uso en manos y zonas resecas.", "Formato práctico.", "Cuidado post-entreno."],
     sportsUses: ["Gimnasia artística.", "Barras.", "Cuidado de manos.", "Rutina post-entreno."],
-    imageClass: "product-card__image--hand-balm"
+    imageClass: "product-card__image--hand-balm",
+    galleryImages: [
+      "/images/product-hand-balm-cover.png",
+      "/images/product-hand-balm-hands-care.png",
+      "/images/product-hand-balm-application.png",
+      "/images/product-hand-balm-powdered-hands.png",
+      "/images/coquet-balsamo-manos.png"
+    ]
   }
 ];
 

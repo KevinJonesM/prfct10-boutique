@@ -34,7 +34,7 @@ function AccordionItem({ item, isOpen, onToggle }) {
 
 export default function ProductModal({ product, products = [], onClose }) {
   const [activeSlide, setActiveSlide] = useState(0);
-  const [openAccordion, setOpenAccordion] = useState("Lo que te va a encantar");
+  const [openAccordion, setOpenAccordion] = useState("");
 
   const galleryProducts = useMemo(() => {
     if (!product) return [];
@@ -50,7 +50,7 @@ export default function ProductModal({ product, products = [], onClose }) {
 
   useEffect(() => {
     setActiveSlide(0);
-    setOpenAccordion("Lo que te va a encantar");
+    setOpenAccordion("");
   }, [product]);
 
   useEffect(() => {
@@ -107,7 +107,7 @@ export default function ProductModal({ product, products = [], onClose }) {
 
         <div className="product-modal__visual" aria-label="Imágenes del producto">
           <div className={`product-modal__visual-bg ${activeProduct.imageClass}`} style={activeImageStyle} aria-hidden="true" />
-          <div className="product-modal__visual-gradient product-modal__visual-overlay" aria-hidden="true" />
+          <div className="product-modal__visual-gradient product-modal__visual-overlay product-modal__visual-fade" aria-hidden="true" />
           <div className={`product-modal__visual-image ${activeProduct.imageClass}`} style={activeImageStyle} />
           <p className="product-modal__visual-caption">{activeProduct.name}</p>
 

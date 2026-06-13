@@ -179,21 +179,33 @@ const coquetteItems = [
     idealFor: "Habitaciones, regalos, competencias y recuerdos especiales.",
     why: "Convierte cada medalla en parte de su historia y mantiene sus logros visibles."
   },
-    {
-      name: "Bisutería",
-      image: "/images/coquet-bisuteria.png",
-      gallery: ["/images/coquet-bisuteria.png", "/images/coquet-collares.png"],
-    description: "Detalles delicados para sumar brillo al look de entrenamiento o competencia.",
-    idealFor: "Regalos, kits personalizados y accesorios de uso diario.",
-    why: "Son piezas pequeñas, lindas y fáciles de combinar con su mood PRFCT10."
-  },
-    {
-      name: "Collares",
-      image: "/images/coquet-collares.png",
-      gallery: ["/images/coquet-collares.png", "/images/coquet-bisuteria.png"],
-    description: "Collares inspirados en gimnasia para llevar su pasión dentro y fuera del gym.",
-    idealFor: "Cumpleaños, detalles de equipo y looks de competencia.",
-    why: "Hacen que su estilo se sienta personal, cute y muy de gimnasta."
+  {
+    name: "Collar Silueta Gimnasia",
+    modalName: "Collar Silueta Gimnasia",
+    modalCategory: "Coqueteria de Gimnasia",
+    image: "/images/coqueteria-collar-silueta-gimnasia-portada.png",
+    gallery: [
+      "/images/coqueteria-collar-silueta-gimnasia-portada.png",
+      "/images/coqueteria-collar-silueta-gimnasia-arabesque.png",
+      "/images/coqueteria-collar-silueta-gimnasia-handstand-split.png",
+      "/images/coqueteria-collar-silueta-gimnasia-leap.png",
+      "/images/coqueteria-collar-silueta-gimnasia-seated.png",
+      "/images/coqueteria-collar-silueta-gimnasia-bridge.png",
+      "/images/coqueteria-collar-silueta-gimnasia-handstand.png"
+    ],
+    description: "Collares delicados con siluetas de gimnasia en acabado dorado y plateado, perfectos para llevar su deporte favorito cerca del corazon.",
+    commercialDescription: "Una coleccion de collares finos con figuras de gimnasta en diferentes poses. Cada silueta se siente elegante, deportiva y muy personal, ideal para regalar a ninas y adolescentes que aman la gimnasia.",
+    loveList: [
+      "Siluetas de gimnasia en diferentes poses.",
+      "Disponible en acabado dorado y plateado segun disponibilidad.",
+      "Diseno delicado, femenino y facil de combinar.",
+      "Portada con los tres bustos para mostrar la coleccion.",
+      "Ideal para regalar, coleccionar o combinar con looks del gym."
+    ],
+    colors: "Dorado y plateado.",
+    idealFor: "Regalos, competencias, amigas del equipo, cumpleanos y detalles especiales para gimnastas.",
+    why: "Cada collar convierte una pose de gimnasia en un detalle elegante y emocional que pueden usar todos los dias.",
+    chips: ["Siluetas", "Dorado/plateado", "Coleccionable"]
   },
     {
       name: "Toallas de Playa",
@@ -260,12 +272,12 @@ const coquetteItems = [
   },
   {
     name: "Guardapolvos de Gimnasia",
-    image: "/images/coquet-guardapolvos-portada.png",
+    image: "/images/coqueteria-guardapolvos-gimnasia-portada.png",
     gallery: [
-      "/images/coquet-guardapolvos-portada.png",
-      "/images/coquet-guardapolvos-lifestyle.png",
-      "/images/coquet-guardapolvos-rosado.png",
-      "/images/coquet-guardapolvos-lila.png"
+      "/images/coqueteria-guardapolvos-gimnasia-portada.png",
+      "/images/coqueteria-guardapolvos-gimnasia-lifestyle-nina.png",
+      "/images/coqueteria-guardapolvos-gimnasia-lila.png",
+      "/images/coqueteria-guardapolvos-gimnasia-room.png"
     ],
     description: "Guardapolvos prácticos para proteger, transportar y organizar mallas, accesorios y esenciales de competencia.",
     idealFor: "Competencias, viajes, presentaciones, closets de gimnasia y kits de equipo.",
@@ -283,14 +295,6 @@ const coquetteItems = [
     description: "Dijes decorativos inspirados en gimnasia para personalizar bolsos, termos, llaveros o accesorios.",
     idealFor: "Agregar un detalle especial al look de competencia o entrenamiento.",
     why: "Cada charm hace que sus accesorios se sientan únicos, cute y muy de gimnasta."
-  },
-    {
-      name: "Termos de Gimnasia",
-      image: "/images/collection-coqueteria.png",
-      gallery: ["/images/collection-coqueteria.png"],
-    description: "Termos prácticos y lindos para acompañar a la gimnasta durante entrenamientos, competencias y días largos en el gym.",
-    idealFor: "Hidratación diaria, campamentos, competencias y entrenamientos.",
-    why: "Son funcionales, combinan con su estilo y hacen que mantenerse hidratada también se vea cute."
   },
   {
     name: "Amuleto",
@@ -367,6 +371,157 @@ const coquetteItems = [
     idealFor: "Regalos, competencias, amigas del equipo, bolsitas sorpresa y detalles de motivacion.",
     why: "Es un accesorio pequeno, brillante y emocional que acompana la pasion por la gimnasia fuera del entrenamiento.",
     chips: ["Love charm", "Gimnasia", "Regalo cute"]
+  },
+  {
+    name: "Pulsera Corazon Gimnasia",
+    modalName: "Pulsera Corazon Gimnasia",
+    modalCategory: "Coqueteria de Gimnasia",
+    image: "/images/coqueteria-pulsera-corazon-gimnasia-portada.png",
+    gallery: [
+      "/images/coqueteria-pulsera-corazon-gimnasia-portada.png",
+      "/images/coqueteria-pulsera-corazon-gimnasia-dorada.png",
+      "/images/coqueteria-pulsera-corazon-gimnasia-plateada.png",
+      "/images/coqueteria-pulsera-corazon-gimnasia-lifestyle.png"
+    ],
+    description: "Pulsera de cadena con corazon y silueta de gimnasta, disponible en acabado dorado y plateado para un detalle fino y especial.",
+    commercialDescription: "Una pulsera delicada con un dije de corazon que integra una silueta de gimnasia. Es femenina, significativa y perfecta para regalar a gimnastas que quieren llevar su deporte favorito en un accesorio elegante.",
+    loveList: [
+      "Dije de corazon con silueta de gimnasta.",
+      "Cadena metalica con ajuste.",
+      "Disponible en dorado y plateado segun disponibilidad.",
+      "Portada con ambos acabados para comparar.",
+      "Ideal para usar a diario o como regalo especial."
+    ],
+    colors: "Dorado y plateado.",
+    idealFor: "Regalos, competencias, amigas del equipo, cumpleanos y detalles de motivacion.",
+    why: "Une corazon y gimnasia en una pieza delicada que se siente personal, linda y facil de combinar.",
+    chips: ["Corazon", "Dorado/plateado", "Regalo cute"]
+  },
+  {
+    name: "Pulsera Silueta Gimnasia",
+    modalName: "Pulsera Silueta Gimnasia",
+    modalCategory: "Coqueteria de Gimnasia",
+    image: "/images/coqueteria-pulsera-silueta-gimnasia-portada.png",
+    gallery: [
+      "/images/coqueteria-pulsera-silueta-gimnasia-portada.png",
+      "/images/coqueteria-pulsera-silueta-gimnasia-satin-doble.png",
+      "/images/coqueteria-pulsera-silueta-gimnasia-doble.png",
+      "/images/coqueteria-pulsera-silueta-gimnasia-dorado-plateado.png"
+    ],
+    description: "Pulsera fina con silueta de gimnasta integrada a la cadena, disponible en dorado y plateado para un look delicado y deportivo.",
+    commercialDescription: "Una pulsera elegante con figura de gimnasta como pieza central. Su diseno combina una cadena delicada con una silueta deportiva, perfecta para ninas y adolescentes que quieren llevar la gimnasia en un accesorio sutil y especial.",
+    loveList: [
+      "Silueta de gimnasta como detalle principal.",
+      "Cadena fina con cierre ajustable.",
+      "Disponible en dorado y plateado segun disponibilidad.",
+      "Portada con fondo lila para mostrar la coleccion.",
+      "Ligera, delicada y facil de combinar."
+    ],
+    colors: "Dorado y plateado.",
+    idealFor: "Regalos, competencias, amigas del equipo, cumpleanos y looks del gym.",
+    why: "Tiene una silueta limpia y elegante que conecta con la pasion por la gimnasia sin dejar de verse fina.",
+    chips: ["Silueta", "Dorado/plateado", "Gimnasia"]
+  },
+  {
+    name: "Collar Infinity Love",
+    modalName: "Collar Infinity Love",
+    modalCategory: "Coqueteria de Gimnasia",
+    image: "/images/coqueteria-collar-infinity-love-portada.png",
+    gallery: [
+      "/images/coqueteria-collar-infinity-love-portada.png",
+      "/images/coqueteria-collar-infinity-love-dorado.png",
+      "/images/coqueteria-collar-infinity-love-plateado.png",
+      "/images/coqueteria-collar-infinity-love-lifestyle.png"
+    ],
+    description: "Collar delicado con simbolo infinito y detalle love, pensado para llevar un brillo dulce y significativo dentro o fuera del gym.",
+    commercialDescription: "Un collar fino, tierno y facil de regalar para gimnastas que aman los accesorios con significado. Combina el simbolo infinito con un detalle love para recordar pasion, constancia y amor por la gimnasia.",
+    loveList: [
+      "Diseno delicado con simbolo infinito.",
+      "Detalle love con acabado brillante.",
+      "Disponible en tono dorado y plateado segun disponibilidad.",
+      "Ideal para usar a diario o como regalo especial.",
+      "Ligero, combinable y muy cute."
+    ],
+    colors: "Dorado y plateado.",
+    idealFor: "Regalos, competencias, amigas del equipo, cumpleanos y detalles de motivacion.",
+    why: "Es un accesorio pequeno con mucho significado: amor por la gimnasia, constancia y brillo personal.",
+    chips: ["Infinity love", "Dorado/plateado", "Regalo cute"]
+  },
+  {
+    name: "Collar Love Gymnastics",
+    modalName: "Collar Love Gymnastics",
+    modalCategory: "Coqueteria de Gimnasia",
+    image: "/images/coqueteria-collar-love-gymnastics-portada.png",
+    gallery: [
+      "/images/coqueteria-collar-love-gymnastics-portada.png",
+      "/images/coqueteria-collar-love-gymnastics-azul.png",
+      "/images/coqueteria-collar-love-gymnastics-cristal.png",
+      "/images/coqueteria-collar-love-gymnastics-rosado.png",
+      "/images/coqueteria-collar-love-gymnastics-lifestyle.png"
+    ],
+    description: "Collar con detalle love gymnastics y brillo de color para que cada gimnasta lleve su deporte favorito cerquita.",
+    commercialDescription: "Un collar alegre y femenino para ninas y adolescentes que aman la gimnasia. Sus detalles de color y el mensaje love gymnastics lo hacen perfecto para regalar, combinar con accesorios de competencia o sumar al look diario.",
+    loveList: [
+      "Detalle love gymnastics.",
+      "Disponible en varios tonos segun disponibilidad.",
+      "Brillo delicado y acabado femenino.",
+      "Perfecto para regalos de equipo o bolsitas sorpresa.",
+      "Un accesorio pequeno que se siente muy personal."
+    ],
+    colors: "Azul, rosado y cristal segun disponibilidad.",
+    idealFor: "Regalos, competencias, amigas del equipo, looks del gym y detalles de celebracion.",
+    why: "Tiene color, brillo y mensaje de gimnasia: un detalle facil de amar y de combinar.",
+    chips: ["Love gymnastics", "Colores", "Gimnasta"]
+  },
+  {
+    name: "Collar Corazon Gimnasia",
+    modalName: "Collar Corazon Gimnasia",
+    modalCategory: "Coqueteria de Gimnasia",
+    image: "/images/coqueteria-collar-corazon-gimnasia-portada.png",
+    gallery: [
+      "/images/coqueteria-collar-corazon-gimnasia-portada.png",
+      "/images/coqueteria-collar-corazon-gimnasia-dorado.png",
+      "/images/coqueteria-collar-corazon-gimnasia-plateado.png",
+      "/images/coqueteria-collar-corazon-gimnasia-lifestyle.png"
+    ],
+    description: "Collar de corazon con silueta de gimnasta, disponible en dorado y plateado para un detalle delicado y lleno de significado.",
+    commercialDescription: "Un collar fino y emocional para gimnastas que aman los accesorios con sentido. Su dije de corazon integra una silueta de gimnasia en un diseno limpio, elegante y facil de usar todos los dias.",
+    loveList: [
+      "Dije de corazon con silueta de gimnasta.",
+      "Disponible en acabado dorado y plateado segun disponibilidad.",
+      "Diseno delicado, ligero y combinable.",
+      "Portada con ambos colores para comparar.",
+      "Perfecto para regalar o llevar como recordatorio de amor por la gimnasia."
+    ],
+    colors: "Dorado y plateado.",
+    idealFor: "Regalos, competencias, amigas del equipo, cumpleanos y detalles de motivacion.",
+    why: "Une corazon y gimnasia en una pieza sencilla, elegante y muy facil de amar.",
+    chips: ["Corazon", "Silueta", "Dorado/plateado"]
+  },
+  {
+    name: "Love Prfction",
+    modalName: "Love Prfction",
+    modalCategory: "Coqueteria de Gimnasia",
+    image: "/images/coqueteria-love-prfction-portada.png",
+    gallery: [
+      "/images/coqueteria-love-prfction-portada.png",
+      "/images/coqueteria-love-prfction-dorado.png",
+      "/images/coqueteria-love-prfction-plateado.png",
+      "/images/coqueteria-love-prfction-lifestyle.png"
+    ],
+    description: "Collar de corazon con silueta de gimnasta, detalle de brillo y mensaje Practice Makes Perfect para llevar la motivacion cerca.",
+    commercialDescription: "Un collar especial para gimnastas que aman los accesorios con significado. Combina un corazon, una silueta de gimnasia, cristales y el mensaje Practice Makes Perfect en un diseno disponible en acabado dorado y plateado.",
+    loveList: [
+      "Diseno de corazon con silueta de gimnasta.",
+      "Mensaje Practice Makes Perfect.",
+      "Detalle de cristales y pequeno corazon rosado.",
+      "Disponible en dorado y plateado segun disponibilidad.",
+      "Ideal para regalar antes de competencias o como recuerdo motivacional."
+    ],
+    colors: "Dorado y plateado.",
+    idealFor: "Regalos, competencias, amigas del equipo, cumpleanos y detalles de motivacion.",
+    why: "Tiene brillo, mensaje y gimnasia en una sola pieza: se siente emocional, elegante y muy PRFCT10.",
+    chips: ["Practice", "Corazon", "Dorado/plateado"]
   }
 ];
 
@@ -521,6 +676,52 @@ function orderItems(items, order) {
   return [...items].sort((a, b) => (rank.get(a.name) ?? items.length) - (rank.get(b.name) ?? items.length));
 }
 
+const coquetteFilterTabs = [
+  { label: "Todo", value: "all" },
+  {
+    label: "Joyas de Gimnasia",
+    value: "joyas",
+    names: [
+      "Pulsera Silueta Gimnasia",
+      "Pulsera Corazon Gimnasia",
+      "Pulsera Charm",
+      "Pulsera Love Charm",
+      "Collar Silueta Gimnasia",
+      "Collar Infinity Love",
+      "Collar Love Gymnastics",
+      "Collar Corazon Gimnasia",
+      "Love Prfction",
+      "Amuleto",
+      "Charms de Gimnasia"
+    ]
+  },
+  {
+    label: "Looks de competencia",
+    value: "looks",
+    names: ["Lazos de tul", "Spray de escarcha", "Bolsos de SilicÃ³n", "Guardapolvos de Gimnasia"]
+  },
+  {
+    label: "Regalos y detalles",
+    value: "regalos",
+    names: ["Medalleros", "Peluflores", "Toallas de Playa"]
+  }
+];
+
+const trainingFilterTabs = [
+  { label: "Todo", value: "all" },
+  { label: "Agarre", value: "agarre", groups: ["Agarre"] },
+  { label: "Soporte", value: "soporte", groups: ["Soporte"] },
+  { label: "Fuerza y flexibilidad", value: "fuerza", groups: ["Fuerza", "Flexibilidad"] },
+  { label: "Cuidado", value: "cuidado", groups: ["RecuperaciÃ³n"] }
+];
+
+function filterByTab(items, tab) {
+  if (!tab || tab.value === "all") return items;
+  if (tab.names) return items.filter((item) => tab.names.includes(item.name));
+  if (tab.groups) return items.filter((item) => tab.groups.includes(item.group));
+  return items;
+}
+
 function BoutiqueModal({ item, type, onClose }) {
   const [activeImage, setActiveImage] = useState(0);
   const [openAccordion, setOpenAccordion] = useState("Lo que te va a encantar");
@@ -672,22 +873,48 @@ function BoutiqueModal({ item, type, onClose }) {
   );
 }
 
-function CollectionGrid({ id, eyebrow, title, text, items, modifier, onSelectItem }) {
+function FilterTabs({ tabs, activeValue, onChange, labelledBy }) {
+  if (!tabs?.length) return null;
+
+  return (
+    <div className="product-tabs" role="tablist" aria-labelledby={labelledBy}>
+      {tabs.map((tab) => (
+        <button
+          className={activeValue === tab.value ? "product-tabs__button product-tabs__button--active" : "product-tabs__button"}
+          key={tab.value}
+          onClick={() => onChange(tab.value)}
+          role="tab"
+          type="button"
+          aria-selected={activeValue === tab.value}
+        >
+          {tab.label}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+function CollectionGrid({ id, eyebrow, title, text, items, modifier, filterTabs, onSelectItem }) {
+  const [activeFilter, setActiveFilter] = useState(filterTabs?.[0]?.value || "all");
   const cardCategory = {
     coquette: "Coquetería",
     mind: "Gimnasia mental",
     wear: "Ropa y mallas"
   }[modifier];
+  const activeTab = filterTabs?.find((tab) => tab.value === activeFilter);
+  const visibleItems = filterByTab(items, activeTab);
+  const titleId = `${id}-title`;
 
   return (
     <section className={`collection-strip collection-strip--${modifier}`} id={id}>
       <div className="collection-strip__header">
         <p>{eyebrow}</p>
-        <h3>{title}</h3>
+        <h3 id={titleId}>{title}</h3>
         <span>{text}</span>
       </div>
+      <FilterTabs tabs={filterTabs} activeValue={activeFilter} onChange={setActiveFilter} labelledBy={titleId} />
       <div className="collection-strip__grid">
-        {items.map((item) => (
+        {visibleItems.map((item) => (
           <button
             className="collection-strip__card"
             key={item.name}
@@ -715,6 +942,7 @@ function CollectionGrid({ id, eyebrow, title, text, items, modifier, onSelectIte
 
 export default function ProductSection({ products, onSelectProduct }) {
   const [selectedCollectionItem, setSelectedCollectionItem] = useState(null);
+  const [activeTrainingFilter, setActiveTrainingFilter] = useState(trainingFilterTabs[0].value);
 
   const trainingProducts = useMemo(
     () => [
@@ -723,6 +951,8 @@ export default function ProductSection({ products, onSelectProduct }) {
     ],
     [products]
   );
+  const activeTrainingTab = trainingFilterTabs.find((tab) => tab.value === activeTrainingFilter);
+  const visibleTrainingProducts = filterByTab(trainingProducts, activeTrainingTab);
 
   return (
     <section className="products" id="productos">
@@ -785,15 +1015,21 @@ export default function ProductSection({ products, onSelectProduct }) {
         <section className="training-strip" id="product-grid">
           <div className="products__catalog">
             <p className="products__catalog-eyebrow">Entrenamiento PRFCT10</p>
-            <h3 className="products__catalog-title">Artículos de Entrenamiento</h3>
+            <h3 className="products__catalog-title" id="training-products-title">Artículos de Entrenamiento</h3>
             <p className="products__catalog-description">
               Todo para entrenar mejor, cuidarse más y avanzar con confianza: agarre, soporte, fuerza, recuperación y
               detalles pensados para gimnastas que van por más.
             </p>
           </div>
 
+          <FilterTabs
+            tabs={trainingFilterTabs}
+            activeValue={activeTrainingFilter}
+            onChange={setActiveTrainingFilter}
+            labelledBy="training-products-title"
+          />
           <div className="products__grid">
-            {trainingProducts.map((product) => (
+            {visibleTrainingProducts.map((product) => (
               <ProductCard
                 key={product.id}
                 product={product}
@@ -812,6 +1048,7 @@ export default function ProductSection({ products, onSelectProduct }) {
           text="Detalles lindos para completar su look, celebrar logros y acompañar la vida de gimnasio con estilo."
           items={coquetteItems}
           modifier="coquette"
+          filterTabs={coquetteFilterTabs}
           onSelectItem={(item, type) => setSelectedCollectionItem({ item, type })}
         />
 

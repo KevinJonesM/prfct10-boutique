@@ -175,16 +175,18 @@
 }
 
 .team-shine__media {
+  aspect-ratio: 4 / 3;
+  background: rgba(255, 255, 255, 0.7);
   border-radius: 28px;
   box-shadow: 0 22px 56px rgba(85, 135, 165, 0.18);
-  min-height: 460px;
   overflow: hidden;
 }
 
 .team-shine__media img {
+  display: block;
   height: 100%;
-  object-fit: cover;
-  object-position: center 48%;
+  object-fit: contain;
+  object-position: center;
   width: 100%;
 }
 
@@ -217,7 +219,7 @@
   }
 
   .team-shine__media {
-    min-height: 360px;
+    width: 100%;
   }
 }
 

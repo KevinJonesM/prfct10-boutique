@@ -217,7 +217,7 @@ export default function ProductModal({ product, products = [], onClose }) {
         <div className="product-modal__content product-modal__content-panel">
           <p className="product-modal__category">Detalles del producto · {product.category}</p>
           <h2 className="product-modal__title" id="product-modal-title">{product.name}</h2>
-          <p className="product-modal__price">{product.price}</p>
+          <p className="product-modal__price">$</p>
           <p className="product-modal__description">{product.details}</p>
 
           <div className="product-modal__badges" aria-label="Beneficios rápidos">

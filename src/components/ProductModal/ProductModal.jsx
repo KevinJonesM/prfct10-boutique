@@ -32,6 +32,80 @@ function AccordionItem({ item, isOpen, onToggle }) {
   );
 }
 
+const normalizeText = (value = "") =>
+  String(value)
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+
+const toList = (value) => {
+  if (!value) return [];
+  return Array.isArray(value) ? value.filter(Boolean) : [value].filter(Boolean);
+};
+
+const normalizeSection = (section) => ({
+  ...section,
+  content: toList(section.content)
+});
+
+const hasSectionContent = (section) => section?.title && toList(section.content).length > 0;
+
+const isBoutiqueProduct = (product) => {
+  const productText = normalizeText(
+    [product.modalType, product.category, product.group, product.id, product.name, product.brandName]
+      .filter(Boolean)
+      .join(" ")
+  );
+  const boutiqueTerms = [
+    "coqueteria",
+    "ropa y mallas",
+    "ropa",
+    "mallas",
+    "amuleto",
+    "pulsera",
+    "charms",
+    "termos",
+    "guardapolvos",
+    "peluflores",
+    "lazos",
+    "bolsos de silicon",
+    "tops",
+    "shorts",
+    "hoodies"
+  ];
+
+  return boutiqueTerms.some((term) => productText.includes(term));
+};
+
+const getBoutiqueSections = (product) => [
+  {
+    title: "Lo que te va a encantar",
+    content: toList(product.accordionBenefits || product.benefits || product.loveList || product.details)
+  },
+  {
+    title: "Colores disponibles",
+    content: toList(product.colorsAvailable || product.availableColors || product.colors || "Segun disponibilidad")
+  },
+  {
+    title: "Ideal para",
+    content: toList(
+      product.idealFor ||
+        product.ideal ||
+        "Regalos para gimnastas, competencias, detalles de equipo y bolsitas sorpresa."
+    )
+  },
+  {
+    title: "Por que les encanta",
+    content: toList(
+      product.whyLoved ||
+        product.why ||
+        product.cardPhrase ||
+        product.commercialDescription ||
+        product.details
+    )
+  }
+].filter(hasSectionContent);
+
 export default function ProductModal({ product, products = [], onClose }) {
   const [activeSlide, setActiveSlide] = useState(0);
   const [openAccordion, setOpenAccordion] = useState("");
@@ -80,14 +154,20 @@ export default function ProductModal({ product, products = [], onClose }) {
   const activeProduct = galleryProducts[activeSlide] || product;
   const activeImageStyle = activeProduct.image ? { backgroundImage: `url(${activeProduct.image})` } : undefined;
   const specifications = product.specifications || product.benefits;
-  const accordionItems = [
+  const customAccordionItems = toList(product.modalSections).map(normalizeSection).filter(hasSectionContent);
+  const technicalAccordionItems = [
     { title: "Lo que te va a encantar", content: product.accordionBenefits || product.benefits },
     { title: "Modo de uso", content: product.modeOfUse || defaultModeOfUse },
     { title: "Preguntas frecuentes", type: "faq", content: product.faqs || defaultFaqs },
     { title: "Contraindicaciones", content: product.contraindications },
     { title: "Especificaciones", content: specifications },
     { title: "Deportes y usos recomendados", content: product.sportsUses || [] }
-  ];
+  ].map(normalizeSection).filter(hasSectionContent);
+  const accordionItems = customAccordionItems.length
+    ? customAccordionItems
+    : isBoutiqueProduct(product)
+      ? getBoutiqueSections(product)
+      : technicalAccordionItems;
 
   const goToPrevious = () => {
     setActiveSlide((current) => (current - 1 + galleryProducts.length) % galleryProducts.length);

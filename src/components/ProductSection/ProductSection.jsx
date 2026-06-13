@@ -155,7 +155,7 @@ const shopLines = [
     text: "Fidgets, puzzles y squishies para pensar, enfocarse y jugar mientras entrena su mente.",
     button: "Descubrir línea",
     href: "#gimnasia-mental",
-    image: "/images/mental-gymnastics.jpg",
+    image: "/images/mental-boutique-focus.png",
     alt: "Recurso sensorial pastel para concentración y motricidad fina",
     tone: "mind"
   },
@@ -543,7 +543,7 @@ function BoutiqueModal({ item, type, onClose }) {
 
   useEffect(() => {
     setActiveImage(0);
-    setOpenAccordion("Lo que te va a encantar");
+    setOpenAccordion("");
   }, [item]);
 
   if (!item) return null;
@@ -554,7 +554,17 @@ function BoutiqueModal({ item, type, onClose }) {
   const whatsappLabel = `Hola, quiero informacion sobre ${displayName} PRFCT10.`;
   const categoryLabel = item.modalCategory || (isMental ? "Gimnasia Mental" : type === "wear" ? "Ropa y Mallas" : "Coqueteria PRFCT10");
   const badges = item.chips || [categoryLabel, "PRFCT10"];
-  const accordionItems = isMental
+  const customAccordionItems = item.modalSections?.length
+    ? item.modalSections
+        .map((section) => ({
+          ...section,
+          content: Array.isArray(section.content) ? section.content : [section.content]
+        }))
+        .filter((accordionItem) => accordionItem.title && accordionItem.content.some(Boolean))
+    : [];
+  const accordionItems = customAccordionItems.length
+    ? customAccordionItems
+    : isMental
     ? [
         { title: "Lo que te va a encantar", content: [item.description] },
         { title: "Cómo se usa", content: [item.howToUse] },
@@ -564,13 +574,9 @@ function BoutiqueModal({ item, type, onClose }) {
       ]
     : [
         { title: "Lo que te va a encantar", content: item.loveList || [item.commercialDescription || item.description] },
-        ...(item.colors ? [{ title: "Colores disponibles", content: [item.colors] }] : []),
-        ...(item.howToUse ? [{ title: "Modo de uso", content: [item.howToUse] }] : []),
-        ...(item.age ? [{ title: "Edad recomendada", content: [item.age] }] : []),
-        ...(item.purpose ? [{ title: "Finalidad", content: [item.purpose] }] : []),
-        ...(item.gymnastics ? [{ title: "Importancia para la gimnasia", content: [item.gymnastics] }] : []),
-        { title: "Ideal para", content: [item.idealFor] },
-        { title: "Por que les encanta", content: [item.why] }
+        { title: "Colores disponibles", content: [item.colors || "Segun disponibilidad"] },
+        { title: "Ideal para", content: [item.idealFor || "Regalos, competencias, detalles de equipo y bolsitas sorpresa."] },
+        { title: "Por que les encanta", content: [item.why || "Porque se siente personal, especial y muy de gimnasta."] }
       ].filter((accordionItem) => accordionItem.content.some(Boolean));
 
   return (

@@ -35,6 +35,7 @@ export default function ProductCard({ product, onSelectProduct }) {
   const price = getPriceDisplay(localizedProduct);
   const availability = getAvailabilityState(localizedProduct);
   const badges = getProductBadges(localizedProduct);
+  const showAvailability = ["low-stock", "coming-soon", "unavailable"].includes(availability.tone);
   const productImage = localizedProduct.image || localizedProduct.galleryImages?.[0] || productImageByClass[localizedProduct.imageClass];
   const localizedPrice = price.current === "Price on request" ? t("product.priceOnRequest") : price.current;
 
@@ -65,12 +66,14 @@ export default function ProductCard({ product, onSelectProduct }) {
             {badges.map((badge) => <span key={badge}>{t(`badges.${badge.toLowerCase()}`)}</span>)}
           </span>
         ) : null}
-        <span className="product-card__content">
+        <span className={`product-card__content${showAvailability ? " product-card__content--status" : ""}`}>
           <span className="product-card__category">{productCategory}</span>
           <span className="product-card__name" itemProp="name">{productName}</span>
-          <span className={`product-card__availability product-card__availability--${availability.tone}`}>
-            {t(availability.labelKey, availability.labelParams)}
-          </span>
+          {showAvailability ? (
+            <span className={`product-card__availability product-card__availability--${availability.tone}`}>
+              {t(availability.labelKey, availability.labelParams)}
+            </span>
+          ) : null}
           <span className="product-card__commerce">
             {price.onSale ? (
               <>

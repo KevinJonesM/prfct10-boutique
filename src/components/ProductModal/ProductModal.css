@@ -236,7 +236,7 @@
   gap: 8px;
   font-family: var(--heading);
   font-size: 1.35rem;
-  font-weight: 950;
+  font-weight: 900;
   letter-spacing: 0.02em;
   margin: 0;
 }
@@ -302,7 +302,7 @@
   color: #ffffff;
   font-family: var(--heading);
   font-size: 0.62rem;
-  font-weight: 950;
+  font-weight: 900;
   letter-spacing: 0.08em;
   padding: 7px 10px;
   text-transform: uppercase;
@@ -485,7 +485,7 @@
   display: inline-flex;
   font-family: var(--heading);
   font-size: 0.8rem;
-  font-weight: 950;
+  font-weight: 900;
   justify-content: center;
   letter-spacing: 0.04em;
   min-height: 54px;
@@ -535,7 +535,7 @@
 .product-modal__trust span::before {
   color: #43a58e;
   content: "\2713";
-  font-weight: 950;
+  font-weight: 900;
   margin-right: 8px;
 }
 
@@ -567,7 +567,7 @@
   display: flex;
   font-family: var(--heading);
   font-size: 0.94rem;
-  font-weight: 950;
+  font-weight: 900;
   justify-content: space-between;
   letter-spacing: 0.02em;
   min-height: 58px;

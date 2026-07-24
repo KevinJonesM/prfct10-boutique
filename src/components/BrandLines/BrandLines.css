@@ -100,7 +100,7 @@
   color: var(--magenta);
   font-family: var(--heading);
   font-size: 0.72rem;
-  font-weight: 950;
+  font-weight: 900;
   letter-spacing: 0.2em;
   margin: 0;
   text-transform: uppercase;
@@ -110,7 +110,7 @@
   color: var(--dark-text);
   font-family: var(--heading);
   font-size: clamp(3.2rem, 6vw, 6.4rem);
-  font-weight: 950;
+  font-weight: 900;
   letter-spacing: 0;
   line-height: 0.9;
   margin: 18px 0;

@@ -58,7 +58,7 @@
   color: #fff9f5;
   font-family: var(--heading);
   font-size: clamp(3rem, 6vw, 6rem);
-  font-weight: 950;
+  font-weight: 900;
   letter-spacing: 0.04em;
   line-height: 0.95;
   margin: 0 auto;
@@ -119,7 +119,7 @@
 .social-cta__link strong {
   color: var(--magenta);
   font-size: 0.9rem;
-  font-weight: 950;
+  font-weight: 900;
   letter-spacing: 0.04em;
 }
 

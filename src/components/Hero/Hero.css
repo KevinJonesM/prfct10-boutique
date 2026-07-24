@@ -45,40 +45,10 @@
   }
 }
 
-.hero::before {
-  background:
-    radial-gradient(circle at 78% 24%, rgba(247, 182, 200, 0.4), transparent 24%),
-    radial-gradient(circle at 82% 70%, rgba(191, 221, 246, 0.32), transparent 28%),
-    radial-gradient(circle at 22% 18%, rgba(216, 199, 243, 0.42), transparent 26%);
-  content: "";
-  filter: blur(12px);
-  inset: -8%;
-  opacity: 0.34;
-  pointer-events: none;
-  position: absolute;
-  z-index: 1;
-}
-
 .hero__overlay {
   background:
     linear-gradient(90deg, rgba(255, 249, 245, 0.92) 0%, rgba(255, 249, 245, 0.7) 34%, rgba(255, 249, 245, 0.2) 62%, rgba(249, 215, 226, 0.08) 100%),
-    linear-gradient(180deg, rgba(255, 249, 245, 0.02) 0%, rgba(255, 249, 245, 0.52) 100%),
-    radial-gradient(circle at 66% 42%, rgba(228, 90, 155, 0.1), transparent 20%);
-  inset: 0;
-  pointer-events: none;
-  position: absolute;
-  z-index: 1;
-}
-
-.hero::after {
-  background-image:
-    radial-gradient(circle, rgba(228, 90, 155, 0.72) 0 2px, transparent 2.5px),
-    radial-gradient(circle, rgba(191, 232, 216, 0.92) 0 2px, transparent 2.5px),
-    linear-gradient(135deg, transparent 0 48%, rgba(255, 255, 255, 0.48) 49% 51%, transparent 52%);
-  background-position: 8% 28%, 92% 34%, 0 0;
-  background-repeat: no-repeat;
-  background-size: 18px 18px, 20px 20px, 100% 100%;
-  content: "";
+    linear-gradient(180deg, rgba(255, 249, 245, 0.02) 0%, rgba(255, 249, 245, 0.52) 100%);
   inset: 0;
   pointer-events: none;
   position: absolute;
@@ -301,7 +271,7 @@
 @media (max-width: 768px) {
   .hero {
     min-height: 620px;
-    padding: 132px 28px 48px;
+    padding: 96px 28px 48px;
     text-align: left;
   }
 
@@ -327,7 +297,7 @@
 @media (max-width: 600px) {
   .hero {
     min-height: 600px;
-    padding: 122px 20px 42px;
+    padding: 90px 20px 42px;
     text-align: center;
   }
 

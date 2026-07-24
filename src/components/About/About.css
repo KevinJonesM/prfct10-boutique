@@ -31,7 +31,7 @@
   color: rgb(92, 84, 80);
   font-family: var(--heading);
   font-size: clamp(3rem, 5.2vw, 5rem);
-  font-weight: 950;
+  font-weight: 900;
   letter-spacing: 0;
   line-height: 0.98;
   margin: 0 0 28px;

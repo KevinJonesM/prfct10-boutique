@@ -17,6 +17,16 @@
   --magenta: #e45a9b;
   --line: rgba(92, 84, 80, 0.13);
   --shadow-soft: 0 22px 60px rgba(188, 112, 146, 0.2);
+  --shadow-card: 0 12px 30px rgba(34, 31, 32, 0.065);
+  --shadow-card-hover: 0 18px 40px rgba(34, 31, 32, 0.11);
+  --radius-card: 16px;
+  --radius-panel: 24px;
+  --radius-pill: 999px;
+  --space-section-desktop: 96px;
+  --space-section-tablet: 72px;
+  --space-section-mobile: 56px;
+  --cta-primary: var(--magenta);
+  --cta-primary-hover: #d93f8c;
   --heading: "Nunito Sans", "Aptos Display", "Segoe UI Variable Display", "Segoe UI", Arial, Helvetica, sans-serif;
   --body: "Nunito Sans", "Aptos", "Segoe UI", Arial, Helvetica, sans-serif;
 }
@@ -181,7 +191,7 @@ button {
   color: var(--magenta);
   font-family: var(--heading);
   font-size: 0.74rem;
-  font-weight: 950;
+  font-weight: 900;
   letter-spacing: 0.16em;
   margin: 0 0 10px;
   text-transform: uppercase;
@@ -191,7 +201,7 @@ button {
   color: var(--dark-text);
   font-family: var(--heading);
   font-size: clamp(2.8rem, 5.2vw, 5.8rem);
-  font-weight: 950;
+  font-weight: 900;
   letter-spacing: 0;
   line-height: 0.9;
   margin: 0;
@@ -298,7 +308,7 @@ button {
   color: var(--magenta);
   font-family: var(--heading);
   font-size: 0.58rem;
-  font-weight: 950;
+  font-weight: 900;
   letter-spacing: 0.08em;
   padding: 7px 9px;
   text-transform: uppercase;
@@ -316,7 +326,7 @@ button {
   color: var(--magenta);
   font-family: var(--heading);
   font-size: 0.68rem;
-  font-weight: 950;
+  font-weight: 900;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
@@ -325,7 +335,7 @@ button {
   color: var(--dark-text);
   font-family: var(--heading);
   font-size: 1.2rem;
-  font-weight: 950;
+  font-weight: 900;
   line-height: 1.05;
   margin: 0;
   text-transform: uppercase;
@@ -368,7 +378,7 @@ button {
   color: var(--dark-text);
   font-family: var(--heading);
   font-size: 1rem;
-  font-weight: 950;
+  font-weight: 900;
   letter-spacing: 0.02em;
   white-space: nowrap;
 }
@@ -385,7 +395,7 @@ button {
   border-radius: 999px;
   font-family: var(--heading);
   font-size: 0.74rem;
-  font-weight: 950;
+  font-weight: 900;
   letter-spacing: 0.05em;
   min-height: 40px;
   padding: 0 15px;
@@ -476,7 +486,7 @@ button {
   color: var(--magenta);
   font-family: var(--heading);
   font-size: 0.72rem;
-  font-weight: 950;
+  font-weight: 900;
   letter-spacing: 0.16em;
   margin: 0 0 10px;
   text-transform: uppercase;
@@ -640,7 +650,7 @@ button {
   color: var(--magenta);
   font-family: var(--heading);
   font-size: 0.74rem;
-  font-weight: 950;
+  font-weight: 900;
   letter-spacing: 0.16em;
   margin: 0 0 8px;
   text-transform: uppercase;
@@ -688,7 +698,7 @@ button {
   color: #171818;
   font-family: var(--heading);
   font-size: 1.05rem;
-  font-weight: 950;
+  font-weight: 900;
   margin: 0;
 }
 
@@ -716,7 +726,7 @@ button {
   color: var(--dark-text);
   font-family: var(--heading);
   font-size: 1.05rem;
-  font-weight: 950;
+  font-weight: 900;
 }
 
 .cart-auth--signed span {
@@ -738,7 +748,7 @@ button {
   color: #756963;
   font-family: var(--heading);
   font-size: 0.72rem;
-  font-weight: 950;
+  font-weight: 900;
   min-height: 36px;
   text-transform: uppercase;
   transition: background 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease;
@@ -759,7 +769,7 @@ button {
   color: #ffffff;
   font-family: var(--heading);
   font-size: 0.74rem;
-  font-weight: 950;
+  font-weight: 900;
   justify-self: start;
   min-height: 40px;
   padding: 0 16px;
@@ -779,7 +789,7 @@ button {
   display: grid;
   font-family: var(--heading);
   font-size: 0.72rem;
-  font-weight: 950;
+  font-weight: 900;
   gap: 6px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -869,7 +879,7 @@ button {
 .cart-item__price {
   color: var(--magenta);
   font-family: var(--heading);
-  font-weight: 950;
+  font-weight: 900;
 }
 
 .cart-item__qty {
@@ -886,7 +896,7 @@ button {
   border: 0;
   color: #171818;
   font-family: var(--heading);
-  font-weight: 950;
+  font-weight: 900;
   height: 100%;
 }
 
@@ -917,7 +927,7 @@ button {
   color: var(--magenta);
   cursor: pointer;
   font-family: var(--heading);
-  font-weight: 950;
+  font-weight: 900;
   padding: 0;
   text-transform: uppercase;
 }
@@ -980,7 +990,7 @@ button {
   border-radius: 6px;
   font-family: var(--heading);
   font-size: 0.76rem;
-  font-weight: 950;
+  font-weight: 900;
   letter-spacing: 0.04em;
   min-height: 42px;
   padding: 0 14px;
@@ -1015,7 +1025,7 @@ button {
   cursor: pointer;
   font-family: var(--heading);
   font-size: 1.05rem;
-  font-weight: 950;
+  font-weight: 900;
 }
 
 .cart-summary {
@@ -1187,7 +1197,7 @@ button {
   color: var(--magenta);
   font-family: var(--heading);
   font-size: 0.68rem;
-  font-weight: 950;
+  font-weight: 900;
   letter-spacing: 0.14em;
   margin: 0 0 7px;
   text-transform: uppercase;
@@ -1208,7 +1218,7 @@ button {
   border-radius: 50%;
   color: #171818;
   font-family: var(--heading);
-  font-weight: 950;
+  font-weight: 900;
   height: 38px;
   transition: background 180ms ease, color 180ms ease, transform 180ms ease;
   width: 38px;
@@ -1263,7 +1273,7 @@ button {
 .cart-drawer__rec strong {
   color: #171818;
   font-family: var(--heading);
-  font-weight: 950;
+  font-weight: 900;
   line-height: 1.08;
   text-transform: uppercase;
 }
@@ -1280,7 +1290,7 @@ button {
 .cart-drawer__item em {
   color: var(--magenta);
   font-style: normal;
-  font-weight: 950;
+  font-weight: 900;
 }
 
 .cart-drawer__items {
@@ -1319,7 +1329,7 @@ button {
   border: 0;
   color: #171818;
   font-family: var(--heading);
-  font-weight: 950;
+  font-weight: 900;
 }
 
 .cart-drawer__qty button:hover {
@@ -1329,7 +1339,7 @@ button {
 .cart-drawer__qty span {
   align-self: center;
   color: #171818;
-  font-weight: 950;
+  font-weight: 900;
   text-align: center;
 }
 
@@ -1372,7 +1382,7 @@ button {
   border-radius: 999px;
   font-family: var(--heading);
   font-size: 0.72rem;
-  font-weight: 950;
+  font-weight: 900;
   letter-spacing: 0.05em;
   min-height: 38px;
   padding: 0 14px;
@@ -1413,7 +1423,7 @@ button {
   color: #756963;
   font-family: var(--heading);
   font-size: 0.75rem;
-  font-weight: 950;
+  font-weight: 900;
   text-transform: uppercase;
 }
 
@@ -1421,7 +1431,7 @@ button {
   color: #171818;
   font-family: var(--heading);
   font-size: 1.15rem;
-  font-weight: 950;
+  font-weight: 900;
 }
 
 .cart-drawer__summary p {

@@ -78,7 +78,7 @@
   display: block;
   font-family: var(--heading);
   font-size: 0.72rem;
-  font-weight: 950;
+  font-weight: 900;
   letter-spacing: 0.16em;
   margin-bottom: 12px;
   text-transform: uppercase;
@@ -89,7 +89,7 @@
   display: block;
   font-family: var(--heading);
   font-size: clamp(1.8rem, 5vw, 2.55rem);
-  font-weight: 950;
+  font-weight: 900;
   letter-spacing: 0;
   line-height: 0.98;
 }
@@ -118,7 +118,7 @@
   color: var(--gray-text);
   font-family: var(--heading);
   font-size: 0.78rem;
-  font-weight: 950;
+  font-weight: 900;
   min-height: 42px;
   text-transform: uppercase;
   transition: background 170ms ease, color 170ms ease, transform 170ms ease;
@@ -136,7 +136,7 @@
   border-radius: 999px;
   display: inline-flex;
   font-family: var(--heading);
-  font-weight: 950;
+  font-weight: 900;
   justify-content: center;
   min-height: 48px;
   transition: transform 170ms ease, box-shadow 170ms ease, border-color 170ms ease;
@@ -195,7 +195,7 @@
   display: grid;
   font-family: var(--heading);
   font-size: 0.76rem;
-  font-weight: 950;
+  font-weight: 900;
   gap: 7px;
   letter-spacing: 0.06em;
   text-transform: uppercase;

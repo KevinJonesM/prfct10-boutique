@@ -32,7 +32,9 @@ import { localizeProduct } from "./i18n/productTranslations";
 import { localizeOptionValue } from "./i18n/catalogOptions";
 import { formatCommercePrice, getMaxPurchasableQuantity, getPriceDisplay } from "./utils/commerce";
 import { createWhatsAppMessageLink } from "./utils/whatsapp";
+import { assistedCommerceConfig, customerAccountsVisible } from "./config/commercePrototype";
 
+// TODO Shopify: Source complementary products from Shopify Search & Discovery.
 const smartSuggestions = [
   {
     id: "sweat-wristbands",
@@ -243,8 +245,11 @@ function CartSection({ items, authUser, onOpenLogin, onOpenBoutique, onAddToCart
   const itemCount = items.reduce((total, item) => total + item.quantity, 0);
   const subtotal = items.reduce((total, item) => total + (typeof item.price === "number" ? item.price * item.quantity : 0), 0);
   const hasPriceOnRequest = items.some((item) => typeof item.price !== "number");
-  const discount = promoApplied ? Math.round(subtotal * 0.1) : 0;
-  const shipping = subtotal >= 75 || subtotal === 0 ? 0 : 5;
+  const discount = promoApplied ? Math.round(subtotal * assistedCommerceConfig.discountRate) : 0;
+  const discountPercent = Math.round(assistedCommerceConfig.discountRate * 100);
+  const shipping = subtotal >= assistedCommerceConfig.freeShippingThreshold || subtotal === 0
+    ? 0
+    : assistedCommerceConfig.shippingFlatRate;
   const total = Math.max(0, subtotal - discount + shipping);
   const accountEmail = authUser?.email || account.email;
   const cartIds = items.map((item) => item.id || item.key.split("::")[0]);
@@ -258,7 +263,7 @@ function CartSection({ items, authUser, onOpenLogin, onOpenBoutique, onAddToCart
 
   const applyPromo = () => {
     const normalizedCode = promoCode.trim().toUpperCase();
-    setPromoApplied(["PRFCT10", "PERFECT10", "GYM10"].includes(normalizedCode) ? normalizedCode : "");
+    setPromoApplied(assistedCommerceConfig.promoCodes.includes(normalizedCode) ? normalizedCode : "");
   };
 
   const onSubmitOrderRequest = (event) => {
@@ -293,7 +298,7 @@ function CartSection({ items, authUser, onOpenLogin, onOpenBoutique, onAddToCart
 
         <div className="cart-section__layout">
           <div className="cart-section__main">
-            <section className="cart-panel cart-panel--account" aria-label={t("navigation.account")}>
+            {customerAccountsVisible ? <section className="cart-panel cart-panel--account" aria-label={t("navigation.account")}>
               <div className="cart-panel__title">
                 <h3>{authUser ? t("cart.active") : t(authMode === "signin" ? "cart.have" : "cart.create")}</h3>
                 <p>{authUser ? t("cart.shoppingAs", { email: authUser.email }) : t("cart.accountText")}</p>
@@ -338,7 +343,7 @@ function CartSection({ items, authUser, onOpenLogin, onOpenBoutique, onAddToCart
                   </button>
                 </div>
               )}
-            </section>
+            </section> : null}
 
             <section className="cart-panel" aria-label={t("cart.items")}>
               {items.length ? (
@@ -411,14 +416,14 @@ function CartSection({ items, authUser, onOpenLogin, onOpenBoutique, onAddToCart
 
           <aside className="cart-summary" aria-label={t("cart.summary")}>
             <div className="cart-summary__meter">
-              <span style={{ width: `${Math.min(100, (subtotal / 75) * 100)}%` }} />
+              <span style={{ width: `${Math.min(100, (subtotal / assistedCommerceConfig.freeShippingThreshold) * 100)}%` }} />
             </div>
             <p className="cart-summary__shipping">
               {hasPriceOnRequest
                 ? t("cart.trackedCalculated")
-                : subtotal >= 75
+                : subtotal >= assistedCommerceConfig.freeShippingThreshold
                   ? t("cart.freeUnlocked")
-                  : t("cart.freeMore", { amount: formatMoney(Math.max(0, 75 - subtotal)) })}
+                  : t("cart.freeMore", { amount: formatMoney(Math.max(0, assistedCommerceConfig.freeShippingThreshold - subtotal)) })}
             </p>
 
             <form className="cart-checkout" onSubmit={onSubmitOrderRequest}>
@@ -464,7 +469,7 @@ function CartSection({ items, authUser, onOpenLogin, onOpenBoutique, onAddToCart
                 </label>
                 <button type="button" onClick={applyPromo}>{t("cart.apply")}</button>
               </div>
-              {promoApplied && <p className="cart-promo__success">{t("cart.discount")}: 10% ({promoApplied})</p>}
+              {promoApplied && <p className="cart-promo__success">{t("cart.discount")}: {discountPercent}% ({promoApplied})</p>}
 
               <div className="cart-summary__lines">
                 <div><span>{hasPriceOnRequest ? t("cart.knownSubtotal") : t("cart.subtotal", { count: itemCount })}</span><strong>{formatMoney(subtotal)}</strong></div>
@@ -709,42 +714,15 @@ const storePathByView = {
 };
 
 const pageSeoByView = {
-  home: {
-    title: "PRFCT10 | Gymnastics Gear, Accessories & Apparel",
-    description: "Shop PRFCT10 gymnastics training gear, accessories, Mind Gym favorites, and lifestyle apparel, plus custom team services."
-  },
-  all: {
-    title: "Shop All Gymnastics Products | PRFCT10",
-    description: "Browse PRFCT10 training gear, gymnastics accessories, Mind Gym products, and lifestyle apparel in one collection."
-  },
-  training: {
-    title: "Gymnastics Training Gear | PRFCT10",
-    description: "Shop gymnastics grips, wrist support, flexibility tools, strength essentials, and recovery accessories from PRFCT10."
-  },
-  coquette: {
-    title: "Gymnastics Accessories | PRFCT10",
-    description: "Shop PRFCT10 gymnastics bows, jewelry, bags, meet-day sparkle, organization, and thoughtful gifts."
-  },
-  mind: {
-    title: "Mind Gym Puzzles & Sensory Favorites | PRFCT10",
-    description: "Explore PRFCT10 Mind Gym puzzles, fidgets, sensory favorites, and playful challenges for curious gymnasts."
-  },
-  wear: {
-    title: "Gymnastics-Inspired Apparel | PRFCT10",
-    description: "Discover PRFCT10 tees, hoodies, shorts, and gymnastics-inspired lifestyle apparel for practice days and off days."
-  },
-  team: {
-    title: "Custom Team Leotards & Gymnastics Teamwear | PRFCT10 TEAM",
-    description: "Start a guided PRFCT10 TEAM quote for custom competition or training leotards designed around your program."
-  },
-  search: {
-    title: "Search PRFCT10 Products",
-    description: "Search the PRFCT10 consumer catalog across training gear, accessories, Mind Gym, and apparel."
-  },
-  cart: {
-    title: "Your PRFCT10 Bag",
-    description: "Review your selected PRFCT10 products and continue through assisted ordering support."
-  }
+  home: "home",
+  all: "shop",
+  training: "training",
+  coquette: "accessories",
+  mind: "mind",
+  wear: "apparel",
+  team: "team",
+  search: "search",
+  cart: "cart"
 };
 
 function getSearchFromLocation() {
@@ -786,7 +764,11 @@ export default function App() {
   ].map((product) => localizeProduct(product, locale));
 
   useEffect(() => {
-    const seo = pageSeoByView[activeView] || pageSeoByView.home;
+    const seoKey = pageSeoByView[activeView] || pageSeoByView.home;
+    const seo = {
+      title: t(`seo.${seoKey}.title`),
+      description: t(`seo.${seoKey}.description`)
+    };
     const canonicalPath = activeView === "search"
       ? storePathByView.all
       : storePathByView[activeView] || "/";
@@ -801,6 +783,7 @@ export default function App() {
     let canonical = document.querySelector('link[rel="canonical"]');
     const openGraphTitle = document.querySelector('meta[property="og:title"]');
     const openGraphDescription = document.querySelector('meta[property="og:description"]');
+    const openGraphLocale = document.querySelector('meta[property="og:locale"]');
     let openGraphUrl = document.querySelector('meta[property="og:url"]');
 
     description?.setAttribute("content", seo.description);
@@ -813,6 +796,7 @@ export default function App() {
     canonical.setAttribute("href", canonicalUrl);
     openGraphTitle?.setAttribute("content", seo.title);
     openGraphDescription?.setAttribute("content", seo.description);
+    openGraphLocale?.setAttribute("content", locale === "es" ? "es_US" : "en_US");
 
     if (!openGraphUrl) {
       openGraphUrl = document.createElement("meta");
@@ -820,7 +804,8 @@ export default function App() {
       document.head.append(openGraphUrl);
     }
     openGraphUrl.setAttribute("content", canonicalUrl);
-  }, [activeView, locale]);
+    // TODO Shopify Markets: Add locale alternates/hreflang when market routes exist.
+  }, [activeView, locale, t]);
 
   useEffect(() => {
     const handleHistoryChange = () => {
@@ -1076,7 +1061,9 @@ export default function App() {
         onQuantityChange={updateCartQuantity}
         onRemove={removeCartItem}
       />
-      <AuthModal isOpen={isAuthOpen} onClose={() => setIsAuthOpen(false)} onAuthSuccess={setAuthUser} />
+      {customerAccountsVisible ? (
+        <AuthModal isOpen={isAuthOpen} onClose={() => setIsAuthOpen(false)} onAuthSuccess={setAuthUser} />
+      ) : null}
       <NewsletterExperience enabled={activeView === "home"} />
       <GuidedFinder
         isOpen={isFinderOpen}

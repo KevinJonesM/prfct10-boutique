@@ -71,7 +71,7 @@
 .prfct-code__title {
   font-family: var(--heading);
   font-size: clamp(3.4rem, 6.4vw, 7rem);
-  font-weight: 950;
+  font-weight: 900;
   letter-spacing: 0.03em;
   line-height: 0.92;
   margin: 0;

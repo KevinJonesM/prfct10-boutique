@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./Header.css";
 import OptimizedImage from "../OptimizedImage/OptimizedImage";
 import { useI18n } from "../../i18n/I18nProvider";
+import { customerAccountsVisible } from "../../config/commercePrototype";
 
 const departmentLinks = [
   { labelKey: "navigation.trainingGear", view: "training", href: "/training-gear", tone: "training" },
@@ -25,12 +26,14 @@ export default function Header({
   const { locale, setLocale, t } = useI18n();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isShopOpen, setIsShopOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   useEffect(() => {
     const closeMenuOnEscape = (event) => {
       if (event.key === "Escape") {
         setIsMenuOpen(false);
         setIsShopOpen(false);
+        setIsSearchOpen(false);
       }
     };
 
@@ -42,6 +45,7 @@ export default function Header({
     event.preventDefault();
     setIsMenuOpen(false);
     setIsShopOpen(false);
+    setIsSearchOpen(false);
     onNavigateStore?.(target);
   };
 
@@ -49,6 +53,7 @@ export default function Header({
     event.preventDefault();
     setIsMenuOpen(false);
     setIsShopOpen(false);
+    setIsSearchOpen(false);
     onOpenBoutique?.(view);
   };
 
@@ -56,6 +61,7 @@ export default function Header({
     event.preventDefault();
     setIsMenuOpen(false);
     setIsShopOpen(false);
+    setIsSearchOpen(false);
     onOpenTeam?.("#team-page-title");
   };
 
@@ -125,9 +131,21 @@ export default function Header({
           >
             {t("navigation.team")}
           </a>
+          {customerAccountsVisible ? (
+            <button
+              type="button"
+              className="header__mobile-account"
+              onClick={() => {
+                setIsMenuOpen(false);
+                onOpenLogin();
+              }}
+            >
+              {authUser ? t("navigation.greeting", { name: authUser.name }) : t("navigation.account")}
+            </button>
+          ) : null}
         </nav>
 
-        <label className="header__search" htmlFor="site-search">
+        <label className={`header__search${isSearchOpen ? " header__search--open" : ""}`} htmlFor="site-search">
           <span>{t("navigation.search")}</span>
           <input
             id="site-search"
@@ -139,14 +157,28 @@ export default function Header({
         </label>
 
         <div className="header__actions">
+          <button
+            className="header__search-toggle"
+            type="button"
+            aria-expanded={isSearchOpen}
+            aria-controls="site-search"
+            onClick={() => {
+              setIsSearchOpen((current) => !current);
+              setIsMenuOpen(false);
+            }}
+          >
+            {t("navigation.search")}
+          </button>
           <div className="header__language" role="group" aria-label={t("language.label")}>
             <button type="button" aria-pressed={locale === "en"} onClick={() => setLocale("en")}>EN</button>
             <span aria-hidden="true">/</span>
             <button type="button" aria-pressed={locale === "es"} onClick={() => setLocale("es")}>ES</button>
           </div>
-          <button className="header__login" type="button" onClick={onOpenLogin}>
-            {authUser ? t("navigation.greeting", { name: authUser.name }) : t("navigation.account")}
-          </button>
+          {customerAccountsVisible ? (
+            <button className="header__login" type="button" onClick={onOpenLogin}>
+              {authUser ? t("navigation.greeting", { name: authUser.name }) : t("navigation.account")}
+            </button>
+          ) : null}
           <button className="header__cart" type="button" onClick={onOpenCart} aria-label={t("navigation.bagLabel", { count: cartCount })}>
             {t("navigation.bag")} <span>{cartCount}</span>
           </button>

@@ -36,7 +36,7 @@
   color: var(--dark-text);
   font-family: var(--heading);
   font-size: clamp(2.8rem, 5vw, 5rem);
-  font-weight: 950;
+  font-weight: 900;
   letter-spacing: 0;
   line-height: 0.95;
   margin: 0 auto;

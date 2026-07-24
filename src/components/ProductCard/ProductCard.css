@@ -9,7 +9,7 @@
   background: #ffffff;
   border: 1px solid rgba(34, 31, 32, 0.06);
   border-radius: 16px;
-  box-shadow: 0 16px 42px rgba(34, 31, 32, 0.08);
+  box-shadow: var(--shadow-card);
   color: var(--dark-text);
   display: grid;
   grid-template-rows: 226px 170px;
@@ -25,7 +25,7 @@
 .product-card__button:hover,
 .product-card__button:focus-visible {
   border-color: var(--category-border, rgba(228, 90, 155, 0.26));
-  box-shadow: 0 24px 58px var(--category-shadow, rgba(34, 31, 32, 0.14));
+  box-shadow: var(--shadow-card-hover);
   outline: none;
   transform: translateY(-4px);
 }
@@ -164,14 +164,22 @@
   grid-template-areas:
     "category category"
     "name name"
-    "availability availability"
     "commerce details";
   grid-template-columns: 1fr auto;
-  grid-template-rows: 14px minmax(42px, 1fr) 24px 30px;
+  grid-template-rows: 14px minmax(42px, 1fr) 30px;
   height: 170px;
   min-height: 170px;
   padding: 14px 16px 12px;
   position: relative;
+}
+
+.product-card__content--status {
+  grid-template-areas:
+    "category category"
+    "name name"
+    "availability availability"
+    "commerce details";
+  grid-template-rows: 14px minmax(42px, 1fr) 24px 30px;
 }
 
 .product-card__badges {
@@ -192,7 +200,7 @@
   color: var(--category-primary-strong, var(--magenta));
   font-family: var(--heading);
   font-size: 0.56rem;
-  font-weight: 950;
+  font-weight: 900;
   letter-spacing: 0.08em;
   padding: 7px 9px;
   text-transform: uppercase;
@@ -287,7 +295,7 @@
   color: var(--category-primary-strong, var(--magenta));
   font-family: var(--heading);
   font-size: 0.92rem;
-  font-weight: 950;
+  font-weight: 900;
 }
 
 .product-card__regular-price {

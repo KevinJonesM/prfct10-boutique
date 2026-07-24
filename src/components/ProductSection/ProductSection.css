@@ -270,8 +270,8 @@
 .products__hero-media::after {
   animation: prfct-banner-glow 12s ease-in-out infinite alternate;
   background:
-    radial-gradient(circle at 12% 20%, rgba(191, 232, 216, 0.28), transparent 26%),
-    radial-gradient(circle at 88% 16%, rgba(228, 90, 155, 0.18), transparent 24%);
+    radial-gradient(circle at 12% 20%, rgba(191, 232, 216, 0.18), transparent 26%),
+    radial-gradient(circle at 88% 16%, rgba(228, 90, 155, 0.12), transparent 24%);
   content: "";
   inset: 0;
   pointer-events: none;
@@ -331,54 +331,54 @@
 
 .products__hero--training .products__hero-overlay {
   background:
-    radial-gradient(circle at 0% 62%, rgba(255, 255, 255, 0.34), transparent 30%),
+    radial-gradient(circle at 0% 62%, rgba(255, 255, 255, 0.22), transparent 30%),
     linear-gradient(90deg, rgba(16, 15, 15, 0.7) 0%, rgba(16, 15, 15, 0.46) 36%, rgba(16, 15, 15, 0.18) 68%, rgba(16, 15, 15, 0.08) 100%),
     linear-gradient(180deg, rgba(16, 15, 15, 0.18) 0%, rgba(16, 15, 15, 0.02) 48%, rgba(16, 15, 15, 0.28) 100%);
 }
 
 .products__hero--training .products__hero-media::after {
   background:
-    radial-gradient(circle at 10% 70%, rgba(255, 255, 255, 0.32) 0%, transparent 28%),
-    radial-gradient(circle at 84% 18%, rgba(155, 228, 214, 0.16) 0%, transparent 26%);
+    radial-gradient(circle at 10% 70%, rgba(255, 255, 255, 0.21) 0%, transparent 28%),
+    radial-gradient(circle at 84% 18%, rgba(155, 228, 214, 0.1) 0%, transparent 26%);
 }
 
 .products__hero--coquette .products__hero-media::after {
   background:
-    radial-gradient(circle at 12% 70%, rgba(255, 79, 154, 0.34) 0%, transparent 30%),
-    radial-gradient(circle at 84% 18%, rgba(248, 196, 218, 0.22) 0%, transparent 26%);
+    radial-gradient(circle at 12% 70%, rgba(255, 79, 154, 0.22) 0%, transparent 30%),
+    radial-gradient(circle at 84% 18%, rgba(248, 196, 218, 0.14) 0%, transparent 26%);
 }
 
 .products__hero--mind .products__hero-media::after {
   background:
-    radial-gradient(circle at 10% 68%, rgba(104, 191, 239, 0.34) 0%, transparent 30%),
-    radial-gradient(circle at 84% 18%, rgba(205, 238, 255, 0.22) 0%, transparent 26%);
+    radial-gradient(circle at 10% 68%, rgba(104, 191, 239, 0.22) 0%, transparent 30%),
+    radial-gradient(circle at 84% 18%, rgba(205, 238, 255, 0.14) 0%, transparent 26%);
 }
 
 .products__hero--wear .products__hero-media::after {
   background:
-    radial-gradient(circle at 10% 68%, rgba(131, 221, 199, 0.3) 0%, transparent 30%),
-    radial-gradient(circle at 84% 18%, rgba(228, 90, 155, 0.14) 0%, transparent 26%);
+    radial-gradient(circle at 10% 68%, rgba(131, 221, 199, 0.2) 0%, transparent 30%),
+    radial-gradient(circle at 84% 18%, rgba(228, 90, 155, 0.09) 0%, transparent 26%);
 }
 
 .products__hero--coquette .products__hero-overlay {
   background:
-    radial-gradient(circle at 0% 52%, rgba(228, 90, 155, 0.28), transparent 30%),
-    radial-gradient(circle at 84% 18%, rgba(191, 232, 216, 0.16), transparent 24%),
+    radial-gradient(circle at 0% 52%, rgba(228, 90, 155, 0.18), transparent 30%),
+    radial-gradient(circle at 84% 18%, rgba(191, 232, 216, 0.1), transparent 24%),
     linear-gradient(90deg, rgba(24, 21, 22, 0.64) 0%, rgba(24, 21, 22, 0.42) 34%, rgba(24, 21, 22, 0.16) 66%, rgba(24, 21, 22, 0.04) 100%),
     linear-gradient(180deg, rgba(24, 21, 22, 0.1) 0%, rgba(24, 21, 22, 0.02) 52%, rgba(24, 21, 22, 0.24) 100%);
 }
 
 .products__hero--mind .products__hero-overlay {
   background:
-    radial-gradient(circle at 8% 58%, rgba(104, 191, 239, 0.34), transparent 30%),
-    radial-gradient(circle at 76% 20%, rgba(205, 238, 255, 0.24), transparent 24%),
+    radial-gradient(circle at 8% 58%, rgba(104, 191, 239, 0.22), transparent 30%),
+    radial-gradient(circle at 76% 20%, rgba(205, 238, 255, 0.15), transparent 24%),
     linear-gradient(90deg, rgba(24, 21, 22, 0.58) 0%, rgba(24, 21, 22, 0.38) 36%, rgba(24, 21, 22, 0.13) 70%, rgba(24, 21, 22, 0.02) 100%),
     linear-gradient(180deg, rgba(24, 21, 22, 0.06) 0%, rgba(24, 21, 22, 0.02) 52%, rgba(24, 21, 22, 0.22) 100%);
 }
 
 .products__hero--wear .products__hero-overlay {
   background:
-    radial-gradient(circle at 5% 58%, rgba(131, 221, 199, 0.28), transparent 28%),
+    radial-gradient(circle at 5% 58%, rgba(131, 221, 199, 0.18), transparent 28%),
     linear-gradient(90deg, rgba(18, 15, 17, 0.7) 0%, rgba(18, 15, 17, 0.42) 34%, rgba(18, 15, 17, 0.12) 68%, rgba(18, 15, 17, 0.02) 100%),
     linear-gradient(180deg, rgba(18, 15, 17, 0.04) 0%, rgba(18, 15, 17, 0.02) 54%, rgba(18, 15, 17, 0.18) 100%);
 }
@@ -422,7 +422,7 @@
   display: inline-grid;
   font-family: var(--heading);
   font-size: clamp(2.8rem, 4.7vw, 4.7rem);
-  font-weight: 950;
+  font-weight: 900;
   letter-spacing: 0;
   line-height: 0.98;
   margin: 0;
@@ -465,7 +465,7 @@
   display: inline-block;
   font-family: var(--heading);
   font-size: clamp(2.8rem, 4.8vw, 4.9rem);
-  font-weight: 1000;
+  font-weight: 900;
   letter-spacing: 0;
   line-height: 0.9;
   text-shadow: 3px 4px 0 var(--hero-title-offset);
@@ -552,7 +552,7 @@
   display: inline-flex;
   font-family: var(--heading);
   font-size: 0.78rem;
-  font-weight: 950;
+  font-weight: 900;
   gap: 10px;
   letter-spacing: 0.08em;
   margin-top: 28px;
@@ -595,7 +595,7 @@
   color: var(--category-primary-strong);
   font-family: var(--heading);
   font-size: 0.72rem;
-  font-weight: 950;
+  font-weight: 900;
   letter-spacing: 0.16em;
   margin: 0 0 10px;
   text-transform: uppercase;
@@ -605,7 +605,7 @@
   color: var(--dark-text);
   font-family: var(--heading);
   font-size: clamp(2.2rem, 3.5vw, 3.8rem);
-  font-weight: 950;
+  font-weight: 900;
   letter-spacing: 0;
   line-height: 0.94;
   margin: 0;
@@ -618,7 +618,7 @@
 .products--wear .shop-lines__intro h2 {
   color: var(--category-heading);
   font-size: clamp(2.7rem, 4.2vw, 4.6rem);
-  font-weight: 1000;
+  font-weight: 900;
 }
 
 .products--coquette .shop-lines__intro p {
@@ -668,7 +668,7 @@
   color: var(--category-heading);
   font-family: var(--heading);
   font-size: 0.7rem;
-  font-weight: 950;
+  font-weight: 900;
   letter-spacing: 0.07em;
   text-transform: uppercase;
 }
@@ -689,7 +689,7 @@
   color: var(--magenta);
   font-family: var(--heading);
   font-size: 0.66rem;
-  font-weight: 950;
+  font-weight: 900;
   letter-spacing: 0.14em;
   margin: 0 0 7px;
   text-transform: uppercase;
@@ -699,7 +699,7 @@
   color: #4f4743;
   font-family: var(--heading);
   font-size: 1.25rem;
-  font-weight: 950;
+  font-weight: 900;
   line-height: 1.05;
   margin: 0;
   text-transform: uppercase;
@@ -927,7 +927,7 @@
   color: var(--dark-text);
   font-family: var(--heading);
   font-size: clamp(2rem, 3vw, 3rem);
-  font-weight: 950;
+  font-weight: 900;
   line-height: 1;
   margin: 0;
   text-shadow: none;
@@ -1176,7 +1176,7 @@
   color: var(--magenta);
   font-family: var(--heading);
   font-size: 0.72rem;
-  font-weight: 950;
+  font-weight: 900;
   letter-spacing: 0.16em;
   margin: 0 0 10px;
   text-transform: uppercase;
@@ -1260,7 +1260,7 @@
   color: var(--dark-text);
   font-family: var(--heading);
   font-size: 0.76rem;
-  font-weight: 950;
+  font-weight: 900;
   letter-spacing: 0.06em;
   min-height: 44px;
   padding: 0 18px;
@@ -1335,7 +1335,7 @@
   background: #ffffff;
   border: 1px solid rgba(34, 31, 32, 0.06);
   border-radius: 16px;
-  box-shadow: 0 16px 42px rgba(34, 31, 32, 0.08);
+  box-shadow: var(--shadow-card);
   color: var(--dark-text);
   cursor: pointer;
   display: grid;
@@ -1354,7 +1354,7 @@
 .collection-strip__card:hover,
 .collection-strip__card:focus-within {
   border-color: var(--category-border);
-  box-shadow: 0 24px 58px var(--category-shadow);
+  box-shadow: var(--shadow-card-hover);
   transform: translateY(-4px);
 }
 
@@ -1449,7 +1449,7 @@
   color: var(--category-primary-strong);
   font-family: var(--heading);
   font-size: 0.56rem;
-  font-weight: 950;
+  font-weight: 900;
   letter-spacing: 0.08em;
   padding: 7px 9px;
   text-transform: uppercase;
@@ -1565,7 +1565,7 @@
   color: var(--category-primary-strong);
   font-family: var(--heading);
   font-size: 0.92rem;
-  font-weight: 950;
+  font-weight: 900;
 }
 
 .collection-strip__price small {

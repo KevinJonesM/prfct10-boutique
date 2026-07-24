@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import OptimizedImage from "../../../OptimizedImage/OptimizedImage";
+import useModalScrollLock from "../../../../utils/useModalScrollLock";
 
 export default function BoutiqueModal({ item, type, onClose, onAddToCart }) {
   const [activeImage, setActiveImage] = useState(0);
   const [openAccordion, setOpenAccordion] = useState("What you'll love");
+  useModalScrollLock(Boolean(item));
 
   useEffect(() => {
     if (!item) return undefined;
@@ -12,11 +15,9 @@ export default function BoutiqueModal({ item, type, onClose, onAddToCart }) {
       if (event.key === "Escape") onClose();
     };
 
-    document.body.style.overflow = "hidden";
     window.addEventListener("keydown", onKeyDown);
 
     return () => {
-      document.body.style.overflow = "";
       window.removeEventListener("keydown", onKeyDown);
     };
   }, [item, onClose]);
@@ -58,7 +59,7 @@ export default function BoutiqueModal({ item, type, onClose, onAddToCart }) {
         { title: "Why they love it", content: [item.why || "Porque se siente personal, especial y muy de gimnasta."] }
       ].filter((accordionItem) => accordionItem.content.some(Boolean));
 
-  return (
+  return createPortal(
     <div className="product-modal" role="dialog" aria-modal="true" aria-labelledby="boutique-modal-title">
       <button className="product-modal__overlay" onClick={onClose} type="button" aria-label="Close details" />
       <div className="product-modal__dialog">
@@ -156,6 +157,7 @@ export default function BoutiqueModal({ item, type, onClose, onAddToCart }) {
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }

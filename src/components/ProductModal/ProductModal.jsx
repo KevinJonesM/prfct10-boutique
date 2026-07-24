@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { defaultFaqs, defaultModeOfUse } from "../../data/products";
 import { getAvailabilityState, getPriceDisplay, getProductBadges } from "../../utils/commerce";
+import useModalScrollLock from "../../utils/useModalScrollLock";
 import { createWhatsAppLink } from "../../utils/whatsapp";
 import ProductReviews, { ProductReviewSummary } from "../Reviews/ProductReviews";
 import OptimizedImage from "../OptimizedImage/OptimizedImage";
@@ -151,6 +153,7 @@ export default function ProductModal({ product: sourceProduct, onClose, onAddToC
   const [selectedOptions, setSelectedOptions] = useState({});
   const dialogRef = useRef(null);
   const closeButtonRef = useRef(null);
+  useModalScrollLock(Boolean(product));
 
   const galleryProducts = useMemo(() => {
     if (!product) return [];
@@ -179,8 +182,6 @@ export default function ProductModal({ product: sourceProduct, onClose, onAddToC
     if (!product) return undefined;
 
     const previousFocus = document.activeElement;
-    const previousOverflow = document.body.style.overflow;
-
     const onKeyDown = (event) => {
       if (event.key === "Escape") {
         event.preventDefault();
@@ -209,12 +210,10 @@ export default function ProductModal({ product: sourceProduct, onClose, onAddToC
       }
     };
 
-    document.body.style.overflow = "hidden";
     window.requestAnimationFrame(() => closeButtonRef.current?.focus());
     window.addEventListener("keydown", onKeyDown);
 
     return () => {
-      document.body.style.overflow = previousOverflow;
       window.removeEventListener("keydown", onKeyDown);
       previousFocus?.focus?.();
     };
@@ -259,7 +258,7 @@ export default function ProductModal({ product: sourceProduct, onClose, onAddToC
     setActiveSlide((current) => (current + 1) % galleryProducts.length);
   };
 
-  return (
+  return createPortal(
     <div className="product-modal" role="dialog" aria-modal="true" aria-labelledby="product-modal-title" aria-describedby="product-modal-description">
       <button className="product-modal__overlay" onClick={onClose} aria-label={t("modal.close")} type="button" />
       <div className="product-modal__dialog" ref={dialogRef}>
@@ -432,6 +431,7 @@ export default function ProductModal({ product: sourceProduct, onClose, onAddToC
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }

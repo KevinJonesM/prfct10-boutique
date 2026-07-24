@@ -69,7 +69,7 @@ export default function ProductCard({ product, onSelectProduct }) {
           <span className="product-card__category">{productCategory}</span>
           <span className="product-card__name" itemProp="name">{productName}</span>
           <span className={`product-card__availability product-card__availability--${availability.tone}`}>
-            {t(availability.labelKey)}
+            {t(availability.labelKey, availability.labelParams)}
           </span>
           <span className="product-card__commerce">
             {price.onSale ? (

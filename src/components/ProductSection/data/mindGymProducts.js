@@ -1,4 +1,5 @@
 import { makeVariants } from "./catalogUtils";
+import { bundleProducts } from "./bundleProducts";
 
 const mentalItems = [
   {
@@ -132,9 +133,10 @@ const mentalProductUpdates = {
     cardKicker: "Puzzles",
     price: 9.99,
     salePrice: 7.99,
-    inventoryStatus: "historical_unverified",
-    historicalQuantity: 200,
-    availableQuantity: null,
+    inventoryStatus: "stored-inventory",
+    purchasedQty: 200,
+    stockTotal: 200,
+    inventoryVerified: true,
     description: "12-hole rainbow puzzle ball with movable colored pieces for focus, patience, and hand coordination."
   },
   "Rueda Mental": {
@@ -145,9 +147,11 @@ const mentalProductUpdates = {
     cardKicker: "Puzzles",
     price: 12.99,
     salePrice: 9.99,
-    inventoryStatus: "historical_unverified",
-    historicalQuantity: 180,
-    availableQuantity: null,
+    inventoryStatus: "stored-inventory",
+    purchasedQty: 180,
+    stockTotal: 180,
+    inventoryVerified: true,
+    variants: makeVariants("Color", ["Blue"], { Blue: 180 }),
     description: "A rotating tactile puzzle designed around finger movement, coordination, and concentration."
   },
   "Giro Puzzle": {
@@ -158,10 +162,12 @@ const mentalProductUpdates = {
     cardKicker: "Puzzles",
     price: 12.99,
     salePrice: 9.99,
-    inventoryStatus: "historical_unverified",
-    historicalQuantity: 180,
-    availableQuantity: null,
+    inventoryStatus: "stored-inventory",
+    purchasedQty: 180,
+    stockTotal: 180,
+    inventoryVerified: true,
     availableColors: "White, Blue, Pink",
+    variants: makeVariants("Color", ["White", "Blue", "Pink"]).map((variant) => ({ ...variant, status: "allocation-pending" })),
     description: "A colorful rotating bean puzzle for problem-solving, calm focus, and fine motor practice."
   },
   "Squishy Dumpling": {
@@ -172,22 +178,33 @@ const mentalProductUpdates = {
     price: 9.99,
     salePrice: 7.99,
     inventoryStatus: "confirmed",
+    status: "available",
+    inventoryVerified: true,
+    purchasedQty: 36,
+    stockTotal: 36,
     availableQuantity: 36,
     variants: makeVariants("Color", ["Pink", "Purple", "Yellow", "Blue"], { Pink: 12, Purple: 12, Yellow: 6, Blue: 6 }),
     description: "A soft squishy for squeezing, releasing tension, and supporting calm breaks."
   },
   "Pulseras Unicornio": {
     id: "mental-pulseras-unicornio",
-    name: "Unicorn Stretchy Set",
+    name: "Unicorn Stretch String",
     subcategory: "sensory",
     group: "Sensory",
     cardKicker: "Sensory",
     price: 9.99,
     salePrice: 7.99,
-    inventoryStatus: "historical_unverified",
-    historicalQuantity: 1200,
+    inventoryStatus: "stored-inventory",
+    purchasedQty: 1200,
+    purchaseUnit: "piece",
+    sellUnit: "set-of-6",
+    unitsPerSale: 6,
+    stockTotal: 1200,
+    commercialStockTotal: null,
+    inventoryVerified: true,
     availableQuantity: null,
     availableColors: "Included colors: Yellow, Aqua, Lilac, Hot Pink, Pink, Baby Blue",
+    variants: makeVariants("Color", ["Yellow", "Aqua", "Lilac", "Hot Pink", "Pink", "Baby Blue"]).map((variant) => ({ ...variant, status: "allocation-pending" })),
     description: "A coordinated six-color stretchy sensory set for busy hands, waiting turns, and reset moments."
   },
   "Pelota Squishy": {
@@ -198,27 +215,36 @@ const mentalProductUpdates = {
     cardKicker: "Sensory",
     price: 4.99,
     salePrice: 3.99,
-    inventoryStatus: "historical_unverified",
-    historicalQuantity: 576,
-    availableQuantity: null,
+    inventoryStatus: "stored-inventory",
+    purchasedQty: 576,
+    stockTotal: 576,
+    inventoryVerified: true,
     description: "A multicolor squishy stress ball with colorful beads inside for tactile release and hand awareness."
   },
   "Puzzle Mágico": {
     id: "mental-puzzle-magico",
-    name: "Circle Puzzle Toy",
+    name: "Puzzle Cube Ball",
     subcategory: "puzzles",
     group: "Puzzles",
     cardKicker: "Puzzles",
     price: 9.99,
     salePrice: 7.99,
-    inventoryStatus: "historical_unverified",
-    historicalQuantity: 1200,
-    availableQuantity: null,
+    inventoryStatus: "stored-inventory",
+    purchasedQty: 1200,
+    stockTotal: 1200,
+    inventoryVerified: true,
+    variants: makeVariants("Color", ["Pastel Yellow", "Pastel Pink", "Pastel Blue", "Red", "Blue"], {
+      "Pastel Yellow": 240,
+      "Pastel Pink": 240,
+      "Pastel Blue": 240,
+      Red: 240,
+      Blue: 240
+    }),
     description: "A colorful tactile fidget puzzle for calm problem-solving and focused breaks."
   }
 };
 
-const publicMentalItems = mentalItems.map((item) => {
+const publicMentalItems = [...mentalItems.map((item) => {
   const update = mentalProductUpdates[item.name] || {};
   return {
     ...item,
@@ -226,8 +252,8 @@ const publicMentalItems = mentalItems.map((item) => {
     previousName: update.name ? item.name : item.previousName,
     modalCategory: "Mind Gym",
     chips: [...new Set([...(item.chips || []), update.group || item.group, "Mind Gym"])],
-    stockVerificationRequired: update.inventoryStatus === "historical_unverified"
+    stockVerificationRequired: false
   };
-});
+}), ...bundleProducts.filter((item) => item.id === "bundle-mind-gym-mystery")];
 
 export { publicMentalItems };

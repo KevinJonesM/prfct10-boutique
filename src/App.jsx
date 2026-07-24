@@ -24,12 +24,13 @@ import OptimizedImage from "./components/OptimizedImage/OptimizedImage";
 import ProductCard from "./components/ProductCard/ProductCard";
 import { coquetteItems } from "./components/ProductSection/data/accessoryProducts";
 import { publicMentalItems } from "./components/ProductSection/data/mindGymProducts";
+import { getBundleInventoryConsumption } from "./components/ProductSection/data/bundleProducts";
 import { enrichCatalogProduct } from "./components/ProductSection/data/catalogUtils";
 import { getTrainingProductForModal, trainingInventory, trainingSubcategories } from "./components/ProductSection/data/trainingProducts";
 import { useI18n } from "./i18n/I18nProvider";
 import { localizeProduct } from "./i18n/productTranslations";
 import { localizeOptionValue } from "./i18n/catalogOptions";
-import { formatCommercePrice, getPriceDisplay } from "./utils/commerce";
+import { formatCommercePrice, getMaxPurchasableQuantity, getPriceDisplay } from "./utils/commerce";
 import { createWhatsAppMessageLink } from "./utils/whatsapp";
 
 const smartSuggestions = [
@@ -59,6 +60,78 @@ const smartSuggestions = [
     salePrice: 9.99,
     image: "/images/product-hand-balm-cover.png",
     triggerIds: ["bar-grips", "chalk", "sweat-wristbands", "tiger-paws"]
+  },
+  {
+    id: "coquet-bun-covers",
+    name: "Gymnastics Bun Covers",
+    subcategory: "hairAccessories",
+    price: 7.99,
+    salePrice: 6.99,
+    image: "/images/accessories-gymnastics-bun-covers-cover.png",
+    triggerIds: ["coquet-lazos-tul", "coquet-nylon-headbands"]
+  },
+  {
+    id: "coquet-nylon-headbands",
+    name: "Nylon Headbands",
+    subcategory: "hairAccessories",
+    price: 5.99,
+    salePrice: 4.99,
+    image: "/images/accessories-nylon-headbands-cover.png",
+    triggerIds: ["coquet-lazos-tul", "coquet-bun-covers"]
+  },
+  {
+    id: "coquet-glitter-spray",
+    name: "Glitter Spray",
+    subcategory: "competition",
+    price: 11.99,
+    salePrice: 9.99,
+    image: "/images/coquet-spray.png",
+    triggerIds: ["coquet-lazos-tul", "coquet-garment-bag"]
+  },
+  {
+    id: "coquet-garment-bag",
+    name: "Gymnastics Garment Bag",
+    subcategory: "gymBags",
+    price: 24.99,
+    salePrice: 19.99,
+    image: "/images/coquet-guardapolvos.png",
+    triggerIds: ["coquet-silicone-bag", "apparel-period-brief"]
+  },
+  {
+    id: "coquet-silicone-bag",
+    name: "PRFCT10 Silicone Charm Bag",
+    subcategory: "gymBags",
+    price: 34.99,
+    salePrice: 29.99,
+    image: "/images/accessories-silicone-charm-bag-cover.png",
+    triggerIds: ["coquet-garment-bag", "coquet-lazos-tul"]
+  },
+  {
+    id: "coquet-plush-flowers",
+    name: "Plush Flowers",
+    subcategory: "gifts",
+    price: 16.99,
+    salePrice: 14.99,
+    image: "/images/coquet-peluflores.png",
+    triggerIds: ["coquet-medal-hanger"]
+  },
+  {
+    id: "mental-pelota-squishy",
+    name: "DNA Squishy Ball",
+    subcategory: "sensory",
+    price: 4.99,
+    salePrice: 3.99,
+    image: "/images/mental-pelota-squishy-portada.png",
+    triggerIds: ["mental-bolita-puzzle", "mental-rueda-mental", "mental-giro-puzzle", "mental-puzzle-magico"]
+  },
+  {
+    id: "mental-bolita-puzzle",
+    name: "Rainbow Puzzle Ball",
+    subcategory: "puzzles",
+    price: 9.99,
+    salePrice: 7.99,
+    image: "/images/mental-bolita-puzzle-portada.png",
+    triggerIds: ["mental-pelota-squishy", "mental-pulseras-unicornio"]
   }
 ];
 
@@ -69,7 +142,7 @@ const fallbackProductImages = {
   "flex-strap-12": "/images/product-flex-strap.png"
 };
 
-function getProductName(item) {
+function getProductName(item, locale) {
   const baseName = item.modalName || item.brandName || item.name;
   const options = Object.values(item.selectedOptions || {}).filter(Boolean).map((value) => localizeOptionValue(locale, value));
   return options.length ? `${baseName} - ${options.join(" / ")}` : baseName;
@@ -79,6 +152,59 @@ function getProductKey(item) {
   const baseKey = item.id || item.name || item.modalName;
   const variantKey = item.selectedVariant?.sku || Object.values(item.selectedOptions || {}).filter(Boolean).join("-");
   return variantKey ? `${baseKey}::${variantKey}` : baseKey;
+}
+
+const inventoryCatalog = new Map([
+  ...products
+    .filter((product) => trainingInventory[product.id])
+    .map((product) => getTrainingProductForModal(product)),
+  ...coquetteItems,
+  ...publicMentalItems
+].map((product) => [product.id, product]));
+
+function getReservedComponentQuantity(items, productId, excludedKey = "") {
+  return items.reduce((total, item) => {
+    if (item.key === excludedKey) return total;
+    const directQuantity = item.id === productId ? item.quantity : 0;
+    const bundledQuantity = (item.inventoryConsumption || [])
+      .filter((component) => component.productId === productId)
+      .reduce((sum, component) => sum + component.quantity, 0);
+    return total + directQuantity + bundledQuantity;
+  }, 0);
+}
+
+function getCartStockLimit(item, items, excludedKey = "") {
+  const directLimit = getMaxPurchasableQuantity(item, item.selectedVariant);
+  if (!item.bundleComponents?.length) {
+    if (typeof directLimit !== "number") return null;
+    const bundledReservations = items.reduce((total, cartItem) => {
+      if (cartItem.key === excludedKey) return total;
+      return total + (cartItem.inventoryConsumption || [])
+        .filter((component) => component.productId === item.id)
+        .reduce((sum, component) => sum + component.quantity, 0);
+    }, 0);
+    return Math.max(0, directLimit - bundledReservations);
+  }
+
+  const componentLimits = item.bundleComponents.map((component) => {
+    const componentProduct = inventoryCatalog.get(component.productId);
+    const componentStock = getMaxPurchasableQuantity(componentProduct || {});
+    if (typeof componentStock !== "number") return null;
+    const reserved = getReservedComponentQuantity(items, component.productId, excludedKey);
+    return Math.max(0, Math.floor((componentStock - reserved) / component.quantity));
+  }).filter((limit) => typeof limit === "number");
+
+  const componentLimit = componentLimits.length ? Math.min(...componentLimits) : null;
+  if (typeof directLimit === "number" && typeof componentLimit === "number") return Math.min(directLimit, componentLimit);
+  return typeof componentLimit === "number" ? componentLimit : directLimit;
+}
+
+function hydrateSmartSuggestion(suggestion) {
+  return {
+    ...suggestion,
+    ...(inventoryCatalog.get(suggestion.id) || {}),
+    triggerIds: suggestion.triggerIds
+  };
 }
 
 function getCartPrice(item) {
@@ -126,7 +252,7 @@ function CartSection({ items, authUser, onOpenLogin, onOpenBoutique, onAddToCart
     const alreadyInCart = cartIds.includes(suggestion.id);
     const triggered = suggestion.triggerIds.some((id) => cartIds.includes(id));
     return !alreadyInCart && (triggered || items.length === 0);
-  }).map((suggestion) => localizeProduct(suggestion, locale));
+  }).map((suggestion) => localizeProduct(hydrateSmartSuggestion(suggestion), locale));
   const localizedItems = items.map((item) => getLocalizedCartItem(item, locale, t));
   const canRequestOrder = items.length > 0;
 
@@ -228,7 +354,11 @@ function CartSection({ items, authUser, onOpenLogin, onOpenBoutique, onAddToCart
                       <div className="cart-item__qty" aria-label={t("modal.quantity", { quantity: item.quantity })}>
                         <button type="button" onClick={() => onQuantityChange(item.key, item.quantity - 1)}>-</button>
                         <span>{item.quantity}</span>
-                        <button type="button" onClick={() => onQuantityChange(item.key, item.quantity + 1)}>+</button>
+                        <button
+                          type="button"
+                          disabled={typeof item.maxQuantity === "number" && item.quantity >= item.maxQuantity}
+                          onClick={() => onQuantityChange(item.key, item.quantity + 1)}
+                        >+</button>
                       </div>
                       <button className="cart-item__remove" type="button" onClick={() => onRemove(item.key)}>
                         {t("common.remove")}
@@ -377,7 +507,7 @@ function CartDrawer({
     const alreadyInCart = cartIds.includes(suggestion.id);
     const triggered = suggestion.triggerIds.some((id) => cartIds.includes(id));
     return !alreadyInCart && (triggered || items.length === 0);
-  }).map((suggestion) => localizeProduct(suggestion, locale));
+  }).map((suggestion) => localizeProduct(hydrateSmartSuggestion(suggestion), locale));
   const localizedItems = items.map((item) => getLocalizedCartItem(item, locale, t));
   const localizedLastAddedItem = lastAddedItem ? getLocalizedCartItem(lastAddedItem, locale, t) : null;
 
@@ -434,7 +564,11 @@ function CartDrawer({
               <div className="cart-drawer__qty" aria-label={t("modal.quantity", { quantity: item.quantity })}>
                 <button type="button" onClick={() => onQuantityChange(item.key, item.quantity - 1)}>-</button>
                 <span>{item.quantity}</span>
-                <button type="button" onClick={() => onQuantityChange(item.key, item.quantity + 1)}>+</button>
+                <button
+                  type="button"
+                  disabled={typeof item.maxQuantity === "number" && item.quantity >= item.maxQuantity}
+                  onClick={() => onQuantityChange(item.key, item.quantity + 1)}
+                >+</button>
               </div>
               <button className="cart-drawer__remove" type="button" onClick={() => onRemove(item.key)}>
                 {t("common.remove")}
@@ -711,25 +845,42 @@ export default function App() {
   const addToCart = (item, quantity = 1) => {
     const key = getProductKey(item);
     const image = item.image || item.gallery?.[0] || item.galleryImages?.[0] || fallbackProductImages[key] || "";
-    const safeQuantity = Math.max(1, Number(quantity) || 1);
+    const requestedQuantity = Math.max(1, Number(quantity) || 1);
+    const existingItem = cartItems.find((cartItem) => cartItem.key === key);
+    const maxQuantity = getCartStockLimit(item, cartItems, key);
+    const existingQuantity = existingItem?.quantity || 0;
+    const targetQuantity = typeof maxQuantity === "number"
+      ? Math.min(maxQuantity, existingQuantity + requestedQuantity)
+      : existingQuantity + requestedQuantity;
+    const safeQuantity = targetQuantity - existingQuantity;
+    if (safeQuantity < 1) return;
     const cartItem = {
       key,
       id: item.id,
-      name: getProductName(item),
+      name: getProductName(item, locale),
       canonicalName: item.canonicalName || item.name,
       subcategory: item.subcategory,
       selectedOptions: item.selectedOptions,
       category: item.category || item.modalCategory || item.group,
       image,
       price: getCartPrice(item),
-      quantity: safeQuantity
+      quantity: targetQuantity,
+      maxQuantity,
+      bundleComponents: item.bundleComponents,
+      inventoryConsumption: getBundleInventoryConsumption(item, targetQuantity)
     };
 
     setCartItems((currentItems) => {
-      const existingItem = currentItems.find((cartItem) => cartItem.key === key);
       if (existingItem) {
         return currentItems.map((cartItem) =>
-          cartItem.key === key ? { ...cartItem, quantity: cartItem.quantity + safeQuantity } : cartItem
+          cartItem.key === key
+            ? {
+                ...cartItem,
+                quantity: targetQuantity,
+                maxQuantity,
+                inventoryConsumption: getBundleInventoryConsumption(cartItem, targetQuantity)
+              }
+            : cartItem
         );
       }
 
@@ -751,7 +902,17 @@ export default function App() {
       return;
     }
 
-    setCartItems((currentItems) => currentItems.map((item) => (item.key === key ? { ...item, quantity } : item)));
+    setCartItems((currentItems) => currentItems.map((item) => {
+      if (item.key !== key) return item;
+      const maxQuantity = getCartStockLimit(item, currentItems, key);
+      const safeQuantity = typeof maxQuantity === "number" ? Math.min(maxQuantity, quantity) : quantity;
+      return {
+        ...item,
+        quantity: safeQuantity,
+        maxQuantity,
+        inventoryConsumption: getBundleInventoryConsumption(item, safeQuantity)
+      };
+    }));
   };
 
   const removeCartItem = (key) => {

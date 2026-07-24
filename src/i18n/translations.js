@@ -12,16 +12,16 @@ const en = {
     noProductsHelp: "Try another filter or search term. PRFCT10 support can also help you find the right item.",
     priceOnRequest: "Price on request", fromPrice: "From {price}"
   },
-  badges: { bestseller: "Bestseller", sale: "Sale", new: "New", limited: "Limited" },
+  badges: { bestseller: "Bestseller", sale: "Sale", new: "New", limited: "Limited", vault: "Vault" },
   availability: {
-    unavailable: "Unavailable", arrivingSoon: "Arriving soon", comingSoon: "Coming soon", inStock: "In stock",
-    confirmedBeforePayment: "Availability confirmed before payment"
+    unavailable: "Unavailable", soldOut: "Sold out", arrivingSoon: "Arriving soon", comingSoon: "Coming soon", inStock: "In stock",
+    onlyLeft: "Only {quantity} left", vaultDrop: "Vault drop", confirmedBeforePayment: "Availability confirmed before payment"
   },
   categories: {
     grip: "Grip", support: "Support", flexibility: "Flexibility", strength: "Strength", recovery: "Recovery",
     competition: "Competition", hairAccessories: "Hair Accessories", jewelry: "Jewelry", gymBags: "Gym Bags",
     gifts: "Gifts", sensory: "Sensory", puzzles: "Puzzles", tees: "Tees", croppedTees: "Cropped Tees",
-    tanks: "Tanks", hoodiesSweaters: "Hoodies & Sweaters", shorts: "Shorts", periodUnderwear: "Period Underwear"
+    tanks: "Tanks", hoodiesSweaters: "Hoodies & Sweaters", shorts: "Shorts", periodUnderwear: "Period Underwear", bundles: "Bundles"
   },
   filters: {
     all: "All", allDepartments: "All Departments", necklaces: "Necklaces", bracelets: "Bracelets",
@@ -118,16 +118,16 @@ const es = {
     noProductsHelp: "Prueba otro filtro o término de búsqueda. El equipo PRFCT10 también puede ayudarte.",
     priceOnRequest: "Precio a consultar", fromPrice: "Desde {price}"
   },
-  badges: { bestseller: "Más vendido", sale: "Oferta", new: "Nuevo", limited: "Limitado" },
+  badges: { bestseller: "Más vendido", sale: "Oferta", new: "Nuevo", limited: "Limitado", vault: "Bóveda" },
   availability: {
-    unavailable: "No disponible", arrivingSoon: "Próximamente", comingSoon: "Próximamente", inStock: "Disponible",
-    confirmedBeforePayment: "Disponibilidad confirmada antes del pago"
+    unavailable: "No disponible", soldOut: "Agotado", arrivingSoon: "Próximamente", comingSoon: "Próximamente", inStock: "Disponible",
+    onlyLeft: "Solo quedan {quantity}", vaultDrop: "Edición de bóveda", confirmedBeforePayment: "Disponibilidad confirmada antes del pago"
   },
   categories: {
     grip: "Agarre", support: "Soporte", flexibility: "Flexibilidad", strength: "Fuerza", recovery: "Recuperación",
     competition: "Competencia", hairAccessories: "Accesorios para el cabello", jewelry: "Joyería", gymBags: "Bolsos de gimnasio",
     gifts: "Regalos", sensory: "Sensorial", puzzles: "Puzzles", tees: "Camisetas", croppedTees: "Camisetas cortas",
-    tanks: "Camisetas sin mangas", hoodiesSweaters: "Sudaderas y suéteres", shorts: "Shorts", periodUnderwear: "Ropa interior menstrual"
+    tanks: "Camisetas sin mangas", hoodiesSweaters: "Sudaderas y suéteres", shorts: "Shorts", periodUnderwear: "Ropa interior menstrual", bundles: "Combos"
   },
   filters: {
     all: "Todo", allDepartments: "Todos los departamentos", necklaces: "Collares", bracelets: "Pulseras",

@@ -75,7 +75,11 @@ const trainingInventory = {
     group: "Agarre",
     price: 49.99,
     salePrice: null,
+    purchasedQty: 29,
+    purchaseUnit: "pair",
     stockTotal: 29,
+    status: "available",
+    inventoryVerified: true,
     variants: makeVariants(
       "Size",
       ["XS", "S", "M", "L"],
@@ -97,7 +101,10 @@ const trainingInventory = {
     group: "Soporte",
     price: 19.99,
     salePrice: 16.99,
+    purchasedQty: 25,
     stockTotal: 25,
+    status: "available",
+    inventoryVerified: true,
     variants: makeVariants("Size", ["XS", "S", "M", "L"], {}, { XS: { status: "allocation-pending" }, S: { status: "allocation-pending" }, M: { status: "allocation-pending" }, L: { status: "allocation-pending" } }),
     modalSections: [
       { title: "About this item", content: ["Wrist Guards are the commercial product name. Do not confuse with palm grips or Power Grips."] },
@@ -109,6 +116,8 @@ const trainingInventory = {
     group: "Agarre",
     price: 3.99,
     salePrice: 3.49,
+    purchasedQty: 8,
+    purchaseUnit: "block",
     status: "stock-check-required",
     variants: [
       { options: { Pack: "Single block" }, price: 3.99, salePrice: 3.49, stock: null, sku: "GCB-SINGLE", status: "stock-check-required" },
@@ -124,7 +133,10 @@ const trainingInventory = {
     group: "Soporte",
     price: 12.99,
     salePrice: 10.99,
+    purchasedQty: 100,
     stockTotal: 100,
+    status: "available",
+    inventoryVerified: true,
     oneSize: "One Size",
     variants: []
   },
@@ -133,7 +145,11 @@ const trainingInventory = {
     group: "Soporte",
     price: 9.99,
     salePrice: 8.99,
+    purchasedQty: 120,
     stockTotal: 120,
+    status: "available",
+    inventoryVerified: true,
+    specifications: ["5 cm x 5 m"],
     variants: makeVariants("Color", ["Pink", "Skin", "Light Blue", "Green", "Yellow", "Orange", "Purple", "Black"], {}, {
       Pink: { status: "allocation-pending" },
       Skin: { status: "allocation-pending" },
@@ -150,7 +166,10 @@ const trainingInventory = {
     group: "Soporte",
     price: 34.99,
     salePrice: 29.99,
+    purchasedQty: 12,
     stockTotal: 12,
+    status: "available",
+    inventoryVerified: true,
     oneSize: "One Size",
     variants: []
   },
@@ -159,23 +178,33 @@ const trainingInventory = {
     group: "Flexibilidad",
     price: 12.99,
     salePrice: 9.99,
+    purchasedQty: 100,
     stockTotal: 100,
-    variants: makeVariants("Color", ["Blush Pink", "Sky Blue", "Lilac", "Purple", "Coral Pink"])
+    status: "available",
+    inventoryVerified: true,
+    variants: makeVariants("Color", ["Blush Pink", "Sky Blue", "Lilac", "Purple", "Coral Pink"]).map((variant) => ({ ...variant, status: "allocation-pending" }))
   },
   "resistance-handles": {
     category: "Strength",
     group: "Fuerza",
     price: 12.99,
     salePrice: 9.99,
+    purchasedQty: 20,
     stockTotal: 20,
-    variants: makeVariants("Color", ["Sky Blue", "Pink", "Purple"])
+    status: "available",
+    inventoryVerified: true,
+    variants: makeVariants("Color", ["Sky Blue", "Pink", "Purple"]).map((variant) => ({ ...variant, status: "allocation-pending" }))
   },
   "power-weights": {
     category: "Strength",
     group: "Fuerza",
     price: 24.99,
     salePrice: 19.99,
+    purchasedQty: 30,
+    purchaseUnit: "pair",
     stockTotal: 30,
+    status: "available",
+    inventoryVerified: true,
     variants: [
       { options: { Weight: "0.6 kg per pair", Color: "Pink" }, stock: 7, sku: "AWA-06-PINK" },
       { options: { Weight: "0.6 kg per pair", Color: "Blue" }, stock: 5, sku: "AWA-06-BLUE" },
@@ -190,7 +219,10 @@ const trainingInventory = {
     group: "Soporte",
     price: 14.99,
     salePrice: 12.99,
+    purchasedQty: 30,
     stockTotal: 30,
+    status: "available",
+    inventoryVerified: true,
     variants: makeVariants("Color", ["Gray", "Beige"], { Gray: 10, Beige: 20 }),
     oneSize: "One Size Fits Most"
   },
@@ -199,7 +231,10 @@ const trainingInventory = {
     group: "Soporte",
     price: 14.99,
     salePrice: 12.99,
+    purchasedQty: 24,
     stockTotal: 24,
+    status: "available",
+    inventoryVerified: true,
     variants: makeVariants("Size", ["M", "L", "XL"], { M: 8, L: 12, XL: 4 })
   },
   "sweat-wristbands": {
@@ -207,15 +242,21 @@ const trainingInventory = {
     group: "Soporte",
     price: 8.99,
     salePrice: 7.99,
+    purchasedQty: 100,
     stockTotal: 100,
-    variants: makeVariants("Color", ["Apple Green", "White", "Pink", "Purple", "Orange", "Navy Blue", "Yellow", "Green", "Aqua", "Lilac"])
+    status: "available",
+    inventoryVerified: true,
+    variants: makeVariants("Color", ["Apple Green", "White", "Pink", "Purple", "Orange", "Navy Blue", "Yellow", "Green", "Aqua", "Lilac"]).map((variant) => ({ ...variant, status: "allocation-pending" }))
   },
   "hand-balm": {
     category: "Post-practice care",
     group: "Recuperacion",
     price: 11.99,
     salePrice: 9.99,
+    purchasedQty: 30,
     stockTotal: 30,
+    status: "available",
+    inventoryVerified: true,
     variants: []
   }
 };

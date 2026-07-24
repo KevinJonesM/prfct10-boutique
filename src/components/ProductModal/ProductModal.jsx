@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { defaultFaqs, defaultModeOfUse } from "../../data/products";
-import { getAvailabilityState, getPriceDisplay, getProductBadges } from "../../utils/commerce";
+import { getAvailabilityState, getMaxPurchasableQuantity, getPriceDisplay, getProductBadges } from "../../utils/commerce";
 import useModalScrollLock from "../../utils/useModalScrollLock";
 import { createWhatsAppLink } from "../../utils/whatsapp";
 import ProductReviews, { ProductReviewSummary } from "../Reviews/ProductReviews";
@@ -233,13 +233,14 @@ export default function ProductModal({ product: sourceProduct, onClose, onAddToC
   const price = getPriceDisplay(product, selectedVariant);
   const localizedPrice = price.current === "Price on request" ? t("product.priceOnRequest") : price.current;
   const availability = getAvailabilityState(product, selectedVariant);
+  const maxQuantity = getMaxPurchasableQuantity(product, selectedVariant);
   const productBadges = getProductBadges(product);
   const accordionItems = getDefaultSections(product, quickBenefits, t).map((section) =>
     /inventory|stock/i.test(section.title)
       ? {
           ...section,
           title: t("modal.availability"),
-          content: [t(availability.labelKey), t("modal.exactOptions")]
+          content: [t(availability.labelKey, availability.labelParams), t("modal.exactOptions")]
         }
       : section
   );
@@ -322,7 +323,7 @@ export default function ProductModal({ product: sourceProduct, onClose, onAddToC
                 <strong>{localizedPrice}</strong>
               )}
             </p>
-            <span className={`product-modal__stock product-modal__stock--${availability.tone}`}>{t(availability.labelKey)}</span>
+            <span className={`product-modal__stock product-modal__stock--${availability.tone}`}>{t(availability.labelKey, availability.labelParams)}</span>
             <span>{t("assurances.shipping")}</span>
           </div>
           <ProductReviewSummary productId={product.id} />
@@ -352,7 +353,13 @@ export default function ProductModal({ product: sourceProduct, onClose, onAddToC
                       <button
                         className={selectedOptions[group.name] === value ? "product-modal__variant product-modal__variant--active" : "product-modal__variant"}
                         key={value}
-                        onClick={() => setSelectedOptions((current) => ({ ...current, [group.name]: value }))}
+                        onClick={() => {
+                          const nextOptions = { ...selectedOptions, [group.name]: value };
+                          const nextVariant = findSelectedVariant(product.variants || [], nextOptions);
+                          const nextMax = getMaxPurchasableQuantity(product, nextVariant);
+                          setSelectedOptions(nextOptions);
+                          if (typeof nextMax === "number") setQuantity((current) => Math.max(1, Math.min(current, nextMax)));
+                        }}
                         type="button"
                         aria-pressed={selectedOptions[group.name] === value}
                       >
@@ -386,7 +393,11 @@ export default function ProductModal({ product: sourceProduct, onClose, onAddToC
             <div className="product-modal__quantity" aria-label={t("modal.quantity", { quantity })}>
               <button type="button" disabled={!availability.canAddToCart} onClick={() => setQuantity((current) => Math.max(1, current - 1))}>-</button>
               <span>{quantity}</span>
-              <button type="button" disabled={!availability.canAddToCart} onClick={() => setQuantity((current) => current + 1)}>+</button>
+              <button
+                type="button"
+                disabled={!availability.canAddToCart || (typeof maxQuantity === "number" && quantity >= maxQuantity)}
+                onClick={() => setQuantity((current) => typeof maxQuantity === "number" ? Math.min(maxQuantity, current + 1) : current + 1)}
+              >+</button>
             </div>
             <button
               className="product-modal__cta"
@@ -403,7 +414,7 @@ export default function ProductModal({ product: sourceProduct, onClose, onAddToC
                 onClose();
               }}
             >
-              {availability.canAddToCart ? t("modal.addBag") : t(availability.labelKey)}
+              {availability.canAddToCart ? t("modal.addBag") : t(availability.labelKey, availability.labelParams)}
             </button>
           </div>
 

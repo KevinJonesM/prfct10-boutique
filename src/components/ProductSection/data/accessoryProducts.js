@@ -1,4 +1,5 @@
 import { enrichCatalogProduct, makeVariants } from "./catalogUtils";
+import { bundleProducts } from "./bundleProducts";
 
 const shopLines = [
   {
@@ -428,7 +429,10 @@ const coquetteItemUpdates = {
     salePrice: 14.99,
     group: "Hair Accessories",
     cardKicker: "Hair",
-    variants: makeVariants("Color", ["Hot Pink", "Neon Orange", "Light Pink", "Lavender", "Light Blue", "Aqua Blue", "Light Yellow", "White", "Rainbow", "Red", "Blue", "Black", "Apple Green"], { "Hot Pink": 6, "Neon Orange": 6 }, { Rainbow: { price: 18.99, salePrice: 16.99, stock: null, status: "coming-soon" } }).map((variant) => variant.stock === null && !variant.status ? { ...variant, status: "coming-soon" } : variant),
+    purchasedQty: 12,
+    status: "available",
+    inventoryVerified: true,
+    variants: makeVariants("Color", ["Hot Pink", "Neon Orange", "Light Pink", "Lavender", "Light Blue", "Aqua Blue", "Light Yellow", "White", "Rainbow", "Red", "Blue", "Black", "Apple Green"], { "Hot Pink": 6, "Neon Orange": 6 }, { Rainbow: { price: 18.99, salePrice: 16.99, stock: null, status: "in-production" } }).map((variant) => variant.stock === null && !variant.status ? { ...variant, status: "in-production" } : variant),
     modalSections: [
       { title: "About this item", content: ["One product card with color variants.", "Rainbow has its own regular and sale price."] },
       { title: "Inventory", content: ["Hot Pink - 6 finished bows.", "Neon Orange - 6 finished bows.", "Other colors are in production or coming soon."] }
@@ -454,7 +458,10 @@ const coquetteItemUpdates = {
     ],
     price: 34.99,
     salePrice: 29.99,
+    purchasedQty: 20,
     stockTotal: 20,
+    status: "available",
+    inventoryVerified: true,
     group: "Organization",
     cardKicker: "Organization",
     description: "Soft silicone bag for gym essentials with 12 removable gymnastics charms included.",
@@ -463,7 +470,7 @@ const coquetteItemUpdates = {
       { title: "Included charms", content: ["Comes with 12 gymnastics-themed silicone charms in PRFCT10 pastel colors.", "Designed to personalize the bag and make every gym-day setup feel playful and organized."] },
       { title: "Best for", content: ["Grips, bows, towel, water bottle, recovery extras, and competition-day essentials."] }
     ],
-    variants: makeVariants("Color", ["Light Yellow", "Lilac", "Peach Pink", "Sky Blue", "Blue Lagoon"])
+    variants: makeVariants("Color", ["Light Yellow", "Lilac", "Peach Pink", "Sky Blue", "Blue Lagoon"]).map((variant) => ({ ...variant, status: "allocation-pending" }))
   },
   "Guardapolvos de Gimnasia": { id: "coquet-garment-bag", name: "Gymnastics Garment Bag", subcategory: "gymBags", price: 24.99, salePrice: 19.99, stockTotal: 16, group: "Organization", cardKicker: "Organization", variants: makeVariants("Color", ["Pink", "Purple"], { Pink: 8, Purple: 8 }), specifications: ["Size: 60 x 100 cm"] },
   Amuleto: { id: "coquet-string-charm-bracelet", name: "Gymnastics String Charm Bracelet", subcategory: "jewelry", price: 7.99, salePrice: 6.99, stockTotal: 12, group: "Bracelets", cardKicker: "Bracelets", variants: makeVariants("Color", ["Apple Green", "Turquoise Blue", "Fuchsia"], { "Apple Green": 4, "Turquoise Blue": 4, Fuchsia: 4 }) },
@@ -502,14 +509,24 @@ const coquetteNewItems = [
       "/images/accessories-nylon-headbands-lifestyle-track.png",
       "/images/accessories-nylon-headbands-lifestyle-pastel.png"
     ],
-    description: "Soft nylon headbands for practice, competition hair, and clean team looks.",
-    price: 3.99,
-    salePrice: 3.49,
-    promo: "3 for $9.99",
-    stockTotal: 400,
+    description: "Soft nylon headbands sold as a same-color pair for practice, competition hair, and clean team looks.",
+    price: 5.99,
+    salePrice: 4.99,
+    purchasedQty: 400,
+    purchaseUnit: "piece",
+    sellUnit: "pair",
+    unitsPerSale: 2,
+    stockPieces: 400,
+    stockTotal: 200,
+    status: "available",
+    inventoryVerified: true,
     group: "Hair Accessories",
     cardKicker: "Hair",
-    variants: makeVariants("Color", ["White", "Sky Blue", "Purple", "Orange", "Light Pink", "Pink", "Burgundy", "Fluorescent Green"], { White: 50, "Sky Blue": 50, Purple: 50, Orange: 50, "Light Pink": 50, Pink: 50, Burgundy: 50, "Fluorescent Green": 50 })
+    variants: makeVariants("Color", ["White", "Sky Blue", "Purple", "Orange", "Light Pink", "Pink", "Burgundy", "Fluorescent Green"], { White: 25, "Sky Blue": 25, Purple: 25, Orange: 25, "Light Pink": 25, Pink: 25, Burgundy: 25, "Fluorescent Green": 25 }),
+    modalSections: [
+      { title: "About this item", content: ["Sold as a same-color pair.", "One cart unit equals one pair (two physical headbands)."] },
+      { title: "Inventory", content: ["400 physical pieces purchased.", "200 commercial pairs available: 25 pairs per color."] }
+    ]
   },
   {
     id: "coquet-bun-covers",
@@ -590,17 +607,19 @@ const coquetteNewItems = [
     group: "Competition Look",
     cardKicker: "Competition",
     oneSize: "Adjustable",
-    status: "in-transit",
+    purchasedQty: 12,
+    status: "available",
+    inventoryVerified: true,
     variants: makeVariants("Color", ["Purple", "Pink Blue", "Rose Red", "Pink Green"], { Purple: 3, "Pink Blue": 3, "Rose Red": 3, "Pink Green": 3 })
-  },
-  { id: "coquet-bow-keychain", name: "Rhinestone Bow Keychain", subcategory: "gifts", image: "/images/coquet-bisuteria.png", gallery: ["/images/coquet-bisuteria.png"], description: "Sparkly bow keychain for bags, garment bags, gifts, and team details.", price: 9.99, salePrice: 8.99, stockTotal: 70, group: "Gifts & Details", cardKicker: "Gifts", status: "pending-supplier", variants: [] }
+  }
 ];
 
 const normalizedCoquetteItems = [
   ...rawCoquetteItems
     .filter((item) => !coquetteRemovedNames.has(item.name))
     .map((item) => enrichCatalogProduct(item, coquetteItemUpdates[item.name] || {})),
-  ...coquetteNewItems
+  ...coquetteNewItems,
+  ...bundleProducts.filter((item) => item.id !== "bundle-mind-gym-mystery")
 ];
 
 const coquetteItems = normalizedCoquetteItems.map((item) => {
@@ -608,6 +627,9 @@ const coquetteItems = normalizedCoquetteItems.map((item) => {
   return {
     ...item,
     group,
+    purchasedQty: item.purchasedQty ?? item.stockTotal,
+    status: item.status || (typeof item.stockTotal === "number" ? "available" : item.status),
+    inventoryVerified: item.inventoryVerified ?? (typeof item.stockTotal === "number" && !["in-production", "coming-soon"].includes(item.status)),
     cardKicker: item.cardKicker || group,
     chips: [...new Set([...(item.chips || []), group, "Accessories"])]
   };

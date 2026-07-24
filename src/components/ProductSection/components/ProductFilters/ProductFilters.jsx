@@ -3,7 +3,7 @@ import { useI18n } from "../../../../i18n/I18nProvider";
 
 const mentalDisplayOrder = [
   "Squishy Dumpling", "Rainbow Puzzle Ball", "DNA Squishy Ball", "Magic Finger Cube",
-  "Magic Bean Puzzle", "Unicorn Stretchy Set", "Circle Puzzle Toy"
+  "Magic Bean Puzzle", "Unicorn Stretch String", "Puzzle Cube Ball", "Mind Gym Mystery Bag"
 ];
 
 const mentalFilterTabs = [

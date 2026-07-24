@@ -298,7 +298,8 @@
   font-size: 0.7rem;
   font-weight: 900;
   letter-spacing: 0.07em;
-  padding: 8px 0;
+  min-height: 44px;
+  padding: 8px 4px;
   text-transform: uppercase;
 }
 
@@ -366,6 +367,24 @@
 
   .guided-finder__footer > div {
     gap: 12px;
+  }
+}
+
+@media (max-width: 420px) {
+  .guided-finder__footer {
+    align-items: center;
+    flex-wrap: wrap;
+    padding-bottom: max(12px, env(safe-area-inset-bottom));
+  }
+
+  .guided-finder__footer > div {
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+  }
+
+  .guided-finder__footer .guided-finder__skip {
+    flex: 0 0 auto;
+    margin-left: auto;
   }
 }
 

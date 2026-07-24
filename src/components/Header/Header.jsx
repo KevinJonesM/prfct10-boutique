@@ -91,6 +91,7 @@ export default function Header({
           onClick={() => {
             setIsMenuOpen((current) => !current);
             setIsShopOpen(false);
+            setIsSearchOpen(false);
           }}
         >
           {t("navigation.menu")}
@@ -103,7 +104,10 @@ export default function Header({
               type="button"
               aria-haspopup="true"
               aria-expanded={isShopOpen}
-              onClick={() => setIsShopOpen((current) => !current)}
+              onClick={() => {
+                setIsShopOpen((current) => !current);
+                setIsSearchOpen(false);
+              }}
             >
               {t("navigation.shop")}
             </button>
@@ -165,6 +169,7 @@ export default function Header({
             onClick={() => {
               setIsSearchOpen((current) => !current);
               setIsMenuOpen(false);
+              setIsShopOpen(false);
             }}
           >
             {t("navigation.search")}

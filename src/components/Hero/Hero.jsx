@@ -9,24 +9,28 @@ const campaignSlides = [
     id: "training",
     image: "/images/hero-gymnast-pastel-bar.jpeg",
     position: "right center",
+    mobilePosition: "78% center",
     label: "Training campaign"
   },
   {
     id: "accessories",
     image: "/images/hero-campaign-beam-v2.jpg",
     position: "center center",
+    mobilePosition: "58% center",
     label: "Accessories campaign"
   },
   {
     id: "mind-gym",
     image: "/images/hero-campaign-ribbon-v2.jpg",
     position: "center center",
+    mobilePosition: "52% center",
     label: "Mind Gym campaign"
   },
   {
     id: "apparel",
     image: "/images/hero-campaign-movement-v2.jpg",
     position: "center center",
+    mobilePosition: "64% center",
     label: "Apparel campaign"
   }
 ];
@@ -131,7 +135,10 @@ export default function Hero({ onOpenBoutique }) {
             fetchPriority={index === 0 ? "high" : "low"}
             width="1800"
             height="1200"
-            style={{ "--hero-slide-position": slide.position }}
+            style={{
+              "--hero-slide-position": slide.position,
+              "--hero-slide-mobile-position": slide.mobilePosition
+            }}
           />
         ) : null)}
       </div>

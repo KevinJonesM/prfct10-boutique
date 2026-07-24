@@ -524,16 +524,27 @@
     display: block;
   }
 
-  .header__language span,
-  .header__language button:not([aria-pressed="true"]) {
+  .header__language {
+    border: 1px solid rgba(92, 84, 80, 0.12);
+    border-radius: 999px;
+    gap: 0;
+    overflow: hidden;
+  }
+
+  .header__language span {
     display: none;
   }
 
-  .header__language button[aria-pressed="true"] {
-    border: 1px solid rgba(92, 84, 80, 0.1);
+  .header__language button {
     border-radius: 999px;
-    min-height: 34px;
-    padding: 0 8px;
+    min-height: 44px;
+    min-width: 34px;
+    padding: 0 7px;
+  }
+
+  .header__language button[aria-pressed="true"] {
+    background: var(--magenta);
+    color: #ffffff;
     text-decoration: none;
   }
 

@@ -1900,6 +1900,22 @@
 
 }
 
+@media (max-width: 420px) {
+  .commerce-assurances {
+    grid-template-columns: 1fr;
+  }
+
+  .commerce-assurances span {
+    min-height: 44px;
+    padding: 9px 12px;
+  }
+
+  .commerce-assurances span + span {
+    border-left: 0;
+    border-top: 1px solid rgba(92, 84, 80, 0.09);
+  }
+}
+
 @media (max-width: 720px) {
   .shop-all-departments {
     align-items: stretch;

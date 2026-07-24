@@ -364,14 +364,17 @@
 }
 
 .team-service__body button {
+  align-items: center;
   background: transparent;
   border: 0;
   color: #4d4643;
+  display: inline-flex;
   font-family: var(--heading);
   font-size: 0.71rem;
   font-weight: 900;
   justify-self: start;
   letter-spacing: 0.07em;
+  min-height: 44px;
   padding: 2px 0;
   text-transform: uppercase;
 }

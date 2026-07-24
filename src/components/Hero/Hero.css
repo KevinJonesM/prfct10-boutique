@@ -276,7 +276,7 @@
   }
 
   .hero__slide {
-    object-position: 67% center;
+    object-position: var(--hero-slide-mobile-position, var(--hero-slide-position, center));
   }
 
   .hero__title {
@@ -305,10 +305,6 @@
     background:
       linear-gradient(180deg, rgba(255, 249, 245, 0.5) 0%, rgba(255, 249, 245, 0.86) 72%, rgba(255, 249, 245, 0.94) 100%),
       linear-gradient(90deg, rgba(255, 249, 245, 0.52), rgba(255, 249, 245, 0.22));
-  }
-
-  .hero__slide {
-    object-position: 62% center;
   }
 
   .hero__mark {
@@ -358,6 +354,16 @@
 }
 
 @media (max-width: 480px) {
+  .hero {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .hero__content {
+    max-width: 390px;
+    width: 100%;
+  }
+
   .hero__title {
     font-size: clamp(32px, 9.4vw, 38px);
   }

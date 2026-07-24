@@ -1,4 +1,5 @@
 import "./SocialCTA.css";
+import { useI18n } from "../../i18n/I18nProvider";
 
 const socialLinks = [
   {
@@ -14,8 +15,9 @@ const socialLinks = [
 ];
 
 export default function SocialCTA() {
+  const { t } = useI18n();
   return (
-    <section className="social-cta" aria-label="Redes sociales PRFCT10">
+    <section className="social-cta" aria-label={t("story.socialLabel")}>
       <div className="social-cta__shape social-cta__shape--left" aria-hidden="true" />
       <div className="social-cta__shape social-cta__shape--right" aria-hidden="true" />
       <div className="social-cta__dots" aria-hidden="true">
@@ -26,10 +28,10 @@ export default function SocialCTA() {
       </div>
 
       <div className="social-cta__content">
-        <p className="social-cta__eyebrow">PRFCT10 EN REDES</p>
-        <h2 className="social-cta__title">SIGUE EL BRILLO</h2>
+        <p className="social-cta__eyebrow">{t("story.socialEyebrow")}</p>
+        <h2 className="social-cta__title">{t("story.socialTitle")}</h2>
         <p className="social-cta__text">
-          Ideas, novedades y detalles lindos para acompanar cada practica, competencia y logro.
+          {t("story.socialText")}
         </p>
 
         <div className="social-cta__links">

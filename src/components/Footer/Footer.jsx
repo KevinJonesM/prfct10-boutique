@@ -1,21 +1,54 @@
-import { createWhatsAppLink } from "../../utils/whatsapp";
 import "./Footer.css";
+import { createWhatsAppLink } from "../../utils/whatsapp";
+import NewsletterForm from "../Newsletter/NewsletterForm";
+import OptimizedImage from "../OptimizedImage/OptimizedImage";
+import { useI18n } from "../../i18n/I18nProvider";
 
-export default function Footer() {
+export default function Footer({ onBackHome, onOpenDepartment, onOpenBoutique }) {
+  const { t } = useI18n();
+  const handleHome = (event, target = "#inicio") => {
+    event.preventDefault();
+    onBackHome?.(target);
+  };
+
+  const handleDepartment = (event, department) => {
+    event.preventDefault();
+    onOpenDepartment?.(department);
+  };
+
+  const handleBoutique = (event) => {
+    event.preventDefault();
+    onOpenBoutique?.();
+  };
+
+  const handleShopAll = (event) => {
+    event.preventDefault();
+    onOpenDepartment?.("all");
+  };
+
   return (
     <footer className="footer" id="redes">
+      <section className="footer-newsletter" aria-labelledby="footer-newsletter-title">
+        <div className="footer-newsletter__copy">
+          <p>{t("newsletter.eyebrow")}</p>
+          <h2 id="footer-newsletter-title">{t("newsletter.footerTitle")}</h2>
+          <span>{t("newsletter.footerText")}</span>
+        </div>
+        <NewsletterForm source="footer" submitLabel={t("newsletter.join")} />
+      </section>
+
       <div className="footer__panel footer__container">
         <div className="footer__brand">
           <span className="footer__logo" aria-hidden="true">
-            <img src="/images/prfct10-logo.png" alt="" />
+            <OptimizedImage src="/images/prfct10-logo.png" alt="" loading="lazy" width="100" height="100" />
           </span>
           <h2>PRFCT10</h2>
-          <p className="footer__tagline">El poder está en tus manos.</p>
+          <p className="footer__tagline">{t("footer.tagline")}</p>
           <p>
-            Un club de detalles lindos para gimnastas que entrenan, se cuidan y celebran juntas cada logro.
+            {t("footer.description")}
           </p>
           <p className="footer__note">
-            Disponible en alianza con{" "}
+            {t("footer.partnership")} {" "}
             <a href="https://www.gimnasiaofk.com" target="_blank" rel="noreferrer">
               Only For Kids Fitness Center
             </a>
@@ -24,34 +57,34 @@ export default function Footer() {
         </div>
 
         <div className="footer__group">
-          <h3>Explora</h3>
-          <a href="#product-grid">Entrenamiento</a>
-          <a href="#coqueteria">Coquetería</a>
-          <a href="#ropa-mallas">Ropa y mallas</a>
-          <a href="#gimnasia-mental">Gimnasia mental</a>
-          <a href="#brillo-equipo">Brillo de equipo</a>
+          <h3>{t("footer.explore")}</h3>
+          <a href="/training-gear" onClick={(event) => handleDepartment(event, "training")}>{t("navigation.trainingGear")}</a>
+          <a href="/accessories" onClick={(event) => handleDepartment(event, "coquette")}>{t("navigation.accessories")}</a>
+          <a href="/apparel" onClick={(event) => handleDepartment(event, "wear")}>{t("navigation.apparel")}</a>
+          <a href="/mind-gym" onClick={(event) => handleDepartment(event, "mind")}>{t("navigation.mindGym")}</a>
         </div>
 
         <div className="footer__group">
-          <h3>Comunidad</h3>
-          <a href="#nosotros">Nosotros</a>
-          <a href="#standard">El estándar</a>
-          <a href={createWhatsAppLink()} target="_blank" rel="noreferrer">Contacto</a>
-          <span className="footer__pill">Envíos nacionales a toda Venezuela</span>
+          <h3>{t("footer.shop")}</h3>
+          <a href="/training-gear" onClick={handleBoutique}>{t("navigation.trainingGear")}</a>
+          <a href="/#standard" onClick={(event) => handleHome(event, "#standard")}>{t("footer.standard")}</a>
+          <a href="/#nosotros" onClick={(event) => handleHome(event, "#nosotros")}>{t("footer.about")}</a>
+          <span className="footer__pill">{t("footer.shipping")}</span>
         </div>
 
         <div className="footer__group footer__group--social">
-          <h3>Síguenos</h3>
+          <h3>{t("footer.support")}</h3>
+          <a href={createWhatsAppLink()} target="_blank" rel="noreferrer">{t("footer.whatsapp")}</a>
           <a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
           <a href="https://tiktok.com" target="_blank" rel="noreferrer">TikTok</a>
-          <a href={createWhatsAppLink()} target="_blank" rel="noreferrer">WhatsApp</a>
+          <a href="/shop" onClick={handleShopAll}>{t("footer.shopPrfct10")}</a>
         </div>
       </div>
 
       <div className="footer__bottom">
-        <span>© 2026 PRFCT10. Todos los derechos reservados.</span>
-        <strong>Envíos nacionales a toda Venezuela</strong>
-        <a href={createWhatsAppLink()} target="_blank" rel="noreferrer">Pedir por WhatsApp</a>
+        <span>{t("footer.rights")}</span>
+        <strong>{t("footer.shipping")}</strong>
+        <a href="/" onClick={handleHome}>{t("footer.backHome")}</a>
       </div>
     </footer>
   );

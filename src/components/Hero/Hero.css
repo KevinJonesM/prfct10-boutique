@@ -1,14 +1,48 @@
 .hero {
   align-items: center;
-  background:
-    linear-gradient(90deg, rgba(255, 249, 245, 0.88) 0%, rgba(255, 249, 245, 0.58) 32%, rgba(255, 249, 245, 0.12) 58%, rgba(249, 215, 226, 0.08) 100%),
-    url("/images/hero-gymnast-pastel-bar.jpeg") right center / cover no-repeat;
+  background: #e9ded8;
   display: flex;
-  min-height: 100vh;
+  min-height: clamp(620px, 72vh, 700px);
   overflow: hidden;
-  padding: 140px 24px 70px;
+  padding: 112px 24px 56px;
   position: relative;
   text-align: left;
+}
+
+.hero__slides {
+  inset: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: 0;
+}
+
+.hero__slide {
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  object-position: var(--hero-slide-position, center);
+  opacity: 0;
+  position: absolute;
+  transform: scale(1);
+  transition: opacity 950ms ease-in-out;
+  width: 100%;
+  will-change: opacity, transform;
+}
+
+.hero__slide--active {
+  animation: hero-campaign-zoom 6500ms linear both;
+  opacity: 1;
+  z-index: 1;
+}
+
+@keyframes hero-campaign-zoom {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.035);
+  }
 }
 
 .hero::before {
@@ -19,14 +53,16 @@
   content: "";
   filter: blur(12px);
   inset: -8%;
-  opacity: 0.52;
+  opacity: 0.34;
+  pointer-events: none;
   position: absolute;
-  z-index: 0;
+  z-index: 1;
 }
 
 .hero__overlay {
   background:
-    linear-gradient(180deg, rgba(255, 249, 245, 0.02) 0%, rgba(255, 249, 245, 0.5) 100%),
+    linear-gradient(90deg, rgba(255, 249, 245, 0.92) 0%, rgba(255, 249, 245, 0.7) 34%, rgba(255, 249, 245, 0.2) 62%, rgba(249, 215, 226, 0.08) 100%),
+    linear-gradient(180deg, rgba(255, 249, 245, 0.02) 0%, rgba(255, 249, 245, 0.52) 100%),
     radial-gradient(circle at 66% 42%, rgba(228, 90, 155, 0.1), transparent 20%);
   inset: 0;
   pointer-events: none;
@@ -57,18 +93,44 @@
   z-index: 2;
 }
 
+.hero__mark,
+.hero__eyebrow,
+.hero__title,
+.hero__text,
+.hero__actions {
+  animation: hero-content-enter 340ms ease-out both;
+}
+
+.hero__mark { animation-delay: 0ms; }
+.hero__eyebrow { animation-delay: 80ms; }
+.hero__title { animation-delay: 160ms; }
+.hero__text { animation-delay: 240ms; }
+.hero__actions { animation-delay: 320ms; }
+
+@keyframes hero-content-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .hero__mark {
   align-items: center;
   background: transparent;
   border: 0;
   box-shadow: none;
   display: inline-flex;
-  height: 104px;
+  height: 82px;
   justify-content: center;
-  margin-bottom: 26px;
+  margin-bottom: 18px;
   padding: 0;
   position: relative;
-  width: 104px;
+  width: 82px;
 }
 
 .hero__mark img {
@@ -83,9 +145,9 @@
 .hero__eyebrow {
   color: var(--magenta);
   font-family: var(--heading);
-  font-size: 0.82rem;
-  font-weight: 900;
-  letter-spacing: 0.12em;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
   margin: 0 0 18px;
   text-transform: uppercase;
 }
@@ -93,25 +155,32 @@
 .hero__title {
   color: var(--dark-text);
   font-family: var(--heading);
-  font-size: clamp(3.8rem, 6.8vw, 6.6rem);
-  font-weight: 950;
-  letter-spacing: 0;
+  font-size: clamp(44px, 4.2vw, 58px);
+  font-weight: 900;
+  letter-spacing: -0.035em;
   line-height: 0.94;
   margin: 0;
-  max-width: 900px;
-  text-shadow:
-    0 10px 0 rgba(249, 215, 226, 0.82),
-    0 24px 48px rgba(188, 112, 146, 0.24);
+  max-width: 720px;
+  --signature-main: var(--dark-text);
+  --signature-offset: rgba(228, 90, 155, 0.88);
+  --signature-x: 3px;
+  --signature-y: 4px;
+  text-shadow: none;
   text-transform: uppercase;
+}
+
+.hero__title-line {
+  display: block;
+  white-space: nowrap;
 }
 
 .hero__text {
   color: #74665f;
-  font-size: 1.12rem;
+  font-size: clamp(17px, 1.2vw, 18px);
   font-weight: 400;
-  line-height: 1.82;
-  margin: 36px 0 0;
-  max-width: 620px;
+  line-height: 1.6;
+  margin: 24px 0 0;
+  max-width: 570px;
 }
 
 .hero__actions {
@@ -119,15 +188,17 @@
   flex-wrap: wrap;
   gap: 14px;
   justify-content: flex-start;
-  margin-top: 34px;
+  margin-top: 28px;
 }
 
 .hero__button {
   align-items: center;
   background: linear-gradient(135deg, var(--magenta), #f28bbb);
+  border: 0;
   border-radius: 999px;
   box-shadow: 0 18px 36px rgba(228, 90, 155, 0.26);
   color: #ffffff;
+  cursor: pointer;
   display: inline-flex;
   font-family: var(--heading);
   font-size: 0.86rem;
@@ -138,10 +209,11 @@
   padding: 0 28px;
   text-decoration: none;
   text-transform: uppercase;
-  transition: filter 200ms ease, transform 200ms ease;
+  transition: box-shadow 200ms ease, filter 200ms ease, transform 200ms ease;
 }
 
 .hero__button:hover {
+  box-shadow: 0 22px 42px rgba(228, 90, 155, 0.32);
   filter: brightness(1.04);
   transform: translateY(-2px);
 }
@@ -154,7 +226,7 @@
 }
 
 .hero__scroll {
-  bottom: 28px;
+  bottom: 18px;
   color: rgba(92, 84, 80, 0.42);
   font-family: var(--heading);
   font-size: 0.7rem;
@@ -166,16 +238,125 @@
   z-index: 2;
 }
 
+.hero__pagination {
+  align-items: center;
+  bottom: 20px;
+  display: flex;
+  gap: 7px;
+  left: max(24px, calc((100% - 1120px) / 2));
+  position: absolute;
+  z-index: 3;
+}
+
+.hero__pagination-button {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  border-radius: 999px;
+  display: inline-flex;
+  height: 28px;
+  justify-content: center;
+  padding: 0;
+  width: 30px;
+}
+
+.hero__pagination-button span {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 999px;
+  box-shadow: 0 1px 5px rgba(60, 48, 49, 0.12);
+  height: 3px;
+  transition: background 200ms ease, width 200ms ease;
+  width: 18px;
+}
+
+.hero__pagination-button--active span {
+  background: var(--magenta);
+  width: 28px;
+}
+
+.hero__pagination-button:focus-visible {
+  outline: 2px solid var(--magenta);
+  outline-offset: 2px;
+}
+
+.hero__pause {
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(92, 84, 80, 0.12);
+  border-radius: 999px;
+  color: #5c5450;
+  font-family: var(--heading);
+  font-size: 0.58rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  min-height: 28px;
+  padding: 0 12px;
+  text-transform: uppercase;
+}
+
+.hero__pause:focus-visible {
+  outline: 2px solid var(--magenta);
+  outline-offset: 2px;
+}
+
 @media (max-width: 768px) {
   .hero {
-    background-position: 66% center;
-    min-height: 92vh;
-    padding-top: 160px;
-    text-align: center;
+    min-height: 620px;
+    padding: 132px 28px 48px;
+    text-align: left;
+  }
+
+  .hero__slide {
+    object-position: 67% center;
   }
 
   .hero__title {
-    font-size: clamp(3rem, 10vw, 4.6rem);
+    font-size: clamp(40px, 7vw, 52px);
+  }
+
+  .hero__title,
+  .hero__text {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .hero__actions {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: 600px;
+    padding: 122px 20px 42px;
+    text-align: center;
+  }
+
+  .hero__overlay {
+    background:
+      linear-gradient(180deg, rgba(255, 249, 245, 0.5) 0%, rgba(255, 249, 245, 0.86) 72%, rgba(255, 249, 245, 0.94) 100%),
+      linear-gradient(90deg, rgba(255, 249, 245, 0.52), rgba(255, 249, 245, 0.22));
+  }
+
+  .hero__slide {
+    object-position: 62% center;
+  }
+
+  .hero__mark {
+    height: 60px;
+    margin-bottom: 12px;
+    width: 60px;
+  }
+
+  .hero__eyebrow {
+    margin-bottom: 14px;
+  }
+
+  .hero__title {
+    font-size: clamp(34px, 9vw, 42px);
+  }
+
+  .hero__title-line {
+    white-space: normal;
   }
 
   .hero__title,
@@ -184,18 +365,53 @@
     margin-right: auto;
   }
 
+  .hero__text {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-top: 18px;
+  }
+
   .hero__actions {
     justify-content: center;
+    margin-top: 22px;
+  }
+
+  .hero__scroll {
+    display: none;
+  }
+
+  .hero__pagination {
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 
 @media (max-width: 480px) {
   .hero__title {
-    font-size: 3.05rem;
+    font-size: clamp(32px, 9.4vw, 38px);
   }
 
   .hero__actions,
   .hero__button {
     width: 100%;
+  }
+
+  .hero__button {
+    min-height: 46px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__slide,
+  .hero__slide--active,
+  .hero__mark,
+  .hero__eyebrow,
+  .hero__title,
+  .hero__text,
+  .hero__actions {
+    animation: none !important;
+    transform: none !important;
+    transition-duration: 1ms !important;
   }
 }

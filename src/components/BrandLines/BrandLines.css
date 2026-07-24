@@ -1,7 +1,7 @@
 .brand-lines {
   background:
     linear-gradient(180deg, rgba(239, 252, 255, 0.58), rgba(239, 252, 255, 0.82)),
-    url("/images/brand-lines-blue-pattern.png") center / 540px auto repeat;
+    url("/images/brand-lines-blue-pattern.webp") center / 540px auto repeat;
   color: var(--dark-text);
   overflow: hidden;
   padding: 104px 24px 112px;

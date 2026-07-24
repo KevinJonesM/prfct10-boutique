@@ -1,13 +1,18 @@
 .mint-cta {
   background:
-    radial-gradient(circle at 8% 20%, rgba(255, 255, 255, 0.2) 0 90px, transparent 92px),
-    radial-gradient(circle at 88% 72%, rgba(255, 255, 255, 0.16) 0 110px, transparent 112px),
-    linear-gradient(135deg, #8adfcb 0%, #9be6d4 52%, #bff3e8 100%);
-  color: #fff9f5;
+    radial-gradient(circle at 8% 18%, rgba(255, 255, 255, 0.2) 0 72px, transparent 74px),
+    radial-gradient(circle at 92% 72%, rgba(255, 255, 255, 0.14) 0 104px, transparent 106px),
+    linear-gradient(135deg, #9be4d6 0%, #c8f2e9 100%);
+  border-radius: 36px;
+  box-shadow: 0 22px 58px rgba(75, 160, 145, 0.12);
+  color: var(--dark-text);
+  margin: 72px auto;
+  max-width: 1160px;
   overflow: hidden;
-  padding: 96px 24px;
+  padding: 72px 34px;
   position: relative;
   text-align: center;
+  width: calc(100% - 80px);
 }
 
 .mint-cta__content {
@@ -18,49 +23,88 @@
 }
 
 .mint-cta__eyebrow {
-  color: rgba(255, 249, 245, 0.92);
+  color: var(--magenta);
   font-family: var(--heading);
   font-size: 0.78rem;
   font-weight: 900;
   letter-spacing: 0.26em;
-  margin: 0 0 28px;
+  margin: 0 0 18px;
   text-transform: uppercase;
 }
 
 .mint-cta__title {
-  color: #fff9f5;
+  color: var(--dark-text);
   font-family: var(--heading);
-  font-size: clamp(3rem, 6vw, 6rem);
+  font-size: clamp(2.8rem, 5vw, 5rem);
   font-weight: 950;
-  letter-spacing: 0.04em;
+  letter-spacing: 0;
   line-height: 0.95;
   margin: 0 auto;
   max-width: 900px;
-  text-shadow:
-    0 9px 0 rgba(67, 154, 139, 0.28),
-    0 18px 38px rgba(67, 154, 139, 0.24);
+  --signature-main: var(--dark-text);
+  --signature-offset: rgba(255, 249, 245, 0.72);
+  text-shadow: none;
   text-transform: uppercase;
 }
 
 .mint-cta__text {
-  color: rgba(255, 249, 245, 0.95);
+  color: #5c5450;
   font-size: clamp(1rem, 1.35vw, 1.18rem);
-  font-weight: 700;
+  font-weight: 650;
   line-height: 1.7;
-  margin: 28px auto 0;
+  margin: 22px auto 0;
   max-width: 620px;
 }
 
 .mint-cta__actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 18px;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   justify-content: center;
-  margin-top: 44px;
+  margin: 18px auto 0;
+  max-width: 900px;
+}
+
+.mint-cta__finder {
+  align-items: center;
+  background: #171818;
+  border: 0;
+  border-radius: 999px;
+  box-shadow: 0 18px 36px rgba(35, 37, 37, 0.18);
+  color: #ffffff;
+  display: inline-flex;
+  font-family: var(--heading);
+  font-size: 0.82rem;
+  font-weight: 900;
+  gap: 9px;
+  justify-content: center;
+  letter-spacing: 0.1em;
+  margin-top: 28px;
+  min-height: 52px;
+  padding: 0 26px;
+  text-transform: uppercase;
+  transition: box-shadow 180ms ease, transform 180ms ease;
+}
+
+.mint-cta__finder:hover,
+.mint-cta__finder:focus-visible {
+  box-shadow: 0 22px 44px rgba(35, 37, 37, 0.24);
+  transform: translateY(-2px);
+}
+
+.mint-cta__browse-label {
+  color: rgba(79, 71, 67, 0.72);
+  font-family: var(--heading);
+  font-size: 0.64rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  margin: 30px 0 0;
+  text-transform: uppercase;
 }
 
 .mint-cta__button {
   align-items: center;
+  border: 0;
   border-radius: 999px;
   display: inline-flex;
   font-family: var(--heading);
@@ -68,57 +112,73 @@
   font-weight: 900;
   justify-content: center;
   letter-spacing: 0.12em;
-  min-width: 210px;
-  padding: 16px 28px;
+  min-height: 48px;
+  min-width: 0;
+  padding: 0 18px;
   text-decoration: none;
   text-transform: uppercase;
   transition: background 250ms ease, box-shadow 250ms ease, transform 250ms ease;
 }
 
-.mint-cta__button--primary {
+.mint-cta__button--training {
   background: #e85f9f;
   box-shadow: 0 18px 34px rgba(232, 95, 159, 0.28);
   color: #ffffff;
 }
 
-.mint-cta__button--secondary {
-  background: rgba(255, 255, 255, 0.78);
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  box-shadow: 0 16px 32px rgba(75, 160, 145, 0.16);
+.mint-cta__button--accessories {
+  background: rgba(255, 249, 245, 0.9);
+  border: 1px solid rgba(228, 90, 155, 0.16);
   color: #5c5450;
 }
 
-.mint-cta__button:hover {
-  transform: translateY(-4px);
+.mint-cta__button--mind {
+  background: rgba(255, 255, 255, 0.48);
+  border: 1px solid rgba(75, 160, 145, 0.18);
+  color: #4f4743;
 }
 
-.mint-cta__button--primary:hover {
+.mint-cta__button--apparel {
+  background: rgba(248, 244, 255, 0.82);
+  border: 1px solid rgba(216, 199, 243, 0.26);
+  color: #4f4743;
+}
+
+.mint-cta__button:hover {
+  transform: translateY(-2px);
+}
+
+.mint-cta__button--training:hover {
   box-shadow: 0 22px 42px rgba(232, 95, 159, 0.34);
 }
 
-.mint-cta__button--secondary:hover {
+.mint-cta__button--accessories:hover,
+.mint-cta__button--mind:hover,
+.mint-cta__button--apparel:hover {
   background: #ffffff;
 }
 
 .mint-cta__shape {
-  background: rgba(255, 255, 255, 0.14);
+  animation: mint-banner-float 11s ease-in-out infinite alternate;
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 999px;
   pointer-events: none;
   position: absolute;
 }
 
 .mint-cta__shape--left {
-  height: 180px;
+  height: 140px;
   left: 4%;
   top: 16%;
-  width: 180px;
+  width: 140px;
 }
 
 .mint-cta__shape--right {
+  animation-delay: -4s;
   bottom: 10%;
-  height: 240px;
+  height: 190px;
   right: 6%;
-  width: 240px;
+  width: 190px;
 }
 
 .mint-cta__dots {
@@ -128,12 +188,45 @@
 }
 
 .mint-cta__dots span {
+  animation: mint-dot-pulse 4.8s ease-in-out infinite;
+  animation-delay: calc(var(--d, 0) * -480ms);
   background: rgba(255, 249, 245, 0.72);
   border-radius: 50%;
   box-shadow: 0 0 18px rgba(255, 255, 255, 0.44);
   height: 9px;
   position: absolute;
   width: 9px;
+}
+
+@keyframes mint-banner-float {
+  0% {
+    transform: translate3d(-8px, 6px, 0) scale(0.96);
+  }
+
+  100% {
+    transform: translate3d(10px, -10px, 0) scale(1.05);
+  }
+}
+
+@keyframes mint-dot-pulse {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(0.82);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.14);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mint-cta__shape,
+  .mint-cta__dots span {
+    animation: none !important;
+    transform: none !important;
+  }
 }
 
 .mint-cta__dots span:nth-child(1) {
@@ -158,7 +251,10 @@
 
 @media (max-width: 768px) {
   .mint-cta {
-    padding: 88px 20px;
+    border-radius: 28px;
+    margin: 56px 20px;
+    padding: 58px 20px;
+    width: auto;
   }
 
   .mint-cta__title {
@@ -170,12 +266,16 @@
   }
 
   .mint-cta__actions {
-    align-items: center;
-    flex-direction: column;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .mint-cta__button {
-    max-width: 340px;
     width: 100%;
+  }
+}
+
+@media (max-width: 420px) {
+  .mint-cta__actions {
+    grid-template-columns: 1fr;
   }
 }

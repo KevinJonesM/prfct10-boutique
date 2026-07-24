@@ -1,7 +1,8 @@
 .brand-intro {
   background: #f3a6c1;
   color: #ffffff;
-  padding: 74px 24px 58px;
+  overflow: hidden;
+  padding: 56px 24px 48px;
   position: relative;
 }
 
@@ -170,7 +171,7 @@
 
 @media (max-width: 768px) {
   .brand-intro {
-    padding: 64px 20px;
+    padding: 46px 20px;
   }
 
   .brand-intro__title {
@@ -180,7 +181,11 @@
 }
 
 @media (max-width: 480px) {
+  .brand-intro__dot {
+    display: none;
+  }
+
   .brand-intro__title {
-    font-size: 2.8rem;
+    font-size: 2.35rem;
   }
 }

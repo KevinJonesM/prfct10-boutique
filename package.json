@@ -2,6 +2,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "optimize:images": "node scripts/optimize-storefront-images.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

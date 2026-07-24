@@ -3,7 +3,6 @@ export const defaultModeOfUse = [
   "Revisar el ajuste, la superficie o la aplicación antes de iniciar la práctica.",
   "Mantener el producto limpio, seco y en buen estado entre sesiones."
 ];
-
 export const defaultFaqs = [
   {
     question: "¿Lo pueden usar atletas menores?",
@@ -15,15 +14,14 @@ export const defaultFaqs = [
   },
   {
     question: "¿Cómo hago el pedido?",
-    answer: "Presiona el botón de WhatsApp y te ayudamos con disponibilidad, precio y envío."
+    answer: "Agrega tus favoritos al carrito, completa tus datos y confirma el pedido desde la tienda."
   }
 ];
-
 export const products = [
   {
     id: "bar-grips",
-    name: "Grips para Barras",
-    brandName: "PRFCT10 Grips para Barras",
+    name: "Power Grips",
+    subcategory: "grip",
     category: "Agarre seguro",
     group: "Agarre",
     price: "Desde $45",
@@ -68,7 +66,7 @@ export const products = [
       "Doble hebilla.",
       "Diseño para agarre firme.",
       "Uso recomendado con muñequeras.",
-      "Ideal para práctica, rutina y competencia."
+      "Best for práctica, rutina y competencia."
     ],
     sportsUses: [
       "Gimnasia artística femenina.",
@@ -82,8 +80,8 @@ export const products = [
   },
   {
     id: "chalk",
-    name: "Magnesio PRFCT10",
-    brandName: "PRFCT10 Magnesio",
+    name: "Gymnastics Chalk Block",
+    subcategory: "grip",
     category: "Agarre esencial",
     group: "Agarre",
     price: "Desde $22",
@@ -127,7 +125,7 @@ export const products = [
       "Uso deportivo.",
       "Textura seca.",
       "Fácil aplicación manual.",
-      "Ideal para entrenamiento y competencia."
+      "Best for entrenamiento y competencia."
     ],
     sportsUses: [
       "Gimnasia artística.",
@@ -141,8 +139,8 @@ export const products = [
   },
   {
     id: "gel-heel-guards",
-    name: "Protectores de Talón",
-    brandName: "PRFCT10 Protectores de Talón",
+    name: "Gel Heel Protectors",
+    subcategory: "support",
     category: "Cuidado y soporte",
     group: "Soporte",
     price: "Desde $32",
@@ -200,8 +198,8 @@ export const products = [
   },
   {
     id: "kinesio-tape",
-    name: "Cinta Kinesiológica",
-    brandName: "PRFCT10 Cinta Kinesiológica",
+    name: "Kinesiology Tape",
+    subcategory: "support",
     category: "Soporte flexible",
     group: "Soporte",
     price: "Desde $18",
@@ -264,8 +262,8 @@ export const products = [
   },
   {
     id: "wrist-bands",
-    name: "Soportes de Muñeca",
-    brandName: "PRFCT10 Soportes de Muñeca",
+    name: "Leather Wrist Support",
+    subcategory: "support",
     category: "Muñecas seguras",
     group: "Soporte",
     price: "Desde $28",
@@ -329,8 +327,8 @@ export const products = [
   },
   {
     id: "tiger-paws",
-    name: "Protectores de Muñeca",
-    brandName: "PRFCT10 Protectores de Muñeca",
+    name: "Wrist Guards",
+    subcategory: "support",
     category: "Soporte premium",
     group: "Soporte",
     price: "Desde $52",
@@ -396,8 +394,8 @@ export const products = [
   },
   {
     id: "rhythm-toes",
-    name: "Punteras de Rítmica",
-    brandName: "PRFCT10 Punteras de Rítmica",
+    name: "Rhythmic Toe Shoes",
+    subcategory: "competition",
     category: "Media punta",
     group: "Competencia",
     price: "Desde $24",
@@ -456,8 +454,8 @@ export const products = [
   },
   {
     id: "flex-strap-12",
-    name: "Liga Flex 12",
-    brandName: "PRFCT10 Liga Flex 12",
+    name: "Flex Strap 12",
+    subcategory: "flexibility",
     category: "Flexibilidad",
     group: "Flexibilidad",
     price: "Desde $16",
@@ -468,7 +466,7 @@ export const products = [
       "Ayuda a trabajar flexibilidad activa y pasiva.",
       "Permite ejercicios de control y fuerza.",
       "Sirve para fortalecer piernas, abdomen y glúteos.",
-      "Ideal para aperturas, movilidad, extensiones y control corporal.",
+      "Best for aperturas, movilidad, extensiones y control corporal.",
       "Sus niveles permiten progresar de forma ordenada."
     ],
     modeOfUse: [
@@ -503,7 +501,7 @@ export const products = [
       "Material textil elástico.",
       "Uso para flexibilidad, fuerza y movilidad.",
       "Ligera y portátil.",
-      "Ideal para gimnasia, danza y entrenamiento físico."
+      "Best for gimnasia, danza y entrenamiento físico."
     ],
     sportsUses: [
       "Gimnasia artística.",
@@ -522,8 +520,8 @@ export const products = [
   },
   {
     id: "resistance-handles",
-    name: "Ligas de Resistencia",
-    brandName: "PRFCT10 Ligas de Resistencia",
+    name: "Resistance Bands",
+    subcategory: "strength",
     category: "Preparación física",
     group: "Fuerza",
     price: "Desde $20",
@@ -532,7 +530,7 @@ export const products = [
     benefits: ["Mangos cómodos", "Resistencia progresiva", "Ligera", "Fuerza y movilidad"],
     accordionBenefits: [
       "Ayuda a fortalecer brazos, hombros, espalda y piernas.",
-      "Ideal para activación muscular y preparación física.",
+      "Best for activación muscular y preparación física.",
       "Permite entrenar fuerza con resistencia progresiva.",
       "Fácil de transportar."
     ],
@@ -583,8 +581,8 @@ export const products = [
   },
   {
     id: "core-sliders",
-    name: "Discos Deslizantes",
-    brandName: "PRFCT10 Discos Deslizantes",
+    name: "Core Sliders",
+    subcategory: "strength",
     category: "Centro y control",
     group: "Fuerza",
     price: "Desde $14",
@@ -643,8 +641,8 @@ export const products = [
   },
   {
     id: "grip-loop",
-    name: "Ejercitador de Dedos",
-    brandName: "PRFCT10 Ejercitador de Dedos",
+    name: "Finger Grip Trainer",
+    subcategory: "grip",
     category: "Fuerza de agarre",
     group: "Agarre",
     price: "Desde $12",
@@ -704,8 +702,8 @@ export const products = [
   },
   {
     id: "power-weights",
-    name: "Pesas para Tobillos y Muñecas",
-    brandName: "PRFCT10 Pesas para Tobillos y Muñecas",
+    name: "Adjustable Wrist & Ankle Weights",
+    subcategory: "strength",
     category: "Fuerza ligera",
     group: "Fuerza",
     price: "Desde $24",
@@ -751,7 +749,7 @@ export const products = [
       "Uso en muñecas o tobillos.",
       "Cierre ajustable.",
       "Diseño para preparación física.",
-      "Ideal para deportistas, gimnastas y bailarinas."
+      "Best for deportistas, gimnastas y bailarinas."
     ],
     sportsUses: [
       "Gimnasia artística.",
@@ -766,13 +764,13 @@ export const products = [
   },
   {
     id: "patella-band",
-    name: "Banda Patella",
-    brandName: "PRFCT10 Banda Patella",
+    name: "Patella Strap",
+    subcategory: "support",
     category: "Rodilla y soporte",
     group: "Soporte",
     price: "Desde $18",
     description: "Banda unisex para dar soporte debajo de la rodilla durante entrenamientos de impacto.",
-    details: "Ideal para atletas que hacen saltos, carrera, acrobacias o preparación física. Diseño discreto, práctico y fácil de ajustar.",
+    details: "Best for atletas que hacen saltos, carrera, acrobacias o preparación física. Diseño discreto, práctico y fácil de ajustar.",
     benefits: ["Ajustable", "Soporte localizado", "Uso deportivo", "Unisex"],
     accordionBenefits: [
       "Brinda soporte debajo de la rótula.",
@@ -834,8 +832,8 @@ export const products = [
   },
   {
     id: "soft-landing-ankle-braces",
-    name: "Tobillera Soft Landing",
-    brandName: "PRFCT10 Tobillera Soft Landing",
+    name: "Compression Ankle Support",
+    subcategory: "support",
     category: "Aterrizajes seguros",
     group: "Soporte",
     price: "Consultar",
@@ -916,8 +914,8 @@ export const products = [
   },
   {
     id: "competition-glow",
-    name: "Spray de Escarcha",
-    brandName: "PRFCT10 Spray de Escarcha",
+    name: "Glitter Spray",
+    subcategory: "competition",
     category: "Brillo de competencia",
     group: "Accesorios",
     price: "Desde $14",
@@ -926,7 +924,7 @@ export const products = [
     benefits: ["Brillo lindo", "Aplicación rápida", "Cuerpo y cabello", "Competencia"],
     accordionBenefits: [
       "Aporta brillo para competencias, exhibiciones y eventos.",
-      "Ideal para cabello y cuerpo según formulación.",
+      "Best for cabello y cuerpo según formulación.",
       "Da un acabado lindo sin necesidad de accesorios pesados.",
       "Perfecto para presentaciones y fotos."
     ],
@@ -962,7 +960,7 @@ export const products = [
       "Spray de brillo cosmético.",
       "Uso en cuerpo y cabello según formulación.",
       "Acabado con escarcha.",
-      "Ideal para competencia y exhibición.",
+      "Best for competencia y exhibición.",
       "Aplicación rápida."
     ],
     sportsUses: [
@@ -979,8 +977,8 @@ export const products = [
   },
   {
     id: "medal-display",
-    name: "Medallero de Gimnasia",
-    brandName: "PRFCT10 Medallero de Gimnasia",
+    name: "Gymnastics Medal Hanger",
+    subcategory: "gifts",
     category: "Logros y recuerdos",
     group: "Accesorios",
     price: "Desde $35",
@@ -990,7 +988,7 @@ export const products = [
     accordionBenefits: [
       "Organiza medallas de forma decorativa.",
       "Convierte logros deportivos en parte del espacio personal.",
-      "Ideal para habitaciones, gimnasios o áreas de entrenamiento.",
+      "Best for habitaciones, gimnasios o áreas de entrenamiento.",
       "Mantiene las medallas visibles y ordenadas."
     ],
     modeOfUse: [

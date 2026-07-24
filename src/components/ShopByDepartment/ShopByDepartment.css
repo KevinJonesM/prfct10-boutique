@@ -1,0 +1,208 @@
+.department-shop {
+  background: #ffffff;
+  padding: 74px 28px 86px;
+}
+
+.department-shop__header {
+  margin: 0 auto 34px;
+  max-width: 720px;
+  text-align: center;
+}
+
+.department-shop__header p {
+  color: var(--magenta);
+  font-family: var(--heading);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  margin: 0 0 10px;
+  text-transform: uppercase;
+}
+
+.department-shop__header h2 {
+  color: var(--dark-text);
+  font-family: var(--heading);
+  font-size: clamp(2.5rem, 4.5vw, 4.5rem);
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 0.94;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.department-shop__header > span {
+  color: var(--gray-text);
+  display: block;
+  font-size: 1.02rem;
+  line-height: 1.6;
+  margin: 16px auto 0;
+  max-width: 560px;
+}
+
+.department-shop__grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0 auto;
+  max-width: 1160px;
+}
+
+.department-shop__card {
+  --department-tint: rgba(228, 90, 155, 0.16);
+  aspect-ratio: 0.82;
+  background: #f7eff3;
+  border: 0;
+  border-radius: 18px;
+  color: #ffffff;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  text-align: left;
+  transition: box-shadow 220ms ease, transform 220ms ease;
+}
+
+.department-shop__card--mind {
+  --department-tint: rgba(70, 166, 211, 0.18);
+}
+
+.department-shop__card--wear {
+  --department-tint: rgba(92, 190, 160, 0.18);
+}
+
+.department-shop__card--training {
+  --department-tint: rgba(228, 90, 155, 0.13);
+}
+
+.department-shop__card img,
+.department-shop__overlay {
+  inset: 0;
+  position: absolute;
+}
+
+.department-shop__card img {
+  height: 100%;
+  object-fit: cover;
+  transition: transform 320ms ease;
+  width: 100%;
+}
+
+.department-shop__overlay {
+  background:
+    linear-gradient(180deg, rgba(25, 20, 23, 0.02) 24%, rgba(25, 20, 23, 0.78) 100%),
+    linear-gradient(180deg, transparent 48%, var(--department-tint) 100%);
+  transition: filter 220ms ease;
+}
+
+.department-shop__body {
+  bottom: 0;
+  display: grid;
+  gap: 9px;
+  left: 0;
+  padding: 24px;
+  position: absolute;
+  right: 0;
+  z-index: 1;
+}
+
+.department-shop__body strong {
+  font-family: var(--heading);
+  font-size: 1.45rem;
+  font-weight: 900;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.department-shop__body > span {
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.department-shop__body em {
+  font-family: var(--heading);
+  font-size: 0.7rem;
+  font-style: normal;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  margin-top: 4px;
+  text-transform: uppercase;
+}
+
+.department-shop__body em span {
+  display: inline-block;
+  transition: transform 200ms ease;
+}
+
+.department-shop__card:hover,
+.department-shop__card:focus-visible {
+  box-shadow: 0 22px 48px rgba(60, 48, 49, 0.16);
+  transform: translateY(-4px);
+}
+
+.department-shop__card:hover img,
+.department-shop__card:focus-visible img {
+  transform: scale(1.03);
+}
+
+.department-shop__card:hover .department-shop__overlay,
+.department-shop__card:focus-visible .department-shop__overlay {
+  filter: saturate(1.08);
+}
+
+.department-shop__card:hover .department-shop__body em span,
+.department-shop__card:focus-visible .department-shop__body em span {
+  transform: translateX(3px);
+}
+
+@media (hover: none) {
+  .department-shop__card:hover {
+    box-shadow: none;
+    transform: none;
+  }
+
+  .department-shop__card:hover img,
+  .department-shop__card:hover .department-shop__body em span {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .department-shop__card,
+  .department-shop__card img,
+  .department-shop__body em span,
+  .department-shop__overlay {
+    transition-duration: 1ms !important;
+  }
+}
+
+.department-shop__card:focus-visible {
+  outline: 3px solid var(--magenta);
+  outline-offset: 4px;
+}
+
+@media (max-width: 900px) {
+  .department-shop {
+    padding: 68px 24px 76px;
+  }
+
+  .department-shop__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .department-shop__card {
+    aspect-ratio: 1.08;
+  }
+}
+
+@media (max-width: 560px) {
+  .department-shop {
+    padding: 52px 20px 60px;
+  }
+
+  .department-shop__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .department-shop__card {
+    aspect-ratio: 1.25;
+  }
+}

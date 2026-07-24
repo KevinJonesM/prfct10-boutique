@@ -1,0 +1,232 @@
+.review-stars {
+  color: var(--magenta);
+  display: inline-block;
+  font-size: 0.84rem;
+  letter-spacing: 0.08em;
+  line-height: 1;
+}
+
+.product-review-summary {
+  align-items: center;
+  color: #756963;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.76rem;
+  gap: 7px;
+  margin-top: 12px;
+}
+
+.product-review-summary strong {
+  color: #171818;
+  font-family: var(--heading);
+  font-size: 0.8rem;
+}
+
+.product-reviews {
+  border-top: 1px solid rgba(92, 84, 80, 0.12);
+  margin-top: 24px;
+  padding-top: 22px;
+}
+
+.product-reviews__header {
+  display: grid;
+  gap: 4px;
+}
+
+.product-reviews__header p,
+.social-proof__header > p {
+  color: var(--magenta);
+  font-family: var(--heading);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.product-reviews__header h3 {
+  color: #171818;
+  font-family: var(--heading);
+  font-size: 1.25rem;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.product-reviews__header > span {
+  color: #756963;
+  font-size: 0.78rem;
+}
+
+.product-reviews__list {
+  display: grid;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.product-review {
+  background: #fffaf7;
+  border: 1px solid rgba(92, 84, 80, 0.09);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.product-review h4,
+.product-review p {
+  margin: 10px 0 0;
+}
+
+.product-review footer {
+  align-items: center;
+  color: #756963;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.72rem;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.product-review footer strong {
+  color: #171818;
+}
+
+.product-review img {
+  border-radius: 10px;
+  display: block;
+  margin-top: 14px;
+  max-height: 220px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.social-proof {
+  background: #fffaf7;
+  padding: clamp(64px, 8vw, 104px) max(5vw, 24px);
+}
+
+.social-proof__header {
+  margin: 0 auto;
+  max-width: 780px;
+  text-align: center;
+}
+
+.social-proof__header h2 {
+  color: #171818;
+  font-family: var(--heading);
+  font-size: clamp(2.2rem, 5vw, 4.6rem);
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 0.96;
+  margin: 16px 0 0;
+  text-transform: uppercase;
+}
+
+.social-proof__header > span {
+  color: #756963;
+  display: block;
+  font-size: 1rem;
+  line-height: 1.65;
+  margin: 22px auto 0;
+  max-width: 620px;
+}
+
+.social-proof__reviews {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 40px auto 0;
+  max-width: 1180px;
+}
+
+.social-proof__review {
+  background: #ffffff;
+  border: 1px solid rgba(92, 84, 80, 0.09);
+  border-radius: 16px;
+  padding: 28px;
+}
+
+.social-proof__review h3 {
+  color: #171818;
+  font-family: var(--heading);
+  margin: 18px 0 0;
+  text-transform: uppercase;
+}
+
+.social-proof__review blockquote {
+  color: #5f5753;
+  line-height: 1.65;
+  margin: 14px 0 0;
+}
+
+.social-proof__review footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.social-proof__review footer span,
+.social-proof__review footer strong {
+  font-size: 0.72rem;
+}
+
+.social-proof__review footer span {
+  color: #756963;
+}
+
+.social-proof__ugc {
+  margin: 52px auto 0;
+  max-width: 1180px;
+}
+
+.social-proof__ugc > h3 {
+  color: #171818;
+  font-family: var(--heading);
+  font-size: clamp(1.4rem, 3vw, 2.1rem);
+  margin: 0 0 22px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.social-proof__ugc-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.social-proof__ugc figure {
+  margin: 0;
+}
+
+.social-proof__ugc img {
+  aspect-ratio: 4 / 5;
+  border-radius: 14px;
+  display: block;
+  object-fit: cover;
+  width: 100%;
+}
+
+.social-proof__ugc figcaption {
+  color: #756963;
+  font-size: 0.78rem;
+  margin-top: 8px;
+}
+
+@media (max-width: 800px) {
+  .social-proof__reviews {
+    grid-template-columns: 1fr;
+  }
+
+  .social-proof__ugc-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .social-proof {
+    padding: 52px 20px;
+  }
+
+  .social-proof__header h2 {
+    font-size: clamp(2rem, 12vw, 3.25rem);
+  }
+}

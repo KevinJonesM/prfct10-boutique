@@ -104,7 +104,7 @@ export default function TeamQuoteForm() {
       <div className="team-quote-form__footer">
         <p id="team-quote-handoff">{t("team.form.handoff")}</p>
         <button className="team-button team-button--primary" type="submit" aria-describedby="team-quote-handoff">
-          {t("team.quote")} <span aria-hidden="true">-&gt;</span>
+          {t("team.quote")}
         </button>
       </div>
     </form>

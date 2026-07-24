@@ -542,7 +542,7 @@ function ShippingCloseout({ onOpenBoutique }) {
           <span>{t("store.shipping.text")}</span>
           <small>{t("store.shipping.note")}</small>
           <button type="button" onClick={onOpenBoutique}>
-            {t("store.shipping.cta")} <span aria-hidden="true">-&gt;</span>
+            {t("store.shipping.cta")}
           </button>
         </div>
         <div className="shipping-closeout__art shipping-art" aria-hidden="true">

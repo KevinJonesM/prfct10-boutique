@@ -128,7 +128,6 @@ export default function GuidedFinder({ isOpen, onClose, onSelectProduct, onViewA
                     type="button"
                   >
                     <span>{t(`finder.options.${({ "bars-grip": "barsGrip", "wrist-support": "wristSupport", "strength-flexibility": "strengthFlexibility", "recovery-comfort": "recoveryComfort", "not-sure": "notSure" }[option.value] || option.value)}`)}</span>
-                    <b aria-hidden="true">→</b>
                   </button>
                 ))}
               </div>
@@ -166,7 +165,7 @@ export default function GuidedFinder({ isOpen, onClose, onSelectProduct, onViewA
                         <button type="button" onClick={() => {
                           onClose();
                           onSelectProduct?.(localizedProduct);
-                        }}>{t("finder.view")} <span aria-hidden="true">→</span></button>
+                        }}>{t("finder.view")}</button>
                       </div>
                     </article>
                   );

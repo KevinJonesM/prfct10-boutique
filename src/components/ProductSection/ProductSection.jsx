@@ -175,7 +175,7 @@ export default function ProductSection({
             <p className="products__subtitle">{heroCopy.text}</p>
             {heroCta && (
               <a className="products__hero-cta" href={heroCta.href}>
-                {heroCta.label} <span aria-hidden="true">-&gt;</span>
+                {heroCta.label}
               </a>
             )}
           </div>
@@ -262,7 +262,7 @@ export default function ProductSection({
               <span>{t("store.shipping.text")}</span>
               <small>{t("store.shipping.note")}</small>
               <button className="shipping-cta__button" type="button" onClick={() => onOpenDepartment?.("training")}>
-                {t("store.shipping.cta")} <span aria-hidden="true">-&gt;</span>
+                {t("store.shipping.cta")}
               </button>
             </div>
             <div className="shipping-cta__art shipping-art" aria-hidden="true">

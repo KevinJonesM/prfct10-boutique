@@ -20,10 +20,10 @@ export default function TeamShowcase({ onOpenTeam }) {
           </p>
           <div className="team-showcase__actions">
             <button className="team-button team-button--primary" type="button" onClick={() => onOpenTeam?.("#team-quote")}>
-              {t("team.quote")} <span aria-hidden="true">-&gt;</span>
+              {t("team.quote")}
             </button>
             <button className="team-button team-button--secondary" type="button" onClick={() => onOpenTeam?.("#team-process")}>
-              {t("team.how")} <span aria-hidden="true">-&gt;</span>
+              {t("team.how")}
             </button>
           </div>
           <ul className="team-showcase__notes" aria-label={t("team.highlights")}>

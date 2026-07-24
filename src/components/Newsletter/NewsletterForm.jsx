@@ -65,7 +65,7 @@ export default function NewsletterForm({ source = "footer", submitLabel, onSucce
           aria-describedby={message ? messageId : undefined}
         />
         <button type="submit" disabled={status === "submitting" || !canAttemptSubmission}>
-          {status === "submitting" ? t("newsletter.joining") : submitLabel || t("newsletter.join")} <span aria-hidden="true">-&gt;</span>
+          {status === "submitting" ? t("newsletter.joining") : submitLabel || t("newsletter.join")}
         </button>
       </div>
       {message ? <p className={`newsletter-form__message newsletter-form__message--${status}`} id={messageId} role={status === "error" ? "alert" : "status"}>{message}</p> : null}

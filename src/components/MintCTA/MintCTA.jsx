@@ -34,7 +34,7 @@ export default function MintCTA({ onOpenDepartment, onOpenFinder }) {
         </p>
 
         <button className="mint-cta__finder" type="button" onClick={onOpenFinder}>
-          {t("home.discovery.finder")} <span aria-hidden="true">-&gt;</span>
+          {t("home.discovery.finder")}
         </button>
 
         <p className="mint-cta__browse-label">{t("home.discovery.browse")}</p>
@@ -47,7 +47,7 @@ export default function MintCTA({ onOpenDepartment, onOpenFinder }) {
               type="button"
               onClick={() => onOpenDepartment?.(category.view)}
             >
-              {t(category.labelKey)} <span aria-hidden="true">-&gt;</span>
+              {t(category.labelKey)}
             </button>
           ))}
         </div>

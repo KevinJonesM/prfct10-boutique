@@ -62,7 +62,7 @@ export default function ShopByDepartment({ onOpenDepartment }) {
             <span className="department-shop__body">
               <strong>{t(department.nameKey)}</strong>
               <span>{t(department.descriptionKey)}</span>
-              <em>{t("home.departments.cta")} <span aria-hidden="true">-&gt;</span></em>
+              <em>{t("home.departments.cta")}</em>
             </span>
           </button>
         ))}

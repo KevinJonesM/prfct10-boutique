@@ -42,7 +42,7 @@ export default function TeamPage({ onBackHome, onOpenDepartment, onOpenBoutique 
             <h1 id="team-page-title">{t("team.title1")}<br />{t("team.title2")}</h1>
             <p>{t("team.summary")}</p>
             <button className="team-button team-button--primary" type="button" onClick={scrollToQuote}>
-              {t("team.quote")} <span aria-hidden="true">-&gt;</span>
+              {t("team.quote")}
             </button>
             <small>{t("team.heroNote")}</small>
           </div>
@@ -75,7 +75,7 @@ export default function TeamPage({ onBackHome, onOpenDepartment, onOpenBoutique 
                   <ul>
                     {service.chips.map((chip) => <li key={chip}>{chip}</li>)}
                   </ul>
-                  <button type="button" onClick={scrollToQuote}>{t("team.request")} <span aria-hidden="true">-&gt;</span></button>
+                  <button type="button" onClick={scrollToQuote}>{t("team.request")}</button>
                 </div>
               </article>
             ))}

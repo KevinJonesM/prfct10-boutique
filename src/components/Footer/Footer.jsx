@@ -4,7 +4,7 @@ import NewsletterForm from "../Newsletter/NewsletterForm";
 import OptimizedImage from "../OptimizedImage/OptimizedImage";
 import { useI18n } from "../../i18n/I18nProvider";
 
-export default function Footer({ onBackHome, onOpenDepartment, onOpenTeam }) {
+export default function Footer({ onBackHome, onOpenDepartment, onOpenTeam, onOpenShipping }) {
   const { locale, t } = useI18n();
   const handleHome = (event, target = "#inicio") => {
     event.preventDefault();
@@ -25,6 +25,12 @@ export default function Footer({ onBackHome, onOpenDepartment, onOpenTeam }) {
     if (!onOpenTeam) return;
     event.preventDefault();
     onOpenTeam("#team-page-title");
+  };
+
+  const handleShipping = (event) => {
+    if (!onOpenShipping) return;
+    event.preventDefault();
+    onOpenShipping();
   };
 
   const handleBackToTop = (event) => {
@@ -65,7 +71,7 @@ export default function Footer({ onBackHome, onOpenDepartment, onOpenTeam }) {
             <h3>{t("footer.explore")}</h3>
             <a href="/#standard" onClick={(event) => handleHome(event, "#standard")}>{t("footer.standard")}</a>
             <a href="/#nosotros" onClick={(event) => handleHome(event, "#nosotros")}>{t("footer.about")}</a>
-            <a href="/shop#shipping-info">{t("footer.usShipping")}</a>
+            <a href="/shop#shipping-info" onClick={handleShipping}>{t("footer.usShipping")}</a>
           </div>
 
           <div className="footer__group">

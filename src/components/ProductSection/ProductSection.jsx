@@ -152,14 +152,6 @@ export default function ProductSection({
     title: [t(`store.intro.${introKey}.title1`), t(`store.intro.${introKey}.title2`)],
     text: t(`store.intro.${introKey}.text`)
   };
-  const shippingTitle = (
-    <>
-      {t("store.shipping.title1")}
-      <br />
-      {t("store.shipping.title2")}
-    </>
-  );
-
   return (
     <section className={`products products--${view}`} id="productos">
       <div className={`products__hero products__hero--${view}`}>
@@ -262,34 +254,16 @@ export default function ProductSection({
           ))}
         </div>
 
-        <aside className="shipping-cta" id="shipping-info" aria-label="PRFCT10 shipping">
+        <aside className="shipping-cta" id="shipping-info" aria-labelledby="shipping-info-title">
           <div className="shipping-cta__panel">
             <div className="shipping-cta__copy">
               <p>{t("store.shipping.eyebrow")}</p>
-              <h3 className="shipping-title" aria-label={`${t("store.shipping.title1")} ${t("store.shipping.title2")}`}>
-                <span className="shipping-title__offset" aria-hidden="true">{shippingTitle}</span>
-                <span className="shipping-title__main">{shippingTitle}</span>
-              </h3>
+              <h2 id="shipping-info-title">
+                {t("store.shipping.title1")}
+                <br />
+                {t("store.shipping.title2")}
+              </h2>
               <span>{t("store.shipping.text")}</span>
-              <small>{t("store.shipping.note")}</small>
-              <button className="shipping-cta__button" type="button" onClick={() => onOpenDepartment?.("training")}>
-                {t("store.shipping.cta")}
-              </button>
-            </div>
-            <div className="shipping-cta__art shipping-art" aria-hidden="true">
-              <svg viewBox="0 0 460 280" role="img">
-                <path className="shipping-art__route" d="M36 198 C126 120 206 234 278 154 C328 98 362 118 414 66" />
-                <circle className="shipping-art__pin" cx="414" cy="66" r="22" />
-                <path className="shipping-art__heart" d="M414 61 c-8 -9 -21 -2 -17 10 c3 9 17 17 17 17 s14 -8 17 -17 c4 -12 -9 -19 -17 -10z" />
-                <g className="shipping-art__truck" transform="translate(132 150)">
-                  <rect x="0" y="26" width="94" height="54" rx="14" />
-                  <path d="M94 42 h36 l24 23 v15 h-60z" />
-                  <path d="M110 48 h20 l12 13 h-32z" />
-                  <circle cx="30" cy="86" r="12" />
-                  <circle cx="122" cy="86" r="12" />
-                  <path d="M22 48 h42" />
-                </g>
-              </svg>
             </div>
           </div>
         </aside>

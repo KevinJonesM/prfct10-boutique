@@ -697,51 +697,6 @@ function HomepageBundles({ items, onSelectProduct, onOpenBundles }) {
   );
 }
 
-function ShippingCloseout({ onOpenBoutique }) {
-  const { t } = useI18n();
-  const shippingTitle = (
-    <>
-      {t("store.shipping.title1")}
-      <br />
-      {t("store.shipping.title2")}
-    </>
-  );
-
-  return (
-    <section className="shipping-closeout" aria-label={t("store.shipping.eyebrow")}>
-      <Reveal className="shipping-closeout__panel">
-        <div className="shipping-closeout__copy">
-          <p>{t("store.shipping.eyebrow")}</p>
-          <h2 className="shipping-title" aria-label={`${t("store.shipping.title1")} ${t("store.shipping.title2")}`}>
-            <span className="shipping-title__offset" aria-hidden="true">{shippingTitle}</span>
-            <span className="shipping-title__main">{shippingTitle}</span>
-          </h2>
-          <span>{t("store.shipping.text")}</span>
-          <small>{t("store.shipping.note")}</small>
-          <button type="button" onClick={onOpenBoutique}>
-            {t("store.shipping.cta")}
-          </button>
-        </div>
-        <div className="shipping-closeout__art shipping-art" aria-hidden="true">
-          <svg viewBox="0 0 460 280" role="img">
-            <path className="shipping-art__route" d="M36 198 C126 120 206 234 278 154 C328 98 362 118 414 66" />
-            <circle className="shipping-art__pin" cx="414" cy="66" r="22" />
-            <path className="shipping-art__heart" d="M414 61 c-8 -9 -21 -2 -17 10 c3 9 17 17 17 17 s14 -8 17 -17 c4 -12 -9 -19 -17 -10z" />
-            <g className="shipping-art__truck" transform="translate(132 150)">
-              <rect x="0" y="26" width="94" height="54" rx="14" />
-              <path d="M94 42 h36 l24 23 v15 h-60z" />
-              <path d="M110 48 h20 l12 13 h-32z" />
-              <circle cx="30" cy="86" r="12" />
-              <circle cx="122" cy="86" r="12" />
-              <path d="M22 48 h42" />
-            </g>
-          </svg>
-        </div>
-      </Reveal>
-    </section>
-  );
-}
-
 const storePathByView = {
   all: "/shop",
   training: "/training-gear",
@@ -867,6 +822,16 @@ export default function App() {
     return () => window.removeEventListener("popstate", handleHistoryChange);
   }, []);
 
+  useEffect(() => {
+    if (activeView !== "all" || window.location.hash !== "#shipping-info") return;
+    const frame = window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        document.getElementById("shipping-info")?.scrollIntoView({ behavior: "auto", block: "start" });
+      });
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [activeView]);
+
   const addToCart = (item, quantity = 1) => {
     const key = getProductKey(item);
     const image = item.image || item.gallery?.[0] || item.galleryImages?.[0] || fallbackProductImages[key] || "";
@@ -982,6 +947,23 @@ export default function App() {
     }, 0);
   };
 
+  const showShipping = () => {
+    const reducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+    setIsCartDrawerOpen(false);
+    setSearchQuery("");
+    setSelectedProduct(null);
+    setActiveView("all");
+    window.history.pushState({}, "", "/shop#shipping-info");
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        document.getElementById("shipping-info")?.scrollIntoView({
+          behavior: reducedMotion ? "auto" : "smooth",
+          block: "start"
+        });
+      });
+    });
+  };
+
   const handleSearchChange = (value) => {
     setSearchQuery(value);
     if (value.trim()) {
@@ -1011,6 +993,8 @@ export default function App() {
         onNavigateStore={showHome}
         onOpenBoutique={showBoutique}
         onOpenTeam={showTeam}
+        onOpenShipping={showShipping}
+        overlayOpen={Boolean(selectedProduct) || isCartDrawerOpen || isAuthOpen || isFinderOpen}
       />
       {activeView === "home" ? (
         <main>
@@ -1051,6 +1035,7 @@ export default function App() {
                 onBackHome={showHome}
                 onOpenDepartment={showBoutique}
                 onOpenTeam={showTeam}
+                onOpenShipping={showShipping}
               />
             </div>
           </section>
@@ -1060,6 +1045,7 @@ export default function App() {
           onBackHome={showHome}
           onOpenBoutique={() => showBoutique("training")}
           onOpenDepartment={showBoutique}
+          onOpenShipping={showShipping}
         />
       ) : activeView === "cart" ? (
         <main>
@@ -1088,11 +1074,11 @@ export default function App() {
           {activeView !== "boutique" && (
             <MintCTA onOpenDepartment={showBoutique} onOpenFinder={() => setIsFinderOpen(true)} />
           )}
-          <ShippingCloseout onOpenBoutique={() => showBoutique("training")} />
           <Footer
             onBackHome={showHome}
             onOpenDepartment={showBoutique}
             onOpenTeam={showTeam}
+            onOpenShipping={showShipping}
           />
         </main>
       )}

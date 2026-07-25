@@ -28,7 +28,7 @@ const processSteps = [
   }
 ];
 
-export default function TeamPage({ onBackHome, onOpenDepartment, onOpenBoutique }) {
+export default function TeamPage({ onBackHome, onOpenDepartment, onOpenBoutique, onOpenShipping }) {
   const { t } = useI18n();
   const localizedSteps = t("team.steps");
   const scrollToQuote = () => document.querySelector("#team-quote")?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -112,7 +112,7 @@ export default function TeamPage({ onBackHome, onOpenDepartment, onOpenBoutique 
         </section>
       </main>
 
-      <Footer onBackHome={onBackHome} onOpenDepartment={onOpenDepartment} />
+      <Footer onBackHome={onBackHome} onOpenDepartment={onOpenDepartment} onOpenShipping={onOpenShipping} />
     </>
   );
 }

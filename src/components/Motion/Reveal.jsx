@@ -21,7 +21,7 @@ export default function Reveal({ as: Component = "div", className = "", delay = 
         setIsVisible(true);
         observer.disconnect();
       },
-      { rootMargin: "0px 0px -8%", threshold: 0.12 }
+      { rootMargin: "0px 0px -6%", threshold: 0.02 }
     );
 
     observer.observe(element);

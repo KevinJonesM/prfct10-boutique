@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./Header.css";
 import OptimizedImage from "../OptimizedImage/OptimizedImage";
 import { useI18n } from "../../i18n/I18nProvider";
@@ -11,6 +11,15 @@ const departmentLinks = [
   { labelKey: "navigation.apparel", view: "wear", href: "/apparel", tone: "apparel" }
 ];
 
+const mobileShopLinks = [
+  { labelKey: "navigation.shopAll", view: "all", href: "/shop" },
+  { labelKey: "navigation.trainingGear", view: "training", href: "/training-gear" },
+  { labelKey: "navigation.accessories", view: "coquette", href: "/accessories" },
+  { labelKey: "navigation.apparel", view: "wear", href: "/apparel" },
+  { labelKey: "navigation.mindGym", view: "mind", href: "/mind-gym" },
+  { labelKey: "navigation.bundles", view: "bundles", href: "/bundles" }
+];
+
 export default function Header({
   searchQuery = "",
   onSearchChange,
@@ -21,48 +30,108 @@ export default function Header({
   onOpenLogin,
   onNavigateStore,
   onOpenBoutique,
-  onOpenTeam
+  onOpenTeam,
+  onOpenShipping,
+  overlayOpen = false
 }) {
   const { locale, setLocale, t } = useI18n();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isShopOpen, setIsShopOpen] = useState(false);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const menuButtonRef = useRef(null);
+  const drawerRef = useRef(null);
+
+  const closeMenu = (restoreFocus = false) => {
+    setIsMenuOpen(false);
+    setIsShopOpen(false);
+    if (restoreFocus) {
+      window.requestAnimationFrame(() => menuButtonRef.current?.focus());
+    }
+  };
 
   useEffect(() => {
-    const closeMenuOnEscape = (event) => {
+    if (!overlayOpen) return;
+    closeMenu(false);
+  }, [overlayOpen]);
+
+  useEffect(() => {
+    if (!isMenuOpen) return undefined;
+
+    const previousOverflow = document.body.style.overflow;
+    const previousPaddingRight = document.body.style.paddingRight;
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    document.body.style.overflow = "hidden";
+    if (scrollbarWidth > 0) document.body.style.paddingRight = `${scrollbarWidth}px`;
+
+    const focusableSelector = [
+      "a[href]",
+      "button:not([disabled])",
+      "input:not([disabled])",
+      "select:not([disabled])",
+      "[tabindex]:not([tabindex='-1'])"
+    ].join(",");
+
+    const focusFirstControl = () => {
+      drawerRef.current?.querySelector(focusableSelector)?.focus();
+    };
+    window.requestAnimationFrame(focusFirstControl);
+
+    const handleDrawerKeys = (event) => {
       if (event.key === "Escape") {
-        setIsMenuOpen(false);
-        setIsShopOpen(false);
-        setIsSearchOpen(false);
+        event.preventDefault();
+        closeMenu(true);
+        return;
+      }
+      if (event.key !== "Tab" || !drawerRef.current) return;
+
+      const controls = [...drawerRef.current.querySelectorAll(focusableSelector)]
+        .filter((element) => !element.hasAttribute("disabled"));
+      if (!controls.length) return;
+      const first = controls[0];
+      const last = controls[controls.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
       }
     };
 
-    window.addEventListener("keydown", closeMenuOnEscape);
-    return () => window.removeEventListener("keydown", closeMenuOnEscape);
-  }, []);
+    window.addEventListener("keydown", handleDrawerKeys);
+    return () => {
+      window.removeEventListener("keydown", handleDrawerKeys);
+      document.body.style.overflow = previousOverflow;
+      document.body.style.paddingRight = previousPaddingRight;
+    };
+  }, [isMenuOpen]);
 
   const goToStore = (event, target) => {
     event.preventDefault();
-    setIsMenuOpen(false);
-    setIsShopOpen(false);
-    setIsSearchOpen(false);
+    closeMenu(false);
     onNavigateStore?.(target);
   };
 
   const openBoutique = (event, view) => {
     event.preventDefault();
-    setIsMenuOpen(false);
-    setIsShopOpen(false);
-    setIsSearchOpen(false);
+    closeMenu(false);
     onOpenBoutique?.(view);
   };
 
   const openTeam = (event) => {
     event.preventDefault();
-    setIsMenuOpen(false);
-    setIsShopOpen(false);
-    setIsSearchOpen(false);
+    closeMenu(false);
     onOpenTeam?.("#team-page-title");
+  };
+
+  const openShipping = (event) => {
+    event.preventDefault();
+    closeMenu(false);
+    onOpenShipping?.();
+  };
+
+  const openCart = () => {
+    closeMenu(false);
+    onOpenCart?.();
   };
 
   const linkClass = (view, tone = view) => [
@@ -86,28 +155,32 @@ export default function Header({
         <button
           className="header__menu-toggle"
           type="button"
+          aria-label={isMenuOpen ? t("common.close") : t("navigation.menu")}
           aria-expanded={isMenuOpen}
-          aria-controls="primary-navigation"
+          aria-controls="mobile-navigation-drawer"
+          ref={menuButtonRef}
           onClick={() => {
-            setIsMenuOpen((current) => !current);
-            setIsShopOpen(false);
-            setIsSearchOpen(false);
+            if (isMenuOpen) {
+              closeMenu(false);
+            } else {
+              setIsMenuOpen(true);
+              setIsShopOpen(false);
+            }
           }}
         >
-          {t("navigation.menu")}
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
         </button>
 
-        <nav className={`header__nav${isMenuOpen ? " header__nav--open" : ""}`} id="primary-navigation" aria-label={t("navigation.main")}>
+        <nav className="header__nav" id="primary-navigation" aria-label={t("navigation.main")}>
           <div className={`header__dropdown${isShopOpen ? " header__dropdown--open" : ""}`}>
             <button
               className={`header__link header__link--shop header__dropdown-trigger${shopIsActive ? " header__link--active" : ""}`}
               type="button"
               aria-haspopup="true"
               aria-expanded={isShopOpen}
-              onClick={() => {
-                setIsShopOpen((current) => !current);
-                setIsSearchOpen(false);
-              }}
+              onClick={() => setIsShopOpen((current) => !current)}
             >
               {t("navigation.shop")}
             </button>
@@ -136,21 +209,9 @@ export default function Header({
           >
             {t("navigation.customTeamwear")}
           </a>
-          {customerAccountsVisible ? (
-            <button
-              type="button"
-              className="header__mobile-account"
-              onClick={() => {
-                setIsMenuOpen(false);
-                onOpenLogin();
-              }}
-            >
-              {authUser ? t("navigation.greeting", { name: authUser.name }) : t("navigation.account")}
-            </button>
-          ) : null}
         </nav>
 
-        <label className={`header__search${isSearchOpen ? " header__search--open" : ""}`} htmlFor="site-search">
+        <label className="header__search" htmlFor="site-search">
           <span>{t("navigation.search")}</span>
           <input
             id="site-search"
@@ -162,19 +223,6 @@ export default function Header({
         </label>
 
         <div className="header__actions">
-          <button
-            className="header__search-toggle"
-            type="button"
-            aria-expanded={isSearchOpen}
-            aria-controls="site-search"
-            onClick={() => {
-              setIsSearchOpen((current) => !current);
-              setIsMenuOpen(false);
-              setIsShopOpen(false);
-            }}
-          >
-            {t("navigation.search")}
-          </button>
           <div className="header__language" role="group" aria-label={t("language.label")}>
             <button type="button" aria-pressed={locale === "en"} onClick={() => setLocale("en")}>EN</button>
             <span aria-hidden="true">/</span>
@@ -185,10 +233,94 @@ export default function Header({
               {authUser ? t("navigation.greeting", { name: authUser.name }) : t("navigation.account")}
             </button>
           ) : null}
-          <button className="header__cart" type="button" onClick={onOpenCart} aria-label={t("navigation.bagLabel", { count: cartCount })}>
+          <button className="header__cart" type="button" onClick={openCart} aria-label={t("navigation.bagLabel", { count: cartCount })}>
             {t("navigation.bag")} <span>{cartCount}</span>
           </button>
         </div>
+      </div>
+
+      <div
+        className={`header__drawer-layer${isMenuOpen ? " header__drawer-layer--open" : ""}`}
+        aria-hidden={!isMenuOpen}
+      >
+        <button
+          className="header__drawer-backdrop"
+          type="button"
+          aria-label={t("common.close")}
+          tabIndex={isMenuOpen ? 0 : -1}
+          onClick={() => closeMenu(true)}
+        />
+        <aside
+          className="header__drawer"
+          id="mobile-navigation-drawer"
+          role="dialog"
+          aria-modal="true"
+          aria-label={t("navigation.main")}
+          ref={drawerRef}
+        >
+          <div className="header__drawer-top">
+            <strong>PRFCT10</strong>
+            <button type="button" onClick={() => closeMenu(true)} aria-label={t("common.close")}>×</button>
+          </div>
+
+          <form className="header__drawer-search" role="search" onSubmit={(event) => {
+            event.preventDefault();
+            closeMenu(false);
+          }}>
+            <label htmlFor="mobile-site-search">{t("navigation.search")}</label>
+            <input
+              id="mobile-site-search"
+              type="search"
+              value={searchQuery}
+              onChange={(event) => onSearchChange?.(event.target.value)}
+              placeholder={t("navigation.searchPlaceholder")}
+            />
+          </form>
+
+          <nav className="header__drawer-nav" aria-label={t("navigation.main")}>
+            <section>
+              <h2>{t("navigation.shop")}</h2>
+              {mobileShopLinks.map((link) => (
+                <a
+                  href={link.href}
+                  key={link.view}
+                  aria-current={activeView === link.view ? "page" : undefined}
+                  onClick={(event) => openBoutique(event, link.view)}
+                >
+                  {t(link.labelKey)}
+                </a>
+              ))}
+              <a href="/team" onClick={openTeam}>{t("navigation.customTeamwear")}</a>
+            </section>
+
+            <section>
+              <h2>{t("footer.explore")}</h2>
+              <a href="/#standard" onClick={(event) => goToStore(event, "#standard")}>{t("footer.standard")}</a>
+              <a href="/#nosotros" onClick={(event) => goToStore(event, "#nosotros")}>{t("footer.about")}</a>
+              <a href="/shop#shipping-info" onClick={openShipping}>{t("footer.usShipping")}</a>
+            </section>
+
+            {customerAccountsVisible ? (
+              <section>
+                <h2>{t("navigation.account")}</h2>
+                <button type="button" onClick={() => {
+                  closeMenu(false);
+                  onOpenLogin?.();
+                }}>
+                  {authUser ? t("navigation.greeting", { name: authUser.name }) : t("navigation.account")}
+                </button>
+              </section>
+            ) : null}
+          </nav>
+
+          <div className="header__drawer-language" role="group" aria-label={t("language.label")}>
+            <span>{t("language.label")}</span>
+            <div>
+              <button type="button" aria-pressed={locale === "en"} onClick={() => setLocale("en")}>EN</button>
+              <button type="button" aria-pressed={locale === "es"} onClick={() => setLocale("es")}>ES</button>
+            </div>
+          </div>
+        </aside>
       </div>
     </header>
   );

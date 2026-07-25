@@ -77,7 +77,7 @@ const en = {
       training: "Grip, support, and tools for practicing with more confidence.", cute: "Bows, jewelry, bags, and details to complete her look.",
       mind: "Fidgets, puzzles, and sensory favorites for thinking, focusing, and playing.", wear: "Comfortable lifestyle pieces for practice days and off days.", enter: "Enter"
     },
-    shipping: { eyebrow: "U.S. Shipping", title1: "PRFCT10 SHIPS", title2: "ACROSS THE U.S.", text: "Tracked shipping across the United States, delivered straight to your door.", note: "Availability, delivery timing, and return support are confirmed before payment.", cta: "Keep shopping" }
+    shipping: { eyebrow: "U.S. SHIPPING", title1: "TRACKED DELIVERY,", title2: "STRAIGHT TO YOUR DOOR.", text: "Tracked shipping across the United States, from dispatch to delivery." }
   },
   home: {
     hero: { label: "PRFCT10 campaign gallery", eyebrow: "MADE FOR GYMNASTS", title1: "TRAIN WITH CONFIDENCE.", title2: "SHINE WITH STYLE.", text: "Accessories, training gear, and thoughtful details designed to support every practice with safety, style, and confidence.", shop: "SHOP NOW", standard: "THE STANDARD", images: "Campaign images", imageLabel: "Show {name} campaign", pause: "Pause campaign carousel", resume: "Resume campaign carousel", play: "Play", paused: "Pause", scroll: "SCROLL" },
@@ -215,7 +215,7 @@ const es = {
       training: "Agarre, soporte y herramientas para practicar con más confianza.", cute: "Lazos, joyería, bolsos y detalles para completar su look.",
       mind: "Fidgets, puzzles y favoritos sensoriales para pensar, enfocarse y jugar.", wear: "Piezas cómodas para días de práctica y descanso.", enter: "Entrar"
     },
-    shipping: { eyebrow: "Envíos en EE. UU.", title1: "PRFCT10 ENVÍA", title2: "EN TODO EE. UU.", text: "Envíos con seguimiento a todo Estados Unidos, directo a tu puerta.", note: "La disponibilidad, el tiempo de entrega y el soporte de devoluciones se confirman antes del pago.", cta: "Seguir comprando" }
+    shipping: { eyebrow: "ENVÍOS EN EE. UU.", title1: "ENTREGA CON SEGUIMIENTO,", title2: "DIRECTO A TU PUERTA.", text: "Envíos con seguimiento dentro de Estados Unidos, desde el despacho hasta la entrega." }
   },
   home: {
     hero: { label: "Galería de campañas PRFCT10", eyebrow: "HECHO PARA GIMNASTAS", title1: "ENTRENA CON CONFIANZA.", title2: "BRILLA CON ESTILO.", text: "Accesorios, entrenamiento y detalles pensados para acompañar cada práctica con seguridad, estilo y confianza.", shop: "COMPRAR AHORA", standard: "EL ESTÁNDAR", images: "Imágenes de campaña", imageLabel: "Mostrar campaña de {name}", pause: "Pausar carrusel", resume: "Reanudar carrusel", play: "Reproducir", paused: "Pausar", scroll: "DESLIZA" },

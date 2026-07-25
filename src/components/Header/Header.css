@@ -597,20 +597,31 @@
   }
 
   .header__actions {
-    gap: 0;
+    gap: 10px;
     order: 2;
   }
 
   .header__cart {
+    align-items: center;
     display: inline-flex;
     font-size: 0.7rem;
+    gap: 8px;
+    height: 42px;
+    justify-content: center;
+    line-height: 1;
     min-height: 42px;
-    padding: 0 13px;
+    padding: 0 8px 0 14px;
   }
 
   .header__cart span {
+    align-items: center;
     font-size: 0.72rem;
-    margin-left: 6px;
+    height: 28px;
+    line-height: 1;
+    margin-left: 0;
+    min-width: 28px;
+    padding: 0;
+    width: 28px;
   }
 
   .header__menu-toggle {
@@ -867,8 +878,16 @@
 
   .header__cart {
     font-size: 0.66rem;
+    gap: 6px;
+    height: 40px;
     min-height: 40px;
-    padding: 0 10px;
+    padding: 0 7px 0 12px;
+  }
+
+  .header__cart span {
+    height: 26px;
+    min-width: 26px;
+    width: 26px;
   }
 
   .header__menu-toggle {

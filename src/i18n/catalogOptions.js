@@ -5,6 +5,11 @@ const optionGroups = {
     Color: "Color",
     Weight: "Peso",
     "Pair Color": "Color del par",
+    "Grip Size": "Talla de grips",
+    "Bow Color": "Color del lazo",
+    "Flex Strap Color": "Color de Flex Strap",
+    "Weight Color": "Color de pesas",
+    Crown: "Elige tu corona",
     Pack: "Presentación",
     Design: "Diseño",
     Finish: "Acabado"

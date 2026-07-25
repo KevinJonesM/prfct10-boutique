@@ -1,5 +1,4 @@
 import { makeVariants } from "./catalogUtils";
-import { bundleProducts } from "./bundleProducts";
 
 const mentalItems = [
   {
@@ -294,6 +293,6 @@ const publicMentalItems = [...mentalItems.map((item) => {
     chips: [...new Set([update.group || item.group, "Mind Gym"])],
     stockVerificationRequired: update.inventoryStatus === "historical_unverified"
   };
-}), ...bundleProducts.filter((item) => item.id === "bundle-mind-gym-mystery")];
+})];
 
 export { publicMentalItems };

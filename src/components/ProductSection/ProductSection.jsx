@@ -5,6 +5,7 @@ import Reveal from "../Motion/Reveal";
 import { coquetteItems, shopLines } from "./data/accessoryProducts";
 import { wearItems } from "./data/apparelProducts";
 import { publicMentalItems } from "./data/mindGymProducts";
+import { publicBundleProducts } from "./data/bundleProducts";
 import { enrichCatalogProduct } from "./data/catalogUtils";
 import {
   getTrainingProductForModal,
@@ -39,6 +40,8 @@ const shopAllDepartmentTabs = [
   { value: "mind", labelKey: "navigation.mindGym", tone: "mind" },
   { value: "wear", labelKey: "navigation.apparel", tone: "apparel" }
 ];
+
+const bundleFilterTabs = [{ value: "all", labelKey: "filters.all" }];
 
 export default function ProductSection({
   products,
@@ -81,6 +84,10 @@ export default function ProductSection({
   const visibleTrainingProducts = sortItems(filterBySearch(tabbedTrainingProducts, searchQuery), trainingSortMode);
   const isSearchView = view === "search";
   const isAllView = view === "all";
+  const showBundles = view === "bundles"
+    || isSearchView
+    || view === "boutique"
+    || (isAllView && activeShopDepartment === "all");
   const showShopDepartment = (department) => {
     if (isAllView) return activeShopDepartment === "all" || activeShopDepartment === department;
     if (isSearchView || view === "boutique") return true;
@@ -107,6 +114,10 @@ export default function ProductSection({
       image: "/images/hero-apparel-lifestyle-editorial-wide.png",
       alt: "Four athletes wearing colorful PRFCT10 gymnastics-inspired apparel"
     },
+    bundles: {
+      image: "/images/product-flex-strap.png",
+      alt: "PRFCT10 curated gym-day bundles"
+    },
     all: {
       image: "/images/shop-all-hero-gymnast.png",
       alt: "Gymnast in a pink competition leotard"
@@ -119,7 +130,7 @@ export default function ProductSection({
     image: "/images/products-drop-hero.jpg",
     alt: "Gymnast training in a pastel gym"
   };
-  const heroKey = ["boutique", "training", "coquette", "mind", "wear", "all", "search"].includes(view) ? view : "boutique";
+  const heroKey = ["boutique", "training", "coquette", "mind", "wear", "bundles", "all", "search"].includes(view) ? view : "boutique";
   const heroCopy = {
     ...heroMedia,
     alt: t(`store.hero.${heroKey}.text`),
@@ -135,7 +146,7 @@ export default function ProductSection({
     mind: { label: t("store.hero.mind.cta"), href: "#gimnasia-mental" },
     wear: { label: t("store.hero.wear.cta"), href: "#ropa-mallas" }
   }[view];
-  const introKey = ["training", "coquette", "mind", "wear", "all"].includes(view) ? view : "all";
+  const introKey = ["training", "coquette", "mind", "wear", "bundles", "all"].includes(view) ? view : "all";
   const categoryIntro = {
     eyebrow: t(`store.intro.${introKey}.eyebrow`),
     title: [t(`store.intro.${introKey}.title1`), t(`store.intro.${introKey}.title2`)],
@@ -251,7 +262,7 @@ export default function ProductSection({
           ))}
         </div>
 
-        <aside className="shipping-cta" aria-label="PRFCT10 shipping">
+        <aside className="shipping-cta" id="shipping-info" aria-label="PRFCT10 shipping">
           <div className="shipping-cta__panel">
             <div className="shipping-cta__copy">
               <p>{t("store.shipping.eyebrow")}</p>
@@ -311,6 +322,7 @@ export default function ProductSection({
                 key={product.id}
                 product={product}
                 onSelectProduct={onSelectProduct}
+                onAddToCart={onAddToCart}
               />
             ))}
             {!visibleTrainingProducts.length && (
@@ -332,6 +344,7 @@ export default function ProductSection({
           filterTabs={coquetteCategoryFilterTabs}
           searchQuery={searchQuery}
           onSelectItem={(item, type) => setSelectedCollectionItem(createCollectionProduct(item, type))}
+          onAddToCart={onAddToCart}
           onOpenBoutique={onOpenBoutique}
           onBackHome={onBackHome}
           showHeader={isAllView}
@@ -347,6 +360,7 @@ export default function ProductSection({
           filterTabs={mentalFilterTabs}
           searchQuery={searchQuery}
           onSelectItem={(item, type) => setSelectedCollectionItem(createCollectionProduct(item, type))}
+          onAddToCart={onAddToCart}
           onOpenBoutique={onOpenBoutique}
           onBackHome={onBackHome}
           showHeader={isAllView}
@@ -362,9 +376,26 @@ export default function ProductSection({
           filterTabs={wearFilterTabs}
           searchQuery={searchQuery}
           onSelectItem={(item, type) => setSelectedCollectionItem(createCollectionProduct(item, type))}
+          onAddToCart={onAddToCart}
           onOpenBoutique={onOpenBoutique}
           onBackHome={onBackHome}
           showHeader={isAllView}
+        />}
+
+        {showBundles && <ProductGrid
+          id="bundles"
+          eyebrow={t("store.sections.bundlesEyebrow")}
+          title={t("store.sections.bundlesTitle")}
+          text={t("store.sections.bundlesText")}
+          items={publicBundleProducts}
+          modifier="bundles"
+          filterTabs={bundleFilterTabs}
+          searchQuery={searchQuery}
+          onSelectItem={(item, type) => setSelectedCollectionItem(createCollectionProduct(item, type))}
+          onAddToCart={onAddToCart}
+          onOpenBoutique={onOpenBoutique}
+          onBackHome={onBackHome}
+          showHeader={isAllView || view === "bundles"}
         />}
       </div>
 

@@ -112,7 +112,7 @@ export default function TeamPage({ onBackHome, onOpenDepartment, onOpenBoutique 
         </section>
       </main>
 
-      <Footer onBackHome={onBackHome} onOpenBoutique={onOpenBoutique} onOpenDepartment={onOpenDepartment} />
+      <Footer onBackHome={onBackHome} onOpenDepartment={onOpenDepartment} />
     </>
   );
 }

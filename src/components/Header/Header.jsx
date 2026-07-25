@@ -71,7 +71,7 @@ export default function Header({
     activeView === view ? "header__link--active" : ""
   ].filter(Boolean).join(" ");
 
-  const shopIsActive = ["all", "search"].includes(activeView);
+  const shopIsActive = ["all", "bundles", "search"].includes(activeView);
 
   return (
     <header className="header">
@@ -114,6 +114,7 @@ export default function Header({
             <div className="header__dropdown-menu">
               <a href="/shop" onClick={(event) => openBoutique(event, "all")}>{t("navigation.shopAll")}</a>
               <a href="/#featured" onClick={(event) => goToStore(event, "#featured")}>{t("navigation.featured")}</a>
+              <a href="/bundles" onClick={(event) => openBoutique(event, "bundles")}>{t("navigation.bundles")}</a>
             </div>
           </div>
           {departmentLinks.map((link) => (
@@ -133,7 +134,7 @@ export default function Header({
             onClick={openTeam}
             aria-current={activeView === "team" ? "page" : undefined}
           >
-            {t("navigation.team")}
+            {t("navigation.customTeamwear")}
           </a>
           {customerAccountsVisible ? (
             <button

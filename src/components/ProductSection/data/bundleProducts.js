@@ -1,192 +1,253 @@
-const bundleProducts = [
+import { coquetteItems } from "./accessoryProducts";
+import { trainingInventory } from "./trainingProducts";
+
+const pricingHold = {
+  price: null,
+  salePrice: null,
+  pricingStatus: "needs-business-approval",
+  blockPurchase: true,
+  stockSource: "components",
+  status: "configuration-required",
+  inventoryVerified: false,
+  modalTemplate: "bundle",
+  forceChooseOptions: true,
+  inventoryNotes: [
+    "No independent bundle inventory is created.",
+    "Availability derives from the selected component variants."
+  ]
+};
+
+const configurationVariant = (id, options, componentVariants, extra = {}) => ({
+  id,
+  options,
+  componentVariants,
+  stock: null,
+  status: "configuration-required",
+  ...extra
+});
+
+const activePrice = (productOrVariant) => {
+  const salePrice = productOrVariant?.salePrice;
+  if (typeof salePrice === "number" && Number.isFinite(salePrice)) return salePrice;
+  const price = productOrVariant?.price;
+  if (typeof price === "number" && Number.isFinite(price)) return price;
+
+  const firstPricedVariant = (productOrVariant?.variants || []).find((variant) => {
+    const variantSalePrice = variant?.salePrice;
+    const variantPrice = variant?.price;
+    return (
+      (typeof variantSalePrice === "number" && Number.isFinite(variantSalePrice)) ||
+      (typeof variantPrice === "number" && Number.isFinite(variantPrice))
+    );
+  });
+
+  if (!firstPricedVariant) return 0;
+  return activePrice(firstPricedVariant);
+};
+
+const sourceVariant = (productId, variant) => ({
+  productId,
+  variantId: variant.id || variant.sku || JSON.stringify(variant.options || {}),
+  sku: variant.sku,
+  options: { ...(variant.options || {}) }
+});
+
+const bowProduct = coquetteItems.find((product) => product.id === "coquet-lazos-tul");
+const glitterProduct = coquetteItems.find((product) => product.id === "coquet-glitter-spray");
+const barGripProduct = trainingInventory["bar-grips"];
+const wristBandProduct = trainingInventory["sweat-wristbands"];
+const tapeProduct = trainingInventory["kinesio-tape"];
+const flexStrapProduct = trainingInventory["flex-strap-12"];
+const weightProduct = trainingInventory["power-weights"];
+
+const barReadyComponentTotal =
+  activePrice(barGripProduct) + activePrice(wristBandProduct) + (3 * activePrice(tapeProduct));
+const meetDayComponentTotal = activePrice(bowProduct) + activePrice(glitterProduct);
+const conditioningComponentTotal = activePrice(flexStrapProduct) + activePrice(weightProduct);
+const usd = (value) => `$${value.toFixed(2)}`;
+
+const publicBundleProducts = [
   {
+    ...pricingHold,
     id: "bundle-bar-ready",
     name: "Bar Ready Bundle",
     subcategory: "bundles",
     group: "Bundles",
-    cardKicker: "Bundle",
+    cardKicker: "Bars",
     image: "/images/product-bar-grips.png",
-    gallery: ["/images/product-bar-grips.png", "/images/product-chalk-real.jpg", "/images/product-sweat-wristbands-pastel.png"],
-    description: "Power Grips, Gymnastics Wrist Bands, and one Gymnastics Chalk Block.",
-    price: 61.47,
-    salePrice: 59.99,
-    regularTotal: 61.47,
-    componentCurrentTotal: 61.47,
-    savingsAmount: 1.48,
-    modalTemplate: "bundle",
-    componentSummary: ["Power Grips, Gymnastics Wrist Bands, and one Gymnastics Chalk Block."],
-    selectionInstructions: ["Select the Power Grips size and chalk buying option before the bundle can be fulfilled."],
-    savingsSummary: ["Current component total: $61.47. Bundle price: $59.99. Current savings: $1.48."],
-    availabilityNotes: ["This bundle is temporarily unavailable until every component and option can be confirmed."],
+    gallery: [
+      "/images/product-bar-grips.png",
+      "/images/product-sweat-wristbands-pastel.png",
+      "/images/product-kinesio-real.png"
+    ],
+    description: "Power Grips, Gymnastics Wrist Bands, and three Kinesiology Tape rolls.",
+    currentComponentTotal: barReadyComponentTotal,
+    variants: (barGripProduct.variants || []).map((variant) =>
+      configurationVariant(
+        `bar-ready-${String(variant.options.Size).toLowerCase()}`,
+        { "Grip Size": variant.options.Size },
+        { "bar-grips": sourceVariant("bar-grips", variant) }
+      )
+    ),
+    componentSummary: [
+      "1 × Power Grips",
+      "1 × Gymnastics Wrist Bands",
+      "3 × Kinesiology Tape rolls"
+    ],
+    selectionInstructions: [
+      "Choose the Power Grips size.",
+      "Tape color configuration still requires a business decision before purchase can be enabled."
+    ],
+    availabilityNotes: [
+      "Merchandising preview only. Final bundle price and tape-color configuration require approval."
+    ],
+    savingsSummary: [`Current component total: ${usd(barReadyComponentTotal)}. No discount or final bundle price is claimed.`],
+    needsBusinessVerification: ["Final retail price", "Three-roll Kinesiology Tape color configuration"],
+    needsConfiguration: true,
     contentLocale: "en",
     localizedContent: {
       es: {
-        componentSummary: ["Power Grips, muñequeras de gimnasia y un bloque de magnesio."],
-        selectionInstructions: ["Selecciona la talla de Power Grips y la presentación del magnesio antes de completar el combo."],
-        savingsSummary: ["Total actual de los componentes: $61.47. Precio del combo: $59.99. Ahorro actual: $1.48."],
-        availabilityNotes: ["Este combo no está disponible temporalmente hasta confirmar todos sus componentes y opciones."]
+        description: "Power Grips, muñequeras de gimnasia y tres rollos de cinta kinesiológica.",
+        componentSummary: ["1 × Power Grips", "1 × muñequeras de gimnasia", "3 × rollos de cinta kinesiológica"],
+        selectionInstructions: [
+          "Elige la talla de Power Grips.",
+          "La configuración de colores de la cinta todavía requiere una decisión comercial."
+        ],
+        availabilityNotes: [
+          "Vista de merchandising. El precio final y la configuración de colores requieren aprobación."
+        ],
+        savingsSummary: [`Total actual de componentes: ${usd(barReadyComponentTotal)}. No se afirma ningún descuento ni precio final.`]
       }
     },
-    status: "stock-check-required",
-    blockPurchase: true,
     bundleComponents: [
-      { productId: "bar-grips", quantity: 1, requiresVariantSelection: true },
-      { productId: "sweat-wristbands", quantity: 1 },
-      { productId: "chalk", quantity: 1, requiresVariantSelection: true }
-    ],
-    stockTotal: null,
-    inventoryVerified: false,
-    inventoryNotes: ["No independent bundle stock is created. Inventory is consumed from components.", "Chalk stock requires physical confirmation."]
+      { productId: "bar-grips", quantity: 1, requiresVariantSelection: true, optionGroups: ["Size"] },
+      { productId: "sweat-wristbands", quantity: 1, requiresVariantSelection: false },
+      {
+        productId: "kinesio-tape",
+        quantity: 3,
+        requiresVariantSelection: true,
+        needsBusinessVerification: true,
+        configurationStatus: "needs-configuration"
+      }
+    ]
   },
   {
+    ...pricingHold,
     id: "bundle-meet-day-hair",
     name: "Meet Day Hair Bundle",
     subcategory: "bundles",
     group: "Bundles",
-    cardKicker: "Bundle",
-    image: "/images/accessories-gymnastics-bun-covers-cover.png",
-    gallery: ["/images/accessories-gymnastics-bun-covers-cover.png", "/images/accessories-nylon-headbands-cover.png"],
-    description: "PRFCT10 Gymnastics Bow, Gymnastics Bun Cover, and one Nylon Headband Pair.",
-    price: null,
-    salePrice: null,
-    regularTotal: 26.97,
-    componentCurrentTotal: 26.97,
-    pricingStatus: "business-review-required",
-    modalTemplate: "bundle",
-    componentSummary: ["PRFCT10 Gymnastics Bow, Gymnastics Bun Cover, and one Nylon Headband Pair."],
-    selectionInstructions: ["Select the bow color, bun-cover color, and headband pair color before fulfillment."],
-    availabilityNotes: ["This bundle is temporarily unavailable while its price and component options are finalized."],
+    cardKicker: "Meet Day",
+    image: "/images/coquet-lazos-tul.png",
+    gallery: ["/images/coquet-lazos-tul.png", "/images/coquet-glitter-spray.png"],
+    description: "A PRFCT10 Tulle Bow and Glitter Spray for a polished meet-day hair finish.",
+    currentComponentTotal: meetDayComponentTotal,
+    variants: (bowProduct?.variants || []).map((variant) =>
+      configurationVariant(
+        `meet-day-${String(variant.options.Color).toLowerCase().replace(/\s+/g, "-")}`,
+        { "Bow Color": variant.options.Color },
+        { "coquet-lazos-tul": sourceVariant("coquet-lazos-tul", variant) },
+        {
+          componentPrice: activePrice(variant) || activePrice(bowProduct),
+          image: variant.image
+        }
+      )
+    ),
+    componentSummary: ["1 × PRFCT10 Tulle Bow", "1 × Glitter Spray"],
+    selectionInstructions: ["Choose your bow. Rainbow Bow pricing is calculated from its real variant price."],
+    availabilityNotes: ["Merchandising preview only. Final bundle retail price requires approval."],
+    savingsSummary: [`Current component total starts at ${usd(meetDayComponentTotal)} and changes with the selected bow. No discount is claimed.`],
+    needsBusinessVerification: ["Final retail price"],
     contentLocale: "en",
     localizedContent: {
       es: {
-        componentSummary: ["Lazo de gimnasia PRFCT10, cubre moño y un par de bandas de nylon."],
-        selectionInstructions: ["Selecciona el color del lazo, del cubre moño y del par de bandas antes de completar el combo."],
-        availabilityNotes: ["Este combo no está disponible temporalmente mientras se finalizan su precio y las opciones de sus componentes."]
+        description: "Un lazo de tul PRFCT10 y spray de escarcha para un acabado pulido de competencia.",
+        componentSummary: ["1 × lazo de tul PRFCT10", "1 × spray de escarcha"],
+        selectionInstructions: ["Elige tu lazo. El precio del lazo Rainbow se calcula desde su variante real."],
+        availabilityNotes: ["Vista de merchandising. El precio final del combo requiere aprobación."],
+        savingsSummary: [`El total actual de componentes comienza en ${usd(meetDayComponentTotal)} y cambia según el lazo. No se afirma ningún descuento.`]
       }
     },
-    stockSource: "components",
-    componentStockCap: 12,
-    status: "business-review-required",
-    inventoryVerified: false,
-    blockPurchase: true,
-    internalNotes: ["Previous bundle price exceeded the current effective component total. Business pricing review required."],
     bundleComponents: [
-      { productId: "coquet-lazos-tul", quantity: 1, requiresVariantSelection: true },
-      { productId: "coquet-bun-covers", quantity: 1, requiresVariantSelection: true },
-      { productId: "coquet-nylon-headbands", quantity: 1, requiresVariantSelection: true }
+      {
+        productId: "coquet-lazos-tul",
+        quantity: 1,
+        requiresVariantSelection: true,
+        optionGroups: ["Color"],
+        priceFromSelectedVariant: true
+      },
+      { productId: "coquet-glitter-spray", quantity: 1, requiresVariantSelection: false }
     ]
   },
   {
-    id: "bundle-competition-ready",
-    name: "Competition Ready Bundle",
+    ...pricingHold,
+    id: "bundle-conditioning",
+    name: "Conditioning Bundle",
     subcategory: "bundles",
     group: "Bundles",
-    cardKicker: "Bundle",
-    image: "/images/coquet-guardapolvos.png",
-    gallery: ["/images/coquet-guardapolvos.png", "/images/coquet-spray.png"],
-    description: "Gymnastics Garment Bag, PRFCT10 Gymnastics Bow, and Glitter Spray.",
-    price: null,
-    salePrice: null,
-    regularTotal: 44.97,
-    componentCurrentTotal: 44.97,
-    pricingStatus: "business-review-required",
-    modalTemplate: "bundle",
-    componentSummary: ["Gymnastics Garment Bag, PRFCT10 Gymnastics Bow, and Glitter Spray."],
-    selectionInstructions: ["Select the garment-bag color and bow color before fulfillment."],
-    availabilityNotes: ["This bundle is temporarily unavailable while its product details and component options are finalized."],
-    contentLocale: "en",
-    localizedContent: {
-      es: {
-        componentSummary: ["Portamallas de gimnasia, lazo de gimnasia PRFCT10 y spray de escarcha."],
-        selectionInstructions: ["Selecciona el color del portamallas y del lazo antes de completar el combo."],
-        availabilityNotes: ["Este combo no está disponible temporalmente mientras se finalizan sus detalles y las opciones de sus componentes."]
-      }
-    },
-    stockSource: "components",
-    componentStockCap: 12,
-    status: "business-review-required",
-    inventoryVerified: false,
-    blockPurchase: true,
-    internalNotes: ["Business pricing review and Glitter Spray cosmetic documentation are required before sale."],
-    bundleComponents: [
-      { productId: "coquet-garment-bag", quantity: 1, requiresVariantSelection: true },
-      { productId: "coquet-lazos-tul", quantity: 1, requiresVariantSelection: true },
-      { productId: "coquet-glitter-spray", quantity: 1 }
-    ]
-  },
-  {
-    id: "bundle-little-gymnast-gift",
-    name: "Little Gymnast Gift",
-    subcategory: "bundles",
-    group: "Bundles",
-    cardKicker: "Bundle",
-    image: "/images/accessories-silicone-charm-bag-cover.png",
-    gallery: ["/images/accessories-silicone-charm-bag-cover.png", "/images/coquet-bisuteria.png"],
-    description: "PRFCT10 Silicone Charm Bag, PRFCT10 Gymnastics Bow, and Gymnastics String Charm Bracelet.",
-    price: null,
-    salePrice: null,
-    regularTotal: 51.97,
-    componentCurrentTotal: 51.97,
-    pricingStatus: "business-review-required",
-    modalTemplate: "bundle",
-    componentSummary: ["PRFCT10 Silicone Charm Bag, PRFCT10 Gymnastics Bow, and Gymnastics String Charm Bracelet."],
-    selectionInstructions: ["Select the bag, bow, and bracelet variants before fulfillment."],
-    availabilityNotes: ["This bundle is temporarily unavailable while its price and component options are finalized."],
-    contentLocale: "en",
-    localizedContent: {
-      es: {
-        componentSummary: ["Bolso de silicón PRFCT10 con charms, lazo de gimnasia y pulsera de hilo con charm."],
-        selectionInstructions: ["Selecciona las variantes del bolso, el lazo y la pulsera antes de completar el combo."],
-        availabilityNotes: ["Este combo no está disponible temporalmente mientras se finalizan su precio y las opciones de sus componentes."]
-      }
-    },
-    stockSource: "components",
-    componentStockCap: 12,
-    status: "business-review-required",
-    inventoryVerified: false,
-    blockPurchase: true,
-    internalNotes: ["Previous bundle price exceeded the current effective component total. Business pricing review required."],
-    bundleComponents: [
-      { productId: "coquet-silicone-bag", quantity: 1, requiresVariantSelection: true },
-      { productId: "coquet-lazos-tul", quantity: 1, requiresVariantSelection: true },
-      { productId: "coquet-string-charm-bracelet", quantity: 1, requiresVariantSelection: true }
-    ]
-  },
-  {
-    id: "bundle-mind-gym-mystery",
-    name: "Mind Gym Mystery Bag",
-    subcategory: "bundles",
-    group: "Bundles",
-    cardKicker: "Vault",
-    image: "/images/mental-bolita-puzzle-portada.png",
-    gallery: ["/images/mental-bolita-puzzle-portada.png", "/images/mental-pelota-squishy-portada.png"],
-    description: "A configurable surprise mix selected only from available PRFCT10 stored inventory.",
-    price: 14.99,
-    salePrice: null,
-    inventoryStatus: "historical_unverified",
-    inventoryVerified: false,
-    modalTemplate: "bundle",
-    blockPurchase: true,
-    isConfigurableBundle: true,
-    bundlePoolStatus: "historical_unverified",
-    bundlePoolProductIds: [
-      "mental-bolita-puzzle",
-      "mental-rueda-mental",
-      "mental-giro-puzzle",
-      "mental-pulseras-unicornio",
-      "mental-pelota-squishy",
-      "mental-puzzle-magico"
+    cardKicker: "Training",
+    image: "/images/product-flex-strap.png",
+    gallery: ["/images/product-flex-strap.png", "/images/product-weights.jpg"],
+    description: "Flex Strap 12 and Adjustable Wrist & Ankle Weights for controlled conditioning work.",
+    currentComponentTotal: conditioningComponentTotal,
+    variants: (flexStrapProduct.variants || []).flatMap((flexVariant) =>
+      (weightProduct.variants || []).map((weightVariant) =>
+        configurationVariant(
+          `conditioning-${flexVariant.options.Color}-${weightVariant.options.Weight}-${weightVariant.options.Color}`.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
+          {
+            "Flex Strap Color": flexVariant.options.Color,
+            Weight: weightVariant.options.Weight,
+            "Weight Color": weightVariant.options.Color
+          },
+          {
+            "flex-strap-12": sourceVariant("flex-strap-12", flexVariant),
+            "power-weights": sourceVariant("power-weights", weightVariant)
+          }
+        )
+      )
+    ),
+    componentSummary: ["1 × Flex Strap 12", "1 × Adjustable Wrist & Ankle Weights"],
+    selectionInstructions: [
+      "Choose the Flex Strap color.",
+      "Choose the weight and color for the Adjustable Wrist & Ankle Weights."
     ],
-    stockTotal: null,
-    availabilityNotes: ["This bundle is temporarily unavailable while eligible item options are confirmed."],
+    availabilityNotes: ["Choose Options is required. Final bundle retail price requires approval."],
+    savingsSummary: [`Current component total: ${usd(conditioningComponentTotal)}. No discount or final bundle price is claimed.`],
+    needsBusinessVerification: ["Final retail price"],
     contentLocale: "en",
     localizedContent: {
       es: {
-        availabilityNotes: ["Este combo no está disponible temporalmente mientras se confirman las opciones de artículos elegibles."]
+        description: "Flex Strap 12 y pesas ajustables para muñecas y tobillos para acondicionamiento controlado.",
+        componentSummary: ["1 × Flex Strap 12", "1 × pesas ajustables para muñecas y tobillos"],
+        selectionInstructions: [
+          "Elige el color de la Flex Strap.",
+          "Elige el peso y color de las pesas ajustables."
+        ],
+        availabilityNotes: ["Debes elegir las opciones. El precio final del combo requiere aprobación."],
+        savingsSummary: [`Total actual de componentes: ${usd(conditioningComponentTotal)}. No se afirma ningún descuento ni precio final.`]
       }
     },
-    internalNotes: ["Do not configure mystery contents from historical purchase records."]
+    bundleComponents: [
+      {
+        productId: "flex-strap-12",
+        quantity: 1,
+        requiresVariantSelection: true,
+        optionGroups: ["Color"]
+      },
+      {
+        productId: "power-weights",
+        quantity: 1,
+        requiresVariantSelection: true,
+        optionGroups: ["Weight", "Color"]
+      }
+    ]
   }
+];
+
+const retiredBundleIds = [
+  "bundle-competition-ready",
+  "bundle-little-gymnast-gift",
+  "bundle-mind-gym-mystery"
 ];
 
 export function getBundleInventoryConsumption(bundle, quantity = 1) {
@@ -196,4 +257,4 @@ export function getBundleInventoryConsumption(bundle, quantity = 1) {
   }));
 }
 
-export { bundleProducts };
+export { publicBundleProducts, retiredBundleIds };

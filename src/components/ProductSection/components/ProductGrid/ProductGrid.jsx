@@ -6,7 +6,7 @@ import ProductCard from "../../../ProductCard/ProductCard";
 import { useI18n } from "../../../../i18n/I18nProvider";
 import { localizeProduct } from "../../../../i18n/productTranslations";
 
-export default function ProductGrid({ id, eyebrow, title, text, items, modifier, filterTabs, searchQuery, onSelectItem, showHeader = false }) {
+export default function ProductGrid({ id, eyebrow, title, text, items, modifier, filterTabs, searchQuery, onSelectItem, onAddToCart, showHeader = false }) {
   const [activeFilter, setActiveFilter] = useState(filterTabs?.[0]?.value || "all");
   const [sortMode, setSortMode] = useState("featured");
   const { locale, t } = useI18n();
@@ -32,6 +32,7 @@ export default function ProductGrid({ id, eyebrow, title, text, items, modifier,
             key={item.id || item.name}
             product={item}
             onSelectProduct={(selectedItem) => onSelectItem(selectedItem, modifier)}
+            onAddToCart={onAddToCart}
           />
         ))}
         {!visibleItems.length && (

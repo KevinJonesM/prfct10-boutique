@@ -170,7 +170,15 @@ export function getVariantGroups(variants = []) {
 }
 
 export function getInitialOptions(variants = []) {
-  return variants[0]?.options ? { ...variants[0].options } : {};
+  const groups = getVariantGroups(variants);
+  if (groups.length >= 2) return {};
+  const firstAvailable = variants.find((variant) => {
+    const status = String(variant.status || "").toLowerCase();
+    return variant.stock !== 0 && !["sold-out", "sold_out", "out-of-stock", "out_of_stock", "unavailable"].includes(status);
+  });
+  return (firstAvailable || variants[0])?.options
+    ? { ...(firstAvailable || variants[0]).options }
+    : {};
 }
 
 export function findSelectedVariant(variants = [], selectedOptions = {}) {

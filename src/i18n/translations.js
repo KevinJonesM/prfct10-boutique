@@ -2,19 +2,22 @@ const en = {
   language: { label: "Language", english: "EN", spanish: "ES" },
   navigation: {
     home: "Home", menu: "Menu", main: "Main navigation", shop: "Shop", shopAll: "Shop All",
-    featured: "Featured", trainingGear: "Training Gear", accessories: "Accessories", mindGym: "Mind Gym",
-    apparel: "Apparel", team: "Team", search: "Search", searchPlaceholder: "Products", account: "Account",
+    featured: "Featured", bundles: "Bundles", trainingGear: "Training Gear", accessories: "Accessories", mindGym: "Mind Gym",
+    apparel: "Apparel", team: "Team", customTeamwear: "Custom Teamwear", search: "Search", searchPlaceholder: "Products", account: "Account",
     greeting: "Hi, {name}", bag: "Bag", bagLabel: "View bag with {count} items"
   },
   product: {
     shopItem: "Shop item", viewDetails: "View details", viewDetailsFor: "View details for {name}",
+    quickAdd: "Quick Add", chooseOptions: "Choose Options", chooseYourCrown: "Choose Your Crown",
+    pairColor: "Pair Color", pairOfTwo: "Pair of 2", selected: "Selected",
+    previousVariant: "Previous variant", nextVariant: "Next variant", soldOut: "Sold Out",
     badges: "Product badges", noProducts: "No products found",
     noProductsHelp: "Try another filter or search term. PRFCT10 support can also help you find the right item.",
     priceOnRequest: "Price on request", fromPrice: "From {price}"
   },
   badges: { bestseller: "Bestseller", sale: "Sale", new: "New", limited: "Limited", vault: "Vault" },
   availability: {
-    unavailable: "Unavailable", soldOut: "Sold out", arrivingSoon: "Arriving soon", comingSoon: "Coming soon", inStock: "In stock",
+    unavailable: "Unavailable", configurationRequired: "Configuration required", soldOut: "Sold out", arrivingSoon: "Arriving soon", comingSoon: "Coming soon", inStock: "In stock",
     onlyLeft: "Only {quantity} left", vaultDrop: "Vault drop", confirmedBeforePayment: "Availability confirmed before payment"
   },
   categories: {
@@ -25,7 +28,7 @@ const en = {
   },
   filters: {
     all: "All", allDepartments: "All Departments", necklaces: "Necklaces", bracelets: "Bracelets",
-    hairAccessories: "Hair Accessories", competition: "Competition", organization: "Organization",
+    hairAccessories: "Hair Accessories", meetDay: "Meet Day", headwear: "Headwear", competition: "Competition", organization: "Organization",
     giftsDetails: "Gifts & Details", grip: "Grip", support: "Support", strengthFlexibility: "Strength & Flexibility",
     recovery: "Recovery", puzzles: "Puzzles", sensory: "Sensory", fidget: "Fidget", challengeSets: "Challenge Sets",
     tops: "Tops", hoodiesSweaters: "Hoodies & Sweaters", shorts: "Shorts", periodBriefs: "Period Briefs", findFast: "Find it fast",
@@ -50,6 +53,7 @@ const en = {
       coquette: { eyebrow: "PRFCT10 DETAILS", title1: "GYMNASTICS", title2: "ACCESSORIES", text: "Bows, jewelry, bags, sparkle, and finishing touches for every gym day.", cta: "Shop accessories" },
       mind: { eyebrow: "PRFCT10 MIND GYM", title1: "GYMNASTICS", title2: "MIND GYM", text: "Puzzles, sensory play, and clever little challenges made for curious minds.", cta: "Shop Mind Gym" },
       wear: { eyebrow: "PRFCT10 STYLE", title1: "GYMNASTICS", title2: "APPAREL", text: "Gymnastics-inspired pieces made for practice days, off days, and everywhere in between.", cta: "Shop apparel" },
+      bundles: { eyebrow: "PRFCT10 CURATED SETS", title1: "SHOP", title2: "BUNDLES", text: "Purpose-built combinations for bars, meet-day hair, and conditioning—configured from real PRFCT10 inventory." },
       all: { eyebrow: "PRFCT10 SHOP", title1: "SHOP ALL", title2: "PRFCT10", text: "Browse training gear, accessories, Mind Gym favorites, and apparel in one place." },
       search: { eyebrow: "PRFCT10 SEARCH", title1: "SEARCH", title2: "RESULTS", empty: "Type a product to find it fast.", results: "Showing products related to “{query}”." }
     },
@@ -58,6 +62,7 @@ const en = {
       coquette: { eyebrow: "PRFCT10 Details", title1: "Add the spark.", title2: "Make your mark.", text: "Discover bows, bags, jewelry, sparkle, and everyday extras that bring personality to every routine." },
       mind: { eyebrow: "PRFCT10 Mind Gym", title1: "Play it smart.", title2: "Train every part.", text: "Explore puzzles, tactile challenges, sensory favorites, and colorful ways to keep curious minds engaged." },
       wear: { eyebrow: "Style in Motion", title1: "Dress to move.", title2: "Find your groove.", text: "Discover sporty, playful pieces that bring gymnastics energy, personality, and effortless style beyond the gym." },
+      bundles: { eyebrow: "Curated PRFCT10 sets", title1: "Pick the purpose.", title2: "Choose the details.", text: "Explore three thoughtfully composed sets. Final bundle pricing is confirmed before payment." },
       all: { eyebrow: "The full collection", title1: "Everything PRFCT10.", title2: "One easy shop.", text: "Browse every department, filter your options, and open any product for full details." }
     },
     shopAll: { browse: "Browse by department", title: "Shop the full consumer collection", filterLabel: "Filter Shop All by department" },
@@ -65,7 +70,8 @@ const en = {
       trainingEyebrow: "PRFCT10 Performance", trainingTitle: "Training Gear", trainingText: "Grip, support, flexibility, strength, and recovery essentials for every training day.",
       accessoriesEyebrow: "PRFCT10 Details", accessoriesTitle: "Accessories", accessoriesText: "Bows, jewelry, bags, sparkle, and thoughtful details for practice, competition, and gifting.",
       mindEyebrow: "Play and focus", mindTitle: "Mind Gym", mindText: "Fidgets, puzzles, and sensory favorites for focus, patience, coordination, and play.",
-      apparelEyebrow: "Style in Motion", apparelTitle: "Apparel", apparelText: "Sporty, playful pieces that bring gymnastics energy and effortless style beyond the gym."
+      apparelEyebrow: "Style in Motion", apparelTitle: "Apparel", apparelText: "Sporty, playful pieces that bring gymnastics energy and effortless style beyond the gym.",
+      bundlesEyebrow: "Curated sets", bundlesTitle: "PRFCT10 Bundles", bundlesText: "Three useful combinations for bars, meet-day hair, and conditioning. Choose the required options before requesting an order."
     },
     departmentCards: {
       training: "Grip, support, and tools for practicing with more confidence.", cute: "Bows, jewelry, bags, and details to complete her look.",
@@ -77,10 +83,11 @@ const en = {
     hero: { label: "PRFCT10 campaign gallery", eyebrow: "MADE FOR GYMNASTS", title1: "TRAIN WITH CONFIDENCE.", title2: "SHINE WITH STYLE.", text: "Accessories, training gear, and thoughtful details designed to support every practice with safety, style, and confidence.", shop: "SHOP NOW", standard: "THE STANDARD", images: "Campaign images", imageLabel: "Show {name} campaign", pause: "Pause campaign carousel", resume: "Resume campaign carousel", play: "Play", paused: "Pause", scroll: "SCROLL" },
     discovery: { label: "Help choosing PRFCT10 products", eyebrow: "A little help from PRFCT10", title1: "Pick it quick.", title2: "Make it chic.", text: "Find your way through training essentials, accessories, Mind Gym favorites, and apparel.", finder: "Help me choose", browse: "Or browse by department" },
     departments: { eyebrow: "Explore the collection", title: "Shop by Department", text: "Start with what you need today, then discover the rest of PRFCT10.", training: "Grip, support, flexibility, strength, and recovery essentials.", accessories: "Bows, bags, jewelry, sparkle, and thoughtful finishing details.", mind: "Puzzles, sensory favorites, and playful tools for calm and focus.", apparel: "Gymnastics-inspired pieces for practice days and everywhere after.", cta: "Shop department" },
-    featured: { eyebrow: "Featured", title: "Most-Loved PRFCT10", text: "Eight featured picks across training, accessories, and Mind Gym—an easy first stop for discovering the collection.", cta: "Shop all products" }
+    featured: { eyebrow: "Featured", title: "Most-Loved PRFCT10", text: "Eight featured picks across training, accessories, and Mind Gym—an easy first stop for discovering the collection.", cta: "Shop all products" },
+    bundles: { eyebrow: "Curated for the gym day", title: "Shop PRFCT10 Bundles", text: "Purpose-built sets for bars, meet-day hair, and conditioning. Final pricing is confirmed before payment.", cta: "Explore bundles" }
   },
   newsletter: { eyebrow: "PRFCT10 CLUB", footerTitle: "STAY IN THE LOOP.", footerText: "New drops, restocks, meet-day favorites, and everything new at PRFCT10.", modalTitle1: "GOOD THINGS", modalTitle2: "LAND HERE FIRST.", modalText: "New drops, restocks, gym-day favorites, and a little PRFCT10 magic.", privacy: "No spam. Just really good gymnastics stuff.", email: "Email address", join: "JOIN", joinClub: "JOIN THE CLUB", joining: "JOINING…", invalid: "Enter a valid email address.", success: "Welcome to PRFCT10 CLUB.", notConfigured: "Newsletter integration not configured.", error: "We couldn’t add you right now. Please try again.", close: "Close PRFCT10 CLUB signup" },
-  footer: { tagline: "The power is in your hands.", description: "A shop of smart, pretty essentials for gymnasts who train, recover, and celebrate every milestone.", partnership: "Available in partnership with", explore: "Explore", shop: "Shop", standard: "The Standard", about: "About", shipping: "U.S. shipping available", support: "Support & Social", whatsapp: "WhatsApp support", shopPrfct10: "Shop PRFCT10", rights: "2026 PRFCT10. All rights reserved.", backHome: "Back to Home" },
+  footer: { tagline: "The power is in your hands.", description: "A shop of smart, pretty essentials for gymnasts who train, recover, and celebrate every milestone.", partnership: "Available in partnership with", explore: "Explore", shop: "Shop", standard: "The Standard", about: "About", usShipping: "U.S. Shipping", shipping: "U.S. shipping available", support: "Support & Social", whatsapp: "WhatsApp support", rights: "2026 PRFCT10. All rights reserved.", backHome: "Back to Home", backToTop: "Back to top" },
   modal: { close: "Close product details", images: "Images of {name}", gallery: "Product gallery", image: "View image {number} of {name}", previous: "Previous image", next: "Next image", shop: "PRFCT10 Shop", quickBenefits: "Quick benefits", options: "Product options", delivery: "Delivery options", quantity: "Quantity {quantity}", addBag: "Add to bag", shipping: "U.S. shipping", returnSupport: "Friendly return and product support", noPayment: "No payment is collected until availability is confirmed", whatsapp: "Ask about this item on WhatsApp", availability: "Availability", exactOptions: "Exact colors, sizes, and fulfillment are confirmed before payment.", assisted: "Assisted ordering", about: "About this item", colors: "Colors and options", basedAvailability: "Based on availability", bestFor: "Best for", bestForDefault: "Gifts, competitions, team details, and practice looks.", ordering: "Ordering and delivery", addInstruction: "Add the item to your bag.", supportInstruction: "PRFCT10 support confirms availability and U.S. shipping.", paymentInstruction: "Payment follows through assisted ordering; online checkout can be added later.", howUse: "How to use", specifications: "Specifications", faq: "Frequently asked questions", uses: "Recommended sports and uses", faqFallback: "Frequently asked question", ship: "Ship", tracked: "Tracked U.S. delivery", calculated: "Calculated after confirmation", pickup: "Store pickup", requestPickup: "Request pickup", confirmedSupport: "Confirmed with support", local: "Local delivery", zip: "Request by ZIP code" },
   modalSections: {
     included: "What's included", sizing: "Sizing", care: "Care", safety: "Safety",
@@ -121,6 +128,7 @@ const en = {
     accessories: { title: "Gymnastics Accessories | PRFCT10", description: "Shop PRFCT10 gymnastics bows, jewelry, bags, meet-day sparkle, organization, and thoughtful gifts." },
     mind: { title: "Mind Gym Puzzles & Sensory Favorites | PRFCT10", description: "Explore PRFCT10 Mind Gym puzzles, fidgets, sensory favorites, and playful challenges for curious gymnasts." },
     apparel: { title: "Gymnastics-Inspired Apparel | PRFCT10", description: "Discover PRFCT10 tees, shorts, period briefs, and gymnastics-inspired lifestyle apparel for practice days and off days." },
+    bundles: { title: "Gymnastics Bundles | PRFCT10", description: "Explore PRFCT10 curated bundles for bars, meet-day hair, and conditioning, configured from real product inventory." },
     team: { title: "Custom Team Leotards | PRFCT10 TEAM", description: "Start a guided PRFCT10 TEAM quote for custom competition or training leotards designed around your program." },
     search: { title: "Search PRFCT10 Products", description: "Search the PRFCT10 consumer catalog across training gear, accessories, Mind Gym, and apparel." },
     cart: { title: "Your PRFCT10 Bag", description: "Review your selected PRFCT10 products and continue through assisted ordering support." }
@@ -132,19 +140,22 @@ const es = {
   language: { label: "Idioma", english: "EN", spanish: "ES" },
   navigation: {
     home: "Inicio", menu: "Menú", main: "Navegación principal", shop: "Comprar", shopAll: "Ver todo",
-    featured: "Destacados", trainingGear: "Entrenamiento", accessories: "Accesorios", mindGym: "Gimnasia mental",
-    apparel: "Ropa", team: "Equipos", search: "Buscar", searchPlaceholder: "Productos", account: "Cuenta",
+    featured: "Destacados", bundles: "Combos", trainingGear: "Entrenamiento", accessories: "Accesorios", mindGym: "Gimnasia mental",
+    apparel: "Ropa", team: "Equipos", customTeamwear: "Ropa personalizada para equipos", search: "Buscar", searchPlaceholder: "Productos", account: "Cuenta",
     greeting: "Hola, {name}", bag: "Bolsa", bagLabel: "Ver bolsa con {count} artículos"
   },
   product: {
     shopItem: "Comprar", viewDetails: "Ver detalles", viewDetailsFor: "Ver detalles de {name}",
+    quickAdd: "Agregar rápido", chooseOptions: "Elegir opciones", chooseYourCrown: "Elige tu corona",
+    pairColor: "Color del par", pairOfTwo: "Par de 2", selected: "Seleccionado",
+    previousVariant: "Variante anterior", nextVariant: "Variante siguiente", soldOut: "Agotado",
     badges: "Etiquetas del producto", noProducts: "No se encontraron productos",
     noProductsHelp: "Prueba otro filtro o término de búsqueda. El equipo PRFCT10 también puede ayudarte.",
     priceOnRequest: "Precio a consultar", fromPrice: "Desde {price}"
   },
   badges: { bestseller: "Más vendido", sale: "Oferta", new: "Nuevo", limited: "Limitado", vault: "Bóveda" },
   availability: {
-    unavailable: "No disponible", soldOut: "Agotado", arrivingSoon: "Próximamente", comingSoon: "Próximamente", inStock: "Disponible",
+    unavailable: "No disponible", configurationRequired: "Configuración requerida", soldOut: "Agotado", arrivingSoon: "Próximamente", comingSoon: "Próximamente", inStock: "Disponible",
     onlyLeft: "Solo quedan {quantity}", vaultDrop: "Edición de bóveda", confirmedBeforePayment: "Disponibilidad confirmada antes del pago"
   },
   categories: {
@@ -155,7 +166,7 @@ const es = {
   },
   filters: {
     all: "Todo", allDepartments: "Todos los departamentos", necklaces: "Collares", bracelets: "Pulseras",
-    hairAccessories: "Accesorios para el cabello", competition: "Competencia", organization: "Organización",
+    hairAccessories: "Accesorios para el cabello", meetDay: "Día de competencia", headwear: "Gorras", competition: "Competencia", organization: "Organización",
     giftsDetails: "Regalos y detalles", grip: "Agarre", support: "Soporte", strengthFlexibility: "Fuerza y flexibilidad",
     recovery: "Recuperación", puzzles: "Puzzles", sensory: "Sensorial", fidget: "Fidget", challengeSets: "Sets de retos",
     tops: "Camisetas", hoodiesSweaters: "Sudaderas y suéteres", shorts: "Shorts", periodBriefs: "Braguitas menstruales", findFast: "Encuéntralo rápido",
@@ -180,6 +191,7 @@ const es = {
       coquette: { eyebrow: "DETALLES PRFCT10", title1: "GIMNASIA", title2: "ACCESORIOS", text: "Lazos, joyería, bolsos, brillo y detalles para cada día de gimnasio.", cta: "Comprar accesorios" },
       mind: { eyebrow: "GIMNASIA MENTAL PRFCT10", title1: "GIMNASIA", title2: "MENTAL", text: "Puzzles, juego sensorial y pequeños retos para mentes curiosas.", cta: "Comprar gimnasia mental" },
       wear: { eyebrow: "ESTILO PRFCT10", title1: "GIMNASIA", title2: "ROPA", text: "Piezas inspiradas en gimnasia para días de práctica, descanso y todo lo demás.", cta: "Comprar ropa" },
+      bundles: { eyebrow: "SETS PRFCT10", title1: "COMPRA", title2: "COMBOS", text: "Combinaciones para barras, peinados de competencia y acondicionamiento, configuradas con inventario real PRFCT10." },
       all: { eyebrow: "TIENDA PRFCT10", title1: "VER TODO", title2: "PRFCT10", text: "Explora entrenamiento, accesorios, gimnasia mental y ropa en un solo lugar." },
       search: { eyebrow: "BÚSQUEDA PRFCT10", title1: "RESULTADOS", title2: "DE BÚSQUEDA", empty: "Escribe un producto para encontrarlo rápido.", results: "Mostrando productos relacionados con “{query}”." }
     },
@@ -188,6 +200,7 @@ const es = {
       coquette: { eyebrow: "Detalles PRFCT10", title1: "Suma el brillo.", title2: "Deja tu marca.", text: "Descubre lazos, bolsos, joyería y detalles que aportan personalidad a cada rutina." },
       mind: { eyebrow: "Gimnasia mental PRFCT10", title1: "Juega con intención.", title2: "Entrena cada parte.", text: "Explora puzzles, retos táctiles y favoritos sensoriales para mantener la mente activa." },
       wear: { eyebrow: "Estilo en movimiento", title1: "Vístete para moverte.", title2: "Encuentra tu ritmo.", text: "Descubre piezas deportivas y alegres con energía de gimnasia y estilo más allá del gimnasio." },
+      bundles: { eyebrow: "Sets PRFCT10", title1: "Elige el propósito.", title2: "Configura los detalles.", text: "Explora tres sets cuidadosamente armados. El precio final se confirma antes del pago." },
       all: { eyebrow: "La colección completa", title1: "Todo PRFCT10.", title2: "Una tienda fácil.", text: "Explora cada departamento, filtra tus opciones y abre cualquier producto para ver detalles." }
     },
     shopAll: { browse: "Explora por departamento", title: "Compra toda la colección", filterLabel: "Filtrar todos los productos por departamento" },
@@ -195,7 +208,8 @@ const es = {
       trainingEyebrow: "Rendimiento PRFCT10", trainingTitle: "Entrenamiento", trainingText: "Esenciales de agarre, soporte, flexibilidad, fuerza y recuperación.",
       accessoriesEyebrow: "Detalles PRFCT10", accessoriesTitle: "Accesorios", accessoriesText: "Lazos, joyería, bolsos, brillo y detalles para práctica, competencia y regalos.",
       mindEyebrow: "Juego y enfoque", mindTitle: "Gimnasia mental", mindText: "Fidgets, puzzles y favoritos sensoriales para enfoque, paciencia, coordinación y juego.",
-      apparelEyebrow: "Estilo en movimiento", apparelTitle: "Ropa", apparelText: "Piezas deportivas y alegres con energía de gimnasia y estilo sencillo fuera del gimnasio."
+      apparelEyebrow: "Estilo en movimiento", apparelTitle: "Ropa", apparelText: "Piezas deportivas y alegres con energía de gimnasia y estilo sencillo fuera del gimnasio.",
+      bundlesEyebrow: "Sets seleccionados", bundlesTitle: "Combos PRFCT10", bundlesText: "Tres combinaciones útiles para barras, peinados de competencia y acondicionamiento. Elige las opciones requeridas antes de solicitar el pedido."
     },
     departmentCards: {
       training: "Agarre, soporte y herramientas para practicar con más confianza.", cute: "Lazos, joyería, bolsos y detalles para completar su look.",
@@ -207,10 +221,11 @@ const es = {
     hero: { label: "Galería de campañas PRFCT10", eyebrow: "HECHO PARA GIMNASTAS", title1: "ENTRENA CON CONFIANZA.", title2: "BRILLA CON ESTILO.", text: "Accesorios, entrenamiento y detalles pensados para acompañar cada práctica con seguridad, estilo y confianza.", shop: "COMPRAR AHORA", standard: "EL ESTÁNDAR", images: "Imágenes de campaña", imageLabel: "Mostrar campaña de {name}", pause: "Pausar carrusel", resume: "Reanudar carrusel", play: "Reproducir", paused: "Pausar", scroll: "DESLIZA" },
     discovery: { label: "Ayuda para elegir productos PRFCT10", eyebrow: "Una pequeña ayuda de PRFCT10", title1: "Elige rápido.", title2: "Hazlo con estilo.", text: "Encuentra entrenamiento, accesorios, favoritos de gimnasia mental y ropa.", finder: "Ayúdame a elegir", browse: "O explora por departamento" },
     departments: { eyebrow: "Explora la colección", title: "Compra por departamento", text: "Comienza con lo que necesitas hoy y luego descubre el resto de PRFCT10.", training: "Esenciales de agarre, soporte, flexibilidad, fuerza y recuperación.", accessories: "Lazos, bolsos, joyería, brillo y detalles especiales.", mind: "Puzzles, favoritos sensoriales y herramientas de juego para enfoque.", apparel: "Piezas inspiradas en gimnasia para práctica y días de descanso.", cta: "Ver departamento" },
-    featured: { eyebrow: "Destacados", title: "Los más queridos de PRFCT10", text: "Ocho favoritos de entrenamiento, accesorios y gimnasia mental para descubrir la colección.", cta: "Ver todos los productos" }
+    featured: { eyebrow: "Destacados", title: "Los más queridos de PRFCT10", text: "Ocho favoritos de entrenamiento, accesorios y gimnasia mental para descubrir la colección.", cta: "Ver todos los productos" },
+    bundles: { eyebrow: "Selección para el gimnasio", title: "Compra combos PRFCT10", text: "Sets pensados para barras, peinados de competencia y acondicionamiento. El precio final se confirma antes del pago.", cta: "Explorar combos" }
   },
   newsletter: { eyebrow: "CLUB PRFCT10", footerTitle: "NO TE PIERDAS NADA.", footerText: "Nuevos lanzamientos, reposiciones, favoritos de competencia y todo lo nuevo en PRFCT10.", modalTitle1: "LO BUENO", modalTitle2: "LLEGA AQUÍ PRIMERO.", modalText: "Nuevos lanzamientos, reposiciones, favoritos del gimnasio y un poco de magia PRFCT10.", privacy: "Sin spam. Solo cosas de gimnasia que valen la pena.", email: "Correo electrónico", join: "UNIRME", joinClub: "UNIRME AL CLUB", joining: "UNIENDO…", invalid: "Ingresa un correo electrónico válido.", success: "Bienvenida al CLUB PRFCT10.", notConfigured: "La integración del boletín no está configurada.", error: "No pudimos agregarte ahora. Inténtalo de nuevo.", close: "Cerrar registro del CLUB PRFCT10" },
-  footer: { tagline: "El poder está en tus manos.", description: "Una tienda de esenciales inteligentes y bonitos para gimnastas que entrenan, se recuperan y celebran cada logro.", partnership: "Disponible en alianza con", explore: "Explorar", shop: "Comprar", standard: "El estándar", about: "Nosotros", shipping: "Envíos disponibles en EE. UU.", support: "Soporte y redes", whatsapp: "Soporte por WhatsApp", shopPrfct10: "Comprar PRFCT10", rights: "2026 PRFCT10. Todos los derechos reservados.", backHome: "Volver al inicio" },
+  footer: { tagline: "El poder está en tus manos.", description: "Una tienda de esenciales inteligentes y bonitos para gimnastas que entrenan, se recuperan y celebran cada logro.", partnership: "Disponible en alianza con", explore: "Explorar", shop: "Comprar", standard: "El estándar", about: "Nosotros", usShipping: "Envíos en EE. UU.", shipping: "Envíos disponibles en EE. UU.", support: "Soporte y redes", whatsapp: "Soporte por WhatsApp", rights: "2026 PRFCT10. Todos los derechos reservados.", backHome: "Volver al inicio", backToTop: "Volver arriba" },
   modal: { close: "Cerrar detalles del producto", images: "Imágenes de {name}", gallery: "Galería del producto", image: "Ver imagen {number} de {name}", previous: "Imagen anterior", next: "Imagen siguiente", shop: "Tienda PRFCT10", quickBenefits: "Beneficios principales", options: "Opciones del producto", delivery: "Opciones de entrega", quantity: "Cantidad {quantity}", addBag: "Agregar a la bolsa", shipping: "Envíos en EE. UU.", returnSupport: "Soporte amable para productos y devoluciones", noPayment: "No se cobra ningún pago hasta confirmar disponibilidad", whatsapp: "Consultar este producto por WhatsApp", availability: "Disponibilidad", exactOptions: "Los colores, tallas y entrega se confirman antes del pago.", assisted: "Pedido asistido", about: "Sobre este producto", colors: "Colores y opciones", basedAvailability: "Según disponibilidad", bestFor: "Ideal para", bestForDefault: "Regalos, competencias, detalles de equipo y looks de práctica.", ordering: "Pedido y entrega", addInstruction: "Agrega el producto a tu bolsa.", supportInstruction: "El equipo PRFCT10 confirma disponibilidad y envío.", paymentInstruction: "El pago se completa mediante pedido asistido; el checkout en línea puede añadirse después.", howUse: "Cómo usar", specifications: "Especificaciones", faq: "Preguntas frecuentes", uses: "Deportes y usos recomendados", faqFallback: "Pregunta frecuente", ship: "Envío", tracked: "Entrega con seguimiento en EE. UU.", calculated: "Calculado después de la confirmación", pickup: "Retiro en tienda", requestPickup: "Solicitar retiro", confirmedSupport: "Confirmado con soporte", local: "Entrega local", zip: "Solicitar por código postal" },
   modalSections: {
     included: "Qué incluye", sizing: "Tallas", care: "Cuidado", safety: "Seguridad",
@@ -251,6 +266,7 @@ const es = {
     accessories: { title: "Accesorios de gimnasia | PRFCT10", description: "Compra lazos, joyería, bolsos, brillo de competencia, organización y regalos de gimnasia PRFCT10." },
     mind: { title: "Puzzles y favoritos sensoriales Mind Gym | PRFCT10", description: "Explora puzzles, fidgets, favoritos sensoriales y retos divertidos de gimnasia mental PRFCT10." },
     apparel: { title: "Ropa inspirada en gimnasia | PRFCT10", description: "Descubre camisetas, shorts, ropa interior menstrual y ropa inspirada en gimnasia para práctica y descanso." },
+    bundles: { title: "Combos de gimnasia | PRFCT10", description: "Explora combos PRFCT10 para barras, peinados de competencia y acondicionamiento, configurados con inventario real." },
     team: { title: "Mallas personalizadas para equipos | PRFCT10 TEAM", description: "Inicia una cotización guiada para mallas personalizadas de competencia o entrenamiento según tu programa." },
     search: { title: "Buscar productos PRFCT10", description: "Busca en el catálogo PRFCT10 de entrenamiento, accesorios, gimnasia mental y ropa." },
     cart: { title: "Tu bolsa PRFCT10", description: "Revisa los productos seleccionados y continúa con el servicio de pedido asistido." }

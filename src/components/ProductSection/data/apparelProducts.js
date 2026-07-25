@@ -1,5 +1,14 @@
+import { makeVariants } from "./catalogUtils";
+
 const apparelImage = "/images/collection-ropa.png";
 const apparelSizes = ["S (7-8)", "M (9-10)", "L (11-12)"];
+
+const visorVariantImages = {
+  Purple: "/images/accessories-tie-dye-visor-product-purple.png",
+  "Pink Blue": "/images/accessories-tie-dye-visor-product-limited.png",
+  "Rose Red": "/images/accessories-tie-dye-visor-product-pink.png",
+  "Pink Green": "/images/accessories-tie-dye-visor-product-strong.png"
+};
 
 const makePendingApparel = ({ id, name, purchasedQty, subcategory, group }) => ({
   id,
@@ -43,6 +52,51 @@ const wearItems = [
   makePendingApparel({ id: "apparel-polka-dot-zip-hoodie", name: "White Polka-Dot Zip Hoodie", purchasedQty: 6, subcategory: "hoodiesSweaters", group: "Layers" }),
   makePendingApparel({ id: "apparel-heart-print-sweatshirt", name: "Heart Print Sweatshirt", purchasedQty: 6, subcategory: "hoodiesSweaters", group: "Layers" }),
   makePendingApparel({ id: "apparel-sandwash-tshirt", name: "Sandwash T-Shirt", purchasedQty: 21, subcategory: "tees", group: "Tops" }),
+  {
+    id: "coquet-tie-dye-visor",
+    name: "PRFCT10 Tie-Dye Visor",
+    subcategory: "headwear",
+    group: "Headwear",
+    cardKicker: "Headwear",
+    modalCategory: "Apparel",
+    modalTemplate: "apparel",
+    image: "/images/accessories-tie-dye-visor-cover.png",
+    imagePosition: "center center",
+    gallery: [
+      "/images/accessories-tie-dye-visor-cover.png",
+      "/images/accessories-tie-dye-visor-product-limited.png",
+      "/images/accessories-tie-dye-visor-product-pink.png",
+      "/images/accessories-tie-dye-visor-product-purple.png",
+      "/images/accessories-tie-dye-visor-product-strong.png",
+      "/images/accessories-tie-dye-visor-lifestyle-pink.png",
+      "/images/accessories-tie-dye-visor-lifestyle-purple.png",
+      "/images/accessories-tie-dye-visor-lifestyle-strong.png",
+      "/images/accessories-tie-dye-visor-lifestyle-limited.png"
+    ],
+    description: "Adjustable tie-dye headwear for camps, travel, outdoor events, and sporty everyday style.",
+    idealFor: "Casual wear, camps, travel, beach or pool days, and off-floor meet-day style.",
+    localizedContent: {
+      es: {
+        description: "Visera tie-dye ajustable para campamentos, viajes, eventos al aire libre y estilo deportivo diario.",
+        idealFor: "Uso casual, campamentos, viajes, playa o piscina y estilo fuera del área de competencia."
+      }
+    },
+    price: 24.99,
+    salePrice: 21.99,
+    stockTotal: 12,
+    oneSize: "Adjustable",
+    purchasedQty: 12,
+    status: "available",
+    inventoryVerified: true,
+    variants: makeVariants(
+      "Color",
+      ["Purple", "Pink Blue", "Rose Red", "Pink Green"],
+      { Purple: 3, "Pink Blue": 3, "Rose Red": 3, "Pink Green": 3 }
+    ).map((variant) => ({
+      ...variant,
+      image: visorVariantImages[variant.options.Color]
+    }))
+  },
   {
     id: "apparel-period-brief",
     name: "Seamless High-Waist Period Brief",

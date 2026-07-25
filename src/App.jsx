@@ -24,7 +24,8 @@ import OptimizedImage from "./components/OptimizedImage/OptimizedImage";
 import ProductCard from "./components/ProductCard/ProductCard";
 import { coquetteItems } from "./components/ProductSection/data/accessoryProducts";
 import { publicMentalItems } from "./components/ProductSection/data/mindGymProducts";
-import { getBundleInventoryConsumption } from "./components/ProductSection/data/bundleProducts";
+import { wearItems } from "./components/ProductSection/data/apparelProducts";
+import { getBundleInventoryConsumption, publicBundleProducts } from "./components/ProductSection/data/bundleProducts";
 import { enrichCatalogProduct } from "./components/ProductSection/data/catalogUtils";
 import { getTrainingProductForModal, trainingInventory, trainingSubcategories } from "./components/ProductSection/data/trainingProducts";
 import { useI18n } from "./i18n/I18nProvider";
@@ -161,7 +162,9 @@ const inventoryCatalog = new Map([
     .filter((product) => trainingInventory[product.id])
     .map((product) => getTrainingProductForModal(product)),
   ...coquetteItems,
-  ...publicMentalItems
+  ...publicMentalItems,
+  ...wearItems,
+  ...publicBundleProducts
 ].map((product) => [product.id, product]));
 
 function getReservedComponentQuantity(items, productId, excludedKey = "") {
@@ -629,6 +632,7 @@ function FeaturedProducts({
   subtitle = "A quick path to essentials that help athletes train with more confidence, control, and style.",
   buttonText = "Shop training gear",
   onSelectProduct,
+  onAddToCart,
   onOpenBoutique
 }) {
   const { t } = useI18n();
@@ -649,11 +653,45 @@ function FeaturedProducts({
       </div>
       <Reveal className="featured-stars__grid" delay={90}>
         {featuredProducts.map((product) => (
-          <ProductCard key={product.id} product={product} onSelectProduct={onSelectProduct} />
+          <ProductCard
+            key={product.id}
+            product={product}
+            onSelectProduct={onSelectProduct}
+            onAddToCart={onAddToCart}
+          />
         ))}
       </Reveal>
       <button className="featured-stars__boutique" type="button" onClick={onOpenBoutique}>
         {buttonText}
+      </button>
+    </section>
+  );
+}
+
+function HomepageBundles({ items, onSelectProduct, onOpenBundles }) {
+  const { locale, t } = useI18n();
+  const localizedBundles = items.map((item) => localizeProduct(item, locale));
+
+  return (
+    <section className="homepage-bundles" aria-labelledby="homepage-bundles-title">
+      <Reveal className="homepage-bundles__header">
+        <p>{t("home.bundles.eyebrow")}</p>
+        <SignatureText as="h2" id="homepage-bundles-title" variant="subhead">
+          {t("home.bundles.title")}
+        </SignatureText>
+        <span>{t("home.bundles.text")}</span>
+      </Reveal>
+      <Reveal className="homepage-bundles__grid" delay={90}>
+        {localizedBundles.map((bundle) => (
+          <ProductCard
+            key={bundle.id}
+            product={bundle}
+            onSelectProduct={onSelectProduct}
+          />
+        ))}
+      </Reveal>
+      <button className="homepage-bundles__cta" type="button" onClick={onOpenBundles}>
+        {t("home.bundles.cta")}
       </button>
     </section>
   );
@@ -710,6 +748,7 @@ const storePathByView = {
   coquette: "/accessories",
   mind: "/mind-gym",
   wear: "/apparel",
+  bundles: "/bundles",
   team: "/team"
 };
 
@@ -720,6 +759,7 @@ const pageSeoByView = {
   coquette: "accessories",
   mind: "mind",
   wear: "apparel",
+  bundles: "bundles",
   team: "team",
   search: "search",
   cart: "cart"
@@ -982,7 +1022,13 @@ export default function App() {
             subtitle={t("home.featured.text")}
             buttonText={t("home.featured.cta")}
             onSelectProduct={setSelectedProduct}
+            onAddToCart={addToCart}
             onOpenBoutique={() => showBoutique("all")}
+          />
+          <HomepageBundles
+            items={publicBundleProducts}
+            onSelectProduct={setSelectedProduct}
+            onOpenBundles={() => showBoutique("bundles")}
           />
           <ShopByDepartment onOpenDepartment={showBoutique} />
           <TeamShowcase onOpenTeam={showTeam} />
@@ -1003,8 +1049,8 @@ export default function App() {
               <FinalCTA onOpenBoutique={() => showBoutique("training")} />
               <Footer
                 onBackHome={showHome}
-                onOpenBoutique={() => showBoutique("training")}
                 onOpenDepartment={showBoutique}
+                onOpenTeam={showTeam}
               />
             </div>
           </section>
@@ -1045,8 +1091,8 @@ export default function App() {
           <ShippingCloseout onOpenBoutique={() => showBoutique("training")} />
           <Footer
             onBackHome={showHome}
-            onOpenBoutique={() => showBoutique("training")}
             onOpenDepartment={showBoutique}
+            onOpenTeam={showTeam}
           />
         </main>
       )}

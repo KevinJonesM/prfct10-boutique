@@ -32,6 +32,26 @@ const toList = (value) => {
   return Array.isArray(value) ? value.filter(Boolean) : [value].filter(Boolean);
 };
 
+const variantKey = (variant, index = 0) =>
+  variant?.id || variant?.sku || JSON.stringify(variant?.options || {}) || `variant-${index}`;
+
+const getVariantImage = (product, variant) =>
+  variant?.image || product?.variantImages?.[variantKey(variant)] || "";
+
+const unavailableVariantStatuses = new Set([
+  "sold-out",
+  "soldout",
+  "out-of-stock",
+  "unavailable",
+  "retired",
+  "discontinued"
+]);
+
+const isVariantSelectable = (variant) =>
+  Boolean(variant) &&
+  variant.stock !== 0 &&
+  !unavailableVariantStatuses.has(String(variant.status || "").toLowerCase());
+
 function AccordionItem({ item, isOpen, onToggle, fallbackQuestion }) {
   const content = toList(item.content);
 
@@ -63,7 +83,13 @@ function AccordionItem({ item, isOpen, onToggle, fallbackQuestion }) {
   );
 }
 
-export default function ProductModal({ product: sourceProduct, onClose, onAddToCart }) {
+export default function ProductModal({
+  product: sourceProduct,
+  onClose,
+  onAddToCart,
+  initialSelectedOptions,
+  initialVariantId
+}) {
   const { locale, t } = useI18n();
   const product = useMemo(() => localizeProduct(sourceProduct, locale), [sourceProduct, locale]);
   const [activeSlide, setActiveSlide] = useState(0);
@@ -74,13 +100,17 @@ export default function ProductModal({ product: sourceProduct, onClose, onAddToC
   const dialogRef = useRef(null);
   const closeButtonRef = useRef(null);
   useModalScrollLock(Boolean(product));
+  const variantGroups = getVariantGroups(product?.variants || []);
+  const selectedVariant = findSelectedVariant(product?.variants || [], selectedOptions);
 
   const galleryProducts = useMemo(() => {
     if (!product) return [];
     const galleryImages = product.galleryImages?.length ? product.galleryImages : product.gallery?.length ? product.gallery : [];
+    const images = [getVariantImage(product, selectedVariant), ...galleryImages, product.image].filter(Boolean);
+    const uniqueImages = [...new Set(images)];
 
-    if (galleryImages.length) {
-      return galleryImages.map((image, index) => ({
+    if (uniqueImages.length) {
+      return uniqueImages.map((image, index) => ({
         ...product,
         id: `${product.id || product.name}-gallery-${index}`,
         image
@@ -88,15 +118,38 @@ export default function ProductModal({ product: sourceProduct, onClose, onAddToC
     }
 
     return [product];
-  }, [product]);
+  }, [product, selectedVariant]);
 
   useEffect(() => {
     setActiveSlide(0);
     setOpenAccordion(t("modal.about"));
     setQuantity(1);
     setFulfillment("ship");
-    setSelectedOptions(getInitialOptions(product?.variants || []));
-  }, [product, t]);
+    const variants = product?.variants || [];
+    const requestedVariantId = initialVariantId || product?.initialVariantId;
+    const requestedOptions = initialSelectedOptions || product?.initialSelectedOptions;
+    const requestedVariant = requestedVariantId
+      ? variants.find((variant, index) =>
+          variant.id === requestedVariantId ||
+          variant.sku === requestedVariantId ||
+          JSON.stringify(variant.options || {}) === requestedVariantId ||
+          `variant-${index}` === requestedVariantId
+        )
+      : null;
+    setSelectedOptions(
+      requestedVariant?.options
+        ? { ...requestedVariant.options }
+        : requestedOptions && Object.keys(requestedOptions).length
+          ? { ...requestedOptions }
+          : product?.forceChooseOptions
+            ? {}
+            : getInitialOptions(variants)
+    );
+  }, [initialSelectedOptions, initialVariantId, product, t]);
+
+  useEffect(() => {
+    setActiveSlide(0);
+  }, [selectedVariant?.id, selectedVariant?.sku, JSON.stringify(selectedVariant?.options || {})]);
 
   useEffect(() => {
     if (!product) return undefined;
@@ -142,12 +195,10 @@ export default function ProductModal({ product: sourceProduct, onClose, onAddToC
   if (!product) return null;
 
   const activeProduct = galleryProducts[activeSlide] || product;
-  const variantGroups = getVariantGroups(product.variants || []);
-  const selectedVariant = findSelectedVariant(product.variants || [], selectedOptions);
   const productName = product.modalName || product.name;
   const productCategory = product.modalCategory || product.category || product.group || "PRFCT10";
   const productDescription = product.details || product.description || product.commercialDescription || product.cardPhrase;
-  const selectedImage = selectedVariant?.image || activeProduct.image;
+  const selectedImage = activeProduct.image || getVariantImage(product, selectedVariant) || product.image || product.galleryImages?.[0] || product.gallery?.[0];
   const productImageStyle = selectedImage ? { backgroundImage: `url(${selectedImage})` } : undefined;
   const quickBenefits = toList(product.benefits || product.chips || product.loveList || [productCategory, t("modal.assisted")]);
   const price = getPriceDisplay(product, selectedVariant);
@@ -265,11 +316,12 @@ export default function ProductModal({ product: sourceProduct, onClose, onAddToC
             <div className="product-modal__variants" aria-label={t("modal.options")}>
               {variantGroups.map((group) => (
                 <div className="product-modal__variant-group" key={group.name}>
-                  <strong>{localizeOptionGroup(locale, group.name)}</strong>
+                  <strong>{product.variantLabel || localizeOptionGroup(locale, group.name)}</strong>
                   <div>
                     {group.values.map((value) => {
                       const choiceVariant = getVariantChoice(product.variants || [], group.name, value, selectedOptions);
                       const choicePrice = choiceVariant ? getPriceDisplay(product, choiceVariant) : null;
+                      const choiceSelectable = isVariantSelectable(choiceVariant);
                       const choiceCurrent = choicePrice?.current === "Price on request"
                         ? t("product.priceOnRequest")
                         : choicePrice?.current;
@@ -277,26 +329,45 @@ export default function ProductModal({ product: sourceProduct, onClose, onAddToC
                         <button
                         className={selectedOptions[group.name] === value ? "product-modal__variant product-modal__variant--active" : "product-modal__variant"}
                         key={value}
-                        disabled={!choiceVariant}
+                        disabled={!choiceSelectable}
                         onClick={() => {
                           const nextOptions = { ...selectedOptions, [group.name]: value };
                           const nextVariant = findSelectedVariant(product.variants || [], nextOptions);
                           const nextMax = getMaxPurchasableQuantity(product, nextVariant);
                           setSelectedOptions(nextOptions);
+                          setActiveSlide(0);
                           if (typeof nextMax === "number") setQuantity((current) => Math.max(1, Math.min(current, nextMax)));
                         }}
                         type="button"
                         aria-pressed={selectedOptions[group.name] === value}
                       >
+                        {group.name === "Crown" && getVariantImage(product, choiceVariant) ? (
+                          <OptimizedImage
+                            className="product-modal__variant-thumb"
+                            src={getVariantImage(product, choiceVariant)}
+                            alt=""
+                            loading="lazy"
+                            width="72"
+                            height="72"
+                          />
+                        ) : null}
                         <span>{localizeOptionValue(locale, value)}</span>
                         {choiceCurrent ? <small>{choiceCurrent}</small> : null}
+                        {!choiceSelectable ? <small>{t("product.soldOut")}</small> : null}
                       </button>
                       );
                     })}
                   </div>
                 </div>
               ))}
-              {selectedVariant?.sku ? <small className="product-modal__variant-meta">SKU: {selectedVariant.sku}</small> : null}
+              {selectedVariant ? (
+                <small className="product-modal__variant-meta">
+                  {t("product.selected")}: {Object.entries(selectedVariant.options || {})
+                    .map(([group, value]) => `${localizeOptionGroup(locale, group)}: ${localizeOptionValue(locale, value)}`)
+                    .join(" · ")}
+                  {selectedVariant.sku ? ` · SKU: ${selectedVariant.sku}` : ""}
+                </small>
+              ) : null}
             </div>
           ) : null}
 

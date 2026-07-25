@@ -19,7 +19,7 @@ const coquetteCategoryFilterTabs = [
   { labelKey: "filters.necklaces", value: "necklaces", groups: ["Necklaces"] },
   { labelKey: "filters.bracelets", value: "bracelets", groups: ["Bracelets"] },
   { labelKey: "filters.hairAccessories", value: "hair", groups: ["Hair Accessories"] },
-  { labelKey: "filters.competition", value: "competition", groups: ["Competition Look"] },
+  { labelKey: "filters.meetDay", value: "meet-day", groups: ["Meet-Day Accessories"] },
   { labelKey: "filters.organization", value: "organization", groups: ["Organization"] },
   { labelKey: "filters.giftsDetails", value: "gifts", groups: ["Gifts & Details"] }
 ];
@@ -39,6 +39,7 @@ const wearFilterTabs = [
   { labelKey: "filters.tops", value: "tops", subcategories: ["tees", "croppedTees", "tanks"] },
   { labelKey: "filters.hoodiesSweaters", value: "hoodies-sweaters", subcategories: ["hoodiesSweaters"] },
   { labelKey: "filters.shorts", value: "shorts", subcategories: ["shorts"] },
+  { labelKey: "filters.headwear", value: "headwear", subcategories: ["headwear"] },
   { labelKey: "filters.periodBriefs", value: "period-briefs", subcategories: ["periodUnderwear"] }
 ];
 

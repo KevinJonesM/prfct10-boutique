@@ -69,6 +69,17 @@ export function getAvailabilityState(product = {}, variant = null) {
     return { label: "Sold out", labelKey: "availability.soldOut", tone: "unavailable", canAddToCart: false, verified: true, quantity: 0 };
   }
 
+  if (status === "configuration-required") {
+    return {
+      label: "Configuration required",
+      labelKey: "availability.configurationRequired",
+      tone: "pending",
+      canAddToCart: false,
+      verified: false,
+      quantity: null
+    };
+  }
+
   if (product.blockPurchase === true) {
     return {
       label: "Unavailable",

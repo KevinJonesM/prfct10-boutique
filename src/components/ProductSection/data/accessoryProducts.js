@@ -1,5 +1,37 @@
 import { enrichCatalogProduct, makeVariants } from "./catalogUtils";
-import { bundleProducts } from "./bundleProducts";
+
+const bowVariantImages = {
+  "Hot Pink": "/images/coquet-lazos-tul.png",
+  "Neon Orange": "/images/coquet-lazos-tul-carrusel-1.png",
+  Rainbow: "/images/coquet-lazos-tul-carrusel-2.png"
+};
+
+const siliconeBagVariantImages = {
+  "Light Yellow": "/images/accessories-silicone-charm-bag-light-yellow.png",
+  Lilac: "/images/accessories-silicone-charm-bag-lilac.png",
+  "Peach Pink": "/images/accessories-silicone-charm-bag-peach-pink.png",
+  "Sky Blue": "/images/accessories-silicone-charm-bag-sky-blue.png",
+  "Blue Lagoon": "/images/accessories-silicone-charm-bag-blue-lagoon.png"
+};
+
+const headbandVariantImages = {
+  White: "/images/accessories-nylon-headbands-product-white-burgundy.png",
+  Burgundy: "/images/accessories-nylon-headbands-product-white-burgundy.png",
+  "Sky Blue": "/images/accessories-nylon-headbands-product-blue-orange.png",
+  Orange: "/images/accessories-nylon-headbands-product-blue-orange.png",
+  Purple: "/images/accessories-nylon-headbands-product-pink-purple.png",
+  "Light Pink": "/images/accessories-nylon-headbands-product-pink-purple.png",
+  Pink: "/images/accessories-nylon-headbands-product-pink-green.png",
+  "Fluorescent Green": "/images/accessories-nylon-headbands-product-pink-green.png"
+};
+
+const bunCoverVariantImages = {
+  "Sky Blue": "/images/accessories-gymnastics-bun-covers-product-blue.png",
+  "Light Pink": "/images/accessories-gymnastics-bun-covers-product-pink.png",
+  Purple: "/images/accessories-gymnastics-bun-covers-product-purple.png",
+  "Mint Green": "/images/accessories-gymnastics-bun-covers-lifestyle-mint.png",
+  "Rose Pink": "/images/accessories-gymnastics-bun-covers-product-hot-pink.png"
+};
 
 const shopLines = [
   {
@@ -445,7 +477,11 @@ const coquetteItemUpdates = {
     status: "available",
     inventoryVerified: true,
     contentLocale: "en",
-    variants: makeVariants("Color", ["Hot Pink", "Neon Orange", "Light Pink", "Lavender", "Light Blue", "Aqua Blue", "Light Yellow", "White", "Rainbow", "Red", "Blue", "Black", "Apple Green"], { "Hot Pink": 6, "Neon Orange": 6 }, { Rainbow: { price: 18.99, salePrice: 16.99, stock: null, status: "in-production" } }).map((variant) => variant.stock === null && !variant.status ? { ...variant, status: "in-production" } : variant),
+    variants: makeVariants("Color", ["Hot Pink", "Neon Orange", "Light Pink", "Lavender", "Light Blue", "Aqua Blue", "Light Yellow", "White", "Rainbow", "Red", "Blue", "Black", "Apple Green"], { "Hot Pink": 6, "Neon Orange": 6 }, { Rainbow: { price: 18.99, salePrice: 16.99, stock: null, status: "in-production" } }).map((variant) => ({
+      ...variant,
+      ...(variant.stock === null && !variant.status ? { status: "in-production" } : {}),
+      ...(bowVariantImages[variant.options.Color] ? { image: bowVariantImages[variant.options.Color] } : {})
+    })),
     inventoryNotes: [
       "One product card with color variants. Rainbow has its own regular and sale price.",
       "Hot Pink and Neon Orange are finished; other colors require status confirmation."
@@ -493,7 +529,11 @@ const coquetteItemUpdates = {
         ]
       }
     },
-    variants: makeVariants("Color", ["Light Yellow", "Lilac", "Peach Pink", "Sky Blue", "Blue Lagoon"]).map((variant) => ({ ...variant, status: "allocation-pending" }))
+    variants: makeVariants("Color", ["Light Yellow", "Lilac", "Peach Pink", "Sky Blue", "Blue Lagoon"]).map((variant) => ({
+      ...variant,
+      image: siliconeBagVariantImages[variant.options.Color],
+      status: "allocation-pending"
+    }))
   },
   "Guardapolvos de Gimnasia": { id: "coquet-garment-bag", name: "Gymnastics Garment Bag", subcategory: "gymBags", price: 24.99, salePrice: 19.99, stockTotal: 16, group: "Organization", cardKicker: "Organization", variants: makeVariants("Color", ["Pink", "Purple"], { Pink: 8, Purple: 8 }), specifications: ["Size: 60 x 100 cm"] },
   Amuleto: { id: "coquet-string-charm-bracelet", name: "Gymnastics String Charm Bracelet", subcategory: "jewelry", price: 7.99, salePrice: 6.99, stockTotal: 12, group: "Bracelets", cardKicker: "Bracelets", variants: makeVariants("Color", ["Apple Green", "Turquoise Blue", "Fuchsia"], { "Apple Green": 4, "Turquoise Blue": 4, Fuchsia: 4 }) },
@@ -548,7 +588,10 @@ const coquetteNewItems = [
     group: "Hair Accessories",
     cardKicker: "Hair",
     included: ["One same-color pair: two physical nylon headbands."],
-    variants: makeVariants("Pair Color", ["White", "Sky Blue", "Purple", "Orange", "Light Pink", "Pink", "Burgundy", "Fluorescent Green"], { White: 25, "Sky Blue": 25, Purple: 25, Orange: 25, "Light Pink": 25, Pink: 25, Burgundy: 25, "Fluorescent Green": 25 }),
+    variants: makeVariants("Pair Color", ["White", "Sky Blue", "Purple", "Orange", "Light Pink", "Pink", "Burgundy", "Fluorescent Green"], { White: 25, "Sky Blue": 25, Purple: 25, Orange: 25, "Light Pink": 25, Pink: 25, Burgundy: 25, "Fluorescent Green": 25 }).map((variant) => ({
+      ...variant,
+      image: headbandVariantImages[variant.options["Pair Color"]]
+    })),
     faqs: [
       { question: "How many headbands are included?", answer: "One cart unit includes two headbands in the same selected color." },
       { question: "Can I mix two colors in one pair?", answer: "No. Each pair contains two headbands in one selected color." }
@@ -597,7 +640,10 @@ const coquetteNewItems = [
     stockTotal: 20,
     group: "Hair Accessories",
     cardKicker: "Hair",
-    variants: makeVariants("Color", ["Sky Blue", "Light Pink", "Purple", "Mint Green", "Rose Pink"], { "Sky Blue": 4, "Light Pink": 4, Purple: 4, "Mint Green": 4, "Rose Pink": 4 })
+    variants: makeVariants("Color", ["Sky Blue", "Light Pink", "Purple", "Mint Green", "Rose Pink"], { "Sky Blue": 4, "Light Pink": 4, Purple: 4, "Mint Green": 4, "Rose Pink": 4 }).map((variant) => ({
+      ...variant,
+      image: bunCoverVariantImages[variant.options.Color]
+    }))
   },
   {
     id: "coquet-tiara-comb",
@@ -607,12 +653,12 @@ const coquetteNewItems = [
     imagePosition: "center center",
     gallery: [
       "/images/accessories-rhinestone-tiara-cover.png",
-      "/images/accessories-rhinestone-tiara-mendoza.png",
-      "/images/accessories-rhinestone-tiara-fernandez.png",
-      "/images/accessories-rhinestone-tiara-saez.png",
-      "/images/accessories-rhinestone-tiara-machado.png",
-      "/images/accessories-rhinestone-tiara-palacios.png",
-      "/images/accessories-rhinestone-tiara-isler.png",
+      "/images/crown-aurora.png",
+      "/images/crown-celeste.png",
+      "/images/crown-nova.png",
+      "/images/crown-halo.png",
+      "/images/crown-opal.png",
+      "/images/crown-stella.png",
       "/images/accessories-rhinestone-tiara-lifestyle-portrait.png",
       "/images/accessories-rhinestone-tiara-lifestyle-pearl.png",
       "/images/accessories-rhinestone-tiara-lifestyle-ribbon.png"
@@ -621,6 +667,8 @@ const coquetteNewItems = [
     meetDayUse: ["Use for meet-day styling and off-floor presentation only where event rules allow. Remove if required by the coach or meet policy."],
     localizedContent: {
       es: {
+        collectionName: "COLECCIÓN DE CORONAS PRFCT10",
+        variantLabel: "ELIGE TU CORONA",
         meetDayUse: ["Úsala para estilismo del día de competencia y presentación fuera del área de competencia solo donde las reglas lo permitan. Retírala si lo exige el entrenador o el evento."]
       }
     },
@@ -629,43 +677,16 @@ const coquetteNewItems = [
     stockTotal: 24,
     group: "Hair Accessories",
     cardKicker: "Hair",
-    variantLabel: "Choose Your Style",
-    variants: makeVariants("Design", ["Style 20", "Style 11", "Style 31", "Style 4", "Style 5", "Style 34"], { "Style 20": 4, "Style 11": 4, "Style 31": 4, "Style 4": 4, "Style 5": 4, "Style 34": 4 })
-  },
-  {
-    id: "coquet-tie-dye-visor",
-    name: "PRFCT10 Tie-Dye Visor",
-    subcategory: "hairAccessories",
-    image: "/images/accessories-tie-dye-visor-cover.png",
-    imagePosition: "center center",
-    gallery: [
-      "/images/accessories-tie-dye-visor-cover.png",
-      "/images/accessories-tie-dye-visor-product-limited.png",
-      "/images/accessories-tie-dye-visor-product-pink.png",
-      "/images/accessories-tie-dye-visor-product-purple.png",
-      "/images/accessories-tie-dye-visor-product-strong.png",
-      "/images/accessories-tie-dye-visor-lifestyle-pink.png",
-      "/images/accessories-tie-dye-visor-lifestyle-purple.png",
-      "/images/accessories-tie-dye-visor-lifestyle-strong.png",
-      "/images/accessories-tie-dye-visor-lifestyle-limited.png"
-    ],
-    description: "Adjustable tie-dye visor for travel, warm-weather events, and off-floor PRFCT10 style.",
-    meetDayUse: ["An off-floor accessory for travel, outdoor events, and team arrival or departure. It is not intended for apparatus use."],
-    localizedContent: {
-      es: {
-        meetDayUse: ["Accesorio para usar fuera del área de competencia durante viajes, eventos al aire libre y llegada o salida del equipo. No está diseñado para usar en aparatos."]
-      }
-    },
-    price: 24.99,
-    salePrice: 21.99,
-    stockTotal: 12,
-    group: "Meet-Day Accessories",
-    cardKicker: "Meet Day",
-    oneSize: "Adjustable",
-    purchasedQty: 12,
-    status: "available",
-    inventoryVerified: true,
-    variants: makeVariants("Color", ["Purple", "Pink Blue", "Rose Red", "Pink Green"], { Purple: 3, "Pink Blue": 3, "Rose Red": 3, "Pink Green": 3 })
+    collectionName: "PRFCT10 CROWN COLLECTION",
+    variantLabel: "CHOOSE YOUR CROWN",
+    variants: [
+      { id: "crown-aurora", sku: "TIARA-20", options: { Crown: "Aurora" }, stock: 4, image: "/images/crown-aurora.png", legacyStyle: "Style 20" },
+      { id: "crown-celeste", sku: "TIARA-11", options: { Crown: "Celeste" }, stock: 4, image: "/images/crown-celeste.png", legacyStyle: "Style 11" },
+      { id: "crown-nova", sku: "TIARA-31", options: { Crown: "Nova" }, stock: 4, image: "/images/crown-nova.png", legacyStyle: "Style 31" },
+      { id: "crown-halo", sku: "TIARA-04", options: { Crown: "Halo" }, stock: 4, image: "/images/crown-halo.png", legacyStyle: "Style 4" },
+      { id: "crown-opal", sku: "TIARA-05", options: { Crown: "Opal" }, stock: 4, image: "/images/crown-opal.png", legacyStyle: "Style 5" },
+      { id: "crown-stella", sku: "TIARA-34", options: { Crown: "Stella" }, stock: 4, image: "/images/crown-stella.png", legacyStyle: "Style 34" }
+    ]
   }
 ];
 
@@ -673,8 +694,7 @@ const normalizedCoquetteItems = [
   ...rawCoquetteItems
     .filter((item) => !coquetteRemovedNames.has(item.name))
     .map((item) => enrichCatalogProduct({ ...item, contentLocale: "es" }, coquetteItemUpdates[item.name] || {})),
-  ...coquetteNewItems,
-  ...bundleProducts.filter((item) => item.id !== "bundle-mind-gym-mystery")
+  ...coquetteNewItems
 ];
 
 const modalTemplateById = {
@@ -695,8 +715,7 @@ const modalTemplateById = {
   "coquet-pendant-necklace": "jewelry",
   "coquet-nylon-headbands": "hair",
   "coquet-bun-covers": "hair",
-  "coquet-tiara-comb": "hair",
-  "coquet-tie-dye-visor": "hair"
+  "coquet-tiara-comb": "hair"
 };
 
 const jewelrySafety = {

@@ -63,14 +63,14 @@ const rawCoquetteItems = [
       "/images/coqueteria-collar-silueta-gimnasia-bridge.png",
       "/images/coqueteria-collar-silueta-gimnasia-handstand.png"
     ],
-    description: "Collares delicados con siluetas de gimnasia en acabado dorado y plateado, perfectos para llevar su deporte favorito cerca del corazon.",
-    commercialDescription: "Una coleccion de collares finos con figuras de gimnasta en diferentes poses. Cada silueta se siente elegante, deportiva y muy personal, ideal para regalar a ninas y adolescentes que aman la gimnasia.",
+    description: "Collares delicados con siluetas de gimnasia en acabado dorado y plateado, perfectos para llevar su deporte favorito cerca del corazón.",
+    commercialDescription: "Una colección de collares finos con figuras de gimnasta en diferentes poses. Cada silueta se siente elegante, deportiva y muy personal, ideal para regalar a niñas y adolescentes que aman la gimnasia.",
     loveList: [
       "Siluetas de gimnasia en diferentes poses.",
-      "Disponible en acabado dorado y plateado segun disponibilidad.",
-      "Diseno delicado, femenino y facil de combinar.",
-      "Portada con los tres bustos para mostrar la coleccion.",
-      "Best for regalar, coleccionar o combinar con looks del gym."
+      "Disponible en acabado dorado y plateado según disponibilidad.",
+      "Diseño delicado, femenino y fácil de combinar.",
+      "Portada con los tres bustos para mostrar la colección.",
+      "Ideal para regalar, coleccionar o combinar con looks del gimnasio."
     ],
     colors: "Dorado y plateado.",
     idealFor: "Regalos, competencias, amigas del equipo, cumpleanos y detalles especiales para gimnastas.",
@@ -208,10 +208,10 @@ const rawCoquetteItems = [
       "Pieza central con la palabra Gymnastics.",
       "Charm colgante de gimnasta.",
       "Liviana y fácil de usar.",
-      "Best for regalos, competencias y detalles de equipo."
+      "Ideal para regalos, competencias y detalles de equipo."
     ],
     howToUse: "Colócala alrededor de la muñeca y ajústala suavemente hasta que quede cómoda. Úsala como accesorio diario, regalo especial o detalle motivacional antes de entrenar o competir.",
-    age: "Best for niñas, preadolescentes y adolescentes gimnastas. También es perfecta para mamás, coaches o fans de la gimnasia que quieran un detalle lindo.",
+    age: "Ideal para niñas, preadolescentes y adolescentes gimnastas. También es perfecta para mamás, entrenadoras o fans de la gimnasia que quieran un detalle lindo.",
     purpose: "Más que una pulsera, es un pequeño recordatorio de amor por la gimnasia, confianza y motivación.",
     gymnastics: "Ayuda a reforzar el sentido de pertenencia, la ilusión por el deporte y ese toque emocional que muchas atletas aman llevar fuera del gimnasio.",
     idealFor: "Regalos, competencias, amigas del equipo, detalles de motivación y looks del gym.",
@@ -260,7 +260,7 @@ const rawCoquetteItems = [
       "Cadena metalica con ajuste.",
       "Disponible en dorado y plateado segun disponibilidad.",
       "Portada con ambos acabados para comparar.",
-      "Best for usar a diario o como regalo especial."
+      "Ideal para usar a diario o como regalo especial."
     ],
     colors: "Dorado y plateado.",
     idealFor: "Regalos, competencias, amigas del equipo, cumpleanos y detalles de motivacion.",
@@ -309,7 +309,7 @@ const rawCoquetteItems = [
       "Diseno delicado con simbolo infinito.",
       "Detalle love con acabado brillante.",
       "Disponible en tono dorado y plateado segun disponibilidad.",
-      "Best for usar a diario o como regalo especial.",
+      "Ideal para usar a diario o como regalo especial.",
       "Ligero, combinable y muy cute."
     ],
     colors: "Dorado y plateado.",
@@ -330,17 +330,17 @@ const rawCoquetteItems = [
       "/images/coqueteria-collar-love-gymnastics-lifestyle.png"
     ],
     description: "Collar con detalle love gymnastics y brillo de color para que cada gimnasta lleve su deporte favorito cerquita.",
-    commercialDescription: "Un collar alegre y femenino para ninas y adolescentes que aman la gimnasia. Sus detalles de color y el mensaje love gymnastics lo hacen perfecto para regalar, combinar con accesorios de competencia o sumar al look diario.",
+    commercialDescription: "Un collar alegre para niñas y adolescentes que aman la gimnasia. Sus detalles de color y el mensaje Love Gymnastics lo hacen ideal para regalar o sumar al look diario fuera del entrenamiento.",
     loveList: [
-      "Detalle love gymnastics.",
-      "Disponible en varios tonos segun disponibilidad.",
+      "Detalle Love Gymnastics.",
+      "Disponible en varios tonos según disponibilidad.",
       "Brillo delicado y acabado femenino.",
-      "Perfecto para regalos de equipo o bolsitas sorpresa.",
-      "Un accesorio pequeno que se siente muy personal."
+      "Ideal para regalos de equipo o bolsitas sorpresa.",
+      "Un accesorio pequeño que se siente muy personal."
     ],
-    colors: "Azul, rosado y cristal segun disponibilidad.",
-    idealFor: "Regalos, competencias, amigas del equipo, looks del gym y detalles de celebracion.",
-    why: "Tiene color, brillo y mensaje de gimnasia: un detalle facil de amar y de combinar.",
+    colors: "Azul, rosado y cristal según disponibilidad.",
+    idealFor: "Regalos, amigas del equipo, looks fuera del entrenamiento y detalles de celebración.",
+    why: "Tiene color, brillo y mensaje de gimnasia: un detalle fácil de amar y combinar.",
     chips: ["Love gymnastics", "Colores", "Gimnasta"]
   },
   {
@@ -386,7 +386,7 @@ const rawCoquetteItems = [
       "Mensaje Practice Makes Perfect.",
       "Detalle de cristales y pequeno corazon rosado.",
       "Disponible en dorado y plateado segun disponibilidad.",
-      "Best for regalar antes de competencias o como recuerdo motivacional."
+      "Ideal para regalar antes de competencias o como recuerdo motivacional."
     ],
     colors: "Dorado y plateado.",
     idealFor: "Regalos, competencias, amigas del equipo, cumpleanos y detalles de motivacion.",
@@ -420,7 +420,19 @@ const coquetteRemovedNames = new Set(["Toallas de Playa", "Charms de Gimnasia", 
 
 const coquetteItemUpdates = {
   Medalleros: { id: "coquet-medal-hanger", name: "Gymnastics Medal Hanger", subcategory: "gifts", price: 34.99, salePrice: 29.99, stockTotal: 50, group: "Gifts & Details", cardKicker: "Gifts" },
-  "Spray de escarcha": { id: "coquet-glitter-spray", name: "Glitter Spray", subcategory: "competition", price: 11.99, salePrice: 9.99, stockTotal: 50, group: "Competition Look", cardKicker: "Competition" },
+  "Spray de escarcha": {
+    id: "coquet-glitter-spray",
+    name: "Glitter Spray",
+    subcategory: "competition",
+    price: 11.99,
+    salePrice: 9.99,
+    stockTotal: 50,
+    group: "Meet-Day Accessories",
+    cardKicker: "Meet Day",
+    claimsVerification: "documentation-required",
+    needsVerification: ["Net contents", "Ingredient list", "Directions", "Warnings", "Approved application areas"],
+    blockPurchase: true
+  },
   "Lazos de tul": {
     id: "coquet-lazos-tul",
     name: "PRFCT10 Gymnastics Bows",
@@ -432,10 +444,11 @@ const coquetteItemUpdates = {
     purchasedQty: 12,
     status: "available",
     inventoryVerified: true,
+    contentLocale: "en",
     variants: makeVariants("Color", ["Hot Pink", "Neon Orange", "Light Pink", "Lavender", "Light Blue", "Aqua Blue", "Light Yellow", "White", "Rainbow", "Red", "Blue", "Black", "Apple Green"], { "Hot Pink": 6, "Neon Orange": 6 }, { Rainbow: { price: 18.99, salePrice: 16.99, stock: null, status: "in-production" } }).map((variant) => variant.stock === null && !variant.status ? { ...variant, status: "in-production" } : variant),
-    modalSections: [
-      { title: "About this item", content: ["One product card with color variants.", "Rainbow has its own regular and sale price."] },
-      { title: "Inventory", content: ["Hot Pink - 6 finished bows.", "Neon Orange - 6 finished bows.", "Other colors are in production or coming soon."] }
+    inventoryNotes: [
+      "One product card with color variants. Rainbow has its own regular and sale price.",
+      "Hot Pink and Neon Orange are finished; other colors require status confirmation."
     ]
   },
   Peluflores: { id: "coquet-plush-flowers", name: "Plush Flowers", subcategory: "gifts", price: 16.99, salePrice: 14.99, stockTotal: 100, group: "Gifts & Details", cardKicker: "Gifts", variants: makeVariants("Color", ["Fuchsia", "Pink", "Purple", "Orange", "Green", "Blue", "Multicolor"], { Fuchsia: 25, Pink: 25, Purple: 20, Orange: 5, Green: 5, Blue: 5, Multicolor: 15 }) },
@@ -462,14 +475,24 @@ const coquetteItemUpdates = {
     stockTotal: 20,
     status: "available",
     inventoryVerified: true,
+    contentLocale: "en",
     group: "Organization",
     cardKicker: "Organization",
     description: "Soft silicone bag for gym essentials with 12 removable gymnastics charms included.",
     loveList: ["Includes 12 removable Gymnastics Charms.", "Charms can decorate the bag, garment bag, or everyday accessories.", "Charms are bundled with the bag and are not sold independently right now."],
     modalSections: [
-      { title: "Included charms", content: ["Comes with 12 gymnastics-themed silicone charms in PRFCT10 pastel colors.", "Designed to personalize the bag and make every gym-day setup feel playful and organized."] },
-      { title: "Best for", content: ["Grips, bows, towel, water bottle, recovery extras, and competition-day essentials."] }
+      { key: "included", merge: "replace", content: ["Comes with 12 gymnastics-themed silicone charms in PRFCT10 pastel colors.", "Designed to personalize the bag and make every gym-day setup feel playful and organized."] },
+      { key: "about", content: ["Useful for grips, bows, a towel, water bottle, recovery extras, and meet-day essentials."] }
     ],
+    localizedContent: {
+      es: {
+        loveList: ["Incluye 12 charms removibles de gimnasia.", "Los charms vienen con el bolso y no se venden por separado en este momento."],
+        modalSections: [
+          { key: "included", merge: "replace", content: ["Incluye 12 charms removibles con motivos de gimnasia en colores pastel PRFCT10."] },
+          { key: "about", content: ["Útil para grips, lazos, toalla, botella de agua y esenciales para días de competencia."] }
+        ]
+      }
+    },
     variants: makeVariants("Color", ["Light Yellow", "Lilac", "Peach Pink", "Sky Blue", "Blue Lagoon"]).map((variant) => ({ ...variant, status: "allocation-pending" }))
   },
   "Guardapolvos de Gimnasia": { id: "coquet-garment-bag", name: "Gymnastics Garment Bag", subcategory: "gymBags", price: 24.99, salePrice: 19.99, stockTotal: 16, group: "Organization", cardKicker: "Organization", variants: makeVariants("Color", ["Pink", "Purple"], { Pink: 8, Purple: 8 }), specifications: ["Size: 60 x 100 cm"] },
@@ -494,7 +517,7 @@ const coquetteItemUpdates = {
 const coquetteNewItems = [
   {
     id: "coquet-nylon-headbands",
-    name: "Nylon Headbands",
+    name: "Nylon Headband Pair",
     subcategory: "hairAccessories",
     image: "/images/accessories-nylon-headbands-cover.png",
     imagePosition: "center center",
@@ -509,7 +532,8 @@ const coquetteNewItems = [
       "/images/accessories-nylon-headbands-lifestyle-track.png",
       "/images/accessories-nylon-headbands-lifestyle-pastel.png"
     ],
-    description: "Soft nylon headbands sold as a same-color pair for practice, competition hair, and clean team looks.",
+    description: "Two soft nylon headbands in the same selected color for practice, meet-day hair, and clean team looks.",
+    meetDayUse: ["Use as a hair accessory before and after routines or wherever meet rules permit. Confirm team and event requirements."],
     price: 5.99,
     salePrice: 4.99,
     purchasedQty: 400,
@@ -520,13 +544,26 @@ const coquetteNewItems = [
     stockTotal: 200,
     status: "available",
     inventoryVerified: true,
+    contentLocale: "en",
     group: "Hair Accessories",
     cardKicker: "Hair",
-    variants: makeVariants("Color", ["White", "Sky Blue", "Purple", "Orange", "Light Pink", "Pink", "Burgundy", "Fluorescent Green"], { White: 25, "Sky Blue": 25, Purple: 25, Orange: 25, "Light Pink": 25, Pink: 25, Burgundy: 25, "Fluorescent Green": 25 }),
-    modalSections: [
-      { title: "About this item", content: ["Sold as a same-color pair.", "One cart unit equals one pair (two physical headbands)."] },
-      { title: "Inventory", content: ["400 physical pieces purchased.", "200 commercial pairs available: 25 pairs per color."] }
-    ]
+    included: ["One same-color pair: two physical nylon headbands."],
+    variants: makeVariants("Pair Color", ["White", "Sky Blue", "Purple", "Orange", "Light Pink", "Pink", "Burgundy", "Fluorescent Green"], { White: 25, "Sky Blue": 25, Purple: 25, Orange: 25, "Light Pink": 25, Pink: 25, Burgundy: 25, "Fluorescent Green": 25 }),
+    faqs: [
+      { question: "How many headbands are included?", answer: "One cart unit includes two headbands in the same selected color." },
+      { question: "Can I mix two colors in one pair?", answer: "No. Each pair contains two headbands in one selected color." }
+    ],
+    inventoryNotes: ["Commercial unit is one same-color pair. Inventory is tracked in pairs."],
+    localizedContent: {
+      es: {
+        included: ["Un par del mismo color: dos bandas físicas de nylon."],
+        meetDayUse: ["Úsalas como accesorio para el cabello antes y después de las rutinas o donde lo permitan las reglas del evento. Confirma los requisitos del equipo y la competencia."],
+        faqs: [
+          { question: "¿Cuántas bandas incluye?", answer: "Una unidad del carrito incluye dos bandas del mismo color seleccionado." },
+          { question: "¿Puedo mezclar dos colores?", answer: "No. Cada par contiene dos bandas de un solo color seleccionado." }
+        ]
+      }
+    }
   },
   {
     id: "coquet-bun-covers",
@@ -548,7 +585,13 @@ const coquetteNewItems = [
       "/images/accessories-gymnastics-bun-covers-close-hot-pink.png",
       "/images/accessories-gymnastics-bun-covers-detail-blue.png"
     ],
-    description: "Cute bun covers to keep competition hair polished and photo-ready.",
+    description: "Cute bun covers to keep meet-day hair polished and photo-ready off the competition floor.",
+    meetDayUse: ["Designed for polished meet-day hair and off-floor presentation. Confirm team and event hair-accessory rules."],
+    localizedContent: {
+      es: {
+        meetDayUse: ["Diseñados para peinados pulidos el día de competencia y presentación fuera del área de competencia. Confirma las reglas del equipo y del evento."]
+      }
+    },
     price: 7.99,
     salePrice: 6.99,
     stockTotal: 20,
@@ -574,7 +617,13 @@ const coquetteNewItems = [
       "/images/accessories-rhinestone-tiara-lifestyle-pearl.png",
       "/images/accessories-rhinestone-tiara-lifestyle-ribbon.png"
     ],
-    description: "Rhinestone hair combs with style variants for polished competition hair.",
+    description: "Rhinestone hair combs with style variants for polished meet-day hair off the competition floor.",
+    meetDayUse: ["Use for meet-day styling and off-floor presentation only where event rules allow. Remove if required by the coach or meet policy."],
+    localizedContent: {
+      es: {
+        meetDayUse: ["Úsala para estilismo del día de competencia y presentación fuera del área de competencia solo donde las reglas lo permitan. Retírala si lo exige el entrenador o el evento."]
+      }
+    },
     price: 14.99,
     salePrice: 12.99,
     stockTotal: 24,
@@ -586,7 +635,7 @@ const coquetteNewItems = [
   {
     id: "coquet-tie-dye-visor",
     name: "PRFCT10 Tie-Dye Visor",
-    subcategory: "competition",
+    subcategory: "hairAccessories",
     image: "/images/accessories-tie-dye-visor-cover.png",
     imagePosition: "center center",
     gallery: [
@@ -600,12 +649,18 @@ const coquetteNewItems = [
       "/images/accessories-tie-dye-visor-lifestyle-strong.png",
       "/images/accessories-tie-dye-visor-lifestyle-limited.png"
     ],
-    description: "Adjustable tie-dye visor with a PRFCT10 patch.",
+    description: "Adjustable tie-dye visor for travel, warm-weather events, and off-floor PRFCT10 style.",
+    meetDayUse: ["An off-floor accessory for travel, outdoor events, and team arrival or departure. It is not intended for apparatus use."],
+    localizedContent: {
+      es: {
+        meetDayUse: ["Accesorio para usar fuera del área de competencia durante viajes, eventos al aire libre y llegada o salida del equipo. No está diseñado para usar en aparatos."]
+      }
+    },
     price: 24.99,
     salePrice: 21.99,
     stockTotal: 12,
-    group: "Competition Look",
-    cardKicker: "Competition",
+    group: "Meet-Day Accessories",
+    cardKicker: "Meet Day",
     oneSize: "Adjustable",
     purchasedQty: 12,
     status: "available",
@@ -617,16 +672,52 @@ const coquetteNewItems = [
 const normalizedCoquetteItems = [
   ...rawCoquetteItems
     .filter((item) => !coquetteRemovedNames.has(item.name))
-    .map((item) => enrichCatalogProduct(item, coquetteItemUpdates[item.name] || {})),
+    .map((item) => enrichCatalogProduct({ ...item, contentLocale: "es" }, coquetteItemUpdates[item.name] || {})),
   ...coquetteNewItems,
   ...bundleProducts.filter((item) => item.id !== "bundle-mind-gym-mystery")
 ];
+
+const modalTemplateById = {
+  "coquet-medal-hanger": "gift",
+  "coquet-glitter-spray": "cosmetic",
+  "coquet-lazos-tul": "hair",
+  "coquet-plush-flowers": "gift",
+  "coquet-silicone-bag": "general",
+  "coquet-garment-bag": "general",
+  "coquet-string-charm-bracelet": "jewelry",
+  "coquet-leather-charm-bracelet": "jewelry",
+  "coquet-infinity-heart-bracelet": "jewelry",
+  "coquet-lock-charm-bracelet": "jewelry",
+  "brazalete-gimnasia": "jewelry",
+  "coquet-gymnast-necklace": "jewelry",
+  "coquet-rhinestone-necklace": "jewelry",
+  "coquet-infinity-necklace": "jewelry",
+  "coquet-pendant-necklace": "jewelry",
+  "coquet-nylon-headbands": "hair",
+  "coquet-bun-covers": "hair",
+  "coquet-tiara-comb": "hair",
+  "coquet-tie-dye-visor": "hair"
+};
+
+const jewelrySafety = {
+  en: ["Remove jewelry before training, warm-up, apparatus work, conditioning, or competition. Store it securely until all athletic activity is complete."],
+  es: ["Retira la joyería antes del entrenamiento, calentamiento, trabajo en aparatos, acondicionamiento o competencia. Guárdala de forma segura hasta terminar toda actividad deportiva."]
+};
 
 const coquetteItems = normalizedCoquetteItems.map((item) => {
   const group = item.group || coquetteCategoryMap[item.name] || "Gifts & Details";
   return {
     ...item,
     group,
+    modalTemplate: item.modalTemplate || modalTemplateById[item.id] || "general",
+    contentLocale: item.contentLocale || "en",
+    localizedContent: (item.modalTemplate || modalTemplateById[item.id]) === "jewelry"
+      ? {
+          ...(item.localizedContent || {}),
+          en: { ...(item.localizedContent?.en || {}), jewelrySafety: jewelrySafety.en },
+          es: { ...(item.localizedContent?.es || {}), jewelrySafety: jewelrySafety.es }
+        }
+      : item.localizedContent,
     purchasedQty: item.purchasedQty ?? item.stockTotal,
     status: item.status || (typeof item.stockTotal === "number" ? "available" : item.status),
     inventoryVerified: item.inventoryVerified ?? (typeof item.stockTotal === "number" && !["in-production", "coming-soon"].includes(item.status)),

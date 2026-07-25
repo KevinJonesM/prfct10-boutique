@@ -362,6 +362,7 @@
 }
 
 .product-modal__variant {
+  align-items: center;
   background: #ffffff;
   border: 1px solid rgba(92, 84, 80, 0.16);
   border-radius: 999px;
@@ -371,7 +372,14 @@
   font-weight: 900;
   min-height: 34px;
   padding: 0 12px;
+  display: inline-flex;
+  gap: 7px;
   transition: background 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.product-modal__variant small {
+  font-size: 0.62rem;
+  opacity: 0.78;
 }
 
 .product-modal__variant--active,

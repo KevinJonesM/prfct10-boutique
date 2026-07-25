@@ -5,7 +5,7 @@ import OptimizedImage from "../OptimizedImage/OptimizedImage";
 import { useI18n } from "../../i18n/I18nProvider";
 
 export default function Footer({ onBackHome, onOpenDepartment, onOpenBoutique }) {
-  const { t } = useI18n();
+  const { locale, t } = useI18n();
   const handleHome = (event, target = "#inicio") => {
     event.preventDefault();
     onBackHome?.(target);
@@ -74,7 +74,7 @@ export default function Footer({ onBackHome, onOpenDepartment, onOpenBoutique })
 
         <div className="footer__group footer__group--social">
           <h3>{t("footer.support")}</h3>
-          <a href={createWhatsAppLink()} target="_blank" rel="noreferrer">{t("footer.whatsapp")}</a>
+          <a href={createWhatsAppLink(undefined, locale)} target="_blank" rel="noreferrer">{t("footer.whatsapp")}</a>
           <a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
           <a href="https://tiktok.com" target="_blank" rel="noreferrer">TikTok</a>
           <a href="/shop" onClick={handleShopAll}>{t("footer.shopPrfct10")}</a>

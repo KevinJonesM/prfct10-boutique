@@ -8,6 +8,7 @@ export const assistedCommerceConfig = Object.freeze({
   checkoutChannel: "whatsapp",
   discountRate: 0.1,
   freeShippingThreshold: 75,
+  fulfillmentMethods: ["ship"],
   promoCodes: ["PRFCT10", "PERFECT10", "GYM10"],
   shippingFlatRate: 5,
   taxMode: "manual-confirmation"

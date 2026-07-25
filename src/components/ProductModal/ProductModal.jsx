@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { defaultFaqs, defaultModeOfUse } from "../../data/products";
 import { getAvailabilityState, getMaxPurchasableQuantity, getPriceDisplay, getProductBadges } from "../../utils/commerce";
 import useModalScrollLock from "../../utils/useModalScrollLock";
 import { createWhatsAppLink } from "../../utils/whatsapp";
@@ -10,6 +9,14 @@ import "./ProductModal.css";
 import { useI18n } from "../../i18n/I18nProvider";
 import { localizeProduct } from "../../i18n/productTranslations";
 import { localizeOptionGroup, localizeOptionValue } from "../../i18n/catalogOptions";
+import { assistedCommerceConfig } from "../../config/commercePrototype";
+import {
+  findSelectedVariant,
+  getInitialOptions,
+  getProductModalSections,
+  getVariantChoice,
+  getVariantGroups
+} from "./productModalArchitecture";
 
 const focusableSelector = [
   "button:not([disabled])",
@@ -20,40 +27,10 @@ const focusableSelector = [
   "[tabindex]:not([tabindex='-1'])"
 ].join(",");
 
-const normalizeText = (value = "") =>
-  String(value)
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase();
-
 const toList = (value) => {
   if (!value) return [];
   return Array.isArray(value) ? value.filter(Boolean) : [value].filter(Boolean);
 };
-
-const hasSectionContent = (section) => section?.title && toList(section.content).length > 0;
-
-function getVariantGroups(variants = []) {
-  const groups = new Map();
-  variants.forEach((variant) => {
-    Object.entries(variant.options || {}).forEach(([name, value]) => {
-      if (!groups.has(name)) groups.set(name, []);
-      if (!groups.get(name).includes(value)) groups.get(name).push(value);
-    });
-  });
-  return Array.from(groups.entries()).map(([name, values]) => ({ name, values }));
-}
-
-function getInitialOptions(variants = []) {
-  return variants[0]?.options ? { ...variants[0].options } : {};
-}
-
-function findSelectedVariant(variants = [], selectedOptions = {}) {
-  if (!variants.length) return null;
-  return variants.find((variant) =>
-    Object.entries(selectedOptions).every(([name, value]) => variant.options?.[name] === value)
-  ) || variants[0];
-}
 
 function AccordionItem({ item, isOpen, onToggle, fallbackQuestion }) {
   const content = toList(item.content);
@@ -84,63 +61,6 @@ function AccordionItem({ item, isOpen, onToggle, fallbackQuestion }) {
       </div>
     </div>
   );
-}
-
-function normalizeSection(section) {
-  return {
-    ...section,
-    content: toList(section.content)
-  };
-}
-
-function isLifestyleProduct(product) {
-  const productText = normalizeText(
-    [product.modalType, product.category, product.modalCategory, product.group, product.id, product.name]
-      .filter(Boolean)
-      .join(" ")
-  );
-
-  return [
-    "coqueteria",
-    "gimnasia mental",
-    "ropa",
-    "mallas",
-    "pulsera",
-    "collar",
-    "charms",
-    "lazos",
-    "peluflores",
-    "guardapolvos",
-    "amuleto"
-  ].some((term) => productText.includes(term));
-}
-
-function getDefaultSections(product, quickBenefits, t) {
-  const customSections = toList(product.modalSections).map(normalizeSection).filter(hasSectionContent);
-  if (customSections.length) return customSections;
-
-  if (isLifestyleProduct(product)) {
-    return [
-      { title: t("modal.about"), content: product.loveList || product.accordionBenefits || quickBenefits },
-      { title: t("modal.colors"), content: product.colorsAvailable || product.availableColors || product.colors || t("modal.basedAvailability") },
-      {
-        title: t("modal.bestFor"),
-        content: product.idealFor || product.ideal || t("modal.bestForDefault")
-      },
-      {
-        title: t("modal.ordering"),
-        content: [t("modal.addInstruction"), t("modal.supportInstruction"), t("modal.paymentInstruction")]
-      }
-    ].map(normalizeSection).filter(hasSectionContent);
-  }
-
-  return [
-    { title: t("modal.about"), content: product.accordionBenefits || quickBenefits },
-    { title: t("modal.howUse"), content: product.modeOfUse || defaultModeOfUse },
-    { title: t("modal.specifications"), content: product.specifications || quickBenefits },
-    { title: t("modal.faq"), type: "faq", content: product.faqs || defaultFaqs },
-    { title: t("modal.uses"), content: product.sportsUses || [] }
-  ].map(normalizeSection).filter(hasSectionContent);
 }
 
 export default function ProductModal({ product: sourceProduct, onClose, onAddToCart }) {
@@ -235,21 +155,19 @@ export default function ProductModal({ product: sourceProduct, onClose, onAddToC
   const availability = getAvailabilityState(product, selectedVariant);
   const maxQuantity = getMaxPurchasableQuantity(product, selectedVariant);
   const productBadges = getProductBadges(product);
-  const accordionItems = getDefaultSections(product, quickBenefits, t).map((section) =>
-    /inventory|stock/i.test(section.title)
-      ? {
-          ...section,
-          title: t("modal.availability"),
-          content: [t(availability.labelKey, availability.labelParams), t("modal.exactOptions")]
-        }
-      : section
-  );
-  const supportLink = createWhatsAppLink(productName);
-  const fulfillmentOptions = [
+  const accordionItems = getProductModalSections(product, quickBenefits, t);
+  const supportLink = createWhatsAppLink(productName, locale);
+  const allFulfillmentOptions = [
     { id: "ship", title: t("modal.ship"), detail: t("modal.tracked"), meta: t("modal.calculated") },
     { id: "pickup", title: t("modal.pickup"), detail: t("modal.requestPickup"), meta: t("modal.confirmedSupport") },
     { id: "delivery", title: t("modal.local"), detail: t("modal.zip"), meta: t("modal.confirmedSupport") }
   ];
+  const fulfillmentOptions = allFulfillmentOptions.filter((option) =>
+    assistedCommerceConfig.fulfillmentMethods.includes(option.id)
+  );
+  const hasInvalidSelection = variantGroups.length > 0 && !selectedVariant;
+  const requiresAvailabilityConfirmation = !product.inventoryVerified
+    || Boolean(selectedVariant && selectedVariant.stock == null);
 
   const goToPrevious = () => {
     setActiveSlide((current) => (current - 1 + galleryProducts.length) % galleryProducts.length);
@@ -349,10 +267,17 @@ export default function ProductModal({ product: sourceProduct, onClose, onAddToC
                 <div className="product-modal__variant-group" key={group.name}>
                   <strong>{localizeOptionGroup(locale, group.name)}</strong>
                   <div>
-                    {group.values.map((value) => (
-                      <button
+                    {group.values.map((value) => {
+                      const choiceVariant = getVariantChoice(product.variants || [], group.name, value, selectedOptions);
+                      const choicePrice = choiceVariant ? getPriceDisplay(product, choiceVariant) : null;
+                      const choiceCurrent = choicePrice?.current === "Price on request"
+                        ? t("product.priceOnRequest")
+                        : choicePrice?.current;
+                      return (
+                        <button
                         className={selectedOptions[group.name] === value ? "product-modal__variant product-modal__variant--active" : "product-modal__variant"}
                         key={value}
+                        disabled={!choiceVariant}
                         onClick={() => {
                           const nextOptions = { ...selectedOptions, [group.name]: value };
                           const nextVariant = findSelectedVariant(product.variants || [], nextOptions);
@@ -363,9 +288,11 @@ export default function ProductModal({ product: sourceProduct, onClose, onAddToC
                         type="button"
                         aria-pressed={selectedOptions[group.name] === value}
                       >
-                        {localizeOptionValue(locale, value)}
+                        <span>{localizeOptionValue(locale, value)}</span>
+                        {choiceCurrent ? <small>{choiceCurrent}</small> : null}
                       </button>
-                    ))}
+                      );
+                    })}
                   </div>
                 </div>
               ))}
@@ -391,18 +318,18 @@ export default function ProductModal({ product: sourceProduct, onClose, onAddToC
 
           <div className="product-modal__buy-box">
             <div className="product-modal__quantity" aria-label={t("modal.quantity", { quantity })}>
-              <button type="button" disabled={!availability.canAddToCart} onClick={() => setQuantity((current) => Math.max(1, current - 1))}>-</button>
+              <button type="button" disabled={!availability.canAddToCart || hasInvalidSelection} onClick={() => setQuantity((current) => Math.max(1, current - 1))}>-</button>
               <span>{quantity}</span>
               <button
                 type="button"
-                disabled={!availability.canAddToCart || (typeof maxQuantity === "number" && quantity >= maxQuantity)}
+                disabled={!availability.canAddToCart || hasInvalidSelection || (typeof maxQuantity === "number" && quantity >= maxQuantity)}
                 onClick={() => setQuantity((current) => typeof maxQuantity === "number" ? Math.min(maxQuantity, current + 1) : current + 1)}
               >+</button>
             </div>
             <button
               className="product-modal__cta"
               type="button"
-              disabled={!availability.canAddToCart}
+              disabled={!availability.canAddToCart || hasInvalidSelection}
               onClick={() => {
                 onAddToCart?.({
                   ...product,
@@ -414,14 +341,18 @@ export default function ProductModal({ product: sourceProduct, onClose, onAddToC
                 onClose();
               }}
             >
-              {availability.canAddToCart ? t("modal.addBag") : t(availability.labelKey, availability.labelParams)}
+              {hasInvalidSelection
+                ? t("modalSections.unavailableSelection")
+                : availability.canAddToCart
+                  ? t("modal.addBag")
+                  : t(availability.labelKey, availability.labelParams)}
             </button>
           </div>
 
           <div className="product-modal__trust">
             <span>{t("modal.shipping")}</span>
             <span>{t("modal.returnSupport")}</span>
-            <span>{t("modal.noPayment")}</span>
+            {requiresAvailabilityConfirmation ? <span>{t("modal.noPayment")}</span> : null}
           </div>
           <a className="product-modal__support" href={supportLink} target="_blank" rel="noreferrer">
             {t("modal.whatsapp")}

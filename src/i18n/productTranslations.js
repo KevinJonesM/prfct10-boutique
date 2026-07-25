@@ -1,7 +1,7 @@
 const en = {
   "coquet-medal-hanger": { description: "A gymnastics medal hanger that keeps achievements organized and proudly on display.", benefits: ["Gifts", "Medal display", "Gymnastics"] },
-  "coquet-glitter-spray": { description: "Hair and body glitter spray for competitions, photos, and special moments.", benefits: ["Competition", "Hair and body", "Finishing touch"] },
-  "coquet-lazos-tul": { description: "Soft tulle bows for practice, competition, photos, and team looks.", benefits: ["Hair accessories", "Competition", "Team looks"] },
+  "coquet-glitter-spray": { description: "Decorative glitter spray for meet-day styling, photos, and special moments. Use only as directed after product details are verified.", benefits: ["Meet-day styling", "Finishing touch", "Details pending verification"] },
+  "coquet-lazos-tul": { description: "Soft tulle bows for practice, meet-day hair, photos, and coordinated team looks.", benefits: ["Hair accessories", "Meet day", "Team looks"] },
   "coquet-plush-flowers": { description: "Colorful plush flowers for celebrating achievements, decorating rooms, or completing a gift.", benefits: ["Gifts", "Celebrations", "Room decor"] },
   "coquet-silicone-bag": { description: "A soft silicone gym bag with removable gymnastics charms for organizing daily essentials.", benefits: ["Gym bag", "Organization", "Includes charms"] },
   "coquet-garment-bag": { description: "A protective garment bag for keeping leotards and competition pieces organized while traveling.", benefits: ["Gym bag", "Competition", "Travel"] },
@@ -14,10 +14,10 @@ const en = {
   "coquet-rhinestone-necklace": { description: "A rhinestone gymnastics necklace with a polished touch of meet-day color.", benefits: ["Jewelry", "Rhinestones", "Gymnastics"] },
   "coquet-infinity-necklace": { description: "A delicate infinity-heart gymnastics necklace in silver or gold finish.", benefits: ["Jewelry", "Infinity heart", "Silver or gold"] },
   "coquet-pendant-necklace": { description: "A gymnastics pendant necklace with a motivational PRFCT10 spirit.", benefits: ["Jewelry", "Pendant", "Gymnastics gift"] },
-  "coquet-nylon-headbands": { description: "Soft nylon headbands sold as a same-color pair for practice, competition hair, and clean team looks.", benefits: ["Sold as a pair", "Soft stretch", "Team looks"] },
-  "coquet-bun-covers": { description: "Gymnastics bun covers that keep competition hair polished and photo-ready.", benefits: ["Hair accessories", "Competition", "Bun style"] },
-  "coquet-tiara-comb": { description: "Rhinestone hair combs with style options for polished competition hair.", benefits: ["Hair accessories", "Rhinestones", "Competition"] },
-  "coquet-tie-dye-visor": { description: "An adjustable tie-dye visor finished with a PRFCT10 patch.", benefits: ["Competition", "Adjustable", "PRFCT10 style"] },
+  "coquet-nylon-headbands": { name: "Nylon Headband Pair", description: "Two soft nylon headbands in the same selected color for practice, meet-day hair, and clean team looks.", benefits: ["Two per pair", "Same selected color", "Soft stretch"] },
+  "coquet-bun-covers": { description: "Gymnastics bun covers for polished meet-day hair, photos, and off-floor team presentation.", benefits: ["Hair accessories", "Meet day", "Bun style"] },
+  "coquet-tiara-comb": { description: "Rhinestone hair combs with style options for polished meet-day hair and off-floor presentation.", benefits: ["Hair accessories", "Rhinestones", "Meet day"] },
+  "coquet-tie-dye-visor": { description: "An adjustable tie-dye visor finished with a PRFCT10 patch for travel, warm-weather events, and off-floor wear.", benefits: ["Off-floor accessory", "Adjustable", "PRFCT10 style"] },
   "mental-bolita-puzzle": { description: "A rainbow puzzle ball with movable colored pieces for focus, patience, and hand coordination.", benefits: ["Puzzles", "Focus", "Coordination"] },
   "mental-rueda-mental": { description: "A rotating tactile puzzle designed around finger movement, coordination, and concentration.", benefits: ["Puzzles", "Coordination", "Concentration"] },
   "mental-giro-puzzle": { description: "A colorful rotating bean puzzle for problem-solving, calm focus, and fine-motor practice.", benefits: ["Puzzles", "Problem-solving", "Fine motor"] },
@@ -40,8 +40,16 @@ const en = {
   "bundle-little-gymnast-gift": { description: "PRFCT10 Silicone Charm Bag, PRFCT10 Gymnastics Bow, and Gymnastics String Charm Bracelet.", benefits: ["Bundle", "Gift", "Accessories"] },
   "bundle-mind-gym-mystery": { description: "A configurable surprise mix selected only from available PRFCT10 stored inventory.", benefits: ["Vault", "Mind Gym", "Surprise mix"] },
   "apparel-period-brief": {
-    description: "Seamless, high-waist period underwear with four-layer leak protection and up to 70 ml of absorbency.",
-    benefits: ["Up to 70 ml absorbency", "Four-layer protection", "Seamless high waist", "Quick-drying"]
+    description: "A seamless high-waist brief submitted for period-care product review. Fiber content and performance claims remain pending documentation.",
+    benefits: ["High-waist silhouette", "Seamless construction", "Details pending verification"],
+    idealFor: "Period-care use is pending supplier documentation and internal product review.",
+    modalSections: [
+      {
+        key: "availability",
+        merge: "replace",
+        content: ["Product details and performance claims require supplier documentation and internal review before this item can be sold."]
+      }
+    ]
   }
 };
 
@@ -60,8 +68,8 @@ const es = {
   "sweat-wristbands": { name: "Muñequeras de Gimnasia", description: "Muñequeras suaves que absorben sudor durante sesiones largas de entrenamiento.", benefits: ["Soporte", "Control del sudor", "Comodidad"] },
   "hand-balm": { name: "Bálsamo para Manos y Pies", description: "Bálsamo hidratante para resequedad después del magnesio, las barras y la fricción.", benefits: ["Recuperación", "Hidratación", "Cuidado posterior"] },
   "coquet-medal-hanger": { name: "Medallero de Gimnasia", description: "Medallero para organizar los logros y exhibirlos con orgullo.", benefits: ["Regalos", "Medallas", "Gimnasia"] },
-  "coquet-glitter-spray": { name: "Spray de Escarcha", description: "Brillo en spray para cabello y cuerpo en competencias, fotos y momentos especiales.", benefits: ["Competencia", "Cabello y cuerpo", "Toque final"] },
-  "coquet-lazos-tul": { name: "Lazos de Gimnasia PRFCT10", description: "Lazos suaves de tul para práctica, competencia, fotos y looks de equipo.", benefits: ["Accesorios para el cabello", "Competencia", "Equipo"] },
+  "coquet-glitter-spray": { name: "Spray de Escarcha", description: "Spray decorativo con brillo para estilismo, fotos y momentos especiales. Úsalo solo según las instrucciones cuando se verifiquen los detalles del producto.", benefits: ["Estilismo para competencia", "Toque final", "Detalles por verificar"] },
+  "coquet-lazos-tul": { name: "Lazos de Gimnasia PRFCT10", description: "Lazos suaves de tul para práctica, peinados de competencia, fotos y looks coordinados de equipo.", benefits: ["Accesorios para el cabello", "Día de competencia", "Equipo"] },
   "coquet-plush-flowers": { name: "Flores de Peluche", description: "Flores de peluche coloridas para celebrar logros, decorar o completar un regalo.", benefits: ["Regalos", "Celebraciones", "Decoración"] },
   "coquet-silicone-bag": { name: "Bolso de Silicón PRFCT10 con Charms", description: "Bolso suave de silicón con charms de gimnasia removibles para organizar esenciales.", benefits: ["Bolso de gimnasio", "Organización", "Incluye charms"] },
   "coquet-garment-bag": { name: "Portamallas de Gimnasia", description: "Bolso protector para mantener mallas y piezas de competencia organizadas durante los viajes.", benefits: ["Bolso de gimnasio", "Competencia", "Viajes"] },
@@ -74,10 +82,10 @@ const es = {
   "coquet-rhinestone-necklace": { name: "Collar de Gimnasia con Cristales", description: "Collar de gimnasia con cristales y un toque de color para competencia.", benefits: ["Joyería", "Cristales", "Gimnasia"] },
   "coquet-infinity-necklace": { name: "Collar Corazón Infinito de Gimnasia", description: "Collar delicado de gimnasia con corazón infinito en dorado o plateado.", benefits: ["Joyería", "Corazón infinito", "Dorado o plateado"] },
   "coquet-pendant-necklace": { name: "Collar con Dije de Gimnasia", description: "Collar con dije de gimnasia y espíritu motivador PRFCT10.", benefits: ["Joyería", "Dije", "Regalo"] },
-  "coquet-nylon-headbands": { name: "Bandas de Nylon para el Cabello", description: "Bandas suaves vendidas en pares del mismo color para práctica, competencia y looks de equipo.", benefits: ["Vendidas en pares", "Suaves", "Equipo"] },
-  "coquet-bun-covers": { name: "Cubre Moños de Gimnasia", description: "Cubre moños para mantener el peinado de competencia pulido y listo para fotos.", benefits: ["Accesorios para el cabello", "Competencia", "Moño"] },
-  "coquet-tiara-comb": { name: "Peineta Tiara con Cristales", description: "Peinetas con cristales y opciones de estilo para peinados de competencia.", benefits: ["Accesorios para el cabello", "Cristales", "Competencia"] },
-  "coquet-tie-dye-visor": { name: "Visera Tie-Dye PRFCT10", description: "Visera tie-dye ajustable con parche PRFCT10.", benefits: ["Competencia", "Ajustable", "Estilo PRFCT10"] },
+  "coquet-nylon-headbands": { name: "Par de Bandas de Nylon", description: "Dos bandas suaves de nylon del mismo color seleccionado para práctica, peinados de competencia y looks limpios de equipo.", benefits: ["Dos por par", "Mismo color seleccionado", "Suaves y elásticas"] },
+  "coquet-bun-covers": { name: "Cubre Moños de Gimnasia", description: "Cubre moños para peinados pulidos el día de competencia, fotos y presentación fuera del área de competencia.", benefits: ["Accesorios para el cabello", "Día de competencia", "Moño"] },
+  "coquet-tiara-comb": { name: "Peineta Tiara con Cristales", description: "Peinetas con cristales y opciones de estilo para peinados del día de competencia y presentación fuera del área de competencia.", benefits: ["Accesorios para el cabello", "Cristales", "Día de competencia"] },
+  "coquet-tie-dye-visor": { name: "Visera Tie-Dye PRFCT10", description: "Visera tie-dye ajustable con parche PRFCT10 para viajes, eventos al aire libre y uso fuera del área de competencia.", benefits: ["Accesorio fuera de competencia", "Ajustable", "Estilo PRFCT10"] },
   "mental-bolita-puzzle": { name: "Pelota Puzzle Arcoíris", description: "Pelota puzzle con piezas de colores móviles para concentración, paciencia y coordinación.", benefits: ["Puzzles", "Enfoque", "Coordinación"] },
   "mental-rueda-mental": { name: "Cubo Mágico de Dedos", description: "Puzzle táctil giratorio para movimiento de dedos, coordinación y concentración.", benefits: ["Puzzles", "Coordinación", "Concentración"] },
   "mental-giro-puzzle": { name: "Puzzle Mágico de Frijoles", description: "Puzzle giratorio de colores para resolver problemas, enfocarse y practicar motricidad fina.", benefits: ["Puzzles", "Resolución", "Motricidad fina"] },
@@ -101,21 +109,14 @@ const es = {
   "bundle-mind-gym-mystery": { name: "Bolsa Misteriosa Mind Gym", description: "Sorpresa configurable seleccionada únicamente de mercancía guardada disponible.", benefits: ["Bóveda", "Mind Gym", "Sorpresa"] },
   "apparel-period-brief": {
     name: "Braguita Menstrual Sin Costuras",
-    description: "Braguita menstrual de talle alto con protección impermeable de cuatro capas y absorción de hasta 70 ml.",
-    benefits: ["Absorción de hasta 70 ml", "Protección de cuatro capas", "Talle alto sin costuras", "Secado rápido"],
-    idealFor: "Período, viajes, colegio, entrenamiento y protección diaria de respaldo.",
+    description: "Braguita sin costuras de talle alto sometida a revisión para cuidado menstrual. La composición y las afirmaciones de rendimiento están pendientes de documentación.",
+    benefits: ["Silueta de talle alto", "Construcción sin costuras", "Detalles pendientes de verificación"],
+    idealFor: "El uso para cuidado menstrual está pendiente de documentación del proveedor y revisión interna.",
     modalSections: [
       {
-        title: "Materiales y ajuste",
-        content: ["78% nailon y 22% spandex para un ajuste cómodo y flexible durante uso prolongado.", "La cintura alta aporta mayor cobertura, soporte y seguridad."]
-      },
-      {
-        title: "Protección contra fugas",
-        content: ["Diseño impermeable de cuatro capas con absorción de hasta 70 ml."]
-      },
-      {
-        title: "Características",
-        content: ["Antibacteriana", "Ecológica", "Transpirable", "Sin costuras", "Secado rápido"]
+        key: "availability",
+        merge: "replace",
+        content: ["Los detalles y las afirmaciones de rendimiento requieren documentación del proveedor y revisión interna antes de vender este artículo."]
       }
     ]
   }
@@ -125,28 +126,50 @@ const productTranslations = { en, es };
 
 export function localizeProduct(product, locale = "en") {
   if (!product) return product;
-  const translation = productTranslations[locale]?.[product.id] || productTranslations.en[product.id] || {};
+  const translation = productTranslations[locale]?.[product.id] || {};
+  const localizedContent = product.localizedContent?.[locale] || {};
+  const sourceLocale = product.contentLocale || "en";
+  const mayUseSource = sourceLocale === locale;
   const name = translation.name || product.name;
-  const hasTranslation = Object.keys(translation).length > 0;
-  const spanishTrainingDefaults = locale === "es" && product.subcategory
-    ? {
-        modeOfUse: ["Úsalo antes o durante la práctica según la necesidad de la atleta.", "Revisa el ajuste o la aplicación antes de entrenar.", "Mantén el producto limpio, seco y en buen estado entre sesiones."],
-        faqs: [{ question: "¿Puede usarlo una atleta joven?", answer: "Sí, con supervisión adulta y revisando comodidad, ajuste y estado del producto." }],
-        sportsUses: ["Gimnasia artística.", "Práctica.", "Acondicionamiento.", "Preparación para competencia."]
-      }
-    : {};
+  const localizedField = (field) =>
+    localizedContent[field] ?? translation[field] ?? (mayUseSource ? product[field] : undefined);
 
   return {
     ...product,
-    ...spanishTrainingDefaults,
     ...translation,
+    ...localizedContent,
     name,
     modalName: name,
     brandName: product.brandName?.startsWith("PRFCT10 ") ? `PRFCT10 ${name}` : name,
     details: translation.details || translation.description || product.details || product.description,
-    loveList: hasTranslation ? translation.loveList : product.loveList,
-    idealFor: hasTranslation ? translation.idealFor : product.idealFor,
-    modalSections: translation.modalSections || (locale === "es" ? undefined : product.modalSections),
+    loveList: localizedField("loveList"),
+    accordionBenefits: localizedField("accordionBenefits"),
+    idealFor: localizedField("idealFor"),
+    included: localizedField("included"),
+    sizing: localizedField("sizing"),
+    sizeGuide: localizedField("sizeGuide"),
+    modeOfUse: localizedField("modeOfUse"),
+    care: localizedField("care"),
+    safety: localizedField("safety"),
+    contraindications: localizedField("contraindications"),
+    specifications: localizedField("specifications"),
+    sportsUses: localizedField("sportsUses"),
+    faqs: localizedField("faqs"),
+    materials: localizedField("materials"),
+    jewelrySafety: localizedField("jewelrySafety"),
+    meetDayUse: localizedField("meetDayUse"),
+    howToUse: localizedField("howToUse"),
+    ageSafety: localizedField("ageSafety"),
+    netContents: localizedField("netContents"),
+    ingredients: localizedField("ingredients"),
+    directions: localizedField("directions"),
+    warnings: localizedField("warnings"),
+    fit: localizedField("fit"),
+    componentSummary: localizedField("componentSummary"),
+    selectionInstructions: localizedField("selectionInstructions"),
+    savingsSummary: localizedField("savingsSummary"),
+    availabilityNotes: localizedField("availabilityNotes"),
+    modalSections: localizedField("modalSections"),
     canonicalName: product.name
   };
 }

@@ -65,14 +65,14 @@ export default function ProductSection({
       ...trainingProductIds
         .map((id) => products.find((product) => product.id === id))
         .filter(Boolean)
-        .map((product) => localizeProduct(enrichCatalogProduct(product, {
+        .map((product) => localizeProduct(getTrainingProductForModal(enrichCatalogProduct(product, {
           ...(trainingInventory[product.id] || {}),
           subcategory: trainingSubcategories[product.id]
-        }), locale)),
-      ...trainingExtraProducts.map((product) => localizeProduct(enrichCatalogProduct(product, {
+        })), locale)),
+      ...trainingExtraProducts.map((product) => localizeProduct(getTrainingProductForModal(enrichCatalogProduct(product, {
         ...(trainingInventory[product.id] || {}),
         subcategory: trainingSubcategories[product.id]
-      }), locale))
+      })), locale))
     ],
     [products, locale]
   );
@@ -310,7 +310,7 @@ export default function ProductSection({
               <ProductCard
                 key={product.id}
                 product={product}
-                onSelectProduct={(selectedProduct) => onSelectProduct(getTrainingProductForModal(selectedProduct))}
+                onSelectProduct={onSelectProduct}
               />
             ))}
             {!visibleTrainingProducts.length && (

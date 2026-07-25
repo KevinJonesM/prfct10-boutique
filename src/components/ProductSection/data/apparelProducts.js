@@ -12,29 +12,25 @@ const makePendingApparel = ({ id, name, purchasedQty, subcategory, group }) => (
   description: "Purchased PRFCT10 apparel with size allocation pending physical verification.",
   idealFor: "Practice, camps, warm-ups, travel, and active days beyond the gym.",
   why: "A comfortable gymnastics-inspired layer prepared for the upcoming PRFCT10 apparel drop.",
-  purchasedQty,
-  stockTotal: purchasedQty,
+  historicalPurchasedQty: purchasedQty,
+  stockTotal: null,
   purchaseUnit: "piece",
   pricingStatus: "provisional-dtf",
   price: null,
   salePrice: null,
-  status: "available",
-  inventoryVerified: true,
+  status: "historical_unverified",
+  inventoryStatus: "historical_unverified",
+  inventoryVerified: false,
+  blockPurchase: true,
+  modalTemplate: "apparel",
+  contentLocale: "en",
+  needsVerification: ["Physical count", "Size allocation", "Sellable condition", "Final public price"],
   variants: apparelSizes.map((size) => ({
     options: { Size: size },
     stock: null,
     status: "allocation-pending"
   })),
-  modalSections: [
-    {
-      title: "Inventory",
-      content: [`${purchasedQty} pieces purchased.`, "Exact distribution across S (7-8), M (9-10), and L (11-12) is pending physical verification."]
-    },
-    {
-      title: "Pricing",
-      content: ["Public pricing remains provisional while DTF production costs are finalized."]
-    }
-  ]
+  inventoryNotes: [`Historical purchase record: ${purchasedQty} pieces.`, "Size allocation and physical availability are not verified."]
 });
 
 const wearItems = [
@@ -65,23 +61,14 @@ const wearItems = [
       "/images/apparel-period-brief-absorbent-detail.png",
       "/images/apparel-period-brief-seam-detail.png"
     ],
-    description: "Seamless, high-waist period underwear with four-layer leak protection and up to 70 ml of absorbency.",
-    benefits: ["Up to 70 ml absorbency", "Four-layer leak protection", "Seamless high waist", "Quick-drying"],
-    idealFor: "Periods, travel, school, training days, and comfortable everyday backup protection.",
-    why: "The flexible high-waist fit adds coverage and support while the breathable layered construction helps provide dependable leak protection.",
-    specifications: ["78% nylon, 22% spandex", "Four-layer waterproof construction", "Up to 70 ml absorbency", "High-waist seamless design"],
+    description: "A seamless high-waist brief submitted for period-care product review. Fiber content and performance claims remain pending documentation.",
+    benefits: ["High-waist silhouette", "Seamless construction", "Details pending verification"],
+    idealFor: "Period-care use is pending supplier documentation and internal product review.",
     modalSections: [
       {
-        title: "Materials & fit",
-        content: ["78% nylon and 22% spandex for a soft, flexible fit designed for extended wear.", "High-waist construction provides added coverage and support."]
-      },
-      {
-        title: "Leak protection",
-        content: ["Four-layer waterproof design with up to 70 ml of absorbency for dependable period protection."]
-      },
-      {
-        title: "Performance features",
-        content: ["Antibacterial", "Eco-conscious", "Breathable", "Seamless", "Quick-drying"]
+        key: "availability",
+        merge: "replace",
+        content: ["Product details and performance claims require supplier documentation and internal review before this item can be sold."]
       }
     ],
     price: 17.99,
@@ -90,6 +77,18 @@ const wearItems = [
     stockTotal: 24,
     status: "available",
     inventoryVerified: true,
+    modalTemplate: "apparel",
+    contentLocale: "en",
+    claimsVerification: "supplier-provided-unverified",
+    blockPurchase: true,
+    supplierClaims: {
+      absorbency: "Up to 70 ml",
+      construction: "Four-layer waterproof construction",
+      composition: "78% nylon, 22% spandex",
+      features: ["Antibacterial", "Eco-conscious", "Breathable", "Quick-drying"]
+    },
+    needsVerification: ["Absorbency test method", "Four-layer construction", "Antibacterial claim", "Eco-conscious claim", "Fiber composition"],
+    internalNotes: ["Do not strengthen period-care performance claims until supporting documentation is reviewed."],
     isNew: true,
     variants: [
       { options: { Color: "Apricot", Size: "XS" }, stock: 12 },

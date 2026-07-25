@@ -66,7 +66,7 @@ export const products = [
       "Doble hebilla.",
       "Diseño para agarre firme.",
       "Uso recomendado con muñequeras.",
-      "Best for práctica, rutina y competencia."
+      "Ideal para práctica, rutina y competencia."
     ],
     sportsUses: [
       "Gimnasia artística femenina.",
@@ -75,7 +75,7 @@ export const products = [
       "Preparación para competencias.",
       "Atletas que entrenan rutinas de barras."
     ],
-    sizes: ["XS", "S", "M", "L", "XL"],
+    sizes: ["XS", "S", "M", "L"],
     imageClass: "product-card__image--bar-grips"
   },
   {
@@ -125,7 +125,7 @@ export const products = [
       "Uso deportivo.",
       "Textura seca.",
       "Fácil aplicación manual.",
-      "Best for entrenamiento y competencia."
+      "Ideal para entrenamiento y competencia."
     ],
     sportsUses: [
       "Gimnasia artística.",
@@ -466,7 +466,7 @@ export const products = [
       "Ayuda a trabajar flexibilidad activa y pasiva.",
       "Permite ejercicios de control y fuerza.",
       "Sirve para fortalecer piernas, abdomen y glúteos.",
-      "Best for aperturas, movilidad, extensiones y control corporal.",
+      "Ideal para aperturas, movilidad, extensiones y control corporal.",
       "Sus niveles permiten progresar de forma ordenada."
     ],
     modeOfUse: [
@@ -501,7 +501,7 @@ export const products = [
       "Material textil elástico.",
       "Uso para flexibilidad, fuerza y movilidad.",
       "Ligera y portátil.",
-      "Best for gimnasia, danza y entrenamiento físico."
+      "Ideal para gimnasia, danza y entrenamiento físico."
     ],
     sportsUses: [
       "Gimnasia artística.",
@@ -530,7 +530,7 @@ export const products = [
     benefits: ["Mangos cómodos", "Resistencia progresiva", "Ligera", "Fuerza y movilidad"],
     accordionBenefits: [
       "Ayuda a fortalecer brazos, hombros, espalda y piernas.",
-      "Best for activación muscular y preparación física.",
+      "Ideal para activación muscular y preparación física.",
       "Permite entrenar fuerza con resistencia progresiva.",
       "Fácil de transportar."
     ],
@@ -725,10 +725,6 @@ export const products = [
     ],
     faqs: [
       {
-        question: "¿Cuánto pesan?",
-        answer: "Cada pesa es de 500 g."
-      },
-      {
         question: "¿Sirven para bailarinas?",
         answer: "Sí, son ideales para bailarinas, gimnastas y deportistas que necesitan resistencia ligera."
       },
@@ -745,11 +741,11 @@ export const products = [
       "No usar como carga máxima."
     ],
     specifications: [
-      "Peso: 500 g.",
+      "El peso se determina por la variante seleccionada.",
       "Uso en muñecas o tobillos.",
       "Cierre ajustable.",
       "Diseño para preparación física.",
-      "Best for deportistas, gimnastas y bailarinas."
+      "Ideal para deportistas, gimnastas y bailarinas."
     ],
     sportsUses: [
       "Gimnasia artística.",
@@ -770,7 +766,7 @@ export const products = [
     group: "Soporte",
     price: 14.99,
     description: "Banda unisex para dar soporte debajo de la rodilla durante entrenamientos de impacto.",
-    details: "Best for atletas que hacen saltos, carrera, acrobacias o preparación física. Diseño discreto, práctico y fácil de ajustar.",
+    details: "Ideal para atletas que hacen saltos, carrera, acrobacias o preparación física. Diseño discreto, práctico y fácil de ajustar.",
     benefits: ["Ajustable", "Soporte localizado", "Uso deportivo", "Unisex"],
     accordionBenefits: [
       "Brinda soporte debajo de la rótula.",
@@ -924,7 +920,7 @@ export const products = [
     benefits: ["Brillo lindo", "Aplicación rápida", "Cuerpo y cabello", "Competencia"],
     accordionBenefits: [
       "Aporta brillo para competencias, exhibiciones y eventos.",
-      "Best for cabello y cuerpo según formulación.",
+      "Ideal para cabello y cuerpo según formulación.",
       "Da un acabado lindo sin necesidad de accesorios pesados.",
       "Perfecto para presentaciones y fotos."
     ],
@@ -960,7 +956,7 @@ export const products = [
       "Spray de brillo cosmético.",
       "Uso en cuerpo y cabello según formulación.",
       "Acabado con escarcha.",
-      "Best for competencia y exhibición.",
+      "Ideal para competencia y exhibición.",
       "Aplicación rápida."
     ],
     sportsUses: [
@@ -988,7 +984,7 @@ export const products = [
     accordionBenefits: [
       "Organiza medallas de forma decorativa.",
       "Convierte logros deportivos en parte del espacio personal.",
-      "Best for habitaciones, gimnasios o áreas de entrenamiento.",
+      "Ideal para habitaciones, gimnasios o áreas de entrenamiento.",
       "Mantiene las medallas visibles y ordenadas."
     ],
     modeOfUse: [

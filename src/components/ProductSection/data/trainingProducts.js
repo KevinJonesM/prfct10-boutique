@@ -69,6 +69,127 @@ const trainingEnglishCopy = {
   }
 };
 
+const trainingModalContentEnglish = {
+  "bar-grips": {
+    included: ["One pair of Power Grips. Wrist bands and grip bags are not included."],
+    sizing: ["Choose XS, S, M, or L using the athlete's hand measurement and the product size guide."],
+    modeOfUse: [
+      "Fit each grip securely before bar work and have a coach check the fit before first use.",
+      "Wear wrist bands underneath for comfort and introduce the grips gradually before using them for full routines."
+    ],
+    safety: ["Inspect leather, holes, straps, and buckles before every session. Stop using damaged grips."],
+    faqs: [
+      {
+        question: "Are Power Grips appropriate for beginners?",
+        answer:
+          "They are best for gymnasts who train bars regularly or are beginning to need palm protection because of training volume. A coach should confirm readiness and fit."
+      },
+      {
+        question: "Do they prevent every callus or blister?",
+        answer: "No. They help protect the palms but do not eliminate the possibility of calluses, blisters, or irritation."
+      },
+      {
+        question: "Do they need a break-in period?",
+        answer: "Yes. Introduce them gradually so the leather and the athlete's hands can adjust before full routines."
+      },
+      {
+        question: "Are wrist bands included?",
+        answer: "No. Power Grips are sold as one pair without wrist bands or a grip bag."
+      }
+    ]
+  },
+  chalk: {
+    included: ["Choose one chalk block or one box containing eight chalk blocks."],
+    modeOfUse: ["Use a small amount on clean, dry hands before apparatus work; reapply only as needed."],
+    safety: ["Avoid breathing chalk dust and keep it away from eyes. Follow gym rules for chalk use and storage."],
+    faqs: [{ question: "What is the difference between the buying options?", answer: "Single block includes one block. Box of 8 includes eight blocks." }]
+  },
+  "gel-heel-guards": {
+    included: ["One pair of gel heel guards."],
+    modeOfUse: ["Place over clean, dry heels and confirm a comfortable fit before tumbling or landing work."],
+    safety: ["Stop use if the guards rub, slip, tear, or cause discomfort. They do not replace medical care."]
+  },
+  "kinesio-tape": {
+    included: ["One roll, 5 cm x 5 m."],
+    modeOfUse: ["Apply to clean, dry skin using the technique recommended by a qualified coach or clinician."],
+    safety: ["Do not apply over broken or irritated skin. Remove if redness, itching, numbness, or pain develops."]
+  },
+  "wrist-bands": {
+    included: ["One pair of leather wrist supports."],
+    modeOfUse: ["Fasten evenly and confirm that the wrist can move comfortably before training."],
+    safety: ["Do not overtighten. Stop use if there is numbness, tingling, pain, or damaged hardware."]
+  },
+  "tiger-paws": {
+    included: ["One pair of wrist guards."],
+    sizing: ["Choose XS, S, M, or L after checking the athlete's wrist measurement."],
+    modeOfUse: ["Secure each guard evenly and have a coach check the fit before impact or support work."],
+    safety: ["Do not overtighten. Inspect the straps and inserts before use and replace damaged parts."]
+  },
+  "flex-strap-12": {
+    included: ["One 12-level flexibility strap."],
+    modeOfUse: ["Select a comfortable loop and move through controlled stretches without bouncing."],
+    safety: ["Do not force range of motion. Stop if stretching causes sharp pain, numbness, or joint discomfort."],
+    faqs: [
+      {
+        question: "Is it only for stretching?",
+        answer: "No. It can also support active flexibility, controlled strength, and mobility exercises."
+      },
+      {
+        question: "Can it be used for legs and glutes?",
+        answer: "Yes. It can be used for controlled activation and strengthening exercises."
+      },
+      {
+        question: "Can younger athletes use it?",
+        answer: "Yes, with an adult or coach supervising the exercise, range of motion, and resistance."
+      }
+    ]
+  },
+  "resistance-handles": {
+    included: ["One resistance-band set with handles."],
+    modeOfUse: ["Anchor and grip the band securely before controlled strength or warm-up exercises."],
+    safety: ["Inspect the band and handles before every use. Do not use cracked, frayed, or overstretched equipment."],
+    faqs: [
+      {
+        question: "Can it be used for warm-ups?",
+        answer: "Yes. It can support controlled activation of the shoulders, arms, and legs."
+      },
+      {
+        question: "Can the band become damaged?",
+        answer: "Yes. Elastic bands can be damaged by wear, sunlight, cuts, sharp surfaces, or excessive tension, so inspect them before every use."
+      },
+      {
+        question: "Can younger athletes use it?",
+        answer: "Yes, with coach or adult supervision and resistance appropriate for the athlete."
+      }
+    ]
+  },
+  "power-weights": {
+    included: ["One pair in the selected weight and color."],
+    modeOfUse: ["Secure the pair evenly at the wrists or ankles and begin with controlled conditioning."],
+    safety: ["Use with coach supervision. Remove if the weights shift, pinch, or change safe movement mechanics."]
+  },
+  "patella-band": {
+    included: ["One adjustable patella band."],
+    modeOfUse: ["Position below the kneecap and adjust for a secure fit that does not restrict circulation."],
+    safety: ["Do not overtighten. Stop use if pain, numbness, swelling, or skin irritation develops."]
+  },
+  "soft-landing-ankle-braces": {
+    included: ["One pair of ankle braces."],
+    sizing: ["Choose M, L, or XL and confirm a secure fit before training."],
+    modeOfUse: ["Fasten both braces evenly before landing or impact practice."],
+    safety: ["The braces do not replace rehabilitation or medical care. Stop use if they cause pain, numbness, or instability."]
+  },
+  "sweat-wristbands": {
+    included: ["One pair of wristbands."],
+    modeOfUse: ["Wear around the wrists during practice and wash between uses."],
+    safety: ["Do not wear too tightly. Remove if they cause irritation, pressure, or discomfort."]
+  },
+  "hand-balm": {
+    directions: ["Apply a small amount to clean, dry hands after practice. Keep away from eyes."],
+    warnings: ["Do not apply to open wounds. Stop use if irritation or a reaction develops."]
+  }
+};
+
 const trainingInventory = {
   "bar-grips": {
     category: "Grip",
@@ -91,7 +212,7 @@ const trainingInventory = {
         L: { sku: "PG-L", status: "allocation-pending" }
       }
     ),
-    modalSections: [
+    inventoryNotes: [
       { title: "About this item", content: ["Leather adjustable grips sold as a single product family.", "Power Grips are sold alone and do not include wrist bands or grip bags."] },
       { title: "Inventory", content: ["Total registered: 29 pairs.", "Confirmed: XS / Size 0 / 14.1 cm - 5 pairs.", "Newest lot: 24 pairs pending size allocation."] }
     ]
@@ -106,7 +227,7 @@ const trainingInventory = {
     status: "available",
     inventoryVerified: true,
     variants: makeVariants("Size", ["XS", "S", "M", "L"], {}, { XS: { status: "allocation-pending" }, S: { status: "allocation-pending" }, M: { status: "allocation-pending" }, L: { status: "allocation-pending" } }),
-    modalSections: [
+    inventoryNotes: [
       { title: "About this item", content: ["Wrist Guards are the commercial product name. Do not confuse with palm grips or Power Grips."] },
       { title: "Inventory", content: ["Total registered: 25 units.", "Distribution by size pending confirmation."] }
     ]
@@ -118,12 +239,13 @@ const trainingInventory = {
     salePrice: 3.49,
     purchasedQty: 8,
     purchaseUnit: "block",
+    baseUnit: { unit: "block", stockKnown: false },
     status: "stock-check-required",
     variants: [
-      { options: { Pack: "Single block" }, price: 3.99, salePrice: 3.49, stock: null, sku: "GCB-SINGLE", status: "stock-check-required" },
-      { options: { Pack: "Box of 8" }, price: 24.99, salePrice: null, stock: null, sku: "GCB-BOX8", status: "stock-check-required" }
+      { options: { Pack: "Single block" }, price: 3.99, salePrice: 3.49, stock: null, sku: "GCB-SINGLE", status: "stock-check-required", unitsConsumed: 1 },
+      { options: { Pack: "Box of 8" }, price: 24.99, salePrice: null, stock: null, sku: "GCB-BOX8", status: "stock-check-required", unitsConsumed: 8 }
     ],
-    modalSections: [
+    inventoryNotes: [
       { title: "About this item", content: ["Gymnastics chalk for dry hands and a better grip feel during practice."] },
       { title: "Inventory", content: ["Exact physical stock for blocks and boxes must be confirmed.", "Status: stock check required."] }
     ]
@@ -264,6 +386,8 @@ const trainingInventory = {
 function getTrainingProductForModal(product) {
   const inventory = trainingInventory[product.id] || {};
   const copy = trainingEnglishCopy[product.id] || {};
+  const englishModalContent = trainingModalContentEnglish[product.id] || {};
+  const spanishAccordionBenefits = product.accordionBenefits || product.benefits;
   const displayName = product.name;
   const category = inventory.category || copy.category || product.group || product.category;
 
@@ -274,28 +398,33 @@ function getTrainingProductForModal(product) {
     modalName: displayName,
     brandName: `PRFCT10 ${displayName}`,
     category,
+    modalTemplate: product.id === "hand-balm" ? "cosmetic" : "technical",
     modalCategory: inventory.modalCategory || "Training Gear",
     description: copy.details || product.description,
     details: copy.details || product.details || product.description,
     benefits: copy.benefits || product.benefits,
     accordionBenefits: copy.benefits || product.accordionBenefits,
-    modalSections: inventory.modalSections || product.modalSections,
-    modeOfUse: [
-      "Use before or during practice based on the athlete's need.",
-      "Check fit, surface, or application before training starts.",
-      "Keep the product clean, dry, and in good condition between sessions."
-    ],
-    faqs: [
-      {
-        question: "Can younger athletes use it?",
-        answer: "Yes, with adult supervision and by checking comfort, fit, and product condition."
+    contentLocale: "es",
+    localizedContent: {
+      ...(product.localizedContent || {}),
+      en: {
+        accordionBenefits: copy.benefits,
+        ...englishModalContent
       },
-      {
-        question: "Can it be used for competition?",
-        answer: "It depends on the event rules. Confirm with the coach or meet organizer first."
-      }
-    ],
-    sportsUses: ["Artistic gymnastics.", "Practice.", "Conditioning.", "Competition prep."]
+      ...(product.id === "hand-balm"
+        ? {
+            es: {
+              accordionBenefits: spanishAccordionBenefits,
+              directions: product.modeOfUse,
+              warnings: product.contraindications || product.safety
+            }
+          }
+        : {
+            es: {
+              accordionBenefits: spanishAccordionBenefits
+            }
+          })
+    }
   };
 }
 
@@ -349,7 +478,7 @@ const trainingExtraProducts = [
     accordionBenefits: [
       "Ayuda a suavizar manos resecas por magnesio y barras.",
       "Acompaña la rutina de cuidado después de entrenar.",
-      "Best for zonas con fricción o resequedad.",
+      "Ideal para zonas con fricción o resequedad.",
       "Suma un momento de cuidado personal a la práctica."
     ],
     modeOfUse: [

@@ -4,6 +4,7 @@ const optionGroups = {
     Size: "Talla",
     Color: "Color",
     Weight: "Peso",
+    "Pair Color": "Color del par",
     Pack: "Presentación",
     Design: "Diseño",
     Finish: "Acabado"

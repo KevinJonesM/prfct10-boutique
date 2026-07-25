@@ -33,8 +33,10 @@ export function formatCommercePrice(value) {
 }
 
 export function getPriceDisplay(product = {}, variant = null) {
-  const regularPrice = variant?.price ?? product.price;
-  const candidateSalePrice = variant?.salePrice ?? product.salePrice;
+  const hasVariantPrice = Boolean(variant) && Object.prototype.hasOwnProperty.call(variant, "price");
+  const hasVariantSalePrice = Boolean(variant) && Object.prototype.hasOwnProperty.call(variant, "salePrice");
+  const regularPrice = hasVariantPrice ? variant.price : product.price;
+  const candidateSalePrice = hasVariantSalePrice ? variant.salePrice : product.salePrice;
   const hasNumericSale =
     typeof candidateSalePrice === "number" &&
     Number.isFinite(candidateSalePrice) &&
@@ -65,6 +67,17 @@ export function getAvailabilityState(product = {}, variant = null) {
 
   if (unavailableStatuses.has(status) || (typeof quantity === "number" && quantity <= 0)) {
     return { label: "Sold out", labelKey: "availability.soldOut", tone: "unavailable", canAddToCart: false, verified: true, quantity: 0 };
+  }
+
+  if (product.blockPurchase === true) {
+    return {
+      label: "Unavailable",
+      labelKey: "availability.unavailable",
+      tone: "unavailable",
+      canAddToCart: false,
+      verified: false,
+      quantity: null
+    };
   }
 
   if (comingSoonStatuses.has(status)) {

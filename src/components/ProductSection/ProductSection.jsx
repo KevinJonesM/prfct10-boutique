@@ -1,6 +1,5 @@
-import { useEffect, useMemo, useState } from "react";
+import { lazy, Suspense, useEffect, useMemo, useState } from "react";
 import ProductCard from "../ProductCard/ProductCard";
-import ProductModal from "../ProductModal/ProductModal";
 import Reveal from "../Motion/Reveal";
 import { coquetteItems, shopLines } from "./data/accessoryProducts";
 import { wearItems } from "./data/apparelProducts";
@@ -32,6 +31,8 @@ import OptimizedImage from "../OptimizedImage/OptimizedImage";
 import { useI18n } from "../../i18n/I18nProvider";
 import { localizeProduct } from "../../i18n/productTranslations";
 import "./ProductSection.css";
+
+const ProductModal = lazy(() => import("../ProductModal/ProductModal"));
 
 const shopAllDepartmentTabs = [
   { value: "all", labelKey: "filters.allDepartments", tone: "all" },
@@ -148,12 +149,6 @@ export default function ProductSection({
     mind: { label: t("store.hero.mind.cta"), href: "#gimnasia-mental" },
     wear: { label: t("store.hero.wear.cta"), href: "#ropa-mallas" }
   }[view];
-  const introKey = ["training", "coquette", "mind", "wear", "bundles", "all"].includes(view) ? view : "all";
-  const categoryIntro = {
-    eyebrow: t(`store.intro.${introKey}.eyebrow`),
-    title: [t(`store.intro.${introKey}.title1`), t(`store.intro.${introKey}.title2`)],
-    text: t(`store.intro.${introKey}.text`)
-  };
   return (
     <section className={`products products--${view}`} id="productos">
       <div className={`products__hero products__hero--${view}`}>
@@ -224,7 +219,7 @@ export default function ProductSection({
             </div>
           </div>
         )}
-        <div className="shop-lines" aria-label={t("store.shopAll.browse")}>
+        {(isAllView || view === "boutique") ? <div className="shop-lines" aria-label={t("store.shopAll.browse")}>
           {shopLines.map((line) => (
             <button
               className={`shop-line shop-line--${line.tone}`}
@@ -253,9 +248,9 @@ export default function ProductSection({
               </div>
             </button>
           ))}
-        </div>
+        </div> : null}
 
-        <aside className="shipping-cta" id="shipping-info" aria-labelledby="shipping-info-title">
+        {(isAllView || view === "boutique") ? <aside className="shipping-cta" id="shipping-info" aria-labelledby="shipping-info-title">
           <div className="shipping-cta__panel">
             <div className="shipping-cta__copy">
               <p>{t("store.shipping.eyebrow")}</p>
@@ -267,7 +262,7 @@ export default function ProductSection({
               <span>{t("store.shipping.text")}</span>
             </div>
           </div>
-        </aside>
+        </aside> : null}
 
         {showShopDepartment("training") && <Reveal as="section" className="training-strip" id="product-grid" delay={100}>
           {isAllView ? (
@@ -374,7 +369,7 @@ export default function ProductSection({
         />}
       </div>
 
-      <ProductModal
+      {selectedCollectionItem ? <Suspense fallback={null}><ProductModal
         product={selectedCollectionItem}
         onClose={() => setSelectedCollectionItem(null)}
         onAddToCart={onAddToCart}
@@ -382,7 +377,7 @@ export default function ProductSection({
           setSelectedCollectionItem(null);
           onOpenBowDesigner?.(event);
         }}
-      />
+      /></Suspense> : null}
     </section>
   );
 }

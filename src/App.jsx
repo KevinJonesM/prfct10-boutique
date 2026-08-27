@@ -1,22 +1,15 @@
-import { useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { products } from "./data/products";
 import Header from "./components/Header/Header";
 import Hero from "./components/Hero/Hero";
-import ProductSection from "./components/ProductSection/ProductSection";
-import ProductModal from "./components/ProductModal/ProductModal";
-import AuthModal from "./components/AuthModal/AuthModal";
 import PrfctCode from "./components/PrfctCode/PrfctCode";
 import SocialCTA from "./components/SocialCTA/SocialCTA";
 import Footer from "./components/Footer/Footer";
 import SignatureText from "./components/SignatureText/SignatureText";
 import ShopByDepartment from "./components/ShopByDepartment/ShopByDepartment";
-import TeamPage from "./components/Team/TeamPage";
-import TeamShowcase from "./components/Team/TeamShowcase";
+import BrandIntro from "./components/BrandIntro/BrandIntro";
+import SocialProofSection from "./components/Reviews/SocialProofSection";
 import Reveal from "./components/Motion/Reveal";
-import NewsletterExperience from "./components/Newsletter/NewsletterExperience";
-import GuidedFinder from "./components/GuidedFinder/GuidedFinder";
-import BowDesignerCTA from "./components/BowDesigner/BowDesignerCTA";
-import BowDesignerModal from "./components/BowDesigner/BowDesignerModal";
 import OptimizedImage from "./components/OptimizedImage/OptimizedImage";
 import ProductCard from "./components/ProductCard/ProductCard";
 import { coquetteItems } from "./components/ProductSection/data/accessoryProducts";
@@ -31,6 +24,16 @@ import { localizeOptionValue } from "./i18n/catalogOptions";
 import { formatCommercePrice, getMaxPurchasableQuantity, getPriceDisplay } from "./utils/commerce";
 import { createWhatsAppMessageLink } from "./utils/whatsapp";
 import { assistedCommerceConfig, customerAccountsVisible } from "./config/commercePrototype";
+
+const ProductSection = lazy(() => import("./components/ProductSection/ProductSection"));
+const ProductModal = lazy(() => import("./components/ProductModal/ProductModal"));
+const AuthModal = lazy(() => import("./components/AuthModal/AuthModal"));
+const TeamPage = lazy(() => import("./components/Team/TeamPage"));
+const TeamShowcase = lazy(() => import("./components/Team/TeamShowcase"));
+const NewsletterExperience = lazy(() => import("./components/Newsletter/NewsletterExperience"));
+const GuidedFinder = lazy(() => import("./components/GuidedFinder/GuidedFinder"));
+const BowDesignerCTA = lazy(() => import("./components/BowDesigner/BowDesignerCTA"));
+const BowDesignerModal = lazy(() => import("./components/BowDesigner/BowDesignerModal"));
 
 // TODO Shopify: Source complementary products from Shopify Search & Discovery.
 const smartSuggestions = [
@@ -139,7 +142,8 @@ const fallbackProductImages = {
   "bar-grips": "/images/product-bar-grips.png",
   chalk: "/images/product-chalk-real.jpg",
   "tiger-paws": "/images/product-tiger-paws-beige-portada.png",
-  "flex-strap-12": "/images/product-flex-strap.png"
+  "flex-strap-12": "/images/product-flex-strap.png",
+  "core-sliders": "/images/product-core-sliders.png"
 };
 
 function getProductName(item, locale) {
@@ -228,7 +232,7 @@ function getLocalizedCartItem(item, locale, t) {
     },
     locale
   );
-  const options = Object.values(item.selectedOptions || {}).filter(Boolean);
+  const options = Object.values(item.selectedOptions || {}).filter(Boolean).map((value) => localizeOptionValue(locale, value));
   const name = options.length ? `${localized.name} - ${options.join(" / ")}` : localized.name;
   const category = item.subcategory ? t(`categories.${item.subcategory}`) : localized.category || item.category || "PRFCT10";
   return { ...item, name, category };
@@ -354,6 +358,7 @@ function CartSection({ items, authUser, onOpenLogin, onOpenBoutique, onAddToCart
                       <div className="cart-item__info">
                         <strong>{item.name}</strong>
                         <span>{item.category || "PRFCT10"}</span>
+                        {item.sku ? <small>SKU: {item.sku}</small> : null}
                       </div>
                       <div className="cart-item__price">{formatMoney(item.price)}</div>
                       <div className="cart-item__qty" aria-label={t("modal.quantity", { quantity: item.quantity })}>
@@ -724,6 +729,8 @@ function getSearchFromLocation() {
 function getViewFromPath() {
   const path = window.location.pathname.replace(/\/+$/, "") || "/";
   if (path === "/shop" && getSearchFromLocation().trim()) return "search";
+  if (path === "/shop/training") return "training";
+  if (path === "/shop/accessories") return "coquette";
   return Object.entries(storePathByView).find(([, route]) => route === path)?.[0] || "home";
 }
 
@@ -850,6 +857,8 @@ export default function App() {
       canonicalName: item.canonicalName || item.name,
       subcategory: item.subcategory,
       selectedOptions: item.selectedOptions,
+      selectedVariant: item.selectedVariant,
+      sku: item.selectedVariant?.sku || item.sku,
       category: item.category || item.modalCategory || item.group,
       image,
       price: getCartPrice(item),
@@ -1004,10 +1013,10 @@ export default function App() {
         onOpenShipping={showShipping}
         overlayOpen={Boolean(selectedProduct) || isCartDrawerOpen || isAuthOpen || isFinderOpen || isBowDesignerOpen}
       />
+      <Suspense fallback={<main className="route-loading" aria-busy="true" />}>
       {activeView === "home" ? (
         <main>
           <Hero onOpenBoutique={() => showBoutique("all")} />
-          <ShopByDepartment onOpenDepartment={showBoutique} />
           <FeaturedProducts
             items={featuredProducts.slice(0, 6)}
             kicker={t("home.featured.eyebrow")}
@@ -1018,9 +1027,12 @@ export default function App() {
             onAddToCart={addToCart}
             onOpenBoutique={() => showBoutique("all")}
           />
+          <ShopByDepartment onOpenDepartment={showBoutique} />
           <BowDesignerCTA onOpenDesigner={openBowDesigner} />
           <TeamShowcase onOpenTeam={showTeam} />
           <PrfctCode />
+          <BrandIntro />
+          <SocialProofSection />
           <SocialCTA />
           <Footer
             onBackHome={showHome}
@@ -1070,7 +1082,8 @@ export default function App() {
           />
         </main>
       )}
-      <ProductModal
+      </Suspense>
+      {selectedProduct ? <Suspense fallback={null}><ProductModal
         product={selectedProduct}
         onClose={() => setSelectedProduct(null)}
         onAddToCart={addToCart}
@@ -1078,12 +1091,12 @@ export default function App() {
           setSelectedProduct(null);
           openBowDesigner(event);
         }}
-      />
-      <BowDesignerModal
+      /></Suspense> : null}
+      {isBowDesignerOpen ? <Suspense fallback={null}><BowDesignerModal
         isOpen={isBowDesignerOpen}
         onClose={() => setIsBowDesignerOpen(false)}
         openerRef={bowDesignerOpenerRef}
-      />
+      /></Suspense> : null}
       <CartDrawer
         isOpen={isCartDrawerOpen}
         items={cartItems}
@@ -1095,15 +1108,15 @@ export default function App() {
         onRemove={removeCartItem}
       />
       {customerAccountsVisible ? (
-        <AuthModal isOpen={isAuthOpen} onClose={() => setIsAuthOpen(false)} onAuthSuccess={setAuthUser} />
+        <Suspense fallback={null}><AuthModal isOpen={isAuthOpen} onClose={() => setIsAuthOpen(false)} onAuthSuccess={setAuthUser} /></Suspense>
       ) : null}
-      <NewsletterExperience enabled={activeView === "home"} />
-      <GuidedFinder
+      {activeView === "home" ? <Suspense fallback={null}><NewsletterExperience enabled /></Suspense> : null}
+      {isFinderOpen ? <Suspense fallback={null}><GuidedFinder
         isOpen={isFinderOpen}
         onClose={() => setIsFinderOpen(false)}
         onSelectProduct={setSelectedProduct}
         onViewAll={() => showBoutique("all")}
-      />
+      /></Suspense> : null}
     </>
   );
 }

@@ -230,9 +230,9 @@ export default function ProductModal({
   };
 
   return createPortal(
-    <div className="product-modal" role="dialog" aria-modal="true" aria-labelledby="product-modal-title" aria-describedby="product-modal-description">
-      <button className="product-modal__overlay" onClick={onClose} aria-label={t("modal.close")} type="button" />
-      <div className="product-modal__dialog" ref={dialogRef}>
+    <div className="product-modal">
+      <div className="product-modal__overlay" onMouseDown={onClose} aria-hidden="true" />
+      <div className="product-modal__dialog" ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby="product-modal-title" aria-describedby="product-modal-description">
         <button className="product-modal__close" ref={closeButtonRef} onClick={onClose} type="button" aria-label={t("modal.close")}>
           X
         </button>
@@ -298,12 +298,6 @@ export default function ProductModal({
           </div>
           <ProductReviewSummary productId={product.id} />
           <p className="product-modal__description" id="product-modal-description">{productDescription}</p>
-
-          {product.id === "coquet-lazos-tul" && onOpenBowDesigner ? (
-            <button className="product-modal__bow-cta" type="button" onClick={onOpenBowDesigner}>
-              {t("bow.productCta")}
-            </button>
-          ) : null}
 
           {productBadges.length ? (
             <div className="product-modal__product-badges" aria-label={t("product.badges")}>
@@ -394,37 +388,44 @@ export default function ProductModal({
             ))}
           </div>
 
-          <div className="product-modal__buy-box">
-            <div className="product-modal__quantity" aria-label={t("modal.quantity", { quantity })}>
-              <button type="button" disabled={!availability.canAddToCart || hasInvalidSelection} onClick={() => setQuantity((current) => Math.max(1, current - 1))}>-</button>
-              <span>{quantity}</span>
+          <div className="product-modal__action-dock">
+            {product.id === "coquet-lazos-tul" && onOpenBowDesigner ? (
+              <button className="product-modal__bow-cta" type="button" onClick={onOpenBowDesigner}>
+                {t("bow.productCta")}
+              </button>
+            ) : null}
+            <div className="product-modal__buy-box">
+              <div className="product-modal__quantity" aria-label={t("modal.quantity", { quantity })}>
+                <button type="button" disabled={!availability.canAddToCart || hasInvalidSelection} onClick={() => setQuantity((current) => Math.max(1, current - 1))}>-</button>
+                <span>{quantity}</span>
+                <button
+                  type="button"
+                  disabled={!availability.canAddToCart || hasInvalidSelection || (typeof maxQuantity === "number" && quantity >= maxQuantity)}
+                  onClick={() => setQuantity((current) => typeof maxQuantity === "number" ? Math.min(maxQuantity, current + 1) : current + 1)}
+                >+</button>
+              </div>
               <button
+                className="product-modal__cta"
                 type="button"
-                disabled={!availability.canAddToCart || hasInvalidSelection || (typeof maxQuantity === "number" && quantity >= maxQuantity)}
-                onClick={() => setQuantity((current) => typeof maxQuantity === "number" ? Math.min(maxQuantity, current + 1) : current + 1)}
-              >+</button>
+                disabled={!availability.canAddToCart || hasInvalidSelection}
+                onClick={() => {
+                  onAddToCart?.({
+                    ...product,
+                    selectedOptions,
+                    selectedVariant,
+                    cartPrice: price.numericValue,
+                    image: selectedImage || product.image
+                  }, quantity);
+                  onClose();
+                }}
+              >
+                {hasInvalidSelection
+                  ? t("modalSections.unavailableSelection")
+                  : availability.canAddToCart
+                    ? t("modal.addBag")
+                    : t(availability.labelKey, availability.labelParams)}
+              </button>
             </div>
-            <button
-              className="product-modal__cta"
-              type="button"
-              disabled={!availability.canAddToCart || hasInvalidSelection}
-              onClick={() => {
-                onAddToCart?.({
-                  ...product,
-                  selectedOptions,
-                  selectedVariant,
-                  cartPrice: price.numericValue,
-                  image: selectedImage || product.image
-                }, quantity);
-                onClose();
-              }}
-            >
-              {hasInvalidSelection
-                ? t("modalSections.unavailableSelection")
-                : availability.canAddToCart
-                  ? t("modal.addBag")
-                  : t(availability.labelKey, availability.labelParams)}
-            </button>
           </div>
 
           <div className="product-modal__trust">

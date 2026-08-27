@@ -9,6 +9,7 @@ const trainingProductIds = [
   "tiger-paws",
   "flex-strap-12",
   "resistance-handles",
+  "core-sliders",
   "power-weights",
   "patella-band",
   "soft-landing-ankle-braces"
@@ -46,6 +47,10 @@ const trainingEnglishCopy = {
   "resistance-handles": {
     details: "Resistance bands with handles for controlled shoulder, arm, leg, and conditioning work.",
     benefits: ["Strength", "Control", "Warm-up", "Conditioning"]
+  },
+  "core-sliders": {
+    details: "One lightweight sliding disc for controlled core, stability, mobility, and total-body strength work. Sold individually.",
+    benefits: ["Sold individually", "Core control", "Low impact", "Easy to pack"]
   },
   "power-weights": {
     details: "Light ankle and wrist weights for controlled conditioning without losing mobility.",
@@ -103,6 +108,23 @@ const trainingModalContentEnglish = {
     modeOfUse: ["Use a small amount on clean, dry hands before apparatus work; reapply only as needed."],
     safety: ["Avoid breathing chalk dust and keep it away from eyes. Follow gym rules for chalk use and storage."],
     faqs: [{ question: "What is the difference between the buying options?", answer: "Single block includes one block. Box of 8 includes eight blocks." }]
+  },
+  "core-sliders": {
+    included: ["One Core Slider in the selected color. Core Sliders are sold individually, not as a pair."],
+    modeOfUse: [
+      "Place one hand or foot on the slider over a suitable, clear surface.",
+      "Keep the core engaged and begin with slow, controlled ranges of motion.",
+      "Use a second independently purchased slider only when the exercise calls for two."
+    ],
+    safety: [
+      "Test the surface before every exercise and stop if the slider catches or moves unpredictably.",
+      "Avoid uncontrolled speed and stop if wrist, shoulder, back, hip, or knee pain appears."
+    ],
+    faqs: [
+      { question: "Is this a pair?", answer: "No. Each Core Slider is sold individually so you can choose one or combine colors." },
+      { question: "Which surfaces can I use?", answer: "Performance depends on the floor and slider side. Test a clear area before starting." },
+      { question: "Can beginners use it?", answer: "Yes, with simple controlled exercises and appropriate adult or coach supervision." }
+    ]
   },
   "gel-heel-guards": {
     included: ["One pair of gel heel guards."],
@@ -215,6 +237,27 @@ const trainingInventory = {
     inventoryNotes: [
       { title: "About this item", content: ["Leather adjustable grips sold as a single product family.", "Power Grips are sold alone and do not include wrist bands or grip bags."] },
       { title: "Inventory", content: ["Total registered: 29 pairs.", "Confirmed: XS / Size 0 / 14.1 cm - 5 pairs.", "Newest lot: 24 pairs pending size allocation."] }
+    ]
+  },
+  "core-sliders": {
+    category: "Strength",
+    group: "Fuerza",
+    price: 4.99,
+    salePrice: null,
+    purchasedQty: 40,
+    purchaseUnit: "unit",
+    stockTotal: 40,
+    status: "available",
+    inventoryVerified: true,
+    variants: [
+      { options: { Color: "Fuchsia" }, stock: 10, sku: "CS-FUCHSIA", status: "available" },
+      { options: { Color: "Light Blue" }, stock: 10, sku: "CS-LIGHT-BLUE", status: "available" },
+      { options: { Color: "Mint Green" }, stock: 10, sku: "CS-MINT", status: "available" },
+      { options: { Color: "Purple" }, stock: 10, sku: "CS-PURPLE", status: "available" }
+    ],
+    inventoryNotes: [
+      { title: "About this item", content: ["Sold individually; one selected color per unit.", "Choose multiple units if an exercise requires more than one slider."] },
+      { title: "Inventory", content: ["Total registered: 40 units.", "Fuchsia, Light Blue, Mint Green, and Purple: 10 units each."] }
     ]
   },
   "tiger-paws": {
@@ -510,6 +553,7 @@ const trainingSubcategories = {
   "tiger-paws": "support",
   "flex-strap-12": "flexibility",
   "resistance-handles": "strength",
+  "core-sliders": "strength",
   "power-weights": "strength",
   "patella-band": "support",
   "soft-landing-ankle-braces": "support",

@@ -230,6 +230,24 @@
   padding: 4px 8px 4px 5px;
 }
 
+.product-card__more-variants {
+  background: #fff7fa;
+  border: 1px solid rgba(228, 90, 155, .24);
+  border-radius: 999px;
+  color: var(--magenta);
+  flex: 0 0 auto;
+  font-family: var(--heading);
+  font-size: .58rem;
+  font-weight: 900;
+  min-height: 28px;
+  padding: 4px 9px;
+}
+
+.product-card__more-variants:focus-visible {
+  outline: 3px solid var(--category-primary-strong, var(--magenta));
+  outline-offset: 2px;
+}
+
 .product-card__variant > span {
   border: 1px solid rgba(45, 40, 42, 0.14);
   border-radius: 50%;

@@ -3,8 +3,10 @@ import { useI18n } from "../../i18n/I18nProvider";
 import useModalScrollLock from "../../utils/useModalScrollLock";
 import { createWhatsAppMessageLink } from "../../utils/whatsapp";
 import BowPreview from "./BowPreview";
+import "./BowDesigner.css";
 import {
   BOW_COLORS,
+  BOW_COLOR_GROUPS,
   BOW_SIZES,
   CENTER_STYLES,
   COLOR_MODES,
@@ -39,26 +41,31 @@ function ColorSelector({ legend, value, onChange, t }) {
   return (
     <fieldset className="bow-colors">
       <legend>{legend}</legend>
-      <div className="bow-colors__list">
-        {BOW_COLORS.map((color) => {
-          const selected = value === color.value;
-          return (
-            <button
-              key={color.id}
-              type="button"
-              className={selected ? "is-selected" : ""}
-              aria-label={t(`bow.colors.${color.id}`)}
-              aria-pressed={selected}
-              onClick={() => onChange(color.value)}
-            >
-              <span className="bow-colors__swatch" style={{ "--swatch-color": color.value }} aria-hidden="true">
-                <i className="bow-colors__check">✓</i>
-              </span>
-              <small>{t(`bow.colors.${color.id}`)}</small>
-            </button>
-          );
-        })}
-      </div>
+      {BOW_COLOR_GROUPS.map((group) => (
+        <div className="bow-colors__group" key={group.id}>
+          <h3>{t(`bow.colorGroups.${group.id}`)}</h3>
+          <div className="bow-colors__list">
+            {group.colors.map((color) => {
+              const selected = value === color.value;
+              return (
+                <button
+                  key={color.id}
+                  type="button"
+                  className={selected ? "is-selected" : ""}
+                  aria-label={t(`bow.colors.${color.id}`)}
+                  aria-pressed={selected}
+                  onClick={() => onChange(color.value)}
+                >
+                  <span className="bow-colors__swatch" style={{ "--swatch-color": color.value }} aria-hidden="true">
+                    <i className="bow-colors__check">✓</i>
+                  </span>
+                  <small>{t(`bow.colors.${color.id}`)}</small>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      ))}
     </fieldset>
   );
 }
@@ -74,6 +81,7 @@ export default function BowDesignerModal({ isOpen, onClose, openerRef }) {
 
   useEffect(() => {
     if (!isOpen) return undefined;
+    const previousFocus = document.activeElement;
     closeRef.current?.focus();
     const onKeyDown = (event) => {
       if (event.key === "Escape") onClose();
@@ -93,7 +101,8 @@ export default function BowDesignerModal({ isOpen, onClose, openerRef }) {
     document.addEventListener("keydown", onKeyDown);
     return () => {
       document.removeEventListener("keydown", onKeyDown);
-      openerRef?.current?.focus();
+      if (openerRef?.current?.isConnected) openerRef.current.focus();
+      else previousFocus?.focus?.();
     };
   }, [isOpen, onClose, openerRef]);
 

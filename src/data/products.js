@@ -581,19 +581,21 @@ export const products = [
   },
   {
     id: "core-sliders",
-    name: "Core Sliders",
+    name: "Core Slider",
     subcategory: "strength",
-    category: "Centro y control",
+    category: "Strength",
     group: "Fuerza",
-    price: "Desde $14",
-    description: "Discos para trabajar abdomen, estabilidad, hombros y control corporal.",
-    details: "Pequeños, prácticos y buenísimos para preparación física. Ideales para ejercicios de fuerza, estabilidad y control.",
-    benefits: ["Par de discos", "Control corporal", "Bajo impacto", "Fácil transporte"],
+    price: 4.99,
+    salePrice: null,
+    purchaseUnit: "unit",
+    description: "Disco deslizante individual para trabajar el centro, la estabilidad y el control corporal.",
+    details: "Se vende individualmente. Ligero y portátil para ejercicios controlados de fuerza, movilidad y estabilidad sobre superficies adecuadas.",
+    benefits: ["Venta individual", "Control corporal", "Bajo impacto", "Fácil transporte"],
     accordionBenefits: [
-      "Activan abdomen, hombros, piernas y estabilidad.",
-      "Ayudan a trabajar control corporal.",
-      "Son ideales para preparación física de bajo impacto.",
-      "Útiles para planchas, desplazamientos y ejercicios de movilidad."
+      "Permite trabajar abdomen, hombros, piernas y estabilidad.",
+      "Ayuda a desarrollar control corporal con movimientos fluidos.",
+      "Es ideal para preparación física de bajo impacto.",
+      "Útil para planchas, desplazamientos y ejercicios de movilidad."
     ],
     modeOfUse: [
       "Colocar bajo manos o pies.",
@@ -623,7 +625,7 @@ export const products = [
       "Suspender si causa dolor articular."
     ],
     specifications: [
-      "Par de discos deslizantes.",
+      "Un disco deslizante; se vende individualmente.",
       "Uso para centro y control corporal.",
       "Diseño ligero.",
       "Superficie de deslizamiento.",
@@ -637,7 +639,9 @@ export const products = [
       "Preparación física.",
       "Trabajo de abdomen, hombros, piernas y estabilidad."
     ],
-    imageClass: "product-card__image--core-sliders"
+    image: "/images/product-core-sliders.png",
+    imageClass: "product-card__image--core-sliders",
+    searchTerms: ["slider", "sliders", "core slider", "disco", "disco deslizante"]
   },
   {
     id: "grip-loop",

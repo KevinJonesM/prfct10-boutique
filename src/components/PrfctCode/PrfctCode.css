@@ -7,7 +7,7 @@
 
 .prfct-code__hero {
   background: #fff9f5;
-  min-height: 420px;
+  min-height: clamp(340px, 42vw, 420px);
   overflow: hidden;
   position: relative;
   width: 100%;
@@ -51,8 +51,8 @@
   flex-direction: column;
   justify-content: flex-end;
   margin: 0 auto;
-  max-width: 1180px;
-  min-height: 420px;
+  max-width: var(--content-wide);
+  min-height: clamp(340px, 42vw, 420px);
   padding: 110px 38px 72px;
   position: relative;
   text-align: left;
@@ -92,11 +92,11 @@
 }
 
 .prfct-code__list {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
+  display: grid;
+  gap: var(--grid-gap);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   margin: 0 auto;
-  max-width: 1120px;
+  max-width: var(--content-wide);
   padding: 24px 28px 96px;
   position: relative;
   z-index: 2;
@@ -108,26 +108,17 @@
   display: grid;
   gap: 26px;
   grid-template-columns: minmax(72px, 0.22fr) minmax(0, 1fr) 10px;
-  min-height: 152px;
-  opacity: 0;
+  min-height: 0;
+  opacity: 1;
   padding: 30px 6px 34px;
   position: relative;
-  transform: translateY(34px);
-  transition: opacity 650ms ease, transform 650ms ease, border-color 220ms ease;
-  width: 76%;
-}
-
-.prfct-code__item:nth-child(even) {
-  align-self: flex-end;
+  transform: none;
+  transition: border-color 220ms ease;
+  width: 100%;
 }
 
 .prfct-code__item:hover {
   border-color: rgba(228, 90, 155, 0.55);
-}
-
-.prfct-code__item--visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .prfct-code__number {
@@ -175,8 +166,8 @@
 }
 
 @media (max-width: 900px) {
-  .prfct-code__item {
-    width: 88%;
+  .prfct-code__list {
+    grid-template-columns: 1fr;
   }
 
   .prfct-code__title {

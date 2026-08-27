@@ -62,13 +62,15 @@ const colorValues = {
   "Pink Green": "linear-gradient(135deg, #ee8fbb 50%, #8ed8a6 50%)",
   Purple: "#8062bf",
   Rainbow: "linear-gradient(135deg, #ee729e, #f2ca67, #78c9bd, #8f79d0)",
-  Red: "#ca3f56",
+  Red: "#D6283E",
+  "Royal Blue": "#1D4ED8",
+  Coral: "#FF6F61",
   "Rose Pink": "#df6c99",
   "Rose Red": "#cf496a",
   Silver: "#c7c8cb",
   "Sky Blue": "#85c5e7",
   White: "#ffffff",
-  Yellow: "#e5c548"
+  Yellow: "#F2C94C"
 };
 
 const variantKey = (variant, index = 0) =>
@@ -246,7 +248,7 @@ export default function ProductCard({ product, onSelectProduct, onAddToCart }) {
               {localizedProduct.variantLabel || localizeOptionGroup(locale, variantGroups[0].name)}
             </span>
             <div className="product-card__variant-scroll">
-              {variants.map((variant, index) => {
+              {variants.slice(0, 4).map((variant, index) => {
                 const value = variant.options?.[variantGroups[0].name];
                 const variantAvailability = getAvailabilityState(localizedProduct, variant);
                 const isSelected = variantKey(variant, index) === selectedVariantKey;
@@ -271,6 +273,16 @@ export default function ProductCard({ product, onSelectProduct, onAddToCart }) {
                   </button>
                 );
               })}
+              {variants.length > 4 ? (
+                <button
+                  className="product-card__more-variants"
+                  type="button"
+                  onClick={openDetails}
+                  aria-label={t("product.moreColors", { count: variants.length - 4 })}
+                >
+                  {t("product.moreColors", { count: variants.length - 4 })}
+                </button>
+              ) : null}
             </div>
           </div>
         ) : null}

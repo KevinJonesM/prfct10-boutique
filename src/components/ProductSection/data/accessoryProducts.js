@@ -477,8 +477,9 @@ const coquetteItemUpdates = {
     status: "available",
     inventoryVerified: true,
     contentLocale: "en",
-    variants: makeVariants("Color", ["Hot Pink", "Neon Orange", "Light Pink", "Lavender", "Light Blue", "Aqua Blue", "Light Yellow", "White", "Rainbow", "Red", "Blue", "Black", "Apple Green"], { "Hot Pink": 6, "Neon Orange": 6 }, { Rainbow: { price: 18.99, salePrice: 16.99, stock: null, status: "in-production" } }).map((variant) => ({
+    variants: makeVariants("Color", ["Hot Pink", "Neon Orange", "Light Pink", "Lavender", "Light Blue", "Aqua Blue", "Light Yellow", "White", "Rainbow", "Red", "Royal Blue", "Coral", "Yellow", "Blue", "Black", "Apple Green"], { "Hot Pink": 6, "Neon Orange": 6 }, { Rainbow: { price: 18.99, salePrice: 16.99, stock: null, status: "in-production" } }).map((variant) => ({
       ...variant,
+      ...(["Red", "Royal Blue", "Coral", "Yellow"].includes(variant.options.Color) ? { stock: null, status: "allocation-pending" } : {}),
       ...(variant.stock === null && !variant.status ? { status: "in-production" } : {}),
       ...(bowVariantImages[variant.options.Color] ? { image: bowVariantImages[variant.options.Color] } : {})
     })),

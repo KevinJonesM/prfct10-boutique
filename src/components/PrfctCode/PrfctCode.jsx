@@ -1,4 +1,3 @@
-import { useEffect, useRef, useState } from "react";
 import "./PrfctCode.css";
 import OptimizedImage from "../OptimizedImage/OptimizedImage";
 import { useI18n } from "../../i18n/I18nProvider";
@@ -8,33 +7,6 @@ const principleNumbers = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"
 export default function PrfctCode() {
   const { t } = useI18n();
   const localizedPrinciples = t("story.principles");
-  const [visibleItems, setVisibleItems] = useState([]);
-  const itemRefs = useRef([]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-
-          const index = Number(entry.target.dataset.index);
-          setVisibleItems((current) => (current.includes(index) ? current : [...current, index]));
-          observer.unobserve(entry.target);
-        });
-      },
-      {
-        rootMargin: "0px 0px -18% 0px",
-        threshold: 0.18
-      }
-    );
-
-    itemRefs.current.forEach((item) => {
-      if (item) observer.observe(item);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <section className="prfct-code" id="standard">
       <div className="prfct-code__hero">
@@ -64,12 +36,8 @@ export default function PrfctCode() {
       <div className="prfct-code__list">
         {principleNumbers.map((number, index) => (
           <article
-            className={`prfct-code__item ${visibleItems.includes(index) ? "prfct-code__item--visible" : ""}`}
-            data-index={index}
+            className="prfct-code__item"
             key={number}
-            ref={(element) => {
-              itemRefs.current[index] = element;
-            }}
           >
             <span className={`prfct-code__number ${index % 2 ? "prfct-code__number--mint" : ""}`}>
               {number}

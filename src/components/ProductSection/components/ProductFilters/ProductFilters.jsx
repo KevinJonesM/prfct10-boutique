@@ -68,10 +68,12 @@ function getProductSearchAliases(item) {
   const aliases = [];
   if (/bag|bolso|guardapolvo/.test(identity)) aliases.push("bag bags gym bag garment bag bolso bolsos portamallas");
   if (/bow|lazo/.test(identity)) aliases.push("bow bows hair bow lazo lazos");
+  if (/bow|lazo/.test(identity)) aliases.push("red rojo yellow amarillo royal blue azul royal coral");
   if (/grip|agarre|callera/.test(identity)) aliases.push("grip grips bar grips calleras agarre");
   if (/hoodie|sweater|crewneck|sudadera/.test(identity)) aliases.push("hoodie hoodies sweater sweaters crewneck sudadera sueter");
   if (/puzzle|rompecabeza/.test(identity)) aliases.push("puzzle puzzles brain game rompecabezas");
   if (/wrist guard|tiger paws|muneca/.test(identity)) aliases.push("wrist guard wrist guards wrist support soporte muneca");
+  if (/core slider|core-sliders|disco deslizante/.test(identity)) aliases.push("slider sliders core slider disco discos disco deslizante discos deslizantes");
   return aliases;
 }
 
@@ -82,7 +84,7 @@ function filterBySearch(items, searchQuery) {
     const searchableText = [
       item.id, item.name, item.canonicalName, item.brandName, item.modalName, item.category, item.modalCategory,
       item.group, item.subcategory, item.description, item.commercialDescription, item.cardPhrase, item.details,
-      item.idealFor, item.why, item.colors, item.availableColors, ...getProductSearchAliases(item),
+      item.idealFor, item.why, item.colors, item.availableColors, ...(item.searchTerms || []), ...getProductSearchAliases(item),
       ...(item.chips || []), ...(item.benefits || []), ...(item.loveList || []), ...(item.specifications || [])
     ].filter(Boolean).join(" ");
     return normalizeSearchText(searchableText).includes(query);

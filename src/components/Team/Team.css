@@ -201,6 +201,7 @@
 
 .team-page {
   background: #fff9f5;
+  scroll-margin-top: var(--header-height);
 }
 
 .team-page-hero {
@@ -208,7 +209,7 @@
   color: #ffffff;
   display: grid;
   grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-  min-height: 660px;
+  min-height: clamp(520px, 62vw, 660px);
 }
 
 .team-page-hero__copy {
@@ -248,7 +249,7 @@
 }
 
 .team-page-hero__media {
-  min-height: 660px;
+  min-height: clamp(520px, 62vw, 660px);
   overflow: hidden;
   position: relative;
 }
@@ -312,7 +313,7 @@
   box-shadow: 0 22px 56px rgba(89, 73, 75, 0.1);
   display: grid;
   grid-template-columns: minmax(150px, 0.86fr) minmax(0, 1.14fr);
-  min-height: 390px;
+  min-height: 0;
   overflow: hidden;
 }
 

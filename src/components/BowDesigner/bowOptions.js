@@ -12,8 +12,23 @@ export const BOW_COLORS = [
   { id: "orange", value: "#ff7a2f", code: "OR" },
   { id: "white", value: "#ffffff", code: "WH" },
   { id: "black", value: "#151515", code: "BK" },
-  { id: "gold", value: "#d6ac47", code: "GD" }
+  { id: "gold", value: "#d6ac47", code: "GD" },
+  { id: "red", value: "#D6283E", code: "RD" },
+  { id: "yellow", value: "#F2C94C", code: "YE" },
+  { id: "royalBlue", value: "#1D4ED8", code: "RB" },
+  { id: "coral", value: "#FF6F61", code: "CR" }
 ];
+
+const bowColorIdsByGroup = {
+  pastels: ["bubblegum", "lilac", "mint", "babyBlue", "peach"],
+  teamClassics: ["red", "yellow", "royalBlue", "coral", "white", "black"],
+  signature: ["magenta", "purple", "turquoise", "cobalt", "lime", "orange", "gold"]
+};
+
+export const BOW_COLOR_GROUPS = Object.entries(bowColorIdsByGroup).map(([id, colorIds]) => ({
+  id,
+  colors: colorIds.map((colorId) => BOW_COLORS.find((color) => color.id === colorId)).filter(Boolean)
+}));
 
 export const COLOR_MODES = ["solid", "horizontalOmbre"];
 export const FINISHES = ["classicTulle", "shimmer", "glitter"];

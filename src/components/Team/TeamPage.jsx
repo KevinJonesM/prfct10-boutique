@@ -2,6 +2,7 @@ import Footer from "../Footer/Footer";
 import { teamLeotardServiceItems } from "../ProductSection/data/teamLeotardServices";
 import TeamQuoteForm from "./TeamQuoteForm";
 import OptimizedImage from "../OptimizedImage/OptimizedImage";
+import BowDesignerCTA from "../BowDesigner/BowDesignerCTA";
 import "./Team.css";
 import { useI18n } from "../../i18n/I18nProvider";
 
@@ -86,6 +87,8 @@ export default function TeamPage({ onBackHome, onOpenDepartment, onOpenBoutique,
             ))}
           </div>
         </section>
+
+        <BowDesignerCTA context="team" onOpenDesigner={onOpenBowDesigner} />
 
         <section className="team-process" id="team-process" aria-labelledby="team-process-title">
           <div className="team-section-heading team-section-heading--light">

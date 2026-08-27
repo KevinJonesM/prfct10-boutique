@@ -1,4 +1,5 @@
 const en = {
+  "core-sliders": { name: "Core Slider", description: "One lightweight sliding disc for controlled core, stability, mobility, and strength work. Sold individually.", benefits: ["Sold individually", "Core control", "Low impact", "Easy to pack"] },
   "coquet-medal-hanger": { description: "A gymnastics medal hanger that keeps achievements organized and proudly on display.", benefits: ["Gifts", "Medal display", "Gymnastics"] },
   "coquet-glitter-spray": { description: "Decorative glitter spray for meet-day styling, photos, and special moments. Use only as directed after product details are verified.", benefits: ["Meet-day styling", "Finishing touch", "Details pending verification"] },
   "coquet-lazos-tul": { description: "Soft tulle bows for practice, meet-day hair, photos, and coordinated team looks.", benefits: ["Hair accessories", "Meet day", "Team looks"] },
@@ -55,6 +56,7 @@ const en = {
 };
 
 const es = {
+  "core-sliders": { name: "Disco deslizante", description: "Un disco deslizante ligero para trabajar centro, estabilidad, movilidad y fuerza con control. Se vende individualmente.", benefits: ["Venta individual", "Control del centro", "Bajo impacto", "Fácil de llevar"] },
   "bar-grips": { name: "Power Grips", description: "Calleras de cuero para mejorar el agarre, proteger las palmas y repetir con confianza en barras.", benefits: ["Agarre", "Protección de palmas", "Entrenamiento en barras"] },
   chalk: { name: "Bloque de Magnesio para Gimnasia", description: "Magnesio para mantener las manos secas y mejorar la sensación de agarre durante la práctica.", benefits: ["Agarre", "Manos secas", "Esencial de práctica"] },
   "gel-heel-guards": { name: "Protectores de Talón de Gel", description: "Protectores suaves para mayor comodidad durante impactos repetitivos, saltos y aterrizajes.", benefits: ["Soporte", "Comodidad del talón", "Práctica"] },

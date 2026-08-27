@@ -87,6 +87,7 @@ export default function ProductModal({
   product: sourceProduct,
   onClose,
   onAddToCart,
+  onOpenBowDesigner,
   initialSelectedOptions,
   initialVariantId
 }) {
@@ -297,6 +298,12 @@ export default function ProductModal({
           </div>
           <ProductReviewSummary productId={product.id} />
           <p className="product-modal__description" id="product-modal-description">{productDescription}</p>
+
+          {product.id === "coquet-lazos-tul" && onOpenBowDesigner ? (
+            <button className="product-modal__bow-cta" type="button" onClick={onOpenBowDesigner}>
+              {t("bow.productCta")}
+            </button>
+          ) : null}
 
           {productBadges.length ? (
             <div className="product-modal__product-badges" aria-label={t("product.badges")}>

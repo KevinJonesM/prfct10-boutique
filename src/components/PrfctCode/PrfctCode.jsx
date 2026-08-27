@@ -3,41 +3,11 @@ import "./PrfctCode.css";
 import OptimizedImage from "../OptimizedImage/OptimizedImage";
 import { useI18n } from "../../i18n/I18nProvider";
 
-const principles = [
-  {
-    number: "I",
-    title: "Train with intention",
-    text: "Every practice matters more when you know what you are building."
-  },
-  {
-    number: "II",
-    title: "Care for what supports you",
-    text: "Hands, wrists, knees, heels, and energy deserve attention too."
-  },
-  {
-    number: "III",
-    title: "Looking polished counts",
-    text: "Feeling good can help athletes train with more confidence and joy."
-  },
-  {
-    number: "IV",
-    title: "Technique comes first",
-    text: "The beautiful parts shine brighter when they are built with control, patience, and care."
-  },
-  {
-    number: "V",
-    title: "Confidence is practiced",
-    text: "It does not appear out of nowhere. It is repeated, protected, and celebrated."
-  },
-  {
-    number: "VI",
-    title: "Details matter",
-    text: "Grip, support, style, and preparation are all part of the standard."
-  }
-];
+const principleNumbers = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"];
 
 export default function PrfctCode() {
   const { t } = useI18n();
+  const localizedPrinciples = t("story.principles");
   const [visibleItems, setVisibleItems] = useState([]);
   const itemRefs = useRef([]);
 
@@ -92,21 +62,21 @@ export default function PrfctCode() {
       </div>
 
       <div className="prfct-code__list">
-        {principles.map((principle, index) => (
+        {principleNumbers.map((number, index) => (
           <article
             className={`prfct-code__item ${visibleItems.includes(index) ? "prfct-code__item--visible" : ""}`}
             data-index={index}
-            key={principle.number}
+            key={number}
             ref={(element) => {
               itemRefs.current[index] = element;
             }}
           >
             <span className={`prfct-code__number ${index % 2 ? "prfct-code__number--mint" : ""}`}>
-              {principle.number}
+              {number}
             </span>
             <div className="prfct-code__copy">
-              <h3>{t("story.principles")[index]?.title || principle.title}</h3>
-              <p>{t("story.principles")[index]?.text || principle.text}</p>
+              <h3>{localizedPrinciples[index]?.title}</h3>
+              <p>{localizedPrinciples[index]?.text}</p>
             </div>
             <span className={`prfct-code__dot ${index % 2 ? "prfct-code__dot--mint" : ""}`} />
           </article>

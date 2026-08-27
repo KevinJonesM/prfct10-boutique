@@ -51,7 +51,8 @@ export default function ProductSection({
   view = "boutique",
   onOpenDepartment,
   onOpenBoutique,
-  onBackHome
+  onBackHome,
+  onOpenBowDesigner
 }) {
   const { locale, t } = useI18n();
   const [selectedCollectionItem, setSelectedCollectionItem] = useState(null);
@@ -84,6 +85,7 @@ export default function ProductSection({
   const visibleTrainingProducts = sortItems(filterBySearch(tabbedTrainingProducts, searchQuery), trainingSortMode);
   const isSearchView = view === "search";
   const isAllView = view === "all";
+  const matchesBowSearch = isSearchView && /(lazos?|bows?|moños?)/i.test(searchQuery.trim());
   const showBundles = view === "bundles"
     || isSearchView
     || view === "boutique"
@@ -186,22 +188,21 @@ export default function ProductSection({
       </div>
 
       <div className="products__container">
-        {!isAllView && (
-          <Reveal className="shop-lines__intro">
-            <p>{categoryIntro.eyebrow}</p>
-            <h2>
-              {categoryIntro.title[0]}
-              <br />
-              {categoryIntro.title[1]}
-            </h2>
-            <span>{categoryIntro.text}</span>
-          </Reveal>
-        )}
         <Reveal className="commerce-assurances" delay={80} aria-label={t("assurances.label")}>
           <span>{t("assurances.shipping")}</span>
           <span>{t("assurances.availability")}</span>
           <span>{t("assurances.returns")}</span>
         </Reveal>
+        {(view === "coquette" || matchesBowSearch) && (
+          <Reveal className="bow-context" delay={100}>
+            <div>
+              <p>{t("bow.contextEyebrow")}</p>
+              <h2>{t(matchesBowSearch ? "bow.searchTitle" : "bow.accessoriesTitle")}</h2>
+              <span>{t(matchesBowSearch ? "bow.searchText" : "bow.accessoriesText")}</span>
+            </div>
+            <button type="button" onClick={onOpenBowDesigner}>{t("bow.accessoriesCta")}</button>
+          </Reveal>
+        )}
         {isAllView && (
           <div className="shop-all-departments" aria-labelledby="shop-all-departments-title">
             <div>
@@ -377,6 +378,10 @@ export default function ProductSection({
         product={selectedCollectionItem}
         onClose={() => setSelectedCollectionItem(null)}
         onAddToCart={onAddToCart}
+        onOpenBowDesigner={(event) => {
+          setSelectedCollectionItem(null);
+          onOpenBowDesigner?.(event);
+        }}
       />
     </section>
   );

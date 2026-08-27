@@ -1,16 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { products } from "./data/products";
 import Header from "./components/Header/Header";
 import Hero from "./components/Hero/Hero";
-import BrandIntro from "./components/BrandIntro/BrandIntro";
 import ProductSection from "./components/ProductSection/ProductSection";
-import MintCTA from "./components/MintCTA/MintCTA";
 import ProductModal from "./components/ProductModal/ProductModal";
 import AuthModal from "./components/AuthModal/AuthModal";
 import PrfctCode from "./components/PrfctCode/PrfctCode";
-import About from "./components/About/About";
 import SocialCTA from "./components/SocialCTA/SocialCTA";
-import FinalCTA from "./components/FinalCTA/FinalCTA";
 import Footer from "./components/Footer/Footer";
 import SignatureText from "./components/SignatureText/SignatureText";
 import ShopByDepartment from "./components/ShopByDepartment/ShopByDepartment";
@@ -18,8 +14,9 @@ import TeamPage from "./components/Team/TeamPage";
 import TeamShowcase from "./components/Team/TeamShowcase";
 import Reveal from "./components/Motion/Reveal";
 import NewsletterExperience from "./components/Newsletter/NewsletterExperience";
-import SocialProofSection from "./components/Reviews/SocialProofSection";
 import GuidedFinder from "./components/GuidedFinder/GuidedFinder";
+import BowDesignerCTA from "./components/BowDesigner/BowDesignerCTA";
+import BowDesignerModal from "./components/BowDesigner/BowDesignerModal";
 import OptimizedImage from "./components/OptimizedImage/OptimizedImage";
 import ProductCard from "./components/ProductCard/ProductCard";
 import { coquetteItems } from "./components/ProductSection/data/accessoryProducts";
@@ -740,7 +737,9 @@ export default function App() {
   const [searchQuery, setSearchQuery] = useState(getSearchFromLocation);
   const [isAuthOpen, setIsAuthOpen] = useState(false);
   const [isFinderOpen, setIsFinderOpen] = useState(false);
+  const [isBowDesignerOpen, setIsBowDesignerOpen] = useState(false);
   const [authUser, setAuthUser] = useState(null);
+  const bowDesignerOpenerRef = useRef(null);
   const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
   const featuredProducts = [
     ...["bar-grips", "chalk", "flex-strap-12"]
@@ -936,15 +935,24 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const showTeam = (target = "#team-page-title") => {
+  const showTeam = (target = "") => {
     setIsCartDrawerOpen(false);
     setSearchQuery("");
     setSelectedProduct(null);
     setActiveView("team");
     window.history.pushState({}, "", `/team${target}`);
     window.setTimeout(() => {
-      document.querySelector(target)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      if (target) {
+        document.querySelector(target)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
     }, 0);
+  };
+
+  const openBowDesigner = (event) => {
+    bowDesignerOpenerRef.current = event?.currentTarget || document.activeElement;
+    setIsBowDesignerOpen(true);
   };
 
   const showShipping = () => {
@@ -994,13 +1002,14 @@ export default function App() {
         onOpenBoutique={showBoutique}
         onOpenTeam={showTeam}
         onOpenShipping={showShipping}
-        overlayOpen={Boolean(selectedProduct) || isCartDrawerOpen || isAuthOpen || isFinderOpen}
+        overlayOpen={Boolean(selectedProduct) || isCartDrawerOpen || isAuthOpen || isFinderOpen || isBowDesignerOpen}
       />
       {activeView === "home" ? (
         <main>
           <Hero onOpenBoutique={() => showBoutique("all")} />
+          <ShopByDepartment onOpenDepartment={showBoutique} />
           <FeaturedProducts
-            items={featuredProducts}
+            items={featuredProducts.slice(0, 6)}
             kicker={t("home.featured.eyebrow")}
             title={t("home.featured.title")}
             subtitle={t("home.featured.text")}
@@ -1009,36 +1018,16 @@ export default function App() {
             onAddToCart={addToCart}
             onOpenBoutique={() => showBoutique("all")}
           />
-          <HomepageBundles
-            items={publicBundleProducts}
-            onSelectProduct={setSelectedProduct}
-            onOpenBundles={() => showBoutique("bundles")}
-          />
-          <ShopByDepartment onOpenDepartment={showBoutique} />
+          <BowDesignerCTA onOpenDesigner={openBowDesigner} />
           <TeamShowcase onOpenTeam={showTeam} />
-          <BrandIntro />
           <PrfctCode />
-          <About />
-          <MintCTA onOpenDepartment={showBoutique} onOpenFinder={() => setIsFinderOpen(true)} />
-          <SocialProofSection />
-          <section className="final-wrap">
-            <div className="final-wrap__overlay" aria-hidden="true" />
-            <div className="final-wrap__dots" aria-hidden="true">
-              {Array.from({ length: 18 }).map((_, index) => (
-                <span key={index} style={{ "--dot-index": index }} />
-              ))}
-            </div>
-            <SocialCTA />
-            <div className="final-photo-wrap">
-              <FinalCTA onOpenBoutique={() => showBoutique("training")} />
-              <Footer
-                onBackHome={showHome}
-                onOpenDepartment={showBoutique}
-                onOpenTeam={showTeam}
-                onOpenShipping={showShipping}
-              />
-            </div>
-          </section>
+          <SocialCTA />
+          <Footer
+            onBackHome={showHome}
+            onOpenDepartment={showBoutique}
+            onOpenTeam={showTeam}
+            onOpenShipping={showShipping}
+          />
         </main>
       ) : activeView === "team" ? (
         <TeamPage
@@ -1046,6 +1035,7 @@ export default function App() {
           onOpenBoutique={() => showBoutique("training")}
           onOpenDepartment={showBoutique}
           onOpenShipping={showShipping}
+          onOpenBowDesigner={openBowDesigner}
         />
       ) : activeView === "cart" ? (
         <main>
@@ -1070,10 +1060,8 @@ export default function App() {
             onOpenDepartment={showBoutique}
             onOpenBoutique={showBoutique}
             onBackHome={() => showHome("#inicio")}
+            onOpenBowDesigner={openBowDesigner}
           />
-          {activeView !== "boutique" && (
-            <MintCTA onOpenDepartment={showBoutique} onOpenFinder={() => setIsFinderOpen(true)} />
-          )}
           <Footer
             onBackHome={showHome}
             onOpenDepartment={showBoutique}
@@ -1082,7 +1070,20 @@ export default function App() {
           />
         </main>
       )}
-      <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} onAddToCart={addToCart} />
+      <ProductModal
+        product={selectedProduct}
+        onClose={() => setSelectedProduct(null)}
+        onAddToCart={addToCart}
+        onOpenBowDesigner={(event) => {
+          setSelectedProduct(null);
+          openBowDesigner(event);
+        }}
+      />
+      <BowDesignerModal
+        isOpen={isBowDesignerOpen}
+        onClose={() => setIsBowDesignerOpen(false)}
+        openerRef={bowDesignerOpenerRef}
+      />
       <CartDrawer
         isOpen={isCartDrawerOpen}
         items={cartItems}

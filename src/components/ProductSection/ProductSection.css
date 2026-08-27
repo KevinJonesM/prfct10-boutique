@@ -417,12 +417,12 @@
   color: #ffffff;
   display: inline-grid;
   font-family: var(--heading);
-  font-size: clamp(2.8rem, 4.7vw, 4.7rem);
+  font-size: var(--font-h1);
   font-weight: 900;
   letter-spacing: 0;
   line-height: 0.98;
   margin: 0;
-  max-width: 840px;
+  max-width: 760px;
   text-align: left;
   text-shadow: none;
   text-transform: uppercase;
@@ -443,7 +443,7 @@
 }
 
 .products__title-line {
-  display: inline-block;
+  display: block;
 }
 
 .products__title-line--gymnastics {
@@ -460,7 +460,7 @@
   color: #ffffff;
   display: inline-block;
   font-family: var(--heading);
-  font-size: clamp(2.8rem, 4.8vw, 4.9rem);
+  font-size: clamp(2.6rem, 4.5vw, 4.1rem);
   font-weight: 900;
   letter-spacing: 0;
   line-height: 0.9;
@@ -521,7 +521,7 @@
 }
 
 .products__hero--coquette .products__title {
-  font-size: clamp(2.8rem, 4.7vw, 4.7rem);
+  font-size: var(--font-h1);
   letter-spacing: 0;
   max-width: 760px;
   text-shadow: none;
@@ -613,7 +613,7 @@
 .products--mind .shop-lines__intro h2,
 .products--wear .shop-lines__intro h2 {
   color: var(--category-heading);
-  font-size: clamp(2.7rem, 4.2vw, 4.6rem);
+  font-size: clamp(2.35rem, 3.8vw, 3.5rem);
   font-weight: 900;
 }
 
@@ -647,6 +647,13 @@
   margin-top: 34px;
 }
 
+.products--training .commerce-assurances,
+.products--coquette .commerce-assurances,
+.products--mind .commerce-assurances,
+.products--wear .commerce-assurances {
+  margin-top: 38px;
+}
+
 .commerce-assurances span {
   color: #756963;
   display: grid;
@@ -667,6 +674,70 @@
   font-weight: 900;
   letter-spacing: 0.07em;
   text-transform: uppercase;
+}
+
+.bow-context {
+  align-items: center;
+  background:
+    radial-gradient(circle at 92% 15%, rgba(221, 255, 53, 0.22), transparent 28%),
+    linear-gradient(135deg, #fff1f7 0%, #f7f1ff 100%);
+  border: 1px solid rgba(228, 90, 155, 0.17);
+  border-radius: var(--radius-lg, 24px);
+  display: grid;
+  gap: 26px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  margin: 28px auto 18px;
+  max-width: 1080px;
+  padding: 30px 34px;
+}
+
+.bow-context p {
+  color: var(--magenta);
+  font-family: var(--heading);
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  margin: 0 0 8px;
+  text-transform: uppercase;
+}
+
+.bow-context h2 {
+  color: var(--dark-text);
+  font-family: var(--heading);
+  font-size: clamp(1.65rem, 3vw, 2.35rem);
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.bow-context span {
+  color: #756963;
+  display: block;
+  line-height: 1.55;
+  margin-top: 10px;
+  max-width: 650px;
+}
+
+.bow-context button {
+  background: var(--magenta);
+  border: 1px solid var(--magenta);
+  border-radius: 999px;
+  color: #ffffff;
+  font-family: var(--heading);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  min-height: 50px;
+  padding: 0 22px;
+  text-transform: uppercase;
+  transition: box-shadow 180ms ease, transform 180ms ease;
+}
+
+.bow-context button:hover {
+  box-shadow: 0 14px 28px rgba(228, 90, 155, 0.24);
+  transform: translateY(-2px);
 }
 
 .shop-all-departments {
@@ -1684,6 +1755,17 @@
 }
 
 @media (max-width: 640px) {
+  .bow-context {
+    align-items: stretch;
+    grid-template-columns: 1fr;
+    margin-top: 22px;
+    padding: 24px 20px;
+  }
+
+  .bow-context button {
+    width: 100%;
+  }
+
   .collection-strip--coquette,
   .collection-strip--mind,
   .collection-strip--wear {

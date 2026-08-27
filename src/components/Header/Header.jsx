@@ -120,7 +120,7 @@ export default function Header({
   const openTeam = (event) => {
     event.preventDefault();
     closeMenu(false);
-    onOpenTeam?.("#team-page-title");
+    onOpenTeam?.();
   };
 
   const openShipping = (event) => {
@@ -207,7 +207,7 @@ export default function Header({
             onClick={openTeam}
             aria-current={activeView === "team" ? "page" : undefined}
           >
-            {t("navigation.customTeamwear")}
+            {t("navigation.team")}
           </a>
         </nav>
 
@@ -290,13 +290,12 @@ export default function Header({
                   {t(link.labelKey)}
                 </a>
               ))}
-              <a href="/team" onClick={openTeam}>{t("navigation.customTeamwear")}</a>
+              <a href="/team" onClick={openTeam}>{t("navigation.team")}</a>
             </section>
 
             <section>
               <h2>{t("footer.explore")}</h2>
               <a href="/#standard" onClick={(event) => goToStore(event, "#standard")}>{t("footer.standard")}</a>
-              <a href="/#nosotros" onClick={(event) => goToStore(event, "#nosotros")}>{t("footer.about")}</a>
               <a href="/shop#shipping-info" onClick={openShipping}>{t("footer.usShipping")}</a>
             </section>
 

@@ -28,7 +28,7 @@ const processSteps = [
   }
 ];
 
-export default function TeamPage({ onBackHome, onOpenDepartment, onOpenBoutique, onOpenShipping }) {
+export default function TeamPage({ onBackHome, onOpenDepartment, onOpenBoutique, onOpenShipping, onOpenBowDesigner }) {
   const { t } = useI18n();
   const localizedSteps = t("team.steps");
   const scrollToQuote = () => document.querySelector("#team-quote")?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -41,9 +41,14 @@ export default function TeamPage({ onBackHome, onOpenDepartment, onOpenBoutique,
             <p className="team-kicker">{t("team.kicker")}</p>
             <h1 id="team-page-title">{t("team.title1")}<br />{t("team.title2")}</h1>
             <p>{t("team.summary")}</p>
-            <button className="team-button team-button--primary" type="button" onClick={scrollToQuote}>
-              {t("team.quote")}
-            </button>
+            <div className="team-page-hero__actions">
+              <button className="team-button team-button--primary" type="button" onClick={scrollToQuote}>
+                {t("team.quote")}
+              </button>
+              <button className="team-button team-button--outline" type="button" onClick={onOpenBowDesigner}>
+                {t("bow.teamCta")}
+              </button>
+            </div>
             <small>{t("team.heroNote")}</small>
           </div>
           <div className="team-page-hero__media">

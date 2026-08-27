@@ -70,7 +70,6 @@ export default function Footer({ onBackHome, onOpenDepartment, onOpenTeam, onOpe
           <div className="footer__group">
             <h3>{t("footer.explore")}</h3>
             <a href="/#standard" onClick={(event) => handleHome(event, "#standard")}>{t("footer.standard")}</a>
-            <a href="/#nosotros" onClick={(event) => handleHome(event, "#nosotros")}>{t("footer.about")}</a>
             <a href="/shop#shipping-info" onClick={handleShipping}>{t("footer.usShipping")}</a>
           </div>
 

@@ -283,6 +283,27 @@
   margin: 16px 0 0;
 }
 
+.product-modal__bow-cta {
+  background: linear-gradient(135deg, #fff0f7, #f6efff);
+  border: 1px solid rgba(228, 90, 155, 0.28);
+  border-radius: 12px;
+  color: var(--magenta);
+  font-family: var(--heading);
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  margin-top: 18px;
+  min-height: 50px;
+  padding: 12px 18px;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.product-modal__bow-cta:hover {
+  background: var(--magenta);
+  color: #ffffff;
+}
+
 .product-modal__badges {
   display: flex;
   flex-wrap: wrap;

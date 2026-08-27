@@ -22,7 +22,7 @@
 .department-shop__header h2 {
   color: var(--dark-text);
   font-family: var(--heading);
-  font-size: clamp(2.5rem, 4.5vw, 4.5rem);
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
   font-weight: 900;
   letter-spacing: -0.035em;
   line-height: 0.94;

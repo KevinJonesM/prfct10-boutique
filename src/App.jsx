@@ -3,7 +3,6 @@ import { products } from "./data/products";
 import Header from "./components/Header/Header";
 import Hero from "./components/Hero/Hero";
 import PrfctCode from "./components/PrfctCode/PrfctCode";
-import SocialCTA from "./components/SocialCTA/SocialCTA";
 import Footer from "./components/Footer/Footer";
 import SignatureText from "./components/SignatureText/SignatureText";
 import ShopByDepartment from "./components/ShopByDepartment/ShopByDepartment";
@@ -1031,9 +1030,8 @@ export default function App() {
           <BowDesignerCTA onOpenDesigner={openBowDesigner} />
           <TeamShowcase onOpenTeam={showTeam} />
           <PrfctCode />
-          <BrandIntro />
           <SocialProofSection />
-          <SocialCTA />
+          <BrandIntro />
           <Footer
             onBackHome={showHome}
             onOpenDepartment={showBoutique}

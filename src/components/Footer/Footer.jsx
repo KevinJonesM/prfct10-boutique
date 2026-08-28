@@ -1,6 +1,5 @@
 import "./Footer.css";
 import { createWhatsAppLink } from "../../utils/whatsapp";
-import NewsletterForm from "../Newsletter/NewsletterForm";
 import OptimizedImage from "../OptimizedImage/OptimizedImage";
 import { useI18n } from "../../i18n/I18nProvider";
 
@@ -41,15 +40,6 @@ export default function Footer({ onBackHome, onOpenDepartment, onOpenTeam, onOpe
 
   return (
     <footer className="footer" id="redes">
-      <section className="footer-newsletter" aria-labelledby="footer-newsletter-title">
-        <div className="footer-newsletter__copy">
-          <p>{t("newsletter.eyebrow")}</p>
-          <h2 id="footer-newsletter-title">{t("newsletter.footerTitle")}</h2>
-          <span>{t("newsletter.footerText")}</span>
-        </div>
-        <NewsletterForm source="footer" submitLabel={t("newsletter.join")} />
-      </section>
-
       <div className="footer__closing">
         <div className="footer__panel footer__container">
           <div className="footer__brand">
@@ -87,8 +77,6 @@ export default function Footer({ onBackHome, onOpenDepartment, onOpenTeam, onOpe
           <div className="footer__group footer__group--social">
             <h3>{t("footer.support")}</h3>
             <a href={createWhatsAppLink(undefined, locale)} target="_blank" rel="noreferrer">{t("footer.whatsapp")}</a>
-            <a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
-            <a href="https://tiktok.com" target="_blank" rel="noreferrer">TikTok</a>
           </div>
         </div>
 

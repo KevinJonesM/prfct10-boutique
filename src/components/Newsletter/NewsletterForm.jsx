@@ -1,6 +1,7 @@
 import { useId, useState } from "react";
 import { newsletterIntegration, subscribeToNewsletter } from "../../services/newsletter";
 import { useI18n } from "../../i18n/I18nProvider";
+import "./Newsletter.css";
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 

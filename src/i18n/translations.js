@@ -104,7 +104,7 @@ const en = {
     photoAlt: "Customer-submitted product photo"
   },
   story: {
-    brandTitle: "STRONG, PRETTY, READY", brandText: "For every practice, every competition, and every milestone ahead.",
+    brandTitle: "STRONG, PRETTY, READY", brandText: "For every practice.",
     standardEyebrow: "THE PRFCT10 STANDARD", standardTitle1: "LIVE LIKE A", standardTitle2: "10.00.", standardText: "Ten principles for training, competing, and growing with intention.",
     principles: [
       { title: "Train with intention", text: "Every practice matters more when you know what you are building." },
@@ -247,7 +247,7 @@ const es = {
     photoAlt: "Foto del producto enviada por un cliente"
   },
   story: {
-    brandTitle: "FUERTE, LINDA, LISTA", brandText: "Para cada práctica, cada competencia y cada logro por venir.",
+    brandTitle: "FUERTE, LINDA, LISTA", brandText: "Para cada práctica.",
     standardEyebrow: "EL ESTÁNDAR PRFCT10", standardTitle1: "VIVE COMO UN", standardTitle2: "10.00.", standardText: "Diez principios para entrenar, competir y crecer con intención.",
     principles: [
       { title: "Entrena con intención", text: "Cada práctica importa más cuando sabes lo que estás construyendo." },

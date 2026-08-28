@@ -1,6 +1,8 @@
 .footer {
+  background: #fff9f7;
   color: #f8f3ef;
   margin-top: 0;
+  padding-top: clamp(56px, 7vw, 88px);
   position: relative;
   z-index: 2;
 }

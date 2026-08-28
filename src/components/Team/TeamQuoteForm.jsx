@@ -8,7 +8,7 @@ const initialQuote = {
   phone: "",
   teamName: "",
   athleteCount: "",
-  service: "Competition Leotards",
+  service: "competition",
   colors: "",
   budget: "",
   deliveryDate: "",
@@ -24,27 +24,25 @@ export default function TeamQuoteForm() {
     setQuote((current) => ({ ...current, [name]: value }));
   };
 
+  const buildWhatsAppMessage = () => {
+    const valueOrFallback = (value, fallbackKey) => value || t(`team.form.${fallbackKey}`);
+    return t("team.form.whatsappMessage", {
+      contactName: quote.contactName,
+      email: quote.email,
+      phone: valueOrFallback(quote.phone, "notProvided"),
+      teamName: quote.teamName,
+      athleteCount: valueOrFallback(quote.athleteCount, "notConfirmed"),
+      service: t(`team.form.${quote.service}`),
+      colors: valueOrFallback(quote.colors, "openDirection"),
+      budget: valueOrFallback(quote.budget, "guidance"),
+      deliveryDate: valueOrFallback(quote.deliveryDate, "notConfirmed"),
+      notes: valueOrFallback(quote.notes, "noNotes")
+    });
+  };
+
   const openWhatsAppQuote = (event) => {
     event.preventDefault();
-
-    const message = [
-      "Hi PRFCT10, I would like to start a PRFCT10 TEAM quote.",
-      "",
-      `Contact name: ${quote.contactName}`,
-      `Email: ${quote.email}`,
-      `Phone: ${quote.phone || "Not provided"}`,
-      `Gym / team: ${quote.teamName}`,
-      `Estimated athlete count: ${quote.athleteCount || "Not confirmed"}`,
-      `Service: ${quote.service}`,
-      `Desired colors: ${quote.colors || "Open to direction"}`,
-      `Approximate budget: ${quote.budget || "Would like guidance"}`,
-      `Target delivery date: ${quote.deliveryDate || "Not confirmed"}`,
-      `Notes: ${quote.notes || "No additional notes"}`,
-      "",
-      "Please help me review timing, design direction, sizing, and next steps."
-    ].join("\n");
-
-    window.open(createWhatsAppMessageLink(message), "_blank", "noopener,noreferrer");
+    window.open(createWhatsAppMessageLink(buildWhatsAppMessage()), "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -71,11 +69,11 @@ export default function TeamQuoteForm() {
           <input name="athleteCount" type="number" min="1" inputMode="numeric" value={quote.athleteCount} onChange={updateQuote} />
         </label>
         <label>
-          {t("team.form.service")}
+          {t("team.form.type")}
           <select name="service" value={quote.service} onChange={updateQuote}>
-            <option value="Competition Leotards">{t("team.form.competition")}</option>
-            <option value="Training Leotards">{t("team.form.training")}</option>
-            <option value="Competition + Training Leotards">{t("team.form.both")}</option>
+            <option value="training">{t("team.form.training")}</option>
+            <option value="competition">{t("team.form.competition")}</option>
+            <option value="both">{t("team.form.both")}</option>
           </select>
         </label>
         <label>
@@ -103,7 +101,12 @@ export default function TeamQuoteForm() {
 
       <div className="team-quote-form__footer">
         <p id="team-quote-handoff">{t("team.form.handoff")}</p>
-        <button className="team-button team-button--primary" type="submit" aria-describedby="team-quote-handoff">
+        <button
+          className="team-button team-button--primary"
+          type="submit"
+          aria-describedby="team-quote-handoff"
+          data-whatsapp-url={createWhatsAppMessageLink(buildWhatsAppMessage())}
+        >
           {t("team.quote")}
         </button>
       </div>

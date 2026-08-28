@@ -1,5 +1,4 @@
 import Footer from "../Footer/Footer";
-import { teamLeotardServiceItems } from "../ProductSection/data/teamLeotardServices";
 import TeamQuoteForm from "./TeamQuoteForm";
 import OptimizedImage from "../OptimizedImage/OptimizedImage";
 import BowDesignerCTA from "../BowDesigner/BowDesignerCTA";
@@ -53,38 +52,25 @@ export default function TeamPage({ onBackHome, onOpenDepartment, onOpenBoutique,
             <small>{t("team.heroNote")}</small>
           </div>
           <div className="team-page-hero__media">
-            <OptimizedImage
-              src="/images/hero-boutique-ropa-mallas.png"
-              alt={`${t("team.kicker")}: ${t("team.competition")}`}
-              loading="eager"
-              fetchPriority="high"
-              width="1672"
-              height="1200"
-            />
-          </div>
-        </section>
-
-        <section className="team-services" aria-labelledby="team-services-title">
-          <div className="team-section-heading">
-            <p className="team-kicker">{t("team.servicesEyebrow")}</p>
-            <h2 id="team-services-title">{t("team.servicesTitle")}</h2>
-            <span>{t("team.servicesText")}</span>
-          </div>
-          <div className="team-services__grid">
-            {teamLeotardServiceItems.map((service) => (
-              <article className="team-service" key={service.id}>
-                <OptimizedImage src={service.image} alt="" loading="lazy" width="1200" height="900" />
-                <div className="team-service__body">
-                  <p>{t(service.id === "competition-leotards" ? "categories.competition" : "navigation.trainingGear")}</p>
-                  <h3>{t(service.id === "competition-leotards" ? "team.competition" : "team.training")}</h3>
-                  <span>{t(service.id === "competition-leotards" ? "team.competitionText" : "team.trainingText")}</span>
-                  <ul>
-                    {service.chips.map((chip) => <li key={chip}>{chip}</li>)}
-                  </ul>
-                  <button type="button" onClick={scrollToQuote}>{t("team.request")}</button>
-                </div>
-              </article>
-            ))}
+            <div className="team-page-hero__collage">
+              <OptimizedImage
+                className="team-page-hero__primary-image"
+                src="/images/hero-boutique-ropa-mallas.png"
+                alt={t("team.visualAltPrimary")}
+                loading="eager"
+                fetchPriority="high"
+                width="1672"
+                height="1200"
+              />
+              <OptimizedImage
+                className="team-page-hero__secondary-image"
+                src="/images/collection-mallas.png"
+                alt={t("team.visualAltSecondary")}
+                loading="eager"
+                width="1200"
+                height="900"
+              />
+            </div>
           </div>
         </section>
 

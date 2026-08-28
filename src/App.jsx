@@ -237,6 +237,14 @@ function getLocalizedCartItem(item, locale, t) {
   return { ...item, name, category };
 }
 
+function getLocalizedSuggestion(item, locale, t) {
+  const localized = localizeProduct(item, locale);
+  const category = item.subcategory
+    ? t(`categories.${item.subcategory}`)
+    : localized.category || item.category || "PRFCT10";
+  return { ...localized, category };
+}
+
 function CartSection({ items, authUser, onOpenLogin, onOpenBoutique, onAddToCart, onQuantityChange, onRemove }) {
   const { locale, t } = useI18n();
   const [authMode, setAuthMode] = useState("signin");
@@ -260,7 +268,7 @@ function CartSection({ items, authUser, onOpenLogin, onOpenBoutique, onAddToCart
     const alreadyInCart = cartIds.includes(suggestion.id);
     const triggered = suggestion.triggerIds.some((id) => cartIds.includes(id));
     return !alreadyInCart && (triggered || items.length === 0);
-  }).map((suggestion) => localizeProduct(hydrateSmartSuggestion(suggestion), locale));
+  }).map((suggestion) => getLocalizedSuggestion(hydrateSmartSuggestion(suggestion), locale, t));
   const localizedItems = items.map((item) => getLocalizedCartItem(item, locale, t));
   const canRequestOrder = items.length > 0;
 
@@ -269,24 +277,36 @@ function CartSection({ items, authUser, onOpenLogin, onOpenBoutique, onAddToCart
     setPromoApplied(assistedCommerceConfig.promoCodes.includes(normalizedCode) ? normalizedCode : "");
   };
 
+  const buildOrderMessage = () => {
+    const deliveryKey = {
+      "Standard shipping": "standard",
+      "Store pickup": "pickup",
+      "Local delivery": "local"
+    }[customer.delivery] || "standard";
+    const itemLines = localizedItems.map((item) =>
+      t("cartWhatsapp.item", {
+        quantity: item.quantity,
+        name: item.name,
+        price: formatMoney(item.price),
+        each: item.price ? t("cartWhatsapp.each") : ""
+      })
+    );
+    return [
+      t("cartWhatsapp.intro"),
+      ...itemLines,
+      t("cartWhatsapp.delivery", { preference: t(`cart.${deliveryKey}`) }),
+      customer.city ? t("cartWhatsapp.zip", { value: customer.city }) : "",
+      customer.phone ? t("cartWhatsapp.phone", { value: customer.phone }) : "",
+      accountEmail ? t("cartWhatsapp.email", { value: accountEmail }) : "",
+      customer.note ? t("cartWhatsapp.note", { value: customer.note }) : "",
+      t("cartWhatsapp.closing")
+    ].filter(Boolean).join("\n");
+  };
+
   const onSubmitOrderRequest = (event) => {
     event.preventDefault();
     if (!canRequestOrder) return;
-    const itemLines = localizedItems.map((item) =>
-      `- ${item.quantity} x ${item.name} (${formatMoney(item.price)}${item.price ? " each" : ""})`
-    );
-    const message = [
-      "Hi PRFCT10, I would like help completing this order:",
-      ...itemLines,
-      `Delivery preference: ${customer.delivery}`,
-      customer.city ? `ZIP code: ${customer.city}` : "",
-      customer.phone ? `Contact phone: ${customer.phone}` : "",
-      accountEmail ? `Email: ${accountEmail}` : "",
-      customer.note ? `Note: ${customer.note}` : "",
-      "Please confirm availability, final pricing, shipping, and return details before payment."
-    ].filter(Boolean).join("\n");
-
-    window.open(createWhatsAppMessageLink(message), "_blank", "noopener,noreferrer");
+    window.open(createWhatsAppMessageLink(buildOrderMessage()), "_blank", "noopener,noreferrer");
     setRequestStarted(true);
   };
 
@@ -295,7 +315,7 @@ function CartSection({ items, authUser, onOpenLogin, onOpenBoutique, onAddToCart
       <div className="cart-section__shell">
         <div className="cart-section__header">
           <p>{t("cart.assisted")}</p>
-          <h2 id="cart-title">{t("cart.title", { count: itemCount })}</h2>
+          <h1 id="cart-title">{t("cart.title", { count: itemCount })}</h1>
           <span>{t("cart.intro")}</span>
         </div>
 
@@ -485,7 +505,12 @@ function CartSection({ items, authUser, onOpenLogin, onOpenBoutique, onAddToCart
 
               {hasPriceOnRequest && <p className="cart-summary__notice">{t("cart.priceNotice")}</p>}
 
-              <button className="cart-summary__checkout" type="submit" disabled={!canRequestOrder}>
+              <button
+                className="cart-summary__checkout"
+                type="submit"
+                disabled={!canRequestOrder}
+                data-whatsapp-url={canRequestOrder ? createWhatsAppMessageLink(buildOrderMessage()) : undefined}
+              >
                 {t("cart.whatsapp")}
               </button>
               {requestStarted && <p className="cart-summary__success">{t("cart.opened")}</p>}
@@ -516,7 +541,7 @@ function CartDrawer({
     const alreadyInCart = cartIds.includes(suggestion.id);
     const triggered = suggestion.triggerIds.some((id) => cartIds.includes(id));
     return !alreadyInCart && (triggered || items.length === 0);
-  }).map((suggestion) => localizeProduct(hydrateSmartSuggestion(suggestion), locale));
+  }).map((suggestion) => getLocalizedSuggestion(hydrateSmartSuggestion(suggestion), locale, t));
   const localizedItems = items.map((item) => getLocalizedCartItem(item, locale, t));
   const localizedLastAddedItem = lastAddedItem ? getLocalizedCartItem(lastAddedItem, locale, t) : null;
 

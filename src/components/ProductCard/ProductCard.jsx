@@ -11,7 +11,7 @@ import { localizeOptionGroup, localizeOptionValue } from "../../i18n/catalogOpti
 import { getVariantGroups } from "../ProductModal/productModalArchitecture";
 import OptimizedImage from "../OptimizedImage/OptimizedImage";
 
-const productImageByClass = {
+export const productImageByClass = {
   "product-card__image--bar-grips": "/images/product-bar-grips.png",
   "product-card__image--chalk": "/images/product-chalk-real.jpg",
   "product-card__image--gel-heel": "/images/product-gel-heel.png",

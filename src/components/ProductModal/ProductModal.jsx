@@ -5,6 +5,7 @@ import useModalScrollLock from "../../utils/useModalScrollLock";
 import { createWhatsAppLink } from "../../utils/whatsapp";
 import ProductReviews, { ProductReviewSummary } from "../Reviews/ProductReviews";
 import OptimizedImage from "../OptimizedImage/OptimizedImage";
+import { productImageByClass } from "../ProductCard/ProductCard";
 import "./ProductModal.css";
 import { useI18n } from "../../i18n/I18nProvider";
 import { localizeProduct } from "../../i18n/productTranslations";
@@ -199,7 +200,13 @@ export default function ProductModal({
   const productName = product.modalName || product.name;
   const productCategory = product.modalCategory || product.category || product.group || "PRFCT10";
   const productDescription = product.details || product.description || product.commercialDescription || product.cardPhrase;
-  const selectedImage = activeProduct.image || getVariantImage(product, selectedVariant) || product.image || product.galleryImages?.[0] || product.gallery?.[0];
+  const selectedImage = activeProduct.image
+    || productImageByClass[activeProduct.imageClass]
+    || getVariantImage(product, selectedVariant)
+    || product.image
+    || productImageByClass[product.imageClass]
+    || product.galleryImages?.[0]
+    || product.gallery?.[0];
   const productImageStyle = selectedImage ? { backgroundImage: `url(${selectedImage})` } : undefined;
   const quickBenefits = toList(product.benefits || product.chips || product.loveList || [productCategory, t("modal.assisted")]);
   const price = getPriceDisplay(product, selectedVariant);
@@ -239,17 +246,20 @@ export default function ProductModal({
 
         <div className="product-modal__visual" aria-label={t("modal.images", { name: productName })}>
           <div className="product-modal__thumbs" aria-label={t("modal.gallery")}>
-            {galleryProducts.map((item, index) => (
-              <button
-                className={index === activeSlide ? "product-modal__thumb product-modal__thumb--active" : "product-modal__thumb"}
-                key={item.id}
-                onClick={() => setActiveSlide(index)}
-                type="button"
-                aria-label={t("modal.image", { number: index + 1, name: productName })}
-              >
-                {item.image ? <OptimizedImage src={item.image} alt="" loading="lazy" width="160" height="160" /> : <span className={item.imageClass || ""} aria-hidden="true" />}
-              </button>
-            ))}
+            {galleryProducts.map((item, index) => {
+              const thumbnailImage = item.image || productImageByClass[item.imageClass];
+              return (
+                <button
+                  className={index === activeSlide ? "product-modal__thumb product-modal__thumb--active" : "product-modal__thumb"}
+                  key={item.id}
+                  onClick={() => setActiveSlide(index)}
+                  type="button"
+                  aria-label={t("modal.image", { number: index + 1, name: productName })}
+                >
+                  {thumbnailImage ? <OptimizedImage src={thumbnailImage} alt="" loading="lazy" width="160" height="160" /> : <span className={item.imageClass || ""} aria-hidden="true" />}
+                </button>
+              );
+            })}
           </div>
 
           <div className="product-modal__image-stage">

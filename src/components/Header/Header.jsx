@@ -273,6 +273,9 @@ export default function Header({
               type="search"
               value={searchQuery}
               onChange={(event) => onSearchChange?.(event.target.value)}
+              onKeyDown={(event) => {
+                if (event.key === "Enter") closeMenu(false);
+              }}
               placeholder={t("navigation.searchPlaceholder")}
             />
           </form>

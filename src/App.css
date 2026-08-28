@@ -602,7 +602,7 @@ button {
   text-transform: uppercase;
 }
 
-.cart-section__header h2 {
+.cart-section__header h1 {
   color: #171818;
   font-family: var(--heading);
   font-size: clamp(2.2rem, 4vw, 4rem);

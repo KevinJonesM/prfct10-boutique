@@ -1119,6 +1119,7 @@ export default function App() {
         isOpen={isBowDesignerOpen}
         onClose={() => setIsBowDesignerOpen(false)}
         openerRef={bowDesignerOpenerRef}
+        context={activeView === "team" ? "team" : "shop"}
       /></Suspense> : null}
       <CartDrawer
         isOpen={isCartDrawerOpen}

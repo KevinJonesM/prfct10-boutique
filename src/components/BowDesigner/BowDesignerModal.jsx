@@ -38,7 +38,7 @@ function Selector({ legend, options, value, onChange, t }) {
 function ColorSelector({ selectedColors, onToggle, t }) {
   return (
     <fieldset className="bow-colors">
-      <legend>{t("bow.selectTwoColors")}</legend>
+      <legend>{t("bow.selectColors")}</legend>
       <div className="bow-colors__list">
         {BOW_COLORS.map((color) => {
           const selectionIndex = selectedColors.indexOf(color.value);
@@ -48,7 +48,7 @@ function ColorSelector({ selectedColors, onToggle, t }) {
             <button
               key={color.id}
               type="button"
-              className={selected ? "is-selected" : ""}
+              className={`${selected ? "is-selected" : ""}${color.metallic ? " is-metallic" : ""}`.trim()}
               aria-label={t(`bow.colors.${color.id}`)}
               aria-pressed={selected}
               onClick={() => onToggle(color.value)}
@@ -73,19 +73,14 @@ function WhatsAppIcon() {
   );
 }
 
-function createEmptyDesign() {
-  return {
-    ...INITIAL_BOW_DESIGN,
-    topColor: null,
-    bottomColor: null
-  };
-}
+const createInitialDesign = () => ({ ...INITIAL_BOW_DESIGN });
 
-export default function BowDesignerModal({ isOpen, onClose, openerRef }) {
+export default function BowDesignerModal({ isOpen, onClose, openerRef, context = "shop" }) {
   const { t } = useI18n();
-  const [design, setDesign] = useState(createEmptyDesign);
+  const [design, setDesign] = useState(createInitialDesign);
   const dialogRef = useRef(null);
   const closeRef = useRef(null);
+  const hasManualColorSelection = useRef(false);
   const code = useMemo(() => createBowCode(design), [design]);
   useModalScrollLock(isOpen);
 
@@ -120,6 +115,12 @@ export default function BowDesignerModal({ isOpen, onClose, openerRef }) {
 
   const update = (key, value) => setDesign((current) => ({ ...current, [key]: value }));
   const toggleColor = (value) => {
+    if (!hasManualColorSelection.current) {
+      hasManualColorSelection.current = true;
+      setDesign((current) => ({ ...current, topColor: value, bottomColor: null }));
+      return;
+    }
+
     setDesign((current) => {
       const colors = [current.topColor, current.bottomColor].filter(Boolean);
       const selectedIndex = colors.indexOf(value);
@@ -139,10 +140,15 @@ export default function BowDesignerModal({ isOpen, onClose, openerRef }) {
   const optionLabel = (value) => t(`bow.options.${value}`);
   const colorLabel = (value) => t(`bow.colors.${colorByValue(value).id}`);
   const selectedColors = [design.topColor, design.bottomColor].filter(Boolean);
+  const hasColor = selectedColors.length > 0;
   const hasTwoColors = selectedColors.length === 2;
   const topLabel = design.topColor ? colorLabel(design.topColor) : "—";
   const bottomLabel = design.bottomColor ? colorLabel(design.bottomColor) : "—";
-  const colorSummary = t("bow.selectedColorPair", { top: topLabel, bottom: bottomLabel });
+  const colorSummary = hasTwoColors
+    ? t("bow.selectedColorPair", { top: topLabel, bottom: bottomLabel })
+    : hasColor
+      ? t("bow.selectedSingleColor", { color: topLabel })
+      : t("bow.noColorSelected");
   const summaryItems = [
     optionLabel(design.finish),
     optionLabel(design.centerStyle),
@@ -150,12 +156,13 @@ export default function BowDesignerModal({ isOpen, onClose, openerRef }) {
   ];
   const summaryText = [colorSummary, ...summaryItems].join(" · ");
   const previewTopColor = design.topColor || "#f1e6eb";
-  const previewBottomColor = design.bottomColor || design.topColor || "#e5ddd8";
+  const previewBottomColor = design.bottomColor || design.topColor || "#f1e6eb";
 
   const surprise = () => {
     const pick = (items) => items[Math.floor(Math.random() * items.length)];
     const topColor = pick(BOW_COLORS).value;
     const bottomColor = pick(BOW_COLORS.filter((color) => color.value !== topColor)).value;
+    hasManualColorSelection.current = true;
     setDesign({
       colorMode: "horizontalOmbre",
       topColor,
@@ -166,22 +173,38 @@ export default function BowDesignerModal({ isOpen, onClose, openerRef }) {
     });
   };
 
+  const messageContext = context === "team" ? t("bow.teamContext") : "";
   const message = hasTwoColors
-    ? t("bow.whatsappMessage", {
-        design: optionLabel("horizontalOmbre"),
+    ? t("bow.whatsappMessagePair", {
         top: topLabel,
         bottom: bottomLabel,
         finish: optionLabel(design.finish),
         center: optionLabel(design.centerStyle),
         size: optionLabel(design.size),
         code,
+        context: messageContext,
         url: window.location.href.split("#")[0]
       })
-    : "";
+    : hasColor
+      ? t("bow.whatsappMessageSingle", {
+          color: topLabel,
+          finish: optionLabel(design.finish),
+          center: optionLabel(design.centerStyle),
+          size: optionLabel(design.size),
+          code,
+          context: messageContext,
+          url: window.location.href.split("#")[0]
+        })
+      : "";
 
   const requestOnWhatsApp = () => {
-    if (!hasTwoColors) return;
+    if (!hasColor) return;
     window.open(createWhatsAppMessageLink(message), "_blank", "noopener,noreferrer");
+  };
+
+  const reset = () => {
+    hasManualColorSelection.current = false;
+    setDesign(createInitialDesign());
   };
 
   return (
@@ -191,13 +214,15 @@ export default function BowDesignerModal({ isOpen, onClose, openerRef }) {
         <div className="bow-modal__preview">
           <p className="section-eyebrow">{t("bow.lab")}</p>
           <h2 id="bow-dialog-title">{t("bow.modalTitle")}</h2>
-          <BowPreview
-            {...design}
-            colorMode="horizontalOmbre"
-            topColor={previewTopColor}
-            bottomColor={previewBottomColor}
-            label={t("bow.previewLabel", { summary: summaryText })}
-          />
+          <div className="bow-modal__preview-area">
+            <BowPreview
+              {...design}
+              colorMode="horizontalOmbre"
+              topColor={previewTopColor}
+              bottomColor={previewBottomColor}
+              label={t("bow.previewLabel", { summary: summaryText })}
+            />
+          </div>
         </div>
         <div className="bow-modal__controls">
           <ColorSelector selectedColors={selectedColors} onToggle={toggleColor} t={t} />
@@ -207,14 +232,14 @@ export default function BowDesignerModal({ isOpen, onClose, openerRef }) {
           <Selector legend={t("bow.size")} options={BOW_SIZES} value={design.size} onChange={(value) => update("size", value)} t={t} />
           <div className="bow-modal__tools">
             <button type="button" onClick={surprise}>{t("bow.surprise")}</button>
-            <button type="button" onClick={() => setDesign(createEmptyDesign())}>{t("bow.reset")}</button>
+            <button type="button" onClick={reset}>{t("bow.reset")}</button>
           </div>
           <button
             className="bow-modal__whatsapp"
             type="button"
             onClick={requestOnWhatsApp}
-            disabled={!hasTwoColors}
-            data-whatsapp-url={hasTwoColors ? createWhatsAppMessageLink(message) : undefined}
+            disabled={!hasColor}
+            data-whatsapp-url={hasColor ? createWhatsAppMessageLink(message) : undefined}
           >
             <WhatsAppIcon />
             {t("bow.whatsapp")}

@@ -84,7 +84,6 @@ function createEmptyDesign() {
 export default function BowDesignerModal({ isOpen, onClose, openerRef }) {
   const { t } = useI18n();
   const [design, setDesign] = useState(createEmptyDesign);
-  const [copied, setCopied] = useState(false);
   const dialogRef = useRef(null);
   const closeRef = useRef(null);
   const code = useMemo(() => createBowCode(design), [design]);
@@ -167,25 +166,6 @@ export default function BowDesignerModal({ isOpen, onClose, openerRef }) {
     });
   };
 
-  const copyCode = async () => {
-    try {
-      await navigator.clipboard?.writeText(code);
-    } catch {
-      // The selection-based copy below supports browsers that block the async Clipboard API.
-    }
-    const input = document.createElement("textarea");
-    input.value = code;
-    input.setAttribute("readonly", "");
-    input.style.position = "fixed";
-    input.style.opacity = "0";
-    document.body.append(input);
-    input.select();
-    document.execCommand("copy");
-    input.remove();
-    setCopied(true);
-    window.setTimeout(() => setCopied(false), 1600);
-  };
-
   const message = hasTwoColors
     ? t("bow.whatsappMessage", {
         design: optionLabel("horizontalOmbre"),
@@ -218,18 +198,6 @@ export default function BowDesignerModal({ isOpen, onClose, openerRef }) {
             bottomColor={previewBottomColor}
             label={t("bow.previewLabel", { summary: summaryText })}
           />
-          <div className="bow-modal__summary" aria-live="polite">
-            <strong>{t("bow.summary")}</strong>
-            <ul>
-              {summaryItems.map((item) => <li key={item}>{item}</li>)}
-            </ul>
-            <div className="bow-modal__code">
-              <code>{code}</code>
-              <button type="button" onClick={copyCode} aria-label={copied ? t("bow.copied") : t("bow.copy")} title={copied ? t("bow.copied") : t("bow.copy")}>
-                {copied ? "✓" : "⧉"}
-              </button>
-            </div>
-          </div>
         </div>
         <div className="bow-modal__controls">
           <ColorSelector selectedColors={selectedColors} onToggle={toggleColor} t={t} />

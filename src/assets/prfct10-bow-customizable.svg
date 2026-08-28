@@ -1,487 +1,277 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 900 650">
-  <!-- Generator: Adobe Illustrator 29.8.10, SVG Export Plug-In . SVG Version: 2.1.1 Build 2)  -->
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 900 650"
+  role="img"
+  aria-labelledby="bow-title bow-description"
+>
+  <title id="bow-title">Customizable PRFCT10 ombré tulle bow</title>
+  <desc id="bow-description">
+    A wide gathered tulle bow with an ombré color treatment, glitter texture,
+    rhinestone center band, and black hair tie.
+  </desc>
+  <metadata id="customization-tokens">
+    Change elements sharing data-color-token or data-opacity-token to update the
+    live preview. Core tokens: bowTop, bowBottom, bowTopHighlight,
+    bowBottomHighlight, knotColor, knotHighlight, stoneColor, stoneAccent,
+    hairTieColor, sparkleColor, meshOpacity, glitterOpacity, and
+    rhinestoneOpacity.
+  </metadata>
+
   <defs>
-    <style>
-      .st0 {
-        opacity: .92;
-      }
-
-      .st1 {
-        fill: #111;
-      }
-
-      .st2 {
-        fill: url(#linear-gradient2);
-      }
-
-      .st3 {
-        stroke-width: 5px;
-      }
-
-      .st3, .st4, .st5, .st6, .st7, .st8, .st9, .st10, .st11, .st12 {
-        fill: none;
-      }
-
-      .st3, .st4, .st13, .st14, .st8, .st15, .st9, .st10, .st11, .st12 {
-        stroke-linecap: round;
-      }
-
-      .st3, .st13, .st14, .st7, .st8, .st15, .st9, .st11 {
-        stroke: #fff;
-      }
-
-      .st3, .st11 {
-        stroke-opacity: .12;
-      }
-
-      .st16 {
-        opacity: .9;
-      }
-
-      .st16, .st17, .st18, .st13, .st14, .st19, .st20, .st21 {
-        fill: #fff;
-      }
-
-      .st16, .st18, .st22, .st6, .st23, .st19, .st7, .st24, .st20, .st25, .st15, .st21 {
-        isolation: isolate;
-      }
-
-      .st4 {
-        stroke: #27310c;
-        stroke-opacity: .2;
-        stroke-width: 18px;
-      }
-
-      .st26 {
-        fill: url(#radial-gradient5);
-      }
-
-      .st26, .st27, .st28, .st29, .st30, .st31, .st32, .st33, .st34, .st35, .st36, .st37, .st38, .st39, .st40 {
-        stroke-width: 1.2px;
-      }
-
-      .st26, .st27, .st28, .st30, .st31, .st33, .st34, .st35, .st37, .st38, .st39, .st40 {
-        stroke: #f7f7f7;
-      }
-
-      .st27 {
-        fill: url(#radial-gradient1);
-      }
-
-      .st28 {
-        fill: url(#radial-gradient11);
-      }
-
-      .st29 {
-        fill: url(#radial-gradient14);
-      }
-
-      .st29, .st32, .st36 {
-        stroke: #fff0bd;
-      }
-
-      .st30 {
-        fill: url(#radial-gradient6);
-      }
-
-      .st41 {
-        fill: url(#linear-gradient1);
-      }
-
-      .st18, .st7 {
-        opacity: .64;
-      }
-
-      .st31 {
-        fill: url(#radial-gradient3);
-      }
-
-      .st22 {
-        opacity: .14;
-      }
-
-      .st42 {
-        clip-path: url(#clippath-1);
-      }
-
-      .st6 {
-        opacity: .24;
-        stroke-width: .55px;
-      }
-
-      .st6, .st12 {
-        stroke: #111;
-      }
-
-      .st43 {
-        stroke: #000;
-        stroke-opacity: .5;
-        stroke-width: 4px;
-      }
-
-      .st13 {
-        stroke-width: 3px;
-      }
-
-      .st32 {
-        fill: url(#radial-gradient12);
-      }
-
-      .st44 {
-        fill: url(#linear-gradient4);
-      }
-
-      .st14 {
-        stroke-width: 2.6px;
-      }
-
-      .st33 {
-        fill: url(#radial-gradient);
-      }
-
-      .st34 {
-        fill: url(#radial-gradient10);
-      }
-
-      .st23 {
-        opacity: .2;
-      }
-
-      .st45 {
-        fill: url(#linear-gradient3);
-      }
-
-      .st19 {
-        opacity: .88;
-      }
-
-      .st7 {
-        stroke-width: 1.1px;
-      }
-
-      .st35 {
-        fill: url(#radial-gradient4);
-      }
-
-      .st24 {
-        fill: url(#tulle-mesh);
-        opacity: .46;
-      }
-
-      .st8 {
-        stroke-opacity: .23;
-      }
-
-      .st8, .st9 {
-        stroke-width: 8px;
-      }
-
-      .st36 {
-        fill: url(#radial-gradient13);
-      }
-
-      .st46 {
-        fill: url(#radial-gradient15);
-      }
-
-      .st20 {
-        opacity: .82;
-      }
-
-      .st25 {
-        fill: url(#fine-glitter);
-        opacity: .78;
-      }
-
-      .st15 {
-        opacity: .74;
-        stroke-width: 1.25px;
-      }
-
-      .st9 {
-        stroke-opacity: .19;
-      }
-
-      .st37 {
-        fill: url(#radial-gradient7);
-      }
-
-      .st10 {
-        stroke: #2f1738;
-        stroke-opacity: .22;
-        stroke-width: 17px;
-      }
-
-      .st47 {
-        fill: url(#linear-gradient);
-      }
-
-      .st11 {
-        stroke-width: 6px;
-      }
-
-      .st48 {
-        clip-path: url(#clippath);
-      }
-
-      .st12 {
-        stroke-width: 34px;
-      }
-
-      .st38 {
-        fill: url(#radial-gradient2);
-      }
-
-      .st49 {
-        fill: url(#radial-gradient16);
-      }
-
-      .st39 {
-        fill: url(#radial-gradient8);
-      }
-
-      .st40 {
-        fill: url(#radial-gradient9);
-      }
-
-      .st21 {
-        opacity: .72;
-      }
-    </style>
-    <linearGradient id="linear-gradient" x1="143.88" y1="721.77" x2="144.22" y2="720.87" gradientTransform="translate(-51459.23 300393) scale(359.06 -416)" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#c98be8"/>
-      <stop offset=".42" stop-color="#c98be8"/>
-      <stop offset=".58" stop-color="#ddff35"/>
-      <stop offset="1" stop-color="#ddff35"/>
+    <linearGradient id="left-color" x1="0.28" y1="0.06" x2="0.62" y2="0.96">
+      <stop offset="0" stop-color="#c98be8" data-color-token="bowTop" />
+      <stop offset="0.42" stop-color="#c98be8" data-color-token="bowTop" />
+      <stop offset="0.58" stop-color="#ddff35" data-color-token="bowBottom" />
+      <stop offset="1" stop-color="#ddff35" data-color-token="bowBottom" />
     </linearGradient>
-    <linearGradient id="linear-gradient1" x1="143.54" y1="721.59" x2="144.41" y2="720.85" gradientTransform="translate(-51459.23 300393) scale(359.06 -416)" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#ead1fa" stop-opacity=".78"/>
-      <stop offset=".34" stop-color="#fff" stop-opacity=".06"/>
-      <stop offset=".7" stop-color="#f2ff9a" stop-opacity=".2"/>
-      <stop offset="1" stop-color="#000" stop-opacity=".16"/>
+    <linearGradient id="right-color" x1="0.72" y1="0.06" x2="0.38" y2="0.96">
+      <stop offset="0" stop-color="#c98be8" data-color-token="bowTop" />
+      <stop offset="0.42" stop-color="#c98be8" data-color-token="bowTop" />
+      <stop offset="0.58" stop-color="#ddff35" data-color-token="bowBottom" />
+      <stop offset="1" stop-color="#ddff35" data-color-token="bowBottom" />
     </linearGradient>
-    <clipPath id="clippath">
-      <path class="st5" d="M451,307c-63-56-142-130-310-196-47,77-52,221-12,416,151-38,267-112,322-183,13-17,14-26,0-37Z"/>
+
+    <linearGradient id="left-sheen" x1="0.08" y1="0.08" x2="0.95" y2="0.82">
+      <stop offset="0" stop-color="#ead1fa" stop-opacity="0.78" data-color-token="bowTopHighlight" />
+      <stop offset="0.34" stop-color="#ffffff" stop-opacity="0.06" />
+      <stop offset="0.7" stop-color="#f2ff9a" stop-opacity="0.2" data-color-token="bowBottomHighlight" />
+      <stop offset="1" stop-color="#000000" stop-opacity="0.16" />
+    </linearGradient>
+    <linearGradient id="right-sheen" x1="0.92" y1="0.08" x2="0.05" y2="0.82">
+      <stop offset="0" stop-color="#ead1fa" stop-opacity="0.78" data-color-token="bowTopHighlight" />
+      <stop offset="0.34" stop-color="#ffffff" stop-opacity="0.06" />
+      <stop offset="0.7" stop-color="#f2ff9a" stop-opacity="0.2" data-color-token="bowBottomHighlight" />
+      <stop offset="1" stop-color="#000000" stop-opacity="0.16" />
+    </linearGradient>
+
+    <linearGradient id="knot-sheen" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#000000" stop-opacity="0.34" />
+      <stop offset="0.38" stop-color="#303030" stop-opacity="0.82" data-color-token="knotHighlight" />
+      <stop offset="0.62" stop-color="#ffffff" stop-opacity="0.08" />
+      <stop offset="1" stop-color="#000000" stop-opacity="0.42" />
+    </linearGradient>
+
+    <radialGradient id="stone" cx="35%" cy="28%" r="75%">
+      <stop offset="0" stop-color="#ffffff" />
+      <stop offset="0.28" stop-color="#f8fbff" data-color-token="stoneColor" />
+      <stop offset="0.68" stop-color="#b9c0c8" />
+      <stop offset="1" stop-color="#6a7179" />
+    </radialGradient>
+    <radialGradient id="stone-gold" cx="35%" cy="28%" r="75%">
+      <stop offset="0" stop-color="#ffffff" />
+      <stop offset="0.3" stop-color="#fff4c7" />
+      <stop offset="0.7" stop-color="#d8b45a" data-color-token="stoneAccent" />
+      <stop offset="1" stop-color="#76571b" />
+    </radialGradient>
+
+    <!-- Fixed PRFCT10 signature gems: independent of bow colors and finish. -->
+    <radialGradient id="signature-fuchsia" cx="31%" cy="24%" r="78%">
+      <stop offset="0" stop-color="#ffffff" />
+      <stop offset="0.12" stop-color="#ffb7de" />
+      <stop offset="0.38" stop-color="#f23f9b" />
+      <stop offset="0.72" stop-color="#c01468" />
+      <stop offset="1" stop-color="#65062f" />
+    </radialGradient>
+    <radialGradient id="signature-mint" cx="31%" cy="24%" r="78%">
+      <stop offset="0" stop-color="#ffffff" />
+      <stop offset="0.14" stop-color="#d7fff4" />
+      <stop offset="0.4" stop-color="#76d7bd" />
+      <stop offset="0.74" stop-color="#2aa889" />
+      <stop offset="1" stop-color="#075b49" />
+    </radialGradient>
+    <linearGradient id="signature-fuchsia-facet" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff8bca" stop-opacity="0.8" />
+      <stop offset="0.48" stop-color="#ffffff" stop-opacity="0.12" />
+      <stop offset="1" stop-color="#7d073e" stop-opacity="0.68" />
+    </linearGradient>
+    <linearGradient id="signature-mint-facet" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#b9f5e4" stop-opacity="0.9" />
+      <stop offset="0.48" stop-color="#ffffff" stop-opacity="0.18" />
+      <stop offset="1" stop-color="#08745d" stop-opacity="0.7" />
+    </linearGradient>
+    <clipPath id="signature-fuchsia-clip">
+      <circle cx="0" cy="0" r="16" />
     </clipPath>
-    <pattern id="tulle-mesh" x="0" y="0" width="14" height="14" patternTransform="translate(1102.32 -14425.29) rotate(8) scale(1 -1)" patternUnits="userSpaceOnUse" viewBox="0 0 14 14">
-      <g>
-        <rect class="st5" width="14" height="14"/>
-        <path class="st7" d="M0,14L14,0M14,14L0,0"/>
-        <path class="st6" d="M7,14V0M0,7h14"/>
-      </g>
-    </pattern>
-    <pattern id="fine-glitter" x="0" y="0" width="54" height="48" patternTransform="translate(-36 -15568) scale(1 -1)" patternUnits="userSpaceOnUse" viewBox="0 0 54 48">
-      <g>
-        <rect class="st5" width="54" height="48"/>
-        <circle class="st19" cx="7" cy="39" r="2.1"/>
-        <circle class="st21" cx="29" cy="43" r="1.15"/>
-        <circle class="st16" cx="46" cy="30" r="1.8"/>
-        <circle class="st18" cx="18" cy="21" r="1.35"/>
-        <circle class="st20" cx="39" cy="9" r="2.3"/>
-        <path class="st15" d="M12,9h8M16,13V5"/>
-      </g>
-    </pattern>
-    <linearGradient id="linear-gradient2" x1="144.32" y1="721.77" x2="143.98" y2="720.87" gradientTransform="translate(-51122.42 300393) scale(359.06 -416)" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#c98be8"/>
-      <stop offset=".42" stop-color="#c98be8"/>
-      <stop offset=".58" stop-color="#ddff35"/>
-      <stop offset="1" stop-color="#ddff35"/>
-    </linearGradient>
-    <linearGradient id="linear-gradient3" x1="144.66" y1="721.59" x2="143.79" y2="720.85" gradientTransform="translate(-51122.42 300393) scale(359.06 -416)" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#ead1fa" stop-opacity=".78"/>
-      <stop offset=".34" stop-color="#fff" stop-opacity=".06"/>
-      <stop offset=".7" stop-color="#f2ff9a" stop-opacity=".2"/>
-      <stop offset="1" stop-color="#000" stop-opacity=".16"/>
-    </linearGradient>
-    <clipPath id="clippath-1">
-      <path class="st5" d="M449,307c63-56,142-130,310-196,47,77,52,221,12,416-151-38-267-112-322-183-13-17-14-26,0-37Z"/>
+    <clipPath id="signature-mint-clip">
+      <circle cx="0" cy="0" r="8" />
     </clipPath>
-    <linearGradient id="linear-gradient4" x1="142.33" y1="720.9" x2="143.33" y2="720.9" gradientTransform="translate(-11833 83952) scale(86 -116)" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#000" stop-opacity=".34"/>
-      <stop offset=".38" stop-color="#303030" stop-opacity=".82"/>
-      <stop offset=".62" stop-color="#fff" stop-opacity=".08"/>
-      <stop offset="1" stop-color="#000" stop-opacity=".42"/>
-    </linearGradient>
-    <radialGradient id="radial-gradient" cx="134.06" cy="716.72" fx="134.06" fy="716.72" r=".75" gradientTransform="translate(-1457 10319) scale(14 -14)" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#fff"/>
-      <stop offset=".28" stop-color="#f8fbff"/>
-      <stop offset=".68" stop-color="#b9c0c8"/>
-      <stop offset="1" stop-color="#6a7179"/>
-    </radialGradient>
-    <radialGradient id="radial-gradient1" cx="134.06" cy="716.72" fx="134.06" fy="716.72" r=".75" gradientTransform="translate(-1429 10319) scale(14 -14)" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#fff"/>
-      <stop offset=".28" stop-color="#f8fbff"/>
-      <stop offset=".68" stop-color="#b9c0c8"/>
-      <stop offset="1" stop-color="#6a7179"/>
-    </radialGradient>
-    <radialGradient id="radial-gradient2" cx="134.06" cy="716.72" fx="134.06" fy="716.72" r=".75" gradientTransform="translate(-1401 10319) scale(14 -14)" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#fff"/>
-      <stop offset=".28" stop-color="#f8fbff"/>
-      <stop offset=".68" stop-color="#b9c0c8"/>
-      <stop offset="1" stop-color="#6a7179"/>
-    </radialGradient>
-    <radialGradient id="radial-gradient3" cx="134.06" cy="716.72" fx="134.06" fy="716.72" r=".75" gradientTransform="translate(-1457 10338) scale(14 -14)" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#fff"/>
-      <stop offset=".28" stop-color="#f8fbff"/>
-      <stop offset=".68" stop-color="#b9c0c8"/>
-      <stop offset="1" stop-color="#6a7179"/>
-    </radialGradient>
-    <radialGradient id="radial-gradient4" cx="134.06" cy="716.72" fx="134.06" fy="716.72" r=".75" gradientTransform="translate(-1429 10338) scale(14 -14)" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#fff"/>
-      <stop offset=".28" stop-color="#f8fbff"/>
-      <stop offset=".68" stop-color="#b9c0c8"/>
-      <stop offset="1" stop-color="#6a7179"/>
-    </radialGradient>
-    <radialGradient id="radial-gradient5" cx="134.06" cy="716.72" fx="134.06" fy="716.72" r=".75" gradientTransform="translate(-1401 10338) scale(14 -14)" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#fff"/>
-      <stop offset=".28" stop-color="#f8fbff"/>
-      <stop offset=".68" stop-color="#b9c0c8"/>
-      <stop offset="1" stop-color="#6a7179"/>
-    </radialGradient>
-    <radialGradient id="radial-gradient6" cx="134.06" cy="716.72" fx="134.06" fy="716.72" r=".75" gradientTransform="translate(-1457 10376) scale(14 -14)" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#fff"/>
-      <stop offset=".28" stop-color="#f8fbff"/>
-      <stop offset=".68" stop-color="#b9c0c8"/>
-      <stop offset="1" stop-color="#6a7179"/>
-    </radialGradient>
-    <radialGradient id="radial-gradient7" cx="134.06" cy="716.72" fx="134.06" fy="716.72" r=".75" gradientTransform="translate(-1429 10376) scale(14 -14)" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#fff"/>
-      <stop offset=".28" stop-color="#f8fbff"/>
-      <stop offset=".68" stop-color="#b9c0c8"/>
-      <stop offset="1" stop-color="#6a7179"/>
-    </radialGradient>
-    <radialGradient id="radial-gradient8" cx="134.06" cy="716.72" fx="134.06" fy="716.72" r=".75" gradientTransform="translate(-1401 10376) scale(14 -14)" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#fff"/>
-      <stop offset=".28" stop-color="#f8fbff"/>
-      <stop offset=".68" stop-color="#b9c0c8"/>
-      <stop offset="1" stop-color="#6a7179"/>
-    </radialGradient>
-    <radialGradient id="radial-gradient9" cx="134.06" cy="716.72" fx="134.06" fy="716.72" r=".75" gradientTransform="translate(-1457 10395) scale(14 -14)" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#fff"/>
-      <stop offset=".28" stop-color="#f8fbff"/>
-      <stop offset=".68" stop-color="#b9c0c8"/>
-      <stop offset="1" stop-color="#6a7179"/>
-    </radialGradient>
-    <radialGradient id="radial-gradient10" cx="134.06" cy="716.72" fx="134.06" fy="716.72" r=".75" gradientTransform="translate(-1429 10395) scale(14 -14)" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#fff"/>
-      <stop offset=".28" stop-color="#f8fbff"/>
-      <stop offset=".68" stop-color="#b9c0c8"/>
-      <stop offset="1" stop-color="#6a7179"/>
-    </radialGradient>
-    <radialGradient id="radial-gradient11" cx="134.06" cy="716.72" fx="134.06" fy="716.72" r=".75" gradientTransform="translate(-1401 10395) scale(14 -14)" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#fff"/>
-      <stop offset=".28" stop-color="#f8fbff"/>
-      <stop offset=".68" stop-color="#b9c0c8"/>
-      <stop offset="1" stop-color="#6a7179"/>
-    </radialGradient>
-    <radialGradient id="radial-gradient12" cx="134.06" cy="716.72" fx="134.06" fy="716.72" r=".75" gradientTransform="translate(-1457 10357) scale(14 -14)" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#fff"/>
-      <stop offset=".3" stop-color="#fff4c7"/>
-      <stop offset=".7" stop-color="#d8b45a"/>
-      <stop offset="1" stop-color="#76571b"/>
-    </radialGradient>
-    <radialGradient id="radial-gradient13" cx="134.06" cy="716.72" fx="134.06" fy="716.72" r=".75" gradientTransform="translate(-1429 10357) scale(14 -14)" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#fff"/>
-      <stop offset=".3" stop-color="#fff4c7"/>
-      <stop offset=".7" stop-color="#d8b45a"/>
-      <stop offset="1" stop-color="#76571b"/>
-    </radialGradient>
-    <radialGradient id="radial-gradient14" cx="134.06" cy="716.72" fx="134.06" fy="716.72" r=".75" gradientTransform="translate(-1401 10357) scale(14 -14)" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#fff"/>
-      <stop offset=".3" stop-color="#fff4c7"/>
-      <stop offset=".7" stop-color="#d8b45a"/>
-      <stop offset="1" stop-color="#76571b"/>
-    </radialGradient>
-    <radialGradient id="radial-gradient15" cx="728.5" cy="479.5" fx="728.5" fy="479.5" r="14.5" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#a91f67"/>
-      <stop offset=".46" stop-color="#651f43"/>
-      <stop offset=".82" stop-color="#351f29"/>
-      <stop offset="1" stop-color="#231f20"/>
-    </radialGradient>
-    <radialGradient id="radial-gradient16" cx="748.75" cy="465.25" fx="748.75" fy="465.25" r="7.25" gradientUnits="userSpaceOnUse">
-      <stop offset=".01" stop-color="#2db34a"/>
-      <stop offset="1" stop-color="#231f20"/>
-    </radialGradient>
+    <filter id="signature-gem-shadow" x="-80%" y="-80%" width="260%" height="260%" color-interpolation-filters="sRGB">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="gem-shadow-blur" />
+      <feOffset in="gem-shadow-blur" dx="0" dy="3" result="gem-shadow-offset" />
+      <feFlood flood-color="#210817" flood-opacity="0.42" result="gem-shadow-color" />
+      <feComposite in="gem-shadow-color" in2="gem-shadow-offset" operator="in" result="gem-shadow-shape" />
+      <feMerge>
+        <feMergeNode in="gem-shadow-shape" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <pattern id="tulle-mesh" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(8)">
+      <path d="M0 0 14 14M14 0 0 14" fill="none" stroke="#ffffff" stroke-width="1.1" opacity="0.64" />
+      <path d="M7 0V14M0 7H14" fill="none" stroke="#111111" stroke-width="0.55" opacity="0.24" />
+    </pattern>
+
+    <pattern id="fine-glitter" width="54" height="48" patternUnits="userSpaceOnUse">
+      <circle cx="7" cy="9" r="2.1" fill="#ffffff" opacity="0.88" data-color-token="sparkleColor" />
+      <circle cx="29" cy="5" r="1.15" fill="#ffffff" opacity="0.72" data-color-token="sparkleColor" />
+      <circle cx="46" cy="18" r="1.8" fill="#ffffff" opacity="0.9" data-color-token="sparkleColor" />
+      <circle cx="18" cy="27" r="1.35" fill="#ffffff" opacity="0.64" data-color-token="sparkleColor" />
+      <circle cx="39" cy="39" r="2.3" fill="#ffffff" opacity="0.82" data-color-token="sparkleColor" />
+      <path d="M12 39h8M16 35v8" stroke="#ffffff" stroke-width="1.25" stroke-linecap="round" opacity="0.74" data-color-token="sparkleColor" />
+    </pattern>
+
+    <filter id="bow-shadow" x="-20%" y="-20%" width="140%" height="160%" color-interpolation-filters="sRGB">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="17" result="bow-shadow-blur" />
+      <feOffset in="bow-shadow-blur" dx="0" dy="18" result="bow-shadow-offset" />
+      <feFlood flood-color="#2e2038" flood-opacity="0.24" result="bow-shadow-color" />
+      <feComposite in="bow-shadow-color" in2="bow-shadow-offset" operator="in" result="bow-shadow-shape" />
+      <feMerge>
+        <feMergeNode in="bow-shadow-shape" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <filter id="soft-inner-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="7" result="blur" />
+      <feOffset dx="0" dy="4" result="offset" />
+      <feComposite in="offset" in2="SourceAlpha" operator="out" result="inverse" />
+      <feFlood flood-color="#000000" flood-opacity="0.26" result="color" />
+      <feComposite in="color" in2="inverse" operator="in" result="shadow" />
+      <feComposite in="shadow" in2="SourceGraphic" operator="over" />
+    </filter>
+
+    <clipPath id="left-clip">
+      <path d="M451 307C388 251 309 177 141 111 94 188 89 332 129 527c151-38 267-112 322-183 13-17 14-26 0-37Z" />
+    </clipPath>
+    <clipPath id="right-clip">
+      <path d="M449 307c63-56 142-130 310-196 47 77 52 221 12 416-151-38-267-112-322-183-13-17-14-26 0-37Z" />
+    </clipPath>
   </defs>
-  <g id="prfct10-bow">
-    <g id="hair-tie">
-      <path class="st12" d="M254,233c24-143,368-143,392,0"/>
-      <path class="st11" d="M267,226c27-113,339-113,366,0"/>
+
+  <g id="prfct10-bow" data-component="prfct10-bow" filter="url(#bow-shadow)">
+    <g id="hair-tie" data-part="hair-tie">
+      <path
+        d="M254 233C278 90 622 90 646 233"
+        fill="none"
+        stroke="#111111"
+        data-color-token="hairTieColor"
+        stroke-width="34"
+        stroke-linecap="round"
+      />
+      <path
+        d="M267 226C294 113 606 113 633 226"
+        fill="none"
+        stroke="#ffffff"
+        stroke-opacity="0.12"
+        stroke-width="6"
+        stroke-linecap="round"
+      />
     </g>
-    <g id="left-wing">
-      <path class="st47" d="M451,307c-63-56-142-130-310-196-47,77-52,221-12,416,151-38,267-112,322-183,13-17,14-26,0-37Z"/>
-      <path class="st41" d="M451,307c-63-56-142-130-310-196-47,77-52,221-12,416,151-38,267-112,322-183,13-17,14-26,0-37Z"/>
-      <g class="st48">
-        <g>
-          <rect class="st24" x="80" y="90" width="390" height="455"/>
-          <rect class="st25" x="80" y="90" width="390" height="455"/>
+
+    <g id="left-wing" data-part="left-wing" filter="url(#soft-inner-shadow)">
+      <path
+        d="M451 307C388 251 309 177 141 111 94 188 89 332 129 527c151-38 267-112 322-183 13-17 14-26 0-37Z"
+        fill="url(#left-color)"
+      />
+      <path
+        d="M451 307C388 251 309 177 141 111 94 188 89 332 129 527c151-38 267-112 322-183 13-17 14-26 0-37Z"
+        fill="url(#left-sheen)"
+      />
+      <g clip-path="url(#left-clip)">
+        <rect x="80" y="90" width="390" height="455" fill="url(#tulle-mesh)" opacity="0.46" data-opacity-token="meshOpacity" />
+        <rect x="80" y="90" width="390" height="455" fill="url(#fine-glitter)" opacity="0.78" data-opacity-token="glitterOpacity" />
+      </g>
+    </g>
+
+    <g id="right-wing" data-part="right-wing" filter="url(#soft-inner-shadow)">
+      <path
+        d="M449 307c63-56 142-130 310-196 47 77 52 221 12 416-151-38-267-112-322-183-13-17-14-26 0-37Z"
+        fill="url(#right-color)"
+      />
+      <path
+        d="M449 307c63-56 142-130 310-196 47 77 52 221 12 416-151-38-267-112-322-183-13-17-14-26 0-37Z"
+        fill="url(#right-sheen)"
+      />
+      <g clip-path="url(#right-clip)">
+        <rect x="430" y="90" width="390" height="455" fill="url(#tulle-mesh)" opacity="0.46" data-opacity-token="meshOpacity" />
+        <rect x="430" y="90" width="390" height="455" fill="url(#fine-glitter)" opacity="0.78" data-opacity-token="glitterOpacity" />
+      </g>
+    </g>
+
+    <g id="folds" data-part="folds" fill="none" stroke-linecap="round">
+      <path d="M439 316C343 286 250 250 143 133" stroke="#2f1738" stroke-opacity="0.22" stroke-width="17" />
+      <path d="M438 326C337 343 240 402 137 503" stroke="#27310c" stroke-opacity="0.2" stroke-width="18" />
+      <path d="M461 316C557 286 650 250 757 133" stroke="#2f1738" stroke-opacity="0.22" stroke-width="17" />
+      <path d="M462 326C563 343 660 402 763 503" stroke="#27310c" stroke-opacity="0.2" stroke-width="18" />
+
+      <path d="M439 302C346 250 262 207 166 144" stroke="#ffffff" stroke-opacity="0.23" stroke-width="8" />
+      <path d="M438 341C339 370 251 431 161 497" stroke="#ffffff" stroke-opacity="0.19" stroke-width="8" />
+      <path d="M461 302C554 250 638 207 734 144" stroke="#ffffff" stroke-opacity="0.23" stroke-width="8" />
+      <path d="M462 341C561 370 649 431 739 497" stroke="#ffffff" stroke-opacity="0.19" stroke-width="8" />
+
+      <path d="M438 320C329 315 228 315 111 291" stroke="#ffffff" stroke-opacity="0.12" stroke-width="5" />
+      <path d="M462 320C571 315 672 315 789 291" stroke="#ffffff" stroke-opacity="0.12" stroke-width="5" />
+    </g>
+
+    <g id="center-pinch" data-part="center-pinch">
+      <ellipse cx="450" cy="326" rx="67" ry="57" fill="#000000" opacity="0.2" />
+      <path d="M391 292c28 16 90 16 118 0v71c-30-16-88-16-118 0Z" fill="#000000" opacity="0.14" />
+    </g>
+
+    <g id="center-band" data-part="center-band">
+      <rect x="407" y="270" width="86" height="116" rx="20" fill="#111111" data-color-token="knotColor" />
+      <rect x="407" y="270" width="86" height="116" rx="20" fill="url(#knot-sheen)" />
+      <path d="M421 278v99M479 278v99" stroke="#000000" stroke-opacity="0.5" stroke-width="4" />
+
+      <g id="rhinestones" data-part="rhinestones" opacity="1" data-opacity-token="rhinestoneOpacity">
+        <g fill="url(#stone)" stroke="#f7f7f7" stroke-width="1.2">
+          <circle cx="422" cy="288" r="7" /><circle cx="450" cy="288" r="7" /><circle cx="478" cy="288" r="7" />
+          <circle cx="422" cy="307" r="7" /><circle cx="450" cy="307" r="7" /><circle cx="478" cy="307" r="7" />
+          <circle cx="422" cy="345" r="7" /><circle cx="450" cy="345" r="7" /><circle cx="478" cy="345" r="7" />
+          <circle cx="422" cy="364" r="7" /><circle cx="450" cy="364" r="7" /><circle cx="478" cy="364" r="7" />
+        </g>
+        <g fill="url(#stone-gold)" stroke="#fff0bd" stroke-width="1.2">
+          <circle cx="422" cy="326" r="7" /><circle cx="450" cy="326" r="7" /><circle cx="478" cy="326" r="7" />
         </g>
       </g>
     </g>
-    <g id="right-wing">
-      <path class="st2" d="M449,307c63-56,142-130,310-196,47,77,52,221,12,416-151-38-267-112-322-183-13-17-14-26,0-37Z"/>
-      <path class="st45" d="M449,307c63-56,142-130,310-196,47,77,52,221,12,416-151-38-267-112-322-183-13-17-14-26,0-37Z"/>
-      <g class="st42">
-        <g>
-          <rect class="st24" x="430" y="90" width="390" height="455"/>
-          <rect class="st25" x="430" y="90" width="390" height="455"/>
+
+    <g id="highlight-sparkles" data-part="sparkles" fill="#ffffff" opacity="0.92" data-color-token="sparkleColor">
+      <path d="M208 188h20M218 178v20" stroke="#ffffff" stroke-width="3" stroke-linecap="round" data-color-token="sparkleColor" />
+      <circle cx="304" cy="224" r="3.6" />
+      <path d="M670 207h18M679 198v18" stroke="#ffffff" stroke-width="3" stroke-linecap="round" data-color-token="sparkleColor" />
+      <circle cx="720" cy="374" r="4" />
+      <path d="M254 421h16M262 413v16" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" data-color-token="sparkleColor" />
+      <circle cx="615" cy="437" r="3.4" />
+    </g>
+
+    <!--
+      PRFCT10 logo signature translated into rhinestones.
+      Large fuchsia SS20 / 5 mm gem and small mint SS8 / 2.5 mm gem,
+      fixed diagonally on the lower-right wing, inset from the contour.
+    -->
+    <g id="signature-gems" data-part="signature-gems" aria-label="PRFCT10 signature gems">
+      <g id="signature-gem-fuchsia" transform="translate(731 486)" filter="url(#signature-gem-shadow)">
+        <circle r="16" fill="url(#signature-fuchsia)" stroke="#fff4fb" stroke-width="2.2" />
+        <g clip-path="url(#signature-fuchsia-clip)" fill="none" stroke="#ffffff" stroke-opacity="0.34" stroke-width="1.15">
+          <path d="M-16 0-8-8 0-4 8-8 16 0 8 8 0 4-8 8Z" fill="url(#signature-fuchsia-facet)" stroke="none" opacity="0.56" />
+          <path d="M-16 0h32M0-16V16M-11.3-11.3 11.3 11.3M11.3-11.3-11.3 11.3" />
+          <circle r="8.2" stroke-opacity="0.5" />
         </g>
+        <ellipse cx="-5.4" cy="-6.2" rx="3.8" ry="2.3" fill="#ffffff" opacity="0.9" transform="rotate(-30)" />
+        <circle r="13.2" fill="none" stroke="#e62182" stroke-opacity="0.65" stroke-width="1" />
+      </g>
+
+      <g id="signature-gem-mint" transform="translate(753 467)" filter="url(#signature-gem-shadow)">
+        <circle r="8" fill="url(#signature-mint)" stroke="#f2fffb" stroke-width="1.5" />
+        <g clip-path="url(#signature-mint-clip)" fill="none" stroke="#ffffff" stroke-opacity="0.42" stroke-width="0.75">
+          <path d="M-8 0-4-4 0-2 4-4 8 0 4 4 0 2-4 4Z" fill="url(#signature-mint-facet)" stroke="none" opacity="0.62" />
+          <path d="M-8 0h16M0-8V8M-5.7-5.7 5.7 5.7M5.7-5.7-5.7 5.7" />
+          <circle r="4.2" stroke-opacity="0.56" />
+        </g>
+        <ellipse cx="-2.6" cy="-3.1" rx="1.9" ry="1.15" fill="#ffffff" opacity="0.94" transform="rotate(-30)" />
+        <circle r="6.5" fill="none" stroke="#38b697" stroke-opacity="0.68" stroke-width="0.7" />
       </g>
     </g>
-    <g id="folds">
-      <path class="st10" d="M439,316c-96-30-189-66-296-183"/>
-      <path class="st4" d="M438,326c-101,17-198,76-301,177"/>
-      <path class="st10" d="M461,316c96-30,189-66,296-183"/>
-      <path class="st4" d="M462,326c101,17,198,76,301,177"/>
-      <path class="st8" d="M439,302c-93-52-177-95-273-158"/>
-      <path class="st9" d="M438,341c-99,29-187,90-277,156"/>
-      <path class="st8" d="M461,302c93-52,177-95,273-158"/>
-      <path class="st9" d="M462,341c99,29,187,90,277,156"/>
-      <path class="st3" d="M438,320c-109-5-210-5-327-29"/>
-      <path class="st3" d="M462,320c109-5,210-5,327-29"/>
-    </g>
-    <g id="center-pinch">
-      <ellipse class="st23" cx="450" cy="326" rx="67" ry="57"/>
-      <path class="st22" d="M391,292c28,16,90,16,118,0v71c-30-16-88-16-118,0v-71Z"/>
-    </g>
-    <g id="center-band">
-      <rect class="st1" x="407" y="270" width="86" height="116" rx="20" ry="20"/>
-      <rect class="st44" x="407" y="270" width="86" height="116" rx="20" ry="20"/>
-      <path class="st43" d="M421,278v99M479,278v99"/>
-      <g id="rhinestones">
-        <g>
-          <circle class="st33" cx="422" cy="288" r="7"/>
-          <circle class="st27" cx="450" cy="288" r="7"/>
-          <circle class="st38" cx="478" cy="288" r="7"/>
-          <circle class="st31" cx="422" cy="307" r="7"/>
-          <circle class="st35" cx="450" cy="307" r="7"/>
-          <circle class="st26" cx="478" cy="307" r="7"/>
-          <circle class="st30" cx="422" cy="345" r="7"/>
-          <circle class="st37" cx="450" cy="345" r="7"/>
-          <circle class="st39" cx="478" cy="345" r="7"/>
-          <circle class="st40" cx="422" cy="364" r="7"/>
-          <circle class="st34" cx="450" cy="364" r="7"/>
-          <circle class="st28" cx="478" cy="364" r="7"/>
-        </g>
-        <g>
-          <circle class="st32" cx="422" cy="326" r="7"/>
-          <circle class="st36" cx="450" cy="326" r="7"/>
-          <circle class="st29" cx="478" cy="326" r="7"/>
-        </g>
-      </g>
-    </g>
-    <g id="highlight-sparkles" class="st0">
-      <path class="st13" d="M208,188h20M218,178v20"/>
-      <circle class="st17" cx="304" cy="224" r="3.6"/>
-      <path class="st13" d="M670,207h18M679,198v18"/>
-      <circle class="st17" cx="720" cy="374" r="4"/>
-      <path class="st14" d="M254,421h16M262,413v16"/>
-      <circle class="st17" cx="615" cy="437" r="3.4"/>
-    </g>
-  </g>
-  <g id="Layer_2">
-    <circle class="st46" cx="728.5" cy="479.5" r="14.5"/>
-    <circle class="st49" cx="748.75" cy="465.25" r="7.25"/>
   </g>
 </svg>

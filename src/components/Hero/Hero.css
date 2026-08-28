@@ -144,6 +144,10 @@
   overflow-wrap: break-word;
 }
 
+.hero__title > .signature-text__offset {
+  display: none;
+}
+
 .hero__text {
   color: #74665f;
   font-size: clamp(17px, 1.2vw, 18px);

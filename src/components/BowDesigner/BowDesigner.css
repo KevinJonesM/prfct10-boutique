@@ -43,7 +43,7 @@
   max-height: 420px;
   transform: scale(1);
 }
-.bow-preview { display: block; height: auto; width: 100%; }
+.bow-preview { display: block; height: auto; pointer-events: none; width: 100%; }
 .bow-preview__charm { animation: bow-charm 2.4s ease-in-out infinite; transform-origin: center; }
 @keyframes bow-charm { 50% { transform: translate(360px,319px) rotate(7deg); } }
 

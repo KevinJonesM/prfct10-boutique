@@ -21,9 +21,15 @@ function mixWithWhite(color, amount) {
 
 function replaceColorToken(svg, token, color) {
   const tokenPattern = new RegExp(`<[^>]+data-color-token="${token}"[^>]*>`, "g");
-  return svg.replace(tokenPattern, (element) => (
-    element.replace(/(stop-color|fill|stroke)="[^"]*"/, `$1="${color}"`)
-  ));
+  return svg.replace(tokenPattern, (element) => {
+    if (/stop-color="[^"]*"/.test(element)) {
+      return element.replace(/stop-color="[^"]*"/, `stop-color="${color}"`);
+    }
+    if (/fill="(?!none")[^"]*"/.test(element)) {
+      return element.replace(/fill="(?!none")[^"]*"/, `fill="${color}"`);
+    }
+    return element.replace(/stroke="[^"]*"/, `stroke="${color}"`);
+  });
 }
 
 function replaceOpacityToken(svg, token, opacity) {
@@ -69,6 +75,9 @@ function prepareSvg({ prefix, topColor, bottomColor, finish, centerStyle }) {
 
   let svg = bowSvgSource
     .replace(/<\?xml[^>]*>\s*/i, "")
+    .replace(/<title[\s\S]*?<\/title>\s*/i, "")
+    .replace(/<desc[\s\S]*?<\/desc>\s*/i, "")
+    .replace(/<metadata[\s\S]*?<\/metadata>\s*/i, "")
     .replace(/\srole="img"/, "")
     .replace(/\saria-labelledby="[^"]*"/, "");
 

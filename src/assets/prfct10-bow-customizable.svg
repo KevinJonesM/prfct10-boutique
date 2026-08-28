@@ -19,13 +19,13 @@
   </metadata>
 
   <defs>
-    <linearGradient id="left-color" x1="0.28" y1="0.06" x2="0.62" y2="0.96">
+    <linearGradient id="left-color" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#c98be8" data-color-token="bowTop" />
       <stop offset="0.42" stop-color="#c98be8" data-color-token="bowTop" />
       <stop offset="0.58" stop-color="#ddff35" data-color-token="bowBottom" />
       <stop offset="1" stop-color="#ddff35" data-color-token="bowBottom" />
     </linearGradient>
-    <linearGradient id="right-color" x1="0.72" y1="0.06" x2="0.38" y2="0.96">
+    <linearGradient id="right-color" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#c98be8" data-color-token="bowTop" />
       <stop offset="0.42" stop-color="#c98be8" data-color-token="bowTop" />
       <stop offset="0.58" stop-color="#ddff35" data-color-token="bowBottom" />
@@ -151,19 +151,19 @@
   <g id="prfct10-bow" data-component="prfct10-bow" filter="url(#bow-shadow)">
     <g id="hair-tie" data-part="hair-tie">
       <path
-        d="M296 236C323 144 577 144 604 236"
+        d="M254 233C278 90 622 90 646 233"
         fill="none"
         stroke="#111111"
         data-color-token="hairTieColor"
-        stroke-width="18"
+        stroke-width="34"
         stroke-linecap="round"
       />
       <path
-        d="M306 232C334 160 566 160 594 232"
+        d="M267 226C294 113 606 113 633 226"
         fill="none"
         stroke="#ffffff"
         stroke-opacity="0.12"
-        stroke-width="4"
+        stroke-width="6"
         stroke-linecap="round"
       />
     </g>

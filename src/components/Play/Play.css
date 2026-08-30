@@ -600,7 +600,8 @@
   --world-yellow: #f7ef45;
   --world-orange: #ff7147;
   background: #d8c7f3;
-  padding: 18px;
+  /* Clear the fixed navigation before the scene's full checker strip. */
+  padding: var(--play-top-offset) 18px 18px;
 }
 
 .play-world__scene {
@@ -690,6 +691,7 @@
 .play-object.is-active { filter: saturate(1.22); outline: 4px solid #fff; outline-offset: -8px; }
 .play-object strong { font-family: var(--heading); font-size: clamp(1rem, 2vw, 1.7rem); letter-spacing: -.04em; line-height: .86; max-width: 90%; text-transform: uppercase; }
 .play-object__number, .play-object__status { font-family: var(--heading); font-size: .58rem; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
+.play-object__caption { border-left: 3px solid var(--world-fuchsia); font-family: var(--heading); font-size: .65rem; font-weight: 900; letter-spacing: .04em; line-height: 1.4; max-width: calc(100% - 42px); padding-left: 8px; text-transform: uppercase; }
 .play-object > i { align-items: center; background: var(--world-ink); border-radius: 50%; bottom: 12px; color: #fff; display: flex; font-style: normal; height: 34px; justify-content: center; position: absolute; right: 12px; width: 34px; }
 .play-object--fuchsia { --object-bg: var(--world-fuchsia); --silhouette-fill: var(--world-yellow); --silhouette-offset: var(--world-blue); --silhouette-third: var(--world-lilac); color: #fff; grid-column: 1 / 6; grid-row: 1 / 3; transform: rotate(-1.4deg); }
 .play-object--fuchsia strong { font-size: clamp(2.3rem, 5vw, 4.7rem); }
@@ -734,7 +736,7 @@
 }
 
 @media (max-width: 620px) {
-  .play-world { padding: 0; }
+  .play-world { padding: var(--play-top-offset) 0 0; }
   .play-world__scene { border-left: 0; border-right: 0; box-shadow: none; }
   .play-world__checker--top { height: 46px; }
   .play-world__checker--side { display: none; }
@@ -792,7 +794,8 @@
   background: #d8c7f3;
   min-height: calc(100dvh - var(--header-height));
   overflow: hidden;
-  padding: 18px;
+  margin-top: var(--play-top-offset);
+  padding: 0 18px 18px;
   position: relative;
 }
 

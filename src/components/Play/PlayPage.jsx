@@ -15,7 +15,7 @@ const POWER_MODES = [
 const EXPERIENCES = [
   { id: "power", number: "01", title: "POWER CHECK", available: true, tone: "fuchsia", silhouette: PLAY_STICKERS.gymnastBeamHandstand },
   { id: "gymnast", number: "02", title: "GYMNAST OF THE DAY", tone: "blue" },
-  { id: "trivia", number: "03", title: "TRIVIA", tone: "yellow" },
+  { id: "code10", number: "03", title: "CODE 10", available: true, tone: "yellow", captionKey: "play.portal.world.code10Caption" },
   { id: "glossary", number: "04", title: "GLOSSARY", tone: "lilac" },
   { id: "challenge", number: "05", title: "DAILY CHALLENGE", tone: "mint" },
   { id: "didYouKnow", number: "06", title: "DID YOU KNOW?", tone: "pink" },
@@ -24,7 +24,7 @@ const EXPERIENCES = [
   { id: "bow", number: "09", title: "BOW LAB", available: true, tone: "bow", sticker: PLAY_STICKERS.bowDashboard }
 ];
 
-export default function PlayPage({ onOpenPowerCheck, onOpenBowDesigner }) {
+export default function PlayPage({ onOpenPowerCheck, onOpenCode10, onOpenBowDesigner }) {
   const { t } = useI18n();
   const [activeExperience, setActiveExperience] = useState("power");
   const [activeMode, setActiveMode] = useState("vault");
@@ -33,6 +33,7 @@ export default function PlayPage({ onOpenPowerCheck, onOpenBowDesigner }) {
   const launchExperience = () => {
     if (experience.id === "power") onOpenPowerCheck();
     if (experience.id === "bow") onOpenBowDesigner();
+    if (experience.id === "code10") onOpenCode10();
   };
 
   return (
@@ -92,9 +93,10 @@ export default function PlayPage({ onOpenPowerCheck, onOpenBowDesigner }) {
 
           <div className="play-world__objects" aria-label={t("play.portal.world.experiencesLabel")}>
             {EXPERIENCES.map((item) => (
-              <button className={`play-object play-object--${item.tone}${activeExperience === item.id ? " is-active" : ""}`} type="button" key={item.id} onClick={() => setActiveExperience(item.id)} aria-expanded={activeExperience === item.id} aria-controls="play-object-detail">
+              <button className={`play-object play-object--${item.tone}${activeExperience === item.id ? " is-active" : ""}`} type="button" key={item.id} onClick={() => item.id === "code10" ? onOpenCode10() : setActiveExperience(item.id)} aria-expanded={item.id === "code10" ? undefined : activeExperience === item.id} aria-controls={item.id === "code10" ? undefined : "play-object-detail"}>
                 <span className="play-object__number">{item.number}</span>
                 <strong>{item.title}</strong>
+                {item.captionKey ? <span className="play-object__caption">{t(item.captionKey)}</span> : null}
                 <span className="play-object__status">{item.available ? t("play.portal.available") : t("play.portal.comingSoon")}</span>
                 {item.silhouette ? <span className="play-world__layered-silhouette play-object__silhouette" style={{ "--silhouette-image": `url(${item.silhouette})` }} aria-hidden="true"><i /><b /><em /></span> : null}
                 {item.sticker ? <img className="play-object__sticker" src={item.sticker} alt="" aria-hidden="true" /> : null}

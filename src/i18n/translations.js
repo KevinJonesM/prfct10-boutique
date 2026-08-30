@@ -1,4 +1,7 @@
+import { code10En, code10Es } from "./code10.js";
+
 const en = {
+  code10: code10En,
   cartWhatsapp: { intro: "Hi PRFCT10, I would like help completing this order:", item: "- {quantity} × {name} ({price}{each})", each: " each", delivery: "Delivery preference: {preference}", zip: "ZIP code: {value}", phone: "Contact phone: {value}", email: "Email: {value}", note: "Note: {value}", closing: "Please confirm availability, final pricing, shipping, and return details before payment." },
   language: { label: "Language", english: "EN", spanish: "ES" },
   navigation: {
@@ -111,6 +114,7 @@ const en = {
         modesTitle: "FIND YOUR FREQUENCY.",
         experiencesTitle: "PICK YOUR PORTAL.",
         experiencesLabel: "PRFCT10 PLAY experiences",
+        code10Caption: "10 QUESTIONS. CHASE THE 10.",
         openExperience: "OPEN EXPERIENCE",
         selectedObject: "SELECTED OBJECT",
         unlocked: "UNLOCKED",
@@ -122,7 +126,7 @@ const en = {
         experiences: {
           power: "Four quick choices become a collectible power identity, mantra and three vertical Stories.",
           gymnast: "Meet a real gymnast, one verified element and the story behind the skill.",
-          trivia: "Ten quick questions to test your judge eye, gymnastics language and history.",
+          code10: "Know your gymnastics. Chase the 10. Ten questions, ten tenths: every missed answer costs 0.10. Protect your 10.",
           glossary: "Learn how skills travel between English, French, Spanish and the language used in the gym.",
           challenge: "A safe daily prompt for strength, flexibility, balance or control — plus your streak.",
           didYouKnow: "Flip through the science, history, rules and tiny club secrets behind gymnastics.",
@@ -220,12 +224,14 @@ const en = {
     search: { title: "Search PRFCT10 Products", description: "Search the PRFCT10 consumer catalog across training gear, accessories, Mind Gym, and apparel." },
     cart: { title: "Your PRFCT10 Bag", description: "Review your selected PRFCT10 products and continue through assisted ordering support." },
     play: { title: "PRFCT10 PLAY | Your Gymnastics, Your Energy", description: "Discover PRFCT10 PLAY and find your meet-day energy with the interactive Power Check." },
+    code10: { title: "CODE 10 | PRFCT10 PLAY", description: "10 questions. 10 tenths. Know your gymnastics and protect the 10." },
     powerCheck: { title: "PRFCT10 Power Check", description: "Make four quick picks and create a private, downloadable PRFCT10 Power Card." }
   },
   common: { close: "Close", add: "Add", remove: "Remove", keepShopping: "Keep shopping" }
 };
 
 const es = {
+  code10: code10Es,
   cartWhatsapp: { intro: "Hola PRFCT10, necesito ayuda para completar este pedido:", item: "- {quantity} × {name} ({price}{each})", each: " cada uno", delivery: "Preferencia de entrega: {preference}", zip: "Código postal: {value}", phone: "Teléfono de contacto: {value}", email: "Correo electrónico: {value}", note: "Nota: {value}", closing: "Por favor, confirmen la disponibilidad, el precio final, el envío y los detalles de devolución antes del pago." },
   language: { label: "Idioma", english: "EN", spanish: "ES" },
   navigation: {
@@ -338,6 +344,7 @@ const es = {
         modesTitle: "ENCUENTRA TU FRECUENCIA.",
         experiencesTitle: "ELIGE TU PORTAL.",
         experiencesLabel: "Experiencias de PRFCT10 PLAY",
+        code10Caption: "10 PREGUNTAS. PERSIGUE EL 10.",
         openExperience: "ABRIR EXPERIENCIA",
         selectedObject: "OBJETO SELECCIONADO",
         unlocked: "DESBLOQUEADO",
@@ -349,7 +356,7 @@ const es = {
         experiences: {
           power: "Cuatro elecciones rápidas se convierten en una identidad de poder, un mantra y tres Stories coleccionables.",
           gymnast: "Conoce una gimnasta real, un elemento verificado y la historia detrás de la habilidad.",
-          trivia: "Diez preguntas rápidas para probar tu ojo de juez, lenguaje gimnástico e historia.",
+          code10: "Conoce tu gimnasia. Persigue el 10. Diez preguntas, diez décimas: cada respuesta incorrecta cuesta 0.10. Protege tu 10.",
           glossary: "Aprende cómo viajan los elementos entre inglés, francés, español y el lenguaje usado en el gimnasio.",
           challenge: "Un reto diario seguro de fuerza, flexibilidad, equilibrio o control, además de tu racha.",
           didYouKnow: "Descubre la ciencia, historia, reglas y pequeños secretos del club detrás de la gimnasia.",
@@ -447,6 +454,7 @@ const es = {
     search: { title: "Buscar productos PRFCT10", description: "Busca en el catálogo PRFCT10 de entrenamiento, accesorios, gimnasia mental y ropa." },
     cart: { title: "Tu bolsa PRFCT10", description: "Revisa los productos seleccionados y continúa con el servicio de pedido asistido." },
     play: { title: "PRFCT10 PLAY | Tu gimnasia, tu energía", description: "Descubre PRFCT10 PLAY y encuentra tu energía para competir con el Power Check interactivo." },
+    code10: { title: "CODE 10 | PRFCT10 PLAY", description: "10 preguntas. 10 décimas. Conoce tu gimnasia y protege el 10." },
     powerCheck: { title: "PRFCT10 Power Check", description: "Haz cuatro elecciones rápidas y crea una Power Card PRFCT10 privada y descargable." }
   },
   common: { close: "Cerrar", add: "Agregar", remove: "Eliminar", keepShopping: "Seguir comprando" }

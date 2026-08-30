@@ -78,6 +78,17 @@ main {
   overflow-x: clip;
 }
 
+/* One fixed-header clearance shared by PLAY and every game screen. */
+:is(.play-world, .power-world, .c10-shell) {
+  --play-top-offset: calc(var(--header-height) + 18px);
+}
+
+@media (max-width: 620px) {
+  :is(.play-world, .power-world, .c10-shell) {
+    --play-top-offset: calc(var(--header-height) + 12px);
+  }
+}
+
 .route-loading {
   min-height: calc(100dvh - var(--header-height));
 }

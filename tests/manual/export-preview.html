@@ -1,0 +1,38 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Export QA</title>
+<!-- Development-only visual regression harness. Vite production builds only index.html.
+     Checks the actual raster exports, including logo/silhouette pixels, in EN and ES. -->
+<style>body{margin:24px;background:#ddd;font:16px Arial}main{display:flex;gap:16px;align-items:start;flex-wrap:wrap}figure{margin:0;width:300px}img{width:100%;height:auto}pre{white-space:pre-wrap}</style>
+<h1>Actual exported PNGs</h1><pre id="report">Rendering…</pre><main id="gallery"></main>
+<script type="module">
+import {createPowerResult} from '/src/components/Play/playData.js';
+import {createPowerPack} from '/src/components/Play/powerPackData.js';
+import {createPowerPackSvgs,createPowerPackBlobs} from '/src/components/Play/powerCardCanvas.js';
+import {createCode10ShareSvg,createCode10Png} from '/src/components/Code10/shareCard.js';
+import {translations} from '/src/i18n/translations.js';
+const report=document.querySelector('#report'), gallery=document.querySelector('#gallery');
+try {
+  const locale=new URLSearchParams(location.search).get('lang') || 'en';
+  const t=(key,values={})=>String(key.split('.').reduce((o,k)=>o?.[k],translations[locale])).replace(/\{(\w+)\}/g,(match,key)=>values[key]??match);
+  const result=createPowerResult({apparatus:'floor',currentEnergy:'needBoost',intention:'calm',colors:['charcoal','xmudPurple']},locale,0);
+  const copy={identity:locale==='en'?result.todayYoureEn:result.todayYoureEs,apparatus:t('play.powerCheck.options.apparatus.floor'),mantra:locale==='en'?result.quoteEn:result.quoteEs};
+  const pack=createPowerPack({result,copy,locale,t});
+  const svgs=createPowerPackSvgs({pack});
+  const blobs=await createPowerPackBlobs({pack,svgs});
+  const cards=blobs.map((blob,i)=>({name:'Power '+(i+1),blob,logo:[62,112,190,176],gym:i===0?[700,1480,290,235]:i===1?[805,1530,175,230]:[705,170,285,400]}));
+  for(const format of ['story','feed']){
+    const svg=createCode10ShareSvg({rawScore:9,format,program:'XCEL',division:'SAPPHIRE',categoryLabel:'MIX',label:t('code10.labels.oneAway'),challengeLine:t('code10.challengeLine')});
+    cards.push({name:'CODE 10 '+format,blob:await createCode10Png(svg,format),logo:[95,135,140,125],gym:[850,135,140,format==='story'?230:150]});
+  }
+  const checks=[];
+  for(const card of cards){
+    const img=new Image();img.src=URL.createObjectURL(card.blob);await img.decode();
+    const figure=document.createElement('figure'),caption=document.createElement('figcaption');caption.textContent=card.name;figure.append(caption,img);gallery.append(figure);
+    const canvas=document.createElement('canvas');canvas.width=img.naturalWidth;canvas.height=img.naturalHeight;
+    const ctx=canvas.getContext('2d');ctx.drawImage(img,0,0);
+    const count=(rect,color)=>{const data=ctx.getImageData(...rect).data;let n=0;for(let i=0;i<data.length;i+=4)if(Math.abs(data[i]-color[0])<8&&Math.abs(data[i+1]-color[1])<8&&Math.abs(data[i+2]-color[2])<8)n++;return n;};
+    const logoPixels=count(card.logo,[209,28,92]),gymnastPixels=count(card.gym,[123,45,255]);
+    checks.push({card:card.name,width:img.naturalWidth,height:img.naturalHeight,logoPixels,gymnastPixels,pass:logoPixels>150&&gymnastPixels>150});
+  }
+  report.textContent=JSON.stringify(checks,null,2);
+}catch(e){report.textContent='ERROR: '+e.stack;}
+</script></html>

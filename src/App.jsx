@@ -35,6 +35,7 @@ const BowDesignerCTA = lazy(() => import("./components/BowDesigner/BowDesignerCT
 const BowDesignerModal = lazy(() => import("./components/BowDesigner/BowDesignerModal"));
 const PlayPage = lazy(() => import("./components/Play/PlayPage"));
 const PowerCheckPage = lazy(() => import("./components/Play/PowerCheckPage"));
+const Code10Page = lazy(() => import("./components/Code10/Code10Page"));
 const PlayTeaser = lazy(() => import("./components/Play/PlayTeaser"));
 
 // TODO Shopify: Source complementary products from Shopify Search & Discovery.
@@ -735,7 +736,8 @@ const storePathByView = {
   bundles: "/bundles",
   team: "/team",
   play: "/play",
-  powerCheck: "/play/power-check"
+  powerCheck: "/play/power-check",
+  code10: "/play/code-10"
 };
 
 const pageSeoByView = {
@@ -749,6 +751,7 @@ const pageSeoByView = {
   team: "team",
   play: "play",
   powerCheck: "powerCheck",
+  code10: "code10",
   search: "search",
   cart: "cart"
 };
@@ -991,7 +994,7 @@ export default function App() {
   };
 
   const showPlay = (view = "play") => {
-    const nextView = view === "powerCheck" ? "powerCheck" : "play";
+    const nextView = ["powerCheck", "code10"].includes(view) ? view : "play";
     setIsCartDrawerOpen(false);
     setSearchQuery("");
     setSelectedProduct(null);
@@ -1093,7 +1096,7 @@ export default function App() {
         />
       ) : activeView === "play" ? (
         <>
-          <PlayPage onOpenPowerCheck={() => showPlay("powerCheck")} onOpenBowDesigner={openBowDesigner} />
+          <PlayPage onOpenPowerCheck={() => showPlay("powerCheck")} onOpenCode10={() => showPlay("code10")} onOpenBowDesigner={openBowDesigner} />
           <Footer
             onBackHome={showHome}
             onOpenDepartment={showBoutique}
@@ -1110,6 +1113,11 @@ export default function App() {
             onOpenTeam={showTeam}
             onOpenShipping={showShipping}
           />
+        </>
+      ) : activeView === "code10" ? (
+        <>
+          <Code10Page onBackToPlay={() => showPlay("play")} />
+          <Footer onBackHome={showHome} onOpenDepartment={showBoutique} onOpenTeam={showTeam} onOpenShipping={showShipping} />
         </>
       ) : activeView === "cart" ? (
         <main>

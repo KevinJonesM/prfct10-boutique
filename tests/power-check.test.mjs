@@ -40,6 +40,11 @@ test("serializes three exact-size SVG stories from one pack", () => {
   assert.equal(svgs.length, 3);
   svgs.forEach((svg) => { assert.match(svg, /width="1080"/); assert.match(svg, /height="1920"/); assert.match(svg, /viewBox="0 0 1080 1920"/); assert.match(svg, /data-template=/); });
   assert.match(svgs[0], /MY POWER/);
+  for (const svg of svgs) {
+    assert.match(svg, /data-artwork="imagotype"/);
+    assert.match(svg, /data-artwork="gymnast"/);
+    assert.doesNotMatch(svg, /href="[^\"]*imagotype/);
+  }
 });
 
 test("apparatus list remains complete", () => assert.deepEqual(APPARATUS_OPTIONS, ["vault", "bars", "beam", "floor", "allAround"]));

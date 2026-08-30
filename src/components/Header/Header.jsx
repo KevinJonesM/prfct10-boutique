@@ -31,6 +31,7 @@ export default function Header({
   onNavigateStore,
   onOpenBoutique,
   onOpenTeam,
+  onOpenPlay,
   onOpenShipping,
   overlayOpen = false
 }) {
@@ -123,6 +124,12 @@ export default function Header({
     onOpenTeam?.();
   };
 
+  const openPlay = (event) => {
+    event.preventDefault();
+    closeMenu(false);
+    onOpenPlay?.();
+  };
+
   const openShipping = (event) => {
     event.preventDefault();
     closeMenu(false);
@@ -209,6 +216,14 @@ export default function Header({
           >
             {t("navigation.team")}
           </a>
+          <a
+            className={`${linkClass("play", "play")}${activeView === "powerCheck" ? " header__link--active" : ""}`}
+            href="/play"
+            onClick={openPlay}
+            aria-current={activeView === "play" || activeView === "powerCheck" ? "page" : undefined}
+          >
+            {t("navigation.play")}
+          </a>
         </nav>
 
         <label className="header__search" htmlFor="site-search">
@@ -294,6 +309,7 @@ export default function Header({
                 </a>
               ))}
               <a href="/team" onClick={openTeam}>{t("navigation.team")}</a>
+              <a href="/play" onClick={openPlay}>{t("navigation.play")}</a>
             </section>
 
             <section>

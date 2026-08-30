@@ -4,7 +4,7 @@ const en = {
   navigation: {
     home: "Home", menu: "Menu", main: "Main navigation", shop: "Shop", shopAll: "Shop All",
     featured: "Featured", bundles: "Bundles", trainingGear: "Training", accessories: "Accessories", mindGym: "Mind Gym",
-    apparel: "Apparel", team: "Team", customTeamwear: "Team", search: "Search", searchPlaceholder: "Products", account: "Account",
+    apparel: "Apparel", team: "Team", play: "Play", customTeamwear: "Team", search: "Search", searchPlaceholder: "Products", account: "Account",
     greeting: "Hi, {name}", bag: "Bag", bagLabel: "View bag with {count} items"
   },
   bow: { lab: "PRFCT10 BOW LAB", eyebrow: "MAKE IT YOURS", title: "DESIGN YOUR PRFCT10 BOW", description: "Choose your colors, finish and details. See your bow come to life before you order.", cta: "DESIGN MY BOW", contextEyebrow: "PRFCT10 BOW LAB", accessoriesTitle: "A bow as unique as your routine.", accessoriesText: "Create a custom PRFCT10 bow without leaving the accessories collection.", searchTitle: "Looking for a bow? Make it yours.", searchText: "Open the Bow Lab to choose colors, finish, center and size.", accessoriesCta: "CUSTOMIZE YOUR BOW", productCta: "DESIGN YOUR BOW", teamEyebrow: "BOW LAB FOR TEAMS", teamTitle: "DESIGN YOUR TEAM BOW", teamDescription: "Create a custom bow around your team colors, finish, center, and size. The Bow Lab saves a design code to share with PRFCT10.", teamCta: "DESIGN THE TEAM BOW", modalTitle: "DESIGN YOUR PRFCT10 BOW", close: "Close bow designer", previewLabel: "Bow preview: {summary}", selectColors: "SELECT ONE OR TWO COLORS", selectedSingleColor: "COLOR: {color}", selectedColorPair: "TOP: {top} · BOTTOM: {bottom}", noColorSelected: "SELECT ONE OR TWO COLORS", finish: "Finish", center: "Center", size: "Size", surprise: "Surprise Me", reset: "Reset", whatsapp: "REQUEST MY BOW ON WHATSAPP", teamContext: "Context: PRFCT10 TEAM", options: { horizontalOmbre: "Horizontal ombré", classicTulle: "Classic Tulle", shimmer: "Shimmer", glitter: "Glitter", blackBand: "Black Band", silver: "Silver Rhinestones", goldStones: "Gold Rhinestones", blackStones: "Black Rhinestones", neon: "Neon Rhinestones", small: "Small", medium: "Medium", large: "Large" }, colors: { red: "Red", burgundy: "Burgundy", fuchsia: "Fuchsia", neonPink: "Neon Pink", pink: "Pink", lightPink: "Light Pink", peach: "Peach", coral: "Coral", energyOrange: "Energy Orange", intenseYellow: "Intense Yellow", butterYellow: "Butter Yellow", neonGreen: "Neon Green", lime: "Lime", pistachio: "Pistachio", mint: "Mint", slateGreen: "Slate Green", emeraldGreen: "Emerald Green", navyBlue: "Navy Blue", royalBlue: "Royal Blue", cobaltBlue: "Cobalt Blue", babyBlue: "Baby Blue", turquoise: "Turquoise", lilac: "Lilac", purple: "Purple", gold: "Gold", champagne: "Champagne", silver: "Silver", black: "Black", gray: "Gray", white: "White", cream: "Cream" }, whatsappMessageSingle: "Hi, I would like to request this PRFCT10 bow:\n\n{context}\nColor: {color}\nFinish: {finish}\nCenter: {center}\nSize: {size}\nDesign code: {code}\nPage: {url}", whatsappMessagePair: "Hi, I would like to request this PRFCT10 bow:\n\n{context}\nTop color: {top}\nBottom color: {bottom}\nFinish: {finish}\nCenter: {center}\nSize: {size}\nDesign code: {code}\nPage: {url}" },
@@ -88,6 +88,52 @@ const en = {
     featured: { eyebrow: "PRFCT10 Favorites", title: "Most-Loved PRFCT10", text: "Six favorite picks across training, accessories, and Mind Gym—an easy first stop for discovering the collection.", cta: "Shop all products" },
     bundles: { eyebrow: "Curated for the gym day", title: "Shop PRFCT10 Bundles", text: "Purpose-built sets for bars, meet-day hair, and conditioning. Final pricing is confirmed before payment.", cta: "Explore bundles" }
   },
+  play: {
+    teaser: { title: "NOT SHOPPING TODAY? COME PLAY.", text: "Discover your power. Design your sparkle. Make it yours.", cta: "ENTER PLAY" },
+    portal: {
+      hero: { title: "YOUR GYMNASTICS. YOUR ENERGY. YOUR WORLD.", text: "Discover your power, design your sparkle and make it yours.", cta: "FIND MY PRFCT10 POWER" },
+      experiencesTitle: "CHOOSE YOUR EXPERIENCE.", available: "Available now", start: "START", comingSoon: "COMING SOON",
+      powerCheck: { text: "Find your meet-day energy." },
+      bling: { text: "Stamp your sparkle." },
+      bow: { text: "Mix your colors.", cta: "OPEN BOW LAB" }
+    },
+    colors: { fuchsia: "Hot Fuchsia", mint: "Mint Green", pink: "Bubblegum Pink", lilac: "Lilac", blue: "Baby Blue", yellow: "Butter Yellow", white: "Cloud White", charcoal: "Charcoal", xmudPurple: "Electric Purple", xmudSlime: "Fluorescent Slime Green", xmudAqua: "Slime Aqua", xmudPink: "Candy Pink", xmudOrange: "Slime Orange", xmudLemon: "Neon Lemon", xmudGrape: "Grape Purple", xmudJelly: "Jelly White" },
+    identities: {
+      vault: { name: "MY POWER", line: "Bold takeoff. Brave landing." },
+      bars: { name: "MY POWER", line: "Strong hands. Smooth energy." },
+      beam: { name: "MY POWER", line: "Quiet body. Loud confidence." },
+      floor: { name: "MY POWER", line: "Big energy. Own your moment." },
+      allAround: { name: "MY POWER", line: "Every event. Every side of you." }
+    },
+    energyMessages: { lockedIn: "Focused and ready.", butterflies: "Nervous can still mean ready.", needBoost: "Your energy can grow from here.", readyToFly: "Let your training speak." },
+    mantras: { calm: "One breath. One skill. One next move.", focus: "One skill. One breath. One moment.", confidence: "I trust the work that brought me here.", energy: "My power shows up one move at a time." },
+    rituals: {
+      calm: ["Take three slow breaths.", "Relax your shoulders.", "Choose one focus word."],
+      focus: ["Look at one steady point.", "Take one slow breath.", "Repeat your mantra."],
+      confidence: ["Remember one thing you trained well.", "Visualize one clean moment.", "Repeat your mantra."],
+      energy: ["Gently shake out your arms and legs.", "Take one strong breath.", "Repeat your mantra."]
+    },
+    powerCheck: {
+      intro: { title: "WHAT’S YOUR PRFCT10 POWER TODAY?", text: "Four quick picks. One power result made for you.", cta: "LET’S FIND OUT" },
+      lastResult: { title: "Your last Power Check is saved on this device.", view: "VIEW LAST RESULT", clear: "CLEAR RESULT" },
+      progress: "Step {current} of {total}", navigationLabel: "Power Check navigation", back: "BACK", next: "NEXT", seeResult: "SEE MY POWER", colorLabel: "Power color: {color}",
+      stepNames: { apparatus: "Event", currentEnergy: "Energy", intention: "Intention", colors: "Colors" },
+      validation: { chooseOne: "Choose one option to continue.", twoColors: "Choose exactly two colors to continue.", complete: "Selection complete." },
+      questions: {
+        apparatus: { title: "WHICH EVENT FEELS MOST LIKE YOU TODAY?", hint: "Choose the event that matches your energy." },
+        currentEnergy: { title: "WHAT’S YOUR ENERGY RIGHT NOW?", hint: "Choose one honest answer." },
+        intention: { title: "WHAT DO YOU NEED MOST TODAY?", hint: "Choose the feeling you want to carry with you." },
+        colors: { title: "PICK YOUR TWO POWER COLORS", hint: "Choose exactly two. Each color is named and marked when selected." }
+      },
+      options: {
+        apparatus: { vault: "Vault", bars: "Bars", beam: "Beam", floor: "Floor", allAround: "All-Around" },
+        currentEnergy: { lockedIn: "LOCKED IN", butterflies: "STEADY UNDER PRESSURE", needBoost: "NEED A BOOST", readyToFly: "READY TO FLY" },
+        intention: { calm: "Calm", focus: "Focus", confidence: "Confidence", energy: "Energy" }
+      },
+      result: { today: "TODAY YOU’RE…", apparatusLabel: "Event", colorsLabel: "Power colors", energyLabel: "TODAY’S ENERGY", mantraLabel: "YOUR MANTRA", ritualLabel: "YOUR MINI RITUAL", coach: "Always follow your coach.", previewLabel: "Preview of your vertical Power Card", save: "SAVE MY POWER CARD", share: "SHARE MY POWER CARD", creating: "CREATING YOUR CARD…", tryAgain: "TRY AGAIN", backToPlay: "BACK TO PLAY", saved: "Your Power Card was downloaded.", shared: "Your Power Card is ready to share.", exportError: "We couldn’t create the card. Please try again." },
+      powerPack: { title: "YOUR PRFCT10 POWER PACK", intro: "Three Stories. One result made for your energy.", story1: { label: "MY POWER" }, story2: { label: "MY COLOR ENERGY", mixLabel: "YOUR POWER MIX" }, story3: { label: "GYMNAST OF THE DAY", elementLabel: "THE ELEMENT", worthLabel: "WHAT IT’S WORTH", vaultScore: "D-SCORE {value}", difficulty: "{letter} · {value}", factLabel: "DID YOU KNOW?", whatItTookLabel: "WHAT IT TOOK" }, previous: "Previous Story", next: "Next Story", slideLabel: "Story {current} of {total}", download: "DOWNLOAD THIS STORY", share: "SHARE POWER PACK", svg: "DOWNLOAD SVG", createAnother: "CREATE ANOTHER", creating: "CREATING POWER PACK…", downloaded: "Story {number} downloaded.", downloadedPack: "Your three Stories were downloaded.", shared: "Your Power Pack is ready to share.", exportError: "We couldn’t create the Power Pack. Please try again." }
+    }
+  },
   newsletter: { eyebrow: "PRFCT10 CLUB", footerTitle: "STAY IN THE LOOP.", footerText: "New drops, restocks, meet-day favorites, and everything new at PRFCT10.", modalTitle1: "GOOD THINGS", modalTitle2: "LAND HERE FIRST.", modalText: "New drops, restocks, gym-day favorites, and a little PRFCT10 magic.", privacy: "No spam. Just really good gymnastics stuff.", email: "Email address", join: "JOIN", joinClub: "JOIN THE CLUB", joining: "JOINING…", invalid: "Enter a valid email address.", success: "Welcome to PRFCT10 CLUB.", notConfigured: "Newsletter integration not configured.", error: "We couldn’t add you right now. Please try again.", close: "Close PRFCT10 CLUB signup" },
   footer: { tagline: "The power is in your hands.", description: "A shop of smart, pretty essentials for gymnasts who train, recover, and celebrate every milestone.", partnership: "Available in partnership with", explore: "Explore", shop: "Shop", standard: "The Standard", about: "About", usShipping: "U.S. Shipping", shipping: "U.S. shipping available", support: "Support", whatsapp: "WhatsApp support", rights: "2026 PRFCT10. All rights reserved.", backHome: "Back to Home", backToTop: "Back to top" },
   modal: { close: "Close product details", images: "Images of {name}", gallery: "Product gallery", image: "View image {number} of {name}", previous: "Previous image", next: "Next image", shop: "PRFCT10 Shop", quickBenefits: "Quick benefits", options: "Product options", delivery: "Delivery options", quantity: "Quantity {quantity}", addBag: "Add to bag", shipping: "U.S. shipping", returnSupport: "Friendly return and product support", noPayment: "No payment is collected until availability is confirmed", whatsapp: "Ask about this item on WhatsApp", availability: "Availability", exactOptions: "Exact colors, sizes, and fulfillment are confirmed before payment.", assisted: "Assisted ordering", about: "About this item", colors: "Colors and options", basedAvailability: "Based on availability", bestFor: "Best for", bestForDefault: "Gifts, competitions, team details, and practice looks.", ordering: "Ordering and delivery", addInstruction: "Add the item to your bag.", supportInstruction: "PRFCT10 support confirms availability and U.S. shipping.", paymentInstruction: "Payment follows through assisted ordering; online checkout can be added later.", howUse: "How to use", specifications: "Specifications", faq: "Frequently asked questions", uses: "Recommended sports and uses", faqFallback: "Frequently asked question", ship: "Ship", tracked: "Tracked U.S. delivery", calculated: "Calculated after confirmation", pickup: "Store pickup", requestPickup: "Request pickup", confirmedSupport: "Confirmed with support", local: "Local delivery", zip: "Request by ZIP code" },
@@ -137,7 +183,9 @@ const en = {
     bundles: { title: "Gymnastics Bundles | PRFCT10", description: "Explore PRFCT10 curated bundles for bars, meet-day hair, and conditioning, configured from real product inventory." },
     team: { title: "Custom Team Leotards | PRFCT10 TEAM", description: "Start a guided PRFCT10 TEAM quote for custom competition or training leotards designed around your program." },
     search: { title: "Search PRFCT10 Products", description: "Search the PRFCT10 consumer catalog across training gear, accessories, Mind Gym, and apparel." },
-    cart: { title: "Your PRFCT10 Bag", description: "Review your selected PRFCT10 products and continue through assisted ordering support." }
+    cart: { title: "Your PRFCT10 Bag", description: "Review your selected PRFCT10 products and continue through assisted ordering support." },
+    play: { title: "PRFCT10 PLAY | Your Gymnastics, Your Energy", description: "Discover PRFCT10 PLAY and find your meet-day energy with the interactive Power Check." },
+    powerCheck: { title: "PRFCT10 Power Check", description: "Make four quick picks and create a private, downloadable PRFCT10 Power Card." }
   },
   common: { close: "Close", add: "Add", remove: "Remove", keepShopping: "Keep shopping" }
 };
@@ -148,7 +196,7 @@ const es = {
   navigation: {
     home: "Inicio", menu: "Menú", main: "Navegación principal", shop: "Tienda", shopAll: "Ver todo",
     featured: "Destacados", bundles: "Combos", trainingGear: "Entreno", accessories: "Accesorios", mindGym: "Mente",
-    apparel: "Ropa", team: "Equipos", customTeamwear: "Equipos", search: "Buscar", searchPlaceholder: "Productos", account: "Cuenta",
+    apparel: "Ropa", team: "Equipos", play: "Play", customTeamwear: "Equipos", search: "Buscar", searchPlaceholder: "Productos", account: "Cuenta",
     greeting: "Hola, {name}", bag: "Bolsa", bagLabel: "Ver bolsa con {count} artículos"
   },
   bow: { lab: "PRFCT10 BOW LAB", eyebrow: "HAZLO TUYO", title: "DISEÑA TU LAZO PRFCT10", description: "Elige colores, acabado y detalles. Mira cómo tu lazo cobra vida antes de pedirlo.", cta: "DISEÑAR MI LAZO", contextEyebrow: "PRFCT10 BOW LAB", accessoriesTitle: "Un lazo tan único como tu rutina.", accessoriesText: "Crea un lazo PRFCT10 personalizado sin salir de la colección de accesorios.", searchTitle: "¿Buscas un lazo? Hazlo tuyo.", searchText: "Abre el Bow Lab y elige colores, acabado, centro y tamaño.", accessoriesCta: "PERSONALIZA TU LAZO", productCta: "PERSONALIZA TU LAZO", teamEyebrow: "BOW LAB PARA EQUIPOS", teamTitle: "DISEÑA EL LAZO DE TU EQUIPO", teamDescription: "Crea un lazo personalizado con los colores, acabado, centro y tamaño de tu equipo. Bow Lab guarda un código de diseño para compartir con PRFCT10.", teamCta: "DISEÑAR EL LAZO DEL EQUIPO", modalTitle: "DISEÑA TU LAZO PRFCT10", close: "Cerrar diseñador de lazos", previewLabel: "Vista previa del lazo: {summary}", selectColors: "SELECCIONA UNO O DOS COLORES", selectedSingleColor: "COLOR: {color}", selectedColorPair: "ARRIBA: {top} · ABAJO: {bottom}", noColorSelected: "SELECCIONA UNO O DOS COLORES", finish: "Acabado", center: "Centro", size: "Tamaño", surprise: "Sorpréndeme", reset: "Reiniciar", whatsapp: "SOLICITAR MI LAZO POR WHATSAPP", teamContext: "Contexto: PRFCT10 TEAM", options: { horizontalOmbre: "Ombré horizontal", classicTulle: "Tul clásico", shimmer: "Brillo sutil", glitter: "Glitter", blackBand: "Banda negra", silver: "Cristales plateados", goldStones: "Cristales dorados", blackStones: "Cristales negros", neon: "Cristales neón", small: "Pequeño", medium: "Mediano", large: "Grande" }, colors: { red: "Rojo", burgundy: "Vinotinto", fuchsia: "Fucsia", neonPink: "Rosa neón", pink: "Rosa", lightPink: "Rosa claro", peach: "Durazno", coral: "Coral", energyOrange: "Naranja intenso", intenseYellow: "Amarillo intenso", butterYellow: "Amarillo butter", neonGreen: "Verde neón", lime: "Lime", pistachio: "Pistacho", mint: "Menta", slateGreen: "Verde pizarra", emeraldGreen: "Verde esmeralda", navyBlue: "Azul navy", royalBlue: "Azul royal", cobaltBlue: "Azul cobalto", babyBlue: "Azul baby", turquoise: "Turquesa", lilac: "Lila", purple: "Púrpura", gold: "Dorado", champagne: "Champagne", silver: "Plateado", black: "Negro", gray: "Gris", white: "Blanco", cream: "Crema" }, whatsappMessageSingle: "Hola, quiero solicitar este lazo PRFCT10:\n\n{context}\nColor: {color}\nAcabado: {finish}\nCentro: {center}\nTamaño: {size}\nCódigo del diseño: {code}\nPágina: {url}", whatsappMessagePair: "Hola, quiero solicitar este lazo PRFCT10:\n\n{context}\nColor de arriba: {top}\nColor de abajo: {bottom}\nAcabado: {finish}\nCentro: {center}\nTamaño: {size}\nCódigo del diseño: {code}\nPágina: {url}" },
@@ -232,6 +280,52 @@ const es = {
     featured: { eyebrow: "Favoritos PRFCT10", title: "Los más queridos de PRFCT10", text: "Seis favoritos de entrenamiento, accesorios y mente para descubrir la colección.", cta: "Ver todos los productos" },
     bundles: { eyebrow: "Selección para el gimnasio", title: "Compra combos PRFCT10", text: "Sets pensados para barras, peinados de competencia y acondicionamiento. El precio final se confirma antes del pago.", cta: "Explorar combos" }
   },
+  play: {
+    teaser: { title: "¿NO VINISTE A COMPRAR? VEN A JUGAR.", text: "Descubre tu poder. Diseña tu brillo. Hazlo tuyo.", cta: "ENTRAR A PLAY" },
+    portal: {
+      hero: { title: "TU GIMNASIA. TU ENERGÍA. TU MUNDO.", text: "Descubre tu poder, diseña tu brillo y hazlo tuyo.", cta: "DESCUBRIR MI PODER PRFCT10" },
+      experiencesTitle: "ELIGE TU EXPERIENCIA.", available: "Disponible ahora", start: "COMENZAR", comingSoon: "MUY PRONTO",
+      powerCheck: { text: "Descubre tu energía para competir." },
+      bling: { text: "Estampa tu brillo." },
+      bow: { text: "Combina tus colores.", cta: "ABRIR BOW LAB" }
+    },
+    colors: { fuchsia: "Fucsia intenso", mint: "Verde menta", pink: "Rosa chicle", lilac: "Lila", blue: "Azul baby", yellow: "Amarillo butter", white: "Blanco nube", charcoal: "Carbón", xmudPurple: "Morado eléctrico", xmudSlime: "Verde slime fluorescente", xmudAqua: "Aqua slime", xmudPink: "Rosa candy", xmudOrange: "Naranja slime", xmudLemon: "Limón neón", xmudGrape: "Morado uva", xmudJelly: "Blanco jelly" },
+    identities: {
+      vault: { name: "MI PODER", line: "Despegue valiente. Aterrizaje firme." },
+      bars: { name: "MI PODER", line: "Manos fuertes. Energía fluida." },
+      beam: { name: "MI PODER", line: "Cuerpo sereno. Confianza enorme." },
+      floor: { name: "MI PODER", line: "Energía grande. Haz tuyo el momento." },
+      allAround: { name: "MI PODER", line: "Cada aparato. Cada versión de ti." }
+    },
+    energyMessages: { lockedIn: "Enfocada y preparada.", butterflies: "Sentir nervios también puede significar que estás lista.", needBoost: "Tu energía puede crecer desde aquí.", readyToFly: "Deja que tu entrenamiento hable." },
+    mantras: { calm: "Una respiración. Una habilidad. El siguiente movimiento.", focus: "Un elemento. Una respiración. Un momento.", confidence: "Confío en el trabajo que me trajo hasta aquí.", energy: "Mi poder aparece un movimiento a la vez." },
+    rituals: {
+      calm: ["Haz tres respiraciones lentas.", "Relaja los hombros.", "Escoge una palabra de enfoque."],
+      focus: ["Mira un punto fijo.", "Haz una respiración lenta.", "Repite tu mantra."],
+      confidence: ["Recuerda algo que entrenaste bien.", "Visualiza un momento limpio.", "Repite tu mantra."],
+      energy: ["Sacude suavemente brazos y piernas.", "Haz una respiración fuerte.", "Repite tu mantra."]
+    },
+    powerCheck: {
+      intro: { title: "¿CUÁL ES TU PODER PRFCT10 HOY?", text: "Cuatro elecciones rápidas. Un resultado creado para ti.", cta: "VAMOS A DESCUBRIRLO" },
+      lastResult: { title: "Tu último Power Check está guardado en este dispositivo.", view: "VER ÚLTIMO RESULTADO", clear: "BORRAR RESULTADO" },
+      progress: "Paso {current} de {total}", navigationLabel: "Navegación del Power Check", back: "ATRÁS", next: "SIGUIENTE", seeResult: "VER MI PODER", colorLabel: "Color de poder: {color}",
+      stepNames: { apparatus: "Aparato", currentEnergy: "Energía", intention: "Intención", colors: "Colores" },
+      validation: { chooseOne: "Escoge una opción para continuar.", twoColors: "Escoge exactamente dos colores para continuar.", complete: "Selección completa." },
+      questions: {
+        apparatus: { title: "¿QUÉ APARATO SE PARECE MÁS A TU ENERGÍA DE HOY?", hint: "Escoge el aparato que representa tu energía." },
+        currentEnergy: { title: "¿CÓMO ESTÁ TU ENERGÍA AHORA MISMO?", hint: "Escoge una respuesta sincera." },
+        intention: { title: "¿QUÉ NECESITAS MÁS HOY?", hint: "Escoge la sensación que quieres llevar contigo." },
+        colors: { title: "ESCOGE TUS DOS COLORES DE PODER", hint: "Escoge exactamente dos. Cada color tiene nombre y una marca de selección." }
+      },
+      options: {
+        apparatus: { vault: "Salto", bars: "Barras", beam: "Viga", floor: "Suelo", allAround: "Completo" },
+        currentEnergy: { lockedIn: "TOTALMENTE ENFOCADA", butterflies: "SERENA BAJO PRESIÓN", needBoost: "NECESITO UN IMPULSO", readyToFly: "LISTA PARA VOLAR" },
+        intention: { calm: "Calma", focus: "Enfoque", confidence: "Confianza", energy: "Energía" }
+      },
+      result: { today: "HOY ERES…", apparatusLabel: "Aparato", colorsLabel: "Colores de poder", energyLabel: "ENERGÍA DE HOY", mantraLabel: "TU MANTRA", ritualLabel: "TU MINI RITUAL", coach: "Sigue siempre las indicaciones de tu coach.", previewLabel: "Vista previa de tu Power Card vertical", save: "GUARDAR MI POWER CARD", share: "COMPARTIR MI POWER CARD", creating: "CREANDO TU TARJETA…", tryAgain: "INTENTAR DE NUEVO", backToPlay: "VOLVER A PLAY", saved: "Tu Power Card se descargó.", shared: "Tu Power Card está lista para compartir.", exportError: "No pudimos crear la tarjeta. Inténtalo de nuevo." },
+      powerPack: { title: "TU PRFCT10 POWER PACK", intro: "Tres Stories. Un resultado creado para tu energía.", story1: { label: "MI PODER" }, story2: { label: "MI ENERGÍA DE COLOR", mixLabel: "TU MEZCLA DE PODER" }, story3: { label: "GIMNASTA DEL DÍA", elementLabel: "EL ELEMENTO", worthLabel: "CUÁNTO VALE", vaultScore: "D-SCORE {value}", difficulty: "{letter} · {value}", factLabel: "¿SABÍAS QUE?", whatItTookLabel: "LO QUE TOMÓ" }, previous: "Story anterior", next: "Siguiente Story", slideLabel: "Story {current} de {total}", download: "DESCARGAR ESTA STORY", share: "COMPARTIR POWER PACK", svg: "DESCARGAR SVG", createAnother: "CREAR OTRO", creating: "CREANDO POWER PACK…", downloaded: "Story {number} descargada.", downloadedPack: "Tus tres Stories se descargaron.", shared: "Tu Power Pack está listo para compartir.", exportError: "No pudimos crear el Power Pack. Inténtalo de nuevo." }
+    }
+  },
   newsletter: { eyebrow: "CLUB PRFCT10", footerTitle: "NO TE PIERDAS NADA.", footerText: "Nuevos lanzamientos, reposiciones, favoritos de competencia y todo lo nuevo en PRFCT10.", modalTitle1: "LO BUENO", modalTitle2: "LLEGA AQUÍ PRIMERO.", modalText: "Nuevos lanzamientos, reposiciones, favoritos del gimnasio y un poco de magia PRFCT10.", privacy: "Sin spam. Solo cosas de gimnasia que valen la pena.", email: "Correo electrónico", join: "UNIRME", joinClub: "UNIRME AL CLUB", joining: "UNIENDO…", invalid: "Ingresa un correo electrónico válido.", success: "Bienvenida al CLUB PRFCT10.", notConfigured: "La integración del boletín no está configurada.", error: "No pudimos agregarte ahora. Inténtalo de nuevo.", close: "Cerrar registro del CLUB PRFCT10" },
   footer: { tagline: "El poder está en tus manos.", description: "Una tienda de esenciales inteligentes y bonitos para gimnastas que entrenan, se recuperan y celebran cada logro.", partnership: "Disponible en alianza con", explore: "Explorar", shop: "Comprar", standard: "El estándar", about: "Nosotros", usShipping: "Envíos en EE. UU.", shipping: "Envíos disponibles en EE. UU.", support: "Soporte", whatsapp: "Soporte por WhatsApp", rights: "2026 PRFCT10. Todos los derechos reservados.", backHome: "Volver al inicio", backToTop: "Volver arriba" },
   modal: { close: "Cerrar detalles del producto", images: "Imágenes de {name}", gallery: "Galería del producto", image: "Ver imagen {number} de {name}", previous: "Imagen anterior", next: "Imagen siguiente", shop: "Tienda PRFCT10", quickBenefits: "Beneficios principales", options: "Opciones del producto", delivery: "Opciones de entrega", quantity: "Cantidad {quantity}", addBag: "Agregar a la bolsa", shipping: "Envíos en EE. UU.", returnSupport: "Soporte amable para productos y devoluciones", noPayment: "No se cobra ningún pago hasta confirmar disponibilidad", whatsapp: "Consultar este producto por WhatsApp", availability: "Disponibilidad", exactOptions: "Los colores, tallas y entrega se confirman antes del pago.", assisted: "Pedido asistido", about: "Sobre este producto", colors: "Colores y opciones", basedAvailability: "Según disponibilidad", bestFor: "Ideal para", bestForDefault: "Regalos, competencias, detalles de equipo y looks de práctica.", ordering: "Pedido y entrega", addInstruction: "Agrega el producto a tu bolsa.", supportInstruction: "El equipo PRFCT10 confirma disponibilidad y envío.", paymentInstruction: "El pago se completa mediante pedido asistido; el checkout en línea puede añadirse después.", howUse: "Cómo usar", specifications: "Especificaciones", faq: "Preguntas frecuentes", uses: "Deportes y usos recomendados", faqFallback: "Pregunta frecuente", ship: "Envío", tracked: "Entrega con seguimiento en EE. UU.", calculated: "Calculado después de la confirmación", pickup: "Retiro en tienda", requestPickup: "Solicitar retiro", confirmedSupport: "Confirmado con soporte", local: "Entrega local", zip: "Solicitar por código postal" },
@@ -281,7 +375,9 @@ const es = {
     bundles: { title: "Combos de gimnasia | PRFCT10", description: "Explora combos PRFCT10 para barras, peinados de competencia y acondicionamiento, configurados con inventario real." },
     team: { title: "Mallas personalizadas para equipos | PRFCT10 TEAM", description: "Inicia una cotización guiada para mallas personalizadas de competencia o entrenamiento según tu programa." },
     search: { title: "Buscar productos PRFCT10", description: "Busca en el catálogo PRFCT10 de entrenamiento, accesorios, gimnasia mental y ropa." },
-    cart: { title: "Tu bolsa PRFCT10", description: "Revisa los productos seleccionados y continúa con el servicio de pedido asistido." }
+    cart: { title: "Tu bolsa PRFCT10", description: "Revisa los productos seleccionados y continúa con el servicio de pedido asistido." },
+    play: { title: "PRFCT10 PLAY | Tu gimnasia, tu energía", description: "Descubre PRFCT10 PLAY y encuentra tu energía para competir con el Power Check interactivo." },
+    powerCheck: { title: "PRFCT10 Power Check", description: "Haz cuatro elecciones rápidas y crea una Power Card PRFCT10 privada y descargable." }
   },
   common: { close: "Cerrar", add: "Agregar", remove: "Eliminar", keepShopping: "Seguir comprando" }
 };

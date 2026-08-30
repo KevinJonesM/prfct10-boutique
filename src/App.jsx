@@ -33,6 +33,9 @@ const NewsletterExperience = lazy(() => import("./components/Newsletter/Newslett
 const GuidedFinder = lazy(() => import("./components/GuidedFinder/GuidedFinder"));
 const BowDesignerCTA = lazy(() => import("./components/BowDesigner/BowDesignerCTA"));
 const BowDesignerModal = lazy(() => import("./components/BowDesigner/BowDesignerModal"));
+const PlayPage = lazy(() => import("./components/Play/PlayPage"));
+const PowerCheckPage = lazy(() => import("./components/Play/PowerCheckPage"));
+const PlayTeaser = lazy(() => import("./components/Play/PlayTeaser"));
 
 // TODO Shopify: Source complementary products from Shopify Search & Discovery.
 const smartSuggestions = [
@@ -730,7 +733,9 @@ const storePathByView = {
   mind: "/mind-gym",
   wear: "/apparel",
   bundles: "/bundles",
-  team: "/team"
+  team: "/team",
+  play: "/play",
+  powerCheck: "/play/power-check"
 };
 
 const pageSeoByView = {
@@ -742,6 +747,8 @@ const pageSeoByView = {
   wear: "apparel",
   bundles: "bundles",
   team: "team",
+  play: "play",
+  powerCheck: "powerCheck",
   search: "search",
   cart: "cart"
 };
@@ -983,6 +990,16 @@ export default function App() {
     }, 0);
   };
 
+  const showPlay = (view = "play") => {
+    const nextView = view === "powerCheck" ? "powerCheck" : "play";
+    setIsCartDrawerOpen(false);
+    setSearchQuery("");
+    setSelectedProduct(null);
+    setActiveView(nextView);
+    window.history.pushState({}, "", storePathByView[nextView]);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   const openBowDesigner = (event) => {
     bowDesignerOpenerRef.current = event?.currentTarget || document.activeElement;
     setIsBowDesignerOpen(true);
@@ -1034,6 +1051,7 @@ export default function App() {
         onNavigateStore={showHome}
         onOpenBoutique={showBoutique}
         onOpenTeam={showTeam}
+        onOpenPlay={() => showPlay("play")}
         onOpenShipping={showShipping}
         overlayOpen={Boolean(selectedProduct) || isCartDrawerOpen || isAuthOpen || isFinderOpen || isBowDesignerOpen}
       />
@@ -1056,6 +1074,7 @@ export default function App() {
           <TeamShowcase onOpenTeam={showTeam} />
           <PrfctCode />
           <SocialProofSection />
+          <PlayTeaser onOpenPlay={() => showPlay("play")} />
           <BrandIntro />
           <Footer
             onBackHome={showHome}
@@ -1072,6 +1091,26 @@ export default function App() {
           onOpenShipping={showShipping}
           onOpenBowDesigner={openBowDesigner}
         />
+      ) : activeView === "play" ? (
+        <>
+          <PlayPage onOpenPowerCheck={() => showPlay("powerCheck")} onOpenBowDesigner={openBowDesigner} />
+          <Footer
+            onBackHome={showHome}
+            onOpenDepartment={showBoutique}
+            onOpenTeam={showTeam}
+            onOpenShipping={showShipping}
+          />
+        </>
+      ) : activeView === "powerCheck" ? (
+        <>
+          <PowerCheckPage onBackToPlay={() => showPlay("play")} />
+          <Footer
+            onBackHome={showHome}
+            onOpenDepartment={showBoutique}
+            onOpenTeam={showTeam}
+            onOpenShipping={showShipping}
+          />
+        </>
       ) : activeView === "cart" ? (
         <main>
           <CartSection

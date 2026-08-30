@@ -1,36 +1,45 @@
 import { getColorMeaning } from "./data/colorMeanings.js";
-import { getLocalDateKey, selectDailySpotlight } from "./data/gymnastSpotlights.js";
-import { selectPowerQuote } from "./data/powerQuotes.js";
+import { getSpotlightById } from "./data/gymnastSpotlights.js";
+import { getCodeElement } from "./data/codeElements.js";
+import { normalizePowerQuote } from "./data/powerQuotes.js";
 
-function resultDateKey(result) {
-  if (result.spotlightDate) return result.spotlightDate;
-  const createdAt = result.createdAt ? new Date(result.createdAt) : new Date();
-  return Number.isNaN(createdAt.getTime()) ? getLocalDateKey() : getLocalDateKey(createdAt);
-}
+const COUNTRY_NAMES = {
+  USA: ["United States", "Estados Unidos"], ROU: ["Romania", "Rumania"], RUS: ["Russia", "Rusia"],
+  USSR: ["Soviet Union", "Unión Soviética"], URS: ["Soviet Union", "Unión Soviética"], BRA: ["Brazil", "Brasil"],
+  BEL: ["Belgium", "Bélgica"], NED: ["Netherlands", "Países Bajos"], ITA: ["Italy", "Italia"], UZB: ["Uzbekistan", "Uzbekistán"]
+};
 
 export function createPowerPack({ result, copy, locale, t }) {
   const isSpanish = locale === "es";
-  const colors = result.colors.map(getColorMeaning).filter(Boolean);
-  const spotlight = selectDailySpotlight(result.apparatus, resultDateKey(result));
-  const element = spotlight.element;
-  const quoteRecord = result.quoteEn ? { id: result.quoteId, en: result.quoteEn, es: result.quoteEs || result.quoteEn } : selectPowerQuote({ dateKey: resultDateKey(result), primaryColor: result.colors[0], secondaryColor: result.colors[1], apparatus: result.apparatus === "allAround" ? spotlight.apparatus : result.apparatus });
+  const colorIds = [result.primaryColorId, result.secondaryColorId].filter(Boolean);
+  const colors = (colorIds.length === 2 ? colorIds : result.colors).map(getColorMeaning).filter(Boolean);
+  const spotlight = getSpotlightById(result.gymnastId);
+  const element = getCodeElement(result.elementId);
+  if (!spotlight || !element) throw new Error("Power Check result references missing spotlight or element data");
+  if (!result.quoteId || !result.quoteEn || !result.quoteEs) throw new Error("Power Check result is missing its selected quote");
+  const quoteRecord = { id: result.quoteId, ...normalizePowerQuote({ en: result.quoteEn, es: result.quoteEs }) };
   const quote = isSpanish ? quoteRecord.es : quoteRecord.en;
-  const mode = `${t(`play.powerCheck.options.currentEnergy.${result.currentEnergy}`)} MODE`;
+  const mode = `${t(`play.powerCheck.options.currentEnergy.${result.currentEnergyId || result.currentEnergy}`)} MODE`;
+  const todayYoure = locale === "es" ? result.todayYoureEs : result.todayYoureEn;
 
   return {
     locale,
     storyCount: 3,
     storyOne: {
       label: t("play.powerCheck.powerPack.story1.label"),
+      todayYoure,
       profile: copy.identity,
       mode,
       apparatus: copy.apparatus,
+      apparatusId: result.apparatusId || result.apparatus,
       mantra: copy.mantra,
       quote,
       colors
     },
     storyTwo: {
       label: t("play.powerCheck.powerPack.story2.label"),
+      todayYoure,
+      apparatusId: result.apparatusId || result.apparatus,
       mixLabel: t("play.powerCheck.powerPack.story2.mixLabel"),
       mix: colors.map((color) => isSpanish ? color.energyEs : color.energyEn).join(" + "),
       quote,
@@ -43,10 +52,16 @@ export function createPowerPack({ result, copy, locale, t }) {
     },
     storyThree: {
       label: t("play.powerCheck.powerPack.story3.label"),
+      todayYoure,
       gymnastName: spotlight.gymnastName,
       countryCode: spotlight.countryCode,
+      countryName: (COUNTRY_NAMES[spotlight.countryCode] || [spotlight.countryCode, spotlight.countryCode])[isSpanish ? 1 : 0],
+      athleteType: isSpanish ? "GIMNASTA ARTÍSTICA" : "ARTISTIC GYMNAST",
+      countryLabel: t("play.powerCheck.powerPack.story3.countryLabel"),
+      eventLabel: t("play.powerCheck.powerPack.story3.eventLabel"),
       colors,
       apparatus: t(`play.powerCheck.options.apparatus.${spotlight.apparatus}`),
+      apparatusId: spotlight.apparatus,
       elementLabel: t("play.powerCheck.powerPack.story3.elementLabel"),
       elementName: element.name,
       elementDescription: isSpanish ? element.descriptionEs : element.descriptionEn,

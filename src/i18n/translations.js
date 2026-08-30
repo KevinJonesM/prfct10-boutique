@@ -95,7 +95,42 @@ const en = {
       experiencesTitle: "CHOOSE YOUR EXPERIENCE.", available: "Available now", start: "START", comingSoon: "COMING SOON",
       powerCheck: { text: "Find your meet-day energy." },
       bling: { text: "Stamp your sparkle." },
-      bow: { text: "Mix your colors.", cta: "OPEN BOW LAB" }
+      bow: { text: "Mix your colors.", cta: "OPEN BOW LAB" },
+      world: {
+        eyebrow: "A DIGITAL PLAYGROUND FOR GYMNASTS",
+        heroLine1: "YOUR GYMNASTICS.",
+        heroLine2Before: "YOUR",
+        heroLine2Accent: "ENERGY.",
+        heroLine3: "YOUR WORLD.",
+        lede: "Discover your energy, collect your color story and return tomorrow for a whole new frequency.",
+        heroCta: "START POWER CHECK",
+        colorYourPower: "COLOR YOUR POWER",
+        frequenciesLabel: "POWER FREQUENCIES",
+        todayYoure: "TODAY YOU’RE…",
+        states: { vault: "TAKEOFF MODE", bars: "SWING STATE", beam: "STEADY LINE", floor: "FULL OUT", allAround: "TOTAL MOTION" },
+        modesTitle: "FIND YOUR FREQUENCY.",
+        experiencesTitle: "PICK YOUR PORTAL.",
+        experiencesLabel: "PRFCT10 PLAY experiences",
+        openExperience: "OPEN EXPERIENCE",
+        selectedObject: "SELECTED OBJECT",
+        unlocked: "UNLOCKED",
+        lockedStatus: "LOCKED",
+        locked: "A NEW OBJECT IS LOADING INTO YOUR WORLD",
+        ticker: "PLAY IT · SAVE IT · SHARE IT · MAKE IT YOURS",
+        footerTagline: "YOUR GYMNASTICS. YOUR ENERGY. YOUR WORLD.",
+        scrollToExplore: "SCROLL TO EXPLORE",
+        experiences: {
+          power: "Four quick choices become a collectible power identity, mantra and three vertical Stories.",
+          gymnast: "Meet a real gymnast, one verified element and the story behind the skill.",
+          trivia: "Ten quick questions to test your judge eye, gymnastics language and history.",
+          glossary: "Learn how skills travel between English, French, Spanish and the language used in the gym.",
+          challenge: "A safe daily prompt for strength, flexibility, balance or control — plus your streak.",
+          didYouKnow: "Flip through the science, history, rules and tiny club secrets behind gymnastics.",
+          tabata: "A bright mobile training timer with clear intervals, sound controls and no autoplay.",
+          bling: "Build a sparkle language with placements, finishes and collectible front-and-back looks.",
+          bow: "Open the existing Bow Lab and remix the real PRFCT10 bow with your colors."
+        }
+      }
     },
     colors: { fuchsia: "Hot Fuchsia", mint: "Mint Green", pink: "Bubblegum Pink", lilac: "Lilac", blue: "Baby Blue", yellow: "Butter Yellow", white: "Cloud White", charcoal: "Charcoal", xmudPurple: "Electric Purple", xmudSlime: "Fluorescent Slime Green", xmudAqua: "Slime Aqua", xmudPink: "Candy Pink", xmudOrange: "Slime Orange", xmudLemon: "Neon Lemon", xmudGrape: "Grape Purple", xmudJelly: "Jelly White" },
     identities: {
@@ -131,7 +166,7 @@ const en = {
         intention: { calm: "Calm", focus: "Focus", confidence: "Confidence", energy: "Energy" }
       },
       result: { today: "TODAY YOU’RE…", apparatusLabel: "Event", colorsLabel: "Power colors", energyLabel: "TODAY’S ENERGY", mantraLabel: "YOUR MANTRA", ritualLabel: "YOUR MINI RITUAL", coach: "Always follow your coach.", previewLabel: "Preview of your vertical Power Card", save: "SAVE MY POWER CARD", share: "SHARE MY POWER CARD", creating: "CREATING YOUR CARD…", tryAgain: "TRY AGAIN", backToPlay: "BACK TO PLAY", saved: "Your Power Card was downloaded.", shared: "Your Power Card is ready to share.", exportError: "We couldn’t create the card. Please try again." },
-      powerPack: { title: "YOUR PRFCT10 POWER PACK", intro: "Three Stories. One result made for your energy.", story1: { label: "MY POWER" }, story2: { label: "MY COLOR ENERGY", mixLabel: "YOUR POWER MIX" }, story3: { label: "GYMNAST OF THE DAY", elementLabel: "THE ELEMENT", worthLabel: "WHAT IT’S WORTH", vaultScore: "D-SCORE {value}", difficulty: "{letter} · {value}", factLabel: "DID YOU KNOW?", whatItTookLabel: "WHAT IT TOOK" }, previous: "Previous Story", next: "Next Story", slideLabel: "Story {current} of {total}", download: "DOWNLOAD THIS STORY", share: "SHARE POWER PACK", svg: "DOWNLOAD SVG", createAnother: "CREATE ANOTHER", creating: "CREATING POWER PACK…", downloaded: "Story {number} downloaded.", downloadedPack: "Your three Stories were downloaded.", shared: "Your Power Pack is ready to share.", exportError: "We couldn’t create the Power Pack. Please try again." }
+      powerPack: { title: "YOUR PRFCT10 POWER PACK", intro: "Three Stories. One result made for your energy.", story1: { label: "MY POWER" }, story2: { label: "MY COLOR ENERGY", mixLabel: "YOUR POWER MIX" }, story3: { label: "GYMNAST OF THE DAY", elementLabel: "ELEMENT OF THE DAY", countryLabel: "COUNTRY", eventLabel: "SPOTLIGHT EVENT", worthLabel: "WHAT IT’S WORTH", vaultScore: "D-SCORE {value}", difficulty: "{letter} · {value}", factLabel: "DID YOU KNOW?", whatItTookLabel: "WHAT IT TOOK" }, previous: "Previous Story", next: "Next Story", slideLabel: "Story {current} of {total}", download: "DOWNLOAD THIS STORY", share: "SHARE POWER PACK", svg: "DOWNLOAD SVG", createAnother: "CREATE ANOTHER", creating: "CREATING POWER PACK…", downloaded: "Story {number} downloaded.", downloadedPack: "Your three Stories were downloaded.", shared: "Your Power Pack is ready to share.", exportError: "We couldn’t create the Power Pack. Please try again." }
     }
   },
   newsletter: { eyebrow: "PRFCT10 CLUB", footerTitle: "STAY IN THE LOOP.", footerText: "New drops, restocks, meet-day favorites, and everything new at PRFCT10.", modalTitle1: "GOOD THINGS", modalTitle2: "LAND HERE FIRST.", modalText: "New drops, restocks, gym-day favorites, and a little PRFCT10 magic.", privacy: "No spam. Just really good gymnastics stuff.", email: "Email address", join: "JOIN", joinClub: "JOIN THE CLUB", joining: "JOINING…", invalid: "Enter a valid email address.", success: "Welcome to PRFCT10 CLUB.", notConfigured: "Newsletter integration not configured.", error: "We couldn’t add you right now. Please try again.", close: "Close PRFCT10 CLUB signup" },
@@ -287,7 +322,42 @@ const es = {
       experiencesTitle: "ELIGE TU EXPERIENCIA.", available: "Disponible ahora", start: "COMENZAR", comingSoon: "MUY PRONTO",
       powerCheck: { text: "Descubre tu energía para competir." },
       bling: { text: "Estampa tu brillo." },
-      bow: { text: "Combina tus colores.", cta: "ABRIR BOW LAB" }
+      bow: { text: "Combina tus colores.", cta: "ABRIR BOW LAB" },
+      world: {
+        eyebrow: "UN PLAYGROUND DIGITAL PARA GIMNASTAS",
+        heroLine1: "TU GIMNASIA.",
+        heroLine2Before: "TU",
+        heroLine2Accent: "ENERGÍA.",
+        heroLine3: "TU MUNDO.",
+        lede: "Descubre tu energía, colecciona tu historia de color y regresa mañana por una frecuencia completamente nueva.",
+        heroCta: "INICIAR POWER CHECK",
+        colorYourPower: "COLOREA TU PODER",
+        frequenciesLabel: "FRECUENCIAS DE PODER",
+        todayYoure: "HOY ERES…",
+        states: { vault: "MODO DESPEGUE", bars: "RITMO EN BARRAS", beam: "LÍNEA FIRME", floor: "CON TODO", allAround: "MOVIMIENTO TOTAL" },
+        modesTitle: "ENCUENTRA TU FRECUENCIA.",
+        experiencesTitle: "ELIGE TU PORTAL.",
+        experiencesLabel: "Experiencias de PRFCT10 PLAY",
+        openExperience: "ABRIR EXPERIENCIA",
+        selectedObject: "OBJETO SELECCIONADO",
+        unlocked: "DESBLOQUEADO",
+        lockedStatus: "BLOQUEADO",
+        locked: "UN NUEVO OBJETO ESTÁ CARGANDO EN TU MUNDO",
+        ticker: "JUÉGALO · GUÁRDALO · COMPÁRTELO · HAZLO TUYO",
+        footerTagline: "TU GIMNASIA. TU ENERGÍA. TU MUNDO.",
+        scrollToExplore: "DESLIZA PARA EXPLORAR",
+        experiences: {
+          power: "Cuatro elecciones rápidas se convierten en una identidad de poder, un mantra y tres Stories coleccionables.",
+          gymnast: "Conoce una gimnasta real, un elemento verificado y la historia detrás de la habilidad.",
+          trivia: "Diez preguntas rápidas para probar tu ojo de juez, lenguaje gimnástico e historia.",
+          glossary: "Aprende cómo viajan los elementos entre inglés, francés, español y el lenguaje usado en el gimnasio.",
+          challenge: "Un reto diario seguro de fuerza, flexibilidad, equilibrio o control, además de tu racha.",
+          didYouKnow: "Descubre la ciencia, historia, reglas y pequeños secretos del club detrás de la gimnasia.",
+          tabata: "Un temporizador móvil brillante con intervalos claros, control de sonido y sin autoplay.",
+          bling: "Construye tu lenguaje de brillo con posiciones, acabados y looks coleccionables de frente y espalda.",
+          bow: "Abre el Bow Lab existente y mezcla el lazo real PRFCT10 con tus colores."
+        }
+      }
     },
     colors: { fuchsia: "Fucsia intenso", mint: "Verde menta", pink: "Rosa chicle", lilac: "Lila", blue: "Azul baby", yellow: "Amarillo butter", white: "Blanco nube", charcoal: "Carbón", xmudPurple: "Morado eléctrico", xmudSlime: "Verde slime fluorescente", xmudAqua: "Aqua slime", xmudPink: "Rosa candy", xmudOrange: "Naranja slime", xmudLemon: "Limón neón", xmudGrape: "Morado uva", xmudJelly: "Blanco jelly" },
     identities: {
@@ -323,7 +393,7 @@ const es = {
         intention: { calm: "Calma", focus: "Enfoque", confidence: "Confianza", energy: "Energía" }
       },
       result: { today: "HOY ERES…", apparatusLabel: "Aparato", colorsLabel: "Colores de poder", energyLabel: "ENERGÍA DE HOY", mantraLabel: "TU MANTRA", ritualLabel: "TU MINI RITUAL", coach: "Sigue siempre las indicaciones de tu coach.", previewLabel: "Vista previa de tu Power Card vertical", save: "GUARDAR MI POWER CARD", share: "COMPARTIR MI POWER CARD", creating: "CREANDO TU TARJETA…", tryAgain: "INTENTAR DE NUEVO", backToPlay: "VOLVER A PLAY", saved: "Tu Power Card se descargó.", shared: "Tu Power Card está lista para compartir.", exportError: "No pudimos crear la tarjeta. Inténtalo de nuevo." },
-      powerPack: { title: "TU PRFCT10 POWER PACK", intro: "Tres Stories. Un resultado creado para tu energía.", story1: { label: "MI PODER" }, story2: { label: "MI ENERGÍA DE COLOR", mixLabel: "TU MEZCLA DE PODER" }, story3: { label: "GIMNASTA DEL DÍA", elementLabel: "EL ELEMENTO", worthLabel: "CUÁNTO VALE", vaultScore: "D-SCORE {value}", difficulty: "{letter} · {value}", factLabel: "¿SABÍAS QUE?", whatItTookLabel: "LO QUE TOMÓ" }, previous: "Story anterior", next: "Siguiente Story", slideLabel: "Story {current} de {total}", download: "DESCARGAR ESTA STORY", share: "COMPARTIR POWER PACK", svg: "DESCARGAR SVG", createAnother: "CREAR OTRO", creating: "CREANDO POWER PACK…", downloaded: "Story {number} descargada.", downloadedPack: "Tus tres Stories se descargaron.", shared: "Tu Power Pack está listo para compartir.", exportError: "No pudimos crear el Power Pack. Inténtalo de nuevo." }
+      powerPack: { title: "TU PRFCT10 POWER PACK", intro: "Tres Stories. Un resultado creado para tu energía.", story1: { label: "MI PODER" }, story2: { label: "MI ENERGÍA DE COLOR", mixLabel: "TU MEZCLA DE PODER" }, story3: { label: "GIMNASTA DEL DÍA", elementLabel: "ELEMENTO DEL DÍA", countryLabel: "PAÍS", eventLabel: "APARATO DESTACADO", worthLabel: "CUÁNTO VALE", vaultScore: "D-SCORE {value}", difficulty: "{letter} · {value}", factLabel: "¿SABÍAS QUE?", whatItTookLabel: "LO QUE TOMÓ" }, previous: "Story anterior", next: "Siguiente Story", slideLabel: "Story {current} de {total}", download: "DESCARGAR ESTA STORY", share: "COMPARTIR POWER PACK", svg: "DESCARGAR SVG", createAnother: "CREAR OTRO", creating: "CREANDO POWER PACK…", downloaded: "Story {number} descargada.", downloadedPack: "Tus tres Stories se descargaron.", shared: "Tu Power Pack está listo para compartir.", exportError: "No pudimos crear el Power Pack. Inténtalo de nuevo." }
     }
   },
   newsletter: { eyebrow: "CLUB PRFCT10", footerTitle: "NO TE PIERDAS NADA.", footerText: "Nuevos lanzamientos, reposiciones, favoritos de competencia y todo lo nuevo en PRFCT10.", modalTitle1: "LO BUENO", modalTitle2: "LLEGA AQUÍ PRIMERO.", modalText: "Nuevos lanzamientos, reposiciones, favoritos del gimnasio y un poco de magia PRFCT10.", privacy: "Sin spam. Solo cosas de gimnasia que valen la pena.", email: "Correo electrónico", join: "UNIRME", joinClub: "UNIRME AL CLUB", joining: "UNIENDO…", invalid: "Ingresa un correo electrónico válido.", success: "Bienvenida al CLUB PRFCT10.", notConfigured: "La integración del boletín no está configurada.", error: "No pudimos agregarte ahora. Inténtalo de nuevo.", close: "Cerrar registro del CLUB PRFCT10" },

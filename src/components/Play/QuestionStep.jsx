@@ -1,4 +1,5 @@
 import { ALL_POWER_COLORS } from "./playData";
+import { getApparatusAsset } from "./apparatusAssets";
 
 export default function QuestionStep({ step, selection, onChange, t }) {
   const isColorStep = step.type === "colors";
@@ -66,7 +67,8 @@ export default function QuestionStep({ step, selection, onChange, t }) {
                   onChange(optionId);
                 }}
               >
-                {step.id === "apparatus" ? <span className="power-option__index" aria-hidden="true">0{index + 1}</span> : null}
+                <span className="power-option__index" aria-hidden="true">0{index + 1}</span>
+                {step.id === "apparatus" ? <img className="power-option__apparatus" src={getApparatusAsset(optionId)} alt="" aria-hidden="true" /> : null}
                 <strong>{t(`play.powerCheck.options.${step.id}.${optionId}`)}</strong>
                 <span className="power-option__mark" aria-hidden="true" />
               </button>

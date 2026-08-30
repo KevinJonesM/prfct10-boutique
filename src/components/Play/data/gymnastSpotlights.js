@@ -49,11 +49,18 @@ export function getLocalDateKey(date = new Date()) {
   return `${year}-${month}-${day}`;
 }
 
-export function selectDailySpotlight(apparatus, dateKey = getLocalDateKey()) {
+export function selectDailySpotlight(apparatus, dateKey = getLocalDateKey(), resultSeed = "", recentEntries = []) {
   const selectedApparatus = apparatus === "allAround"
     ? APPARATUS_ROTATION[hashText(`${dateKey}:allAround`) % APPARATUS_ROTATION.length]
     : apparatus;
   const candidates = gymnastSpotlights.filter((spotlight) => spotlight.apparatus === selectedApparatus);
-  const spotlight = candidates[hashText(`${dateKey}:${selectedApparatus}`) % candidates.length];
+  const recentIds = recentEntries.filter((entry) => entry.apparatusId === selectedApparatus).slice(-5).map((entry) => entry.gymnastId);
+  const fresh = candidates.filter((candidate) => !recentIds.includes(candidate.id));
+  const pool = fresh.length > 0 ? fresh : candidates;
+  const spotlight = pool[hashText(`${dateKey}:${selectedApparatus}:${resultSeed}`) % pool.length];
   return { ...spotlight, element: getCodeElement(spotlight.elementId), dateKey };
+}
+
+export function getSpotlightById(id) {
+  return gymnastSpotlights.find((spotlight) => spotlight.id === id) || null;
 }

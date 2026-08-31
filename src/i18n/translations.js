@@ -1,6 +1,8 @@
 import { code10En, code10Es } from "./code10.js";
+import { bowracleEn, bowracleEs } from "./bowracle.js";
 
 const en = {
+  bowracle: bowracleEn,
   code10: code10En,
   cartWhatsapp: { intro: "Hi PRFCT10, I would like help completing this order:", item: "- {quantity} × {name} ({price}{each})", each: " each", delivery: "Delivery preference: {preference}", zip: "ZIP code: {value}", phone: "Contact phone: {value}", email: "Email: {value}", note: "Note: {value}", closing: "Please confirm availability, final pricing, shipping, and return details before payment." },
   language: { label: "Language", english: "EN", spanish: "ES" },
@@ -105,8 +107,18 @@ const en = {
         heroLine2Before: "YOUR",
         heroLine2Accent: "ENERGY.",
         heroLine3: "YOUR WORLD.",
-        lede: "Discover your energy, collect your color story and return tomorrow for a whole new frequency.",
-        heroCta: "START POWER CHECK",
+        lede: "Play, learn the language of gymnastics and discover something new about your sport — and yourself. Collect your energy. Come back curious.",
+        heroCta: "EXPLORE ALL GAMES",
+        learnSticker: "PLAY. LEARN. REPEAT.",
+        meaningLabel: "YOUR FREQUENCY, DECODED",
+        meanings: {
+          vault: "A fresh start, a little courage. Takeoff Mode is the spark that turns ‘what if?’ into your next small step. You don’t need to have it all figured out to begin.",
+          bars: "Find your rhythm, then make it yours. Swing State is about adapting, reconnecting after a pause and trusting that you can find your flow again.",
+          beam: "One thing at a time. Steady Line is the quiet confidence of being here, now — giving your attention to what’s in front of you, not everything at once.",
+          floor: "Let your personality take up space. Full Out is expression, joy and showing up as yourself. It’s not about being perfect; it’s about being present.",
+          allAround: "You have more than one strength. Total Motion celebrates all your different sides: focused, playful, brave, calm. You get to choose what you need today."
+        },
+        physics: { label: "Motion notebook", note: "IDEALIZED SKETCHES · NOT TO SCALE", flight: "FLIGHT + VELOCITY", rotation: "ROTATION + INERTIA", fall: "FREE FALL" },
         colorYourPower: "COLOR YOUR POWER",
         frequenciesLabel: "POWER FREQUENCIES",
         todayYoure: "TODAY YOU’RE…",
@@ -225,12 +237,14 @@ const en = {
     cart: { title: "Your PRFCT10 Bag", description: "Review your selected PRFCT10 products and continue through assisted ordering support." },
     play: { title: "PRFCT10 PLAY | Your Gymnastics, Your Energy", description: "Discover PRFCT10 PLAY and find your meet-day energy with the interactive Power Check." },
     code10: { title: "CODE 10 | PRFCT10 PLAY", description: "10 questions. 10 tenths. Know your gymnastics and protect the 10." },
+    bowracle: { title: "THE BOW-RACLE | PRFCT10 PLAY", description: "Pick a card. Follow the color. Reveal your bow. A playful color reading and a collectible card." },
     powerCheck: { title: "PRFCT10 Power Check", description: "Make four quick picks and create a private, downloadable PRFCT10 Power Card." }
   },
   common: { close: "Close", add: "Add", remove: "Remove", keepShopping: "Keep shopping" }
 };
 
 const es = {
+  bowracle: bowracleEs,
   code10: code10Es,
   cartWhatsapp: { intro: "Hola PRFCT10, necesito ayuda para completar este pedido:", item: "- {quantity} × {name} ({price}{each})", each: " cada uno", delivery: "Preferencia de entrega: {preference}", zip: "Código postal: {value}", phone: "Teléfono de contacto: {value}", email: "Correo electrónico: {value}", note: "Nota: {value}", closing: "Por favor, confirmen la disponibilidad, el precio final, el envío y los detalles de devolución antes del pago." },
   language: { label: "Idioma", english: "EN", spanish: "ES" },
@@ -335,8 +349,18 @@ const es = {
         heroLine2Before: "TU",
         heroLine2Accent: "ENERGÍA.",
         heroLine3: "TU MUNDO.",
-        lede: "Descubre tu energía, colecciona tu historia de color y regresa mañana por una frecuencia completamente nueva.",
-        heroCta: "INICIAR POWER CHECK",
+        lede: "Juega, aprende el lenguaje de la gimnasia y descubre algo nuevo sobre tu deporte y sobre ti. Colecciona tu energía. Vuelve con curiosidad.",
+        heroCta: "EXPLORAR LOS JUEGOS",
+        learnSticker: "JUEGA. APRENDE. REPITE.",
+        meaningLabel: "TU FRECUENCIA, DESCIFRADA",
+        meanings: {
+          vault: "Un nuevo comienzo y un poquito de valentía. Modo Despegue es la chispa que convierte un ‘¿y si…?’ en tu próximo pequeño paso. No necesitas tener todo resuelto para empezar.",
+          bars: "Encuentra tu ritmo y hazlo tuyo. Ritmo en Barras significa adaptarte, reconectar después de una pausa y confiar en que puedes volver a fluir.",
+          beam: "Una cosa a la vez. Línea Firme es la confianza tranquila de estar aquí, ahora: prestar atención a lo que tienes enfrente, sin resolverlo todo al mismo tiempo.",
+          floor: "Dale espacio a tu personalidad. Con Todo significa expresarte, disfrutar y ser tú misma. No se trata de hacerlo perfecto, sino de estar presente.",
+          allAround: "Tienes más de una fortaleza. Movimiento Total celebra tus distintas facetas: enfoque, alegría, valentía y calma. Tú eliges cuál necesitas hoy."
+        },
+        physics: { label: "Cuaderno de movimiento", note: "ESQUEMAS IDEALIZADOS · SIN ESCALA", flight: "VUELO + VELOCIDAD", rotation: "GIRO + INERCIA", fall: "CAÍDA LIBRE" },
         colorYourPower: "COLOREA TU PODER",
         frequenciesLabel: "FRECUENCIAS DE PODER",
         todayYoure: "HOY ERES…",
@@ -455,6 +479,7 @@ const es = {
     cart: { title: "Tu bolsa PRFCT10", description: "Revisa los productos seleccionados y continúa con el servicio de pedido asistido." },
     play: { title: "PRFCT10 PLAY | Tu gimnasia, tu energía", description: "Descubre PRFCT10 PLAY y encuentra tu energía para competir con el Power Check interactivo." },
     code10: { title: "CODE 10 | PRFCT10 PLAY", description: "10 preguntas. 10 décimas. Conoce tu gimnasia y protege el 10." },
+    bowracle: { title: "THE BOW-RACLE | PRFCT10 PLAY", description: "Elige una carta. Sigue el color. Revela tu lazo. Una lectura de color para jugar y una carta para guardar." },
     powerCheck: { title: "PRFCT10 Power Check", description: "Haz cuatro elecciones rápidas y crea una Power Card PRFCT10 privada y descargable." }
   },
   common: { close: "Cerrar", add: "Agregar", remove: "Eliminar", keepShopping: "Seguir comprando" }

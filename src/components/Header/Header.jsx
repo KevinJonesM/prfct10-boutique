@@ -217,10 +217,10 @@ export default function Header({
             {t("navigation.team")}
           </a>
           <a
-            className={`${linkClass("play", "play")}${activeView === "powerCheck" ? " header__link--active" : ""}`}
+            className={`${linkClass("play", "play")}${["powerCheck", "code10", "bowracle"].includes(activeView) ? " header__link--active" : ""}`}
             href="/play"
             onClick={openPlay}
-            aria-current={activeView === "play" || activeView === "powerCheck" ? "page" : undefined}
+            aria-current={["play", "powerCheck", "code10", "bowracle"].includes(activeView) ? "page" : undefined}
           >
             {t("navigation.play")}
           </a>

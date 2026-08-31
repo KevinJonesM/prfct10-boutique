@@ -1,0 +1,6 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Tarot responsive fixtures</title>
+<style>body{margin:0;background:#eee;font:14px system-ui}#report{padding:12px}iframe{border:0;display:block;margin:12px}</style><pre id="report">Loading isolated component fixtures…</pre><div id="frames"></div>
+<script type="module">
+const frames=document.querySelector('#frames');
+for(const width of [375,390,430,1440])for(const state of ['table','result']){const frame=document.createElement('iframe');frame.width=width;frame.height=state==='table'?1100:1800;frame.title=state+' '+width;frame.src='/tests/manual/bowracle-tarot-state.html?state='+state;frames.append(frame);frame.addEventListener('load',()=>{const update=()=>{document.querySelector('#report').textContent=[...frames.children].map(f=>{const d=f.contentDocument;return f.title+': overflow '+(d.documentElement.scrollWidth-d.documentElement.clientWidth)+'px; '+(d.querySelector('main')?'rendered':'loading');}).join('\n');};new ResizeObserver(update).observe(frame.contentDocument.body);update();});}
+</script></html>

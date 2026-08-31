@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { scoreboardMarkup } from "./scoreboard.js";
+import { useI18n } from "../../i18n/I18nProvider";
 export default function Code10VintageScoreboard({ score = 10000, rawScore = 10, maxScore = 10, size = "hero", animate = false }) {
+  const { t } = useI18n();
   const [shown, setShown] = useState(animate ? 10000 : score);
   useEffect(() => {
     const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -14,7 +16,7 @@ export default function Code10VintageScoreboard({ score = 10000, rawScore = 10, 
     return () => { clearInterval(timer); preference.removeEventListener("change", stop); };
   }, [score, animate]);
   const board = scoreboardMarkup(shown);
-  return <div className={"c10-scoreboard c10-scoreboard--" + size} role="img" aria-label={score + " · " + rawScore + " / " + maxScore}>
+  return <div className={"c10-scoreboard c10-scoreboard--" + size} role="img" aria-label={t("code10.scoreLabel", { score: (score / 1000).toFixed(3), raw: rawScore, max: maxScore })}>
     <svg key={shown} className={animate ? "c10-scoreboard__animated" : ""} aria-hidden="true" viewBox={`0 0 ${board.width} ${board.height}`} xmlns="http://www.w3.org/2000/svg" dangerouslySetInnerHTML={{ __html: board.body }} />
   </div>;
 }

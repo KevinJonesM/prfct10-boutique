@@ -6,6 +6,7 @@ import { xcelFloorQuestions } from "./floor";
 import { xcelArtistryGeneralQuestions } from "./artistry-general";
 import { xcelMythOrRuleQuestions } from "./myth-or-rule";
 import { xcelWhatsTheCallQuestions } from "./whats-the-call";
+import { localizeQuestion } from "../localize.js";
 export const xcelQuestionBank = [
   ...xcelCoreQuestions,
   ...xcelVaultQuestions,
@@ -15,4 +16,4 @@ export const xcelQuestionBank = [
   ...xcelArtistryGeneralQuestions,
   ...xcelMythOrRuleQuestions,
   ...xcelWhatsTheCallQuestions,
-];
+].map(localizeQuestion);

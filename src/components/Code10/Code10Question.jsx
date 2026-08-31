@@ -1,5 +1,6 @@
 import { useI18n } from "../../i18n/I18nProvider";
 import { getLiveScore, questionText, questionApparatus } from "./engine.js";
+import { localizedEyebrow } from "./presentation.js";
 export default function Code10Question({ game, dispatch }) {
   const { t, locale } = useI18n();
   const question = game.questions[game.index];
@@ -8,7 +9,7 @@ export default function Code10Question({ game, dispatch }) {
   return <section className="c10-game">
     <div className="c10-live"><span>{t("code10.question")} <strong>{String(game.index+1).padStart(2,"0")} / 10</strong></span><span>{t("code10.codeScore")} <strong aria-live="polite">{live.formattedScore}</strong></span></div>
     <ol className="c10-progress" aria-label={t("code10.question")}>{game.questions.map((q,i)=><li key={q.id} aria-current={i===game.index ? "step" : undefined} className={game.answers[i] ? game.answers[i].correct ? "is-correct" : "is-missed" : ""}><span>{String(i+1).padStart(2,"0")}</span>{game.answers[i] && <b aria-label={t(game.answers[i].correct ? "code10.correct":"code10.lost")}>{game.answers[i].correct ? "✓":"×"}</b>}</li>)}</ol>
-    <p className="c10-kicker">{question.eyebrow || question.format.replaceAll("_"," ")} · {questionApparatus(question).map(apparatus => apparatus === "GENERAL" ? t("code10.general") : t("code10.categories."+apparatus)).join(" / ")}</p>
+    <p className="c10-kicker">{localizedEyebrow(question,t,locale)} · {questionApparatus(question).map(apparatus => apparatus === "GENERAL" ? t("code10.general") : t("code10.categories."+apparatus)).join(" / ")}</p>
     <h1 tabIndex="-1" data-c10-focus lang={locale==="es" && !question.question_es ? "en" : locale}>{questionText(question,"question",locale)}</h1>
     <p>{t("code10.choose")}</p>
     <div className="c10-answers">{question.options.map((option,i)=>{

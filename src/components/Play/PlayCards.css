@@ -1,0 +1,131 @@
+/* PLAY corkboard cards only: the game screens and hero keep their styling. */
+.play-world__objects {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: 270px 180px 195px;
+  grid-auto-rows: auto;
+  align-items: stretch;
+  gap: 25px 24px;
+  padding: 22px 8px 26px;
+}
+.play-world__objects .play-object {
+  grid-column: auto;
+  grid-row: auto;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 42px 26px 54px;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  text-align: center;
+  border-width: 1.5px;
+  box-shadow: 5px 7px 0 #19151fe6;
+  overflow: hidden;
+}
+.play-world__objects .play-object strong {
+  font-family: Impact, "Arial Narrow", sans-serif;
+  font-weight: 900;
+  font-size: clamp(25px, 3.1vw, 44px);
+  letter-spacing: .015em;
+  line-height: 1.04;
+  max-width: 100%;
+  text-wrap: balance;
+}
+.play-world__objects .play-object__number {
+  position: absolute;
+  top: 18px;
+  left: 20px;
+  font: 700 11px/1 monospace;
+  letter-spacing: .12em;
+}
+.play-world__objects .play-object__status {
+  position: absolute;
+  bottom: 23px;
+  left: 20px;
+  right: 62px;
+  text-align: left;
+  font-size: 9px;
+  line-height: 1.4;
+  letter-spacing: .09em;
+}
+.play-world__objects .play-object--power { padding-top: 35px; justify-content: flex-start; }
+.play-world__objects .play-object--power strong { font-size: clamp(29px, 3.4vw, 46px); max-width: 210px; text-shadow: 2px 3px 0 #b0006b; }
+.play-world__objects .play-object--power .play-object__silhouette {
+  height: 133px;
+  width: 140px;
+  right: calc(50% - 70px);
+  top: auto;
+  bottom: 46px;
+  opacity: 1;
+  transform: rotate(3deg);
+}
+.play-world__objects .play-object--code10 { gap: 18px; padding: 48px 24px 58px; }
+.play-world__objects .play-object--code10 strong { font-size: clamp(44px, 5.7vw, 78px); letter-spacing: -.01em; color: #201b31; text-shadow: 3px 3px 0 #fffaf4; white-space: nowrap; }
+.play-world__objects .play-object__caption { max-width: 240px; padding: 0; border: 0; font-size: 10px; line-height: 1.5; text-wrap: balance; }
+.play-world__objects .core-lab-art { position: relative; display: block; width: min(100%,260px); height: 155px; flex-shrink: 0; }
+.core-lab-art svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.core-lab-art__gymnast { position: absolute; right: 0; bottom: 3px; width: 115px; height: 135px; background: #ec008c; mask: var(--gymnast-mask) center/contain no-repeat; -webkit-mask: var(--gymnast-mask) center/contain no-repeat; transform: rotate(12deg); }
+.play-world__objects .play-object--bow { padding-top: 38px; justify-content: flex-start; background-color: #fff5ea; }
+.play-world__objects .play-object--bow strong { font-family: Georgia, serif; font-style: italic; font-size: clamp(30px,3.6vw,49px); letter-spacing: -.05em; text-transform: none; }
+.play-world__objects .play-object--bow .play-object__sticker { width: 65%; height: 125px; top: auto; bottom: 45px; right: 17.5%; transform: rotate(-8deg); filter: drop-shadow(5px 6px 0 #80d8ed); }
+.play-world__objects .play-object--gymnast strong { font-size: clamp(25px,2.7vw,38px); }
+.play-world__objects .play-object--glossary strong { font-family: Georgia,serif; font-size: clamp(25px,2.8vw,39px); font-style: italic; letter-spacing: -.04em; }
+.play-world__objects .play-object--challenge strong { font-size: clamp(25px,2.7vw,36px); }
+.play-world__objects .play-object--didYouKnow strong { font-family: Georgia,serif; font-size: clamp(25px,2.7vw,36px); font-style: italic; letter-spacing: -.04em; }
+.play-world__objects .play-object--tabata strong { font-size: clamp(34px,4vw,57px); letter-spacing: .07em; }
+.play-world__objects .play-object--bling strong { font-size: clamp(32px,3.5vw,49px); text-shadow: 2px 2px 0 #382161; }
+/* A pin, not a second button: its head, collar and needle stay decorative. */
+.play-world__objects .play-object__pin { position: absolute; right: 16px; bottom: 13px; width: 30px; height: 35px; transform: rotate(-24deg); pointer-events: none; filter: drop-shadow(3px 4px 1px #0005); }
+.play-object__pin::before { content: ""; position: absolute; width: 3px; height: 15px; bottom: 0; left: 14px; background: linear-gradient(90deg,#96969c,#dedee3,#57575e); clip-path: polygon(0 0,100% 0,60% 100%,40% 100%); }
+.play-object__pin i { position: absolute; top: 8px; left: 9px; width: 13px; height: 17px; border-radius: 4px 4px 6px 6px; background: linear-gradient(90deg,#111,#49484c 40%,#131316 75%); }
+.play-object__pin b { position: absolute; top: 1px; left: 3px; width: 25px; height: 14px; border-radius: 50%; background: radial-gradient(ellipse at 35% 25%,#67666c 0,#29292e 32%,#08080b 75%); border: 1px solid #08080b; box-shadow: 0 3px 0 #09090b; }
+.play-world__objects .play-object:focus-visible { outline: 3px solid #15111f; outline-offset: 5px; }
+/* Uneven pinned notes: Core Lab anchors two rows; smaller notes collect around it. */
+.play-world__objects .play-object--power { grid-column: 1 / 5; grid-row: 1; --card-tilt: -3deg; }
+.play-world__objects .play-object--code10 { grid-column: 5 / 9; grid-row: 1 / 3; --card-tilt: 2.2deg; }
+.play-world__objects .play-object--bow { grid-column: 9 / 13; grid-row: 1; --card-tilt: -3.4deg; }
+.play-world__objects .play-object--gymnast { grid-column: 1 / 5; grid-row: 2; --card-tilt: 2deg; }
+.play-world__objects .play-object--glossary { grid-column: 9 / 13; grid-row: 2; --card-tilt: 3deg; }
+.play-world__objects .play-object--challenge { grid-column: 1 / 5; grid-row: 3; --card-tilt: -2deg; }
+.play-world__objects .play-object--didYouKnow { grid-column: 5 / 8; grid-row: 3; --card-tilt: 3deg; }
+.play-world__objects .play-object--tabata { grid-column: 8 / 10; grid-row: 3; --card-tilt: -4deg; }
+.play-world__objects .play-object--bling { grid-column: 10 / 13; grid-row: 3; --card-tilt: 2deg; }
+.play-world__objects .play-object { transform: rotate(var(--card-tilt)); }
+.play-world__objects .play-object.is-active { transform: rotate(var(--card-tilt)) !important; }
+.play-world__objects .play-object:hover { transform: translateY(-4px) rotate(var(--card-tilt)) !important; }
+.play-world__objects .play-object--power strong { font-size: clamp(30px,3vw,40px); }
+.play-world__objects .play-object--power .play-object__silhouette { height: 105px; bottom: 42px; }
+.play-world__objects .play-object--code10 strong { font-size: clamp(42px,5vw,68px); }
+.play-world__objects .play-object--tabata { padding-left: 12px; padding-right: 12px; }
+.play-world__objects .play-object--tabata strong { font-size: clamp(25px,2.8vw,40px); letter-spacing: .02em; }
+@media(max-width: 1000px) and (min-width: 621px) {
+  .play-world__objects { gap: 30px 24px; grid-template-columns: repeat(2,minmax(0,1fr)); grid-template-rows: auto; align-items: center; }
+  .play-world__objects .play-object { grid-column: auto; grid-row: auto; min-height: 190px; padding-left: 20px; padding-right: 20px; }
+  .play-world__objects .play-object--power, .play-world__objects .play-object--bow { min-height: 280px; }
+  .play-world__objects .play-object--code10 { min-height: 395px; gap: 8px; }
+  .play-world__objects .play-object--bling { grid-column: 1 / 3; width: 62%; justify-self: center; }
+  .play-world__objects .play-object--code10 strong { font-size: clamp(34px,5vw,54px); }
+  .play-world__objects .play-object--bow strong { font-size: 31px; }
+}
+@media(max-width: 620px) {
+  .play-world__objects { grid-template-columns: minmax(0,1fr); grid-template-rows: auto; gap: 28px; padding: 12px 9px; }
+  .play-world__objects .play-object { grid-column: auto; grid-row: auto; min-height: 178px; margin-right: 12px; --card-tilt: -2deg; }
+  .play-world__objects .play-object:nth-child(even) { margin-left: 14px; margin-right: 0; --card-tilt: 2.5deg; }
+  .play-world__objects .play-object strong { font-size: 34px; }
+  .play-world__objects .play-object--power, .play-world__objects .play-object--bow { min-height: 300px; }
+  .play-world__objects .play-object--power strong { font-size: 39px; }
+  .play-world__objects .play-object--code10 { min-height: 360px; }
+  .play-world__objects .play-object--code10 strong { font-size: clamp(43px,14vw,66px); }
+  .play-world__objects .play-object--bow strong { font-size: 42px; }
+}
+@media(prefers-reduced-motion: reduce) {
+  .play-world__objects .play-object:hover { transform: rotate(var(--card-tilt)) !important; }
+}
+.play-world__objects .play-object--bow strong { font-size:clamp(25px,2.8vw,39px); max-width:250px; }
+.play-world__objects .play-object__oracle-deck { position:absolute; width:144px; height:130px; bottom:45px; left:calc(50% - 72px); pointer-events:none; }
+.play-object__oracle-deck .br-card-back { position:absolute; inset:0 auto auto 0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; border:4px solid #fff9ef; outline:1px solid #29213b; background:#d8c2f0; border-radius:9px; width:84px; height:123px; transform:rotate(-15deg); color:#29213b; box-shadow:2px 4px 0 #29213b44; }
+.play-object__oracle-deck .br-card-back:nth-child(2){left:54px;transform:rotate(13deg);background:#d2f3e8}
+.play-object__oracle-deck .br-card-back>span,.play-object__oracle-deck .br-card-back>i,.play-object__oracle-deck .br-card-back>small{display:none}
+.play-object__oracle-deck .br-card-back>b{font:700 9px/1.1 Georgia,serif;text-align:center;letter-spacing:0}
+.play-object__oracle-deck .br-symbol{height:48px;width:48px;display:block}

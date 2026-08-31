@@ -1,0 +1,989 @@
+{
+  "provenance": "Owner-defined creative content pack V1. Gym lore is humor, not technical rules.",
+  "results": [
+    {
+      "id": "ELECTRIC_COMEBACK",
+      "number": "01",
+      "title_en": "THE ELECTRIC COMEBACK",
+      "title_es": "EL COMEBACK ELÉCTRICO",
+      "energyTags": [
+        "COMEBACK",
+        "FIRE",
+        "CONFIDENCE"
+      ],
+      "reading_en": "You do not need another perfect plan today.\nMove before your brain turns the whole thing into a documentary.",
+      "reading_es": "Hoy no necesitas otro plan perfecto.\nMuévete antes de que tu cerebro convierta todo esto en un documental.",
+      "note_en": "Different attempt. Different energy.",
+      "note_es": "Otro intento. Otra energía.",
+      "bow": "cobalt + lime / shimmer / silver"
+    },
+    {
+      "id": "UNBOTHERED_STICK",
+      "number": "02",
+      "title_en": "THE UNBOTHERED STICK",
+      "title_es": "EL STICK IMPERTURBABLE",
+      "energyTags": [
+        "FOCUS",
+        "CALM",
+        "PRECISION"
+      ],
+      "reading_en": "Calm counts.\nYou do not have to look intense for your focus to be real.",
+      "reading_es": "La calma cuenta.\nNo tienes que verte intensa para estar verdaderamente enfocada.",
+      "note_en": "quiet ≠ unsure.",
+      "note_es": "tranquila ≠ insegura.",
+      "bow": "baby blue + white / shimmer / silver"
+    },
+    {
+      "id": "SOFT_MENACE",
+      "number": "03",
+      "title_en": "THE SOFT MENACE",
+      "title_es": "LA AMENAZA SUAVE",
+      "energyTags": [
+        "SOFT_POWER",
+        "CONFIDENCE",
+        "MISCHIEF"
+      ],
+      "reading_en": "Sweet face. Serious intentions.\nBoth things can exist at once.",
+      "reading_es": "Carita dulce. Intenciones serias.\nLas dos cosas pueden existir al mismo tiempo.",
+      "note_en": "cute can still mean business.",
+      "note_es": "linda también puede venir en serio.",
+      "bow": "light pink + black / shimmer / black stones"
+    },
+    {
+      "id": "BEAM_MAIN_CHARACTER",
+      "number": "04",
+      "title_en": "THE BEAM MAIN CHARACTER",
+      "title_es": "LA PROTAGONISTA DE VIGA",
+      "energyTags": [
+        "SPOTLIGHT",
+        "GRACE",
+        "CONFIDENCE"
+      ],
+      "reading_en": "Today is not the day to shrink your movement.\nFinish the pose like somebody is watching.",
+      "reading_es": "Hoy no es día para hacer los movimientos chiquitos.\nTermina la pose como si alguien estuviera mirando.",
+      "note_en": "because they probably are.",
+      "note_es": "porque probablemente sí.",
+      "bow": "fuchsia + lilac / glitter / silver"
+    },
+    {
+      "id": "CHALK_GREMLIN",
+      "number": "05",
+      "title_en": "THE CHALK GREMLIN",
+      "title_es": "EL GREMLIN DE TIZA",
+      "energyTags": [
+        "CHAOS",
+        "JOY",
+        "TEAM"
+      ],
+      "reading_en": "A little chaos is apparently part of the process today.\nFine. Keep the useful part.",
+      "reading_es": "Al parecer hoy un poquito de caos viene incluido.\nBueno. Quédate con la parte útil.",
+      "note_en": "wash your hands eventually.",
+      "note_es": "en algún momento lávate las manos.",
+      "bow": "white + neon green / glitter / neon"
+    },
+    {
+      "id": "QUIET_THREAT",
+      "number": "06",
+      "title_en": "THE QUIET THREAT",
+      "title_es": "LA AMENAZA SILENCIOSA",
+      "energyTags": [
+        "CALM",
+        "CONFIDENCE",
+        "PRECISION"
+      ],
+      "reading_en": "You do not need to announce the plan.\nJust make the next thing clean.",
+      "reading_es": "No tienes que anunciar el plan.\nSolo haz que lo próximo salga limpio.",
+      "note_en": "no press conference required.",
+      "note_es": "no hace falta rueda de prensa.",
+      "bow": "black + silver / shimmer / silver"
+    },
+    {
+      "id": "SPARKLY_MENACE",
+      "number": "07",
+      "title_en": "THE SPARKLY MENACE",
+      "title_es": "LA AMENAZA BRILLANTE",
+      "energyTags": [
+        "SPOTLIGHT",
+        "MISCHIEF",
+        "FIRE"
+      ],
+      "reading_en": "The answer today may genuinely be:\nmore confidence and slightly more sparkle.",
+      "reading_es": "La respuesta de hoy puede ser literalmente:\nmás confianza y un poquito más de brillo.",
+      "note_en": "scientifically unverified.",
+      "note_es": "científicamente no comprobado.",
+      "bow": "hot pink + orange / glitter / gold stones"
+    },
+    {
+      "id": "RESET_QUEEN",
+      "number": "08",
+      "title_en": "THE RESET QUEEN",
+      "title_es": "LA REINA DEL RESET",
+      "energyTags": [
+        "RESET",
+        "CALM",
+        "CONFIDENCE"
+      ],
+      "reading_en": "You are not required to drag the last turn into the next one.",
+      "reading_es": "No tienes por qué arrastrar el turno anterior hasta el próximo.",
+      "note_en": "new turn means new information.",
+      "note_es": "nuevo turno, nueva información.",
+      "bow": "white + lilac / shimmer / silver"
+    },
+    {
+      "id": "FULL_OUT_MYSTERY",
+      "number": "09",
+      "title_en": "THE FULL OUT MYSTERY",
+      "title_es": "EL MISTERIO FULL OUT",
+      "energyTags": [
+        "FIRE",
+        "CURIOSITY",
+        "FLOW"
+      ],
+      "reading_en": "You have enough information.\nAt some point the answer is just commitment.",
+      "reading_es": "Ya tienes suficiente información.\nEn algún momento la respuesta simplemente es comprometerse.",
+      "note_en": "dramatic, unfortunately true.",
+      "note_es": "dramático, pero lamentablemente cierto.",
+      "bow": "purple + lime / glitter / neon"
+    },
+    {
+      "id": "DRAMATIC_SALUTE",
+      "number": "10",
+      "title_en": "THE DRAMATIC SALUTE",
+      "title_es": "EL SALUDO DRAMÁTICO",
+      "energyTags": [
+        "DRAMA",
+        "SPOTLIGHT",
+        "JOY"
+      ],
+      "reading_en": "If you are going to start the routine,\nyou might as well look like you meant to arrive.",
+      "reading_es": "Si vas a empezar la rutina,\npor lo menos parece que tenías toda la intención de llegar.",
+      "note_en": "arms up. plot begins.",
+      "note_es": "brazos arriba. comienza la trama.",
+      "bow": "red + gold / glitter / gold stones"
+    },
+    {
+      "id": "CONTROLLED_CHAOS",
+      "number": "11",
+      "title_en": "THE CONTROLLED CHAOS",
+      "title_es": "EL CAOS CONTROLADO",
+      "energyTags": [
+        "CHAOS",
+        "FOCUS",
+        "CONFIDENCE"
+      ],
+      "reading_en": "You do not need zero chaos.\nYou need enough control to know what happens next.",
+      "reading_es": "No necesitas cero caos.\nNecesitas suficiente control para saber qué viene después.",
+      "note_en": "very different concept.",
+      "note_es": "concepto completamente distinto.",
+      "bow": "black + neon pink / shimmer / neon"
+    },
+    {
+      "id": "BEAM_SURVIVOR",
+      "number": "12",
+      "title_en": "THE BEAM SURVIVOR",
+      "title_es": "LA SOBREVIVIENTE DE VIGA",
+      "energyTags": [
+        "COMEBACK",
+        "MISCHIEF",
+        "FOCUS"
+      ],
+      "reading_en": "Was it perfect?\nIrrelevant.\nAre you still standing?\nExcellent development.",
+      "reading_es": "¿Fue perfecto?\nIrrelevante.\n¿Sigues de pie?\nExcelente desarrollo de acontecimientos.",
+      "note_en": "continue the investigation.",
+      "note_es": "continúa la investigación.",
+      "bow": "cobalt + silver / classic / silver"
+    },
+    {
+      "id": "GRIP_WHISPERER",
+      "number": "13",
+      "title_en": "THE GRIP WHISPERER",
+      "title_es": "LA SUSURRADORA DE GRIPS",
+      "energyTags": [
+        "FOCUS",
+        "PRECISION",
+        "TEAM"
+      ],
+      "reading_en": "Today belongs to tiny adjustments nobody else notices.",
+      "reading_es": "Hoy pertenece a esos ajustes diminutos que nadie más nota.",
+      "note_en": "you noticed.",
+      "note_es": "tú sí los notaste.",
+      "bow": "black + white / classic / black band"
+    },
+    {
+      "id": "NEON_NERVE",
+      "number": "14",
+      "title_en": "THE NEON NERVE",
+      "title_es": "EL NERVIO NEÓN",
+      "energyTags": [
+        "FIRE",
+        "COURAGE",
+        "MAGNETIC"
+      ],
+      "reading_en": "Nerves and excitement have suspiciously similar handwriting.",
+      "reading_es": "Los nervios y la emoción tienen una letra sospechosamente parecida.",
+      "note_en": "use the energy.",
+      "note_es": "usa la energía.",
+      "bow": "lime + fuchsia / glitter / neon"
+    },
+    {
+      "id": "GOLDEN_RESET",
+      "number": "15",
+      "title_en": "THE GOLDEN RESET",
+      "title_es": "EL RESET DORADO",
+      "energyTags": [
+        "RESET",
+        "SPOTLIGHT",
+        "CONFIDENCE"
+      ],
+      "reading_en": "Starting again does not mean starting smaller.",
+      "reading_es": "Empezar otra vez no significa empezar más pequeño.",
+      "note_en": "same ambition. cleaner page.",
+      "note_es": "misma ambición. página más limpia.",
+      "bow": "white + gold / shimmer / gold stones"
+    },
+    {
+      "id": "PRISM_PROBLEM",
+      "number": "16",
+      "title_en": "THE PRISM PROBLEM",
+      "title_es": "EL PROBLEMA PRISMA",
+      "energyTags": [
+        "CURIOSITY",
+        "MAGNETIC",
+        "CHAOS"
+      ],
+      "reading_en": "Apparently one vibe was not enough today.",
+      "reading_es": "Al parecer una sola vibra no era suficiente para hoy.",
+      "note_en": "reasonable.",
+      "note_es": "razonable.",
+      "bow": "turquoise + hot pink / glitter / silver"
+    },
+    {
+      "id": "CALM_BEFORE_BARS",
+      "number": "17",
+      "title_en": "THE CALM BEFORE BARS",
+      "title_es": "LA CALMA ANTES DE BARRAS",
+      "energyTags": [
+        "CALM",
+        "FOCUS",
+        "PRECISION"
+      ],
+      "reading_en": "Quiet your brain enough to hear the timing you already know.",
+      "reading_es": "Bájale el volumen a tu cabeza lo suficiente para escuchar el ritmo que ya conoces.",
+      "note_en": "your grips know the drill.",
+      "note_es": "tus grips ya saben.",
+      "bow": "baby blue + cobalt / shimmer / silver"
+    },
+    {
+      "id": "TINY_THUNDER",
+      "number": "18",
+      "title_en": "THE TINY THUNDER",
+      "title_es": "EL MINI TRUENO",
+      "energyTags": [
+        "FIRE",
+        "JOY",
+        "COURAGE"
+      ],
+      "reading_en": "The package may look small.\nThe energy has not received that information.",
+      "reading_es": "El paquete puede verse pequeño.\nLa energía no recibió esa información.",
+      "note_en": "volume warning.",
+      "note_es": "advertencia de volumen.",
+      "bow": "orange + fuchsia / glitter / neon"
+    },
+    {
+      "id": "POLISHED_MENACE",
+      "number": "19",
+      "title_en": "THE POLISHED MENACE",
+      "title_es": "LA AMENAZA PULIDA",
+      "energyTags": [
+        "PRECISION",
+        "CONFIDENCE",
+        "SPOTLIGHT"
+      ],
+      "reading_en": "Clean does not have to mean boring.",
+      "reading_es": "Limpio no tiene por qué significar aburrido.",
+      "note_en": "details are doing overtime.",
+      "note_es": "los detalles están trabajando horas extra.",
+      "bow": "black + gold / shimmer / gold stones"
+    },
+    {
+      "id": "LUCKY_WOBBLE",
+      "number": "20",
+      "title_en": "THE LUCKY WOBBLE",
+      "title_es": "EL WOBBLE AFORTUNADO",
+      "energyTags": [
+        "CHAOS",
+        "COMEBACK",
+        "JOY"
+      ],
+      "reading_en": "Not every correction needs to become a crisis.",
+      "reading_es": "No toda corrección necesita convertirse en una crisis.",
+      "note_en": "save it. continue.",
+      "note_es": "sálvalo. sigue.",
+      "bow": "lilac + lime / shimmer / neon"
+    },
+    {
+      "id": "POCKET_ROCKET",
+      "number": "21",
+      "title_en": "THE POCKET ROCKET",
+      "title_es": "EL COHETE DE BOLSILLO",
+      "energyTags": [
+        "MOMENTUM",
+        "FIRE",
+        "JOY"
+      ],
+      "reading_en": "Do not spend all your energy explaining the energy.",
+      "reading_es": "No gastes toda tu energía explicando la energía.",
+      "note_en": "go.",
+      "note_es": "ve.",
+      "bow": "red + orange / glitter / gold stones"
+    },
+    {
+      "id": "SHIMMER_SHIELD",
+      "number": "22",
+      "title_en": "THE SHIMMER SHIELD",
+      "title_es": "EL ESCUDO SHIMMER",
+      "energyTags": [
+        "SOFT_POWER",
+        "CALM",
+        "CONFIDENCE"
+      ],
+      "reading_en": "Not every opinion gets access to your practice today.",
+      "reading_es": "Hoy no todas las opiniones tienen acceso a tu entrenamiento.",
+      "note_en": "guest list closed.",
+      "note_es": "lista de invitados cerrada.",
+      "bow": "lilac + silver / shimmer / silver"
+    },
+    {
+      "id": "PINK_PLOT_TWIST",
+      "number": "23",
+      "title_en": "THE PINK PLOT TWIST",
+      "title_es": "EL GIRO ROSA DE LA TRAMA",
+      "energyTags": [
+        "MISCHIEF",
+        "CONFIDENCE",
+        "COMEBACK"
+      ],
+      "reading_en": "You are allowed to surprise people.\nIncluding yourself.",
+      "reading_es": "Puedes sorprender a la gente.\nIncluyéndote a ti.",
+      "note_en": "plot thickens.",
+      "note_es": "se complica la trama.",
+      "bow": "neon pink + black / glitter / black stones"
+    },
+    {
+      "id": "MIDNIGHT_STICK",
+      "number": "24",
+      "title_en": "THE MIDNIGHT STICK",
+      "title_es": "EL STICK DE MEDIANOCHE",
+      "energyTags": [
+        "CALM",
+        "PRECISION",
+        "MAGNETIC"
+      ],
+      "reading_en": "Less noise.\nMore finish.",
+      "reading_es": "Menos ruido.\nMás final.",
+      "note_en": "hold it.",
+      "note_es": "quédate ahí.",
+      "bow": "navy + silver / shimmer / silver"
+    },
+    {
+      "id": "SOFT_LAUNCH",
+      "number": "25",
+      "title_en": "THE SOFT LAUNCH",
+      "title_es": "EL SOFT LAUNCH",
+      "energyTags": [
+        "RESET",
+        "SOFT_POWER",
+        "CURIOSITY"
+      ],
+      "reading_en": "You do not have to announce every new version before trying it.",
+      "reading_es": "No tienes que anunciar cada nueva versión antes de probarla.",
+      "note_en": "beta testing.",
+      "note_es": "en fase de prueba.",
+      "bow": "peach + lilac / classic / silver"
+    },
+    {
+      "id": "NO_DRAMA_FLIGHT",
+      "number": "26",
+      "title_en": "THE NO-DRAMA FLIGHT",
+      "title_es": "EL VUELO SIN DRAMA",
+      "energyTags": [
+        "FLOW",
+        "CALM",
+        "COURAGE"
+      ],
+      "reading_en": "Do the setup.\nTrust the timing.\nPlease cancel the unnecessary internal meeting.",
+      "reading_es": "Haz la preparación.\nConfía en el timing.\nPor favor cancela esa reunión interna innecesaria.",
+      "note_en": "meeting declined.",
+      "note_es": "reunión rechazada.",
+      "bow": "turquoise + white / shimmer / silver"
+    },
+    {
+      "id": "MAIN_EVENT_GREMLIN",
+      "number": "27",
+      "title_en": "THE MAIN-EVENT GREMLIN",
+      "title_es": "EL GREMLIN DEL EVENTO PRINCIPAL",
+      "energyTags": [
+        "SPOTLIGHT",
+        "CHAOS",
+        "CONFIDENCE"
+      ],
+      "reading_en": "You would like attention and also refuse to behave normally.\nThe Bow-racle accepts these terms.",
+      "reading_es": "Quieres atención y también te niegas a comportarte normalmente.\nEl Bow-racle acepta las condiciones.",
+      "note_en": "excellent.",
+      "note_es": "excelente.",
+      "bow": "fuchsia + gold / glitter / gold stones"
+    },
+    {
+      "id": "GLITTER_RECOVERY",
+      "number": "28",
+      "title_en": "THE GLITTER RECOVERY",
+      "title_es": "LA RECUPERACIÓN GLITTER",
+      "energyTags": [
+        "COMEBACK",
+        "JOY",
+        "SPOTLIGHT"
+      ],
+      "reading_en": "Recovery does not have to look serious to count.",
+      "reading_es": "La recuperación no tiene que verse seria para contar.",
+      "note_en": "sparkle responsibly.",
+      "note_es": "brilla responsablemente.",
+      "bow": "hot pink + silver / glitter / silver"
+    },
+    {
+      "id": "COSMIC_CHALK",
+      "number": "29",
+      "title_en": "THE COSMIC CHALK",
+      "title_es": "LA TIZA CÓSMICA",
+      "energyTags": [
+        "CURIOSITY",
+        "CHAOS",
+        "RESET"
+      ],
+      "reading_en": "Today’s plan appears to be:\nprepare, make a mess, learn something.",
+      "reading_es": "El plan de hoy parece ser:\nprepárate, haz un desastre, aprende algo.",
+      "note_en": "standard operating procedure.",
+      "note_es": "procedimiento completamente normal.",
+      "bow": "white + purple / shimmer / neon"
+    },
+    {
+      "id": "UNREASONABLY_READY_ONE",
+      "number": "30",
+      "title_en": "THE UNREASONABLY READY ONE",
+      "title_es": "LA INNECESARIAMENTE LISTA",
+      "energyTags": [
+        "FOCUS",
+        "CONFIDENCE",
+        "MOMENTUM"
+      ],
+      "reading_en": "You have practiced this enough.\nAt some point preparation has to become trust.",
+      "reading_es": "Ya practicaste esto suficiente.\nEn algún momento la preparación tiene que convertirse en confianza.",
+      "note_en": "annoying but correct.",
+      "note_es": "molesto pero correcto.",
+      "bow": "cobalt + gold / shimmer / gold stones"
+    }
+  ],
+  "quests": [
+    {
+      "id": "QUEST_01",
+      "text_en": "Do 5 suspiciously perfect push-ups.",
+      "text_es": "Haz 5 flexiones sospechosamente perfectas."
+    },
+    {
+      "id": "QUEST_02",
+      "text_en": "Do 10 calf raises and pretend they fixed your entire life.",
+      "text_es": "Haz 10 relevés y actúa como si hubieran arreglado tu vida entera."
+    },
+    {
+      "id": "QUEST_03",
+      "text_en": "Hold a 20-second plank with unnecessary dignity.",
+      "text_es": "Aguanta una plancha 20 segundos con dignidad innecesaria."
+    },
+    {
+      "id": "QUEST_04",
+      "text_en": "Do 10 hollow rocks, then look dramatically transformed.",
+      "text_es": "Haz 10 hollow rocks y después luce dramáticamente transformada."
+    },
+    {
+      "id": "QUEST_05",
+      "text_en": "Salute to yourself in the mirror like the judges are already ready.",
+      "text_es": "Hazte un saludo frente al espejo como si las jueces ya estuvieran listas."
+    },
+    {
+      "id": "QUEST_06",
+      "text_en": "Compliment one teammate on something specific.",
+      "text_es": "Dile a una compañera algo específico que hizo bien."
+    },
+    {
+      "id": "QUEST_07",
+      "text_en": "Tell somebody, “that was cleaner than you think.”",
+      "text_es": "Dile a alguien: “eso estuvo más limpio de lo que tú crees.”"
+    },
+    {
+      "id": "QUEST_08",
+      "text_en": "Point your toes for one whole minute and act humbled by the experience.",
+      "text_es": "Apunta los pies durante un minuto completo y actúa como si la experiencia te hubiera cambiado."
+    },
+    {
+      "id": "QUEST_09",
+      "text_en": "Clean one tiny part of your gym bag that has been asking for help.",
+      "text_es": "Limpia una parte pequeñita de tu bolso del gym que lleva tiempo pidiendo ayuda."
+    },
+    {
+      "id": "QUEST_10",
+      "text_en": "Pack one extra hair tie. Become a community resource.",
+      "text_es": "Guarda una liga extra para el cabello. Conviértete en un recurso comunitario."
+    },
+    {
+      "id": "QUEST_11",
+      "text_en": "Pick your meet alter-ego name.",
+      "text_es": "Ponle nombre a tu alter ego de competencia."
+    },
+    {
+      "id": "QUEST_12",
+      "text_en": "Write one thing you want to leave at practice today.",
+      "text_es": "Escribe una cosa que quieres dejar atrás en el entrenamiento de hoy."
+    },
+    {
+      "id": "QUEST_13",
+      "text_en": "Write one thing you want to take home from practice that is not an object.",
+      "text_es": "Escribe una cosa que quieres llevarte del entrenamiento que no sea un objeto."
+    },
+    {
+      "id": "QUEST_14",
+      "text_en": "Give your grips a ridiculous nickname.",
+      "text_es": "Ponle un apodo ridículo a tus grips."
+    },
+    {
+      "id": "QUEST_15",
+      "text_en": "Drink some water before your brain starts filing complaints.",
+      "text_es": "Toma agua antes de que tu cerebro empiece a presentar quejas."
+    },
+    {
+      "id": "QUEST_16",
+      "text_en": "Do 5 slow squats like somebody is judging the technique.",
+      "text_es": "Haz 5 sentadillas lentas como si alguien estuviera juzgando la técnica."
+    },
+    {
+      "id": "QUEST_17",
+      "text_en": "Pick one correction and make it today’s main character.",
+      "text_es": "Escoge una corrección y conviértela en la protagonista de hoy."
+    },
+    {
+      "id": "QUEST_18",
+      "text_en": "Make your best “I absolutely meant to do that” face.",
+      "text_es": "Practica tu mejor cara de “obviamente eso era exactamente lo que quería hacer.”"
+    },
+    {
+      "id": "QUEST_19",
+      "text_en": "Walk to your next turn like you were personally invited.",
+      "text_es": "Camina hacia tu próximo turno como si hubieran mandado la invitación especialmente para ti."
+    },
+    {
+      "id": "QUEST_20",
+      "text_en": "Say “new turn” after one mistake and actually mean it.",
+      "text_es": "Di “nuevo turno” después de un error y esta vez créetelo."
+    },
+    {
+      "id": "QUEST_21",
+      "text_en": "Give one teammate a ridiculous-but-kind hype nickname for the day.",
+      "text_es": "Ponle a una compañera un apodo de hype ridículo pero lindo por hoy."
+    },
+    {
+      "id": "QUEST_22",
+      "text_en": "Do 10 arm circles and call it a spiritual reset.",
+      "text_es": "Haz 10 círculos de brazos y llámalo reset espiritual."
+    },
+    {
+      "id": "QUEST_23",
+      "text_en": "Stand tall for 10 seconds like the podium has heard rumors about you.",
+      "text_es": "Párate alta por 10 segundos como si el podio ya hubiera escuchado rumores sobre ti."
+    },
+    {
+      "id": "QUEST_24",
+      "text_en": "Pick one song that would play during your imaginary entrance scene.",
+      "text_es": "Escoge la canción que sonaría en tu entrada imaginaria."
+    },
+    {
+      "id": "QUEST_25",
+      "text_en": "Find one thing in practice that was better than last week.",
+      "text_es": "Encuentra una cosa del entrenamiento que esté mejor que la semana pasada."
+    },
+    {
+      "id": "QUEST_26",
+      "text_en": "Do one correction without adding a full emotional documentary.",
+      "text_es": "Haz una corrección sin producir un documental emocional completo."
+    },
+    {
+      "id": "QUEST_27",
+      "text_en": "Say thank you when somebody compliments you. No arguing.",
+      "text_es": "Di gracias cuando alguien te haga un cumplido. Prohibido discutirlo."
+    },
+    {
+      "id": "QUEST_28",
+      "text_en": "Fix your posture every time you remember this card today.",
+      "text_es": "Corrige tu postura cada vez que recuerdes esta carta hoy."
+    },
+    {
+      "id": "QUEST_29",
+      "text_en": "Give your water bottle a Bow-racle title.",
+      "text_es": "Dale a tu botella de agua un título del Bow-racle."
+    },
+    {
+      "id": "QUEST_30",
+      "text_en": "Make one boring conditioning exercise look offensively elegant.",
+      "text_es": "Haz que un ejercicio aburrido de preparación física se vea ofensivamente elegante."
+    },
+    {
+      "id": "QUEST_31",
+      "text_en": "Try one safe correction before saying “I can’t.”",
+      "text_es": "Prueba una corrección segura antes de decir “no puedo.”"
+    },
+    {
+      "id": "QUEST_32",
+      "text_en": "Ask one useful question instead of guessing.",
+      "text_es": "Haz una pregunta útil en vez de adivinar."
+    },
+    {
+      "id": "QUEST_33",
+      "text_en": "Tell your teammate “I saw that” after something they worked hard on.",
+      "text_es": "Dile a una compañera “yo vi eso” después de algo que le costó trabajo."
+    },
+    {
+      "id": "QUEST_34",
+      "text_en": "Do 10 seconds of perfectly serious presentation arms.",
+      "text_es": "Haz 10 segundos de brazos de presentación completamente serios."
+    },
+    {
+      "id": "QUEST_35",
+      "text_en": "Pick the skill you are currently in negotiations with.",
+      "text_es": "Identifica la habilidad con la que actualmente estás en negociaciones."
+    },
+    {
+      "id": "QUEST_36",
+      "text_en": "Give that skill a completely unnecessary corporate meeting name.",
+      "text_es": "Ponle a esa habilidad un nombre completamente innecesario de reunión corporativa."
+    },
+    {
+      "id": "QUEST_37",
+      "text_en": "Finish one turn without immediately reviewing it out loud.",
+      "text_es": "Termina un turno sin hacer inmediatamente una reseña oral del mismo."
+    },
+    {
+      "id": "QUEST_38",
+      "text_en": "Say one nice thing about your own gymnastics without adding “but.”",
+      "text_es": "Di una cosa buena sobre tu propia gimnasia sin añadir “pero.”"
+    },
+    {
+      "id": "QUEST_39",
+      "text_en": "Do one tiny thing today with extremely unnecessary confidence.",
+      "text_es": "Haz hoy una cosa pequeñita con una cantidad completamente innecesaria de confianza."
+    },
+    {
+      "id": "QUEST_40",
+      "text_en": "Be the person with the extra hair tie.",
+      "text_es": "Sé la persona que tiene la liga extra."
+    },
+    {
+      "id": "QUEST_41",
+      "text_en": "Stretch gently for a moment and pretend the Bow-racle prescribed elegance.",
+      "text_es": "Estira suavemente un momento y actúa como si el Bow-racle hubiera recetado elegancia."
+    },
+    {
+      "id": "QUEST_42",
+      "text_en": "If handstands are already a safe, trained skill for you, hold one in your normal training setting and make the line extra pretty.",
+      "text_es": "Si las paradas de manos ya son una habilidad segura y entrenada para ti, aguanta una en tu ambiente normal de entrenamiento y haz la línea extra bonita."
+    },
+    {
+      "id": "QUEST_43",
+      "text_en": "Do not let one weird turn become the official biography of practice.",
+      "text_es": "No permitas que un turno raro se convierta en la biografía oficial del entrenamiento."
+    },
+    {
+      "id": "QUEST_44",
+      "text_en": "Pick one word for today and put it somewhere you will see it.",
+      "text_es": "Escoge una palabra para hoy y ponla en algún lugar donde la veas."
+    },
+    {
+      "id": "QUEST_45",
+      "text_en": "Celebrate one boring improvement.",
+      "text_es": "Celebra una mejora aburrida."
+    },
+    {
+      "id": "QUEST_46",
+      "text_en": "Make somebody laugh before warm-up ends.",
+      "text_es": "Haz reír a alguien antes de que termine el calentamiento."
+    },
+    {
+      "id": "QUEST_47",
+      "text_en": "Do one thing slowly enough to actually notice the shape.",
+      "text_es": "Haz una cosa suficientemente lento como para notar realmente la forma."
+    },
+    {
+      "id": "QUEST_48",
+      "text_en": "Pretend today’s first turn is not a national emergency.",
+      "text_es": "Actúa como si el primer turno de hoy no fuera una emergencia nacional."
+    },
+    {
+      "id": "QUEST_49",
+      "text_en": "Leave practice knowing one thing you did right.",
+      "text_es": "Sal del entrenamiento sabiendo una cosa que hiciste bien."
+    },
+    {
+      "id": "QUEST_50",
+      "text_en": "End the day with one dramatically unnecessary salute.",
+      "text_es": "Termina el día con un saludo dramáticamente innecesario."
+    }
+  ],
+  "lore": [
+    {
+      "id": "LORE_01",
+      "text_en": "“One more” is not a number.",
+      "text_es": "“Una más” no es un número."
+    },
+    {
+      "id": "LORE_02",
+      "text_en": "A stick is not just a landing. It is an entire personality trait.",
+      "text_es": "Un stick no es solo un aterrizaje. Es un rasgo completo de personalidad."
+    },
+    {
+      "id": "LORE_03",
+      "text_en": "Every gym has one roll of tape that belongs to everybody and nobody.",
+      "text_es": "Todo gym tiene un rollo de tape que pertenece a todos y a nadie."
+    },
+    {
+      "id": "LORE_04",
+      "text_en": "Chalk dust is basically a communication system.",
+      "text_es": "El polvo de tiza es básicamente un sistema de comunicación."
+    },
+    {
+      "id": "LORE_05",
+      "text_en": "Your grips become emotional support equipment without asking permission.",
+      "text_es": "Tus grips se convierten en equipo de apoyo emocional sin pedir permiso."
+    },
+    {
+      "id": "LORE_06",
+      "text_en": "The beam knows when you are overthinking.",
+      "text_es": "La viga sabe cuando estás pensando demasiado."
+    },
+    {
+      "id": "LORE_07",
+      "text_en": "“Again” can mean anywhere from one to fourteen.",
+      "text_es": "“Otra vez” puede significar cualquier número entre uno y catorce."
+    },
+    {
+      "id": "LORE_08",
+      "text_en": "Meet hair is technically a second sport.",
+      "text_es": "El peinado de competencia técnicamente es un segundo deporte."
+    },
+    {
+      "id": "LORE_09",
+      "text_en": "There is always one teammate who owns the emergency hair-supply department.",
+      "text_es": "Siempre hay una compañera que administra el departamento de emergencias capilares."
+    },
+    {
+      "id": "LORE_10",
+      "text_en": "Warm-up time moves approximately seven times faster than normal time.",
+      "text_es": "El tiempo de calentamiento se mueve aproximadamente siete veces más rápido que el tiempo normal."
+    },
+    {
+      "id": "LORE_11",
+      "text_en": "The score takes longer to appear when you care more.",
+      "text_es": "La nota tarda más en aparecer mientras más te importa."
+    },
+    {
+      "id": "LORE_12",
+      "text_en": "A coach saying “better” may contain approximately 400 hidden meanings.",
+      "text_es": "Que un entrenador diga “mejor” puede contener aproximadamente 400 significados ocultos."
+    },
+    {
+      "id": "LORE_13",
+      "text_en": "Every floor routine eventually becomes background music to somebody’s entire childhood.",
+      "text_es": "Toda rutina de suelo termina convirtiéndose en música de fondo de la infancia de alguien."
+    },
+    {
+      "id": "LORE_14",
+      "text_en": "You can hear your teammate’s floor music from three rooms away and still know exactly where she is.",
+      "text_es": "Puedes escuchar la música de suelo de tu compañera desde tres cuartos de distancia y aun así saber exactamente dónde va."
+    },
+    {
+      "id": "LORE_15",
+      "text_en": "The chalk bucket has its own political system.",
+      "text_es": "El recipiente de tiza tiene su propio sistema político."
+    },
+    {
+      "id": "LORE_16",
+      "text_en": "Somebody always has tape. Nobody remembers buying it.",
+      "text_es": "Alguien siempre tiene tape. Nadie recuerda haberlo comprado."
+    },
+    {
+      "id": "LORE_17",
+      "text_en": "A beam warm-up can last 30 seconds and also 0.4 seconds.",
+      "text_es": "Un calentamiento de viga puede durar 30 segundos y también 0.4 segundos."
+    },
+    {
+      "id": "LORE_18",
+      "text_en": "“Squeeze” is a full gymnastics language.",
+      "text_es": "“Aprieta” es un idioma completo de gimnasia."
+    },
+    {
+      "id": "LORE_19",
+      "text_en": "“Tight” can somehow describe arms, legs, core, timing, shape and your entire life.",
+      "text_es": "“Tight” de alguna manera puede describir brazos, piernas, core, timing, forma y tu vida completa."
+    },
+    {
+      "id": "LORE_20",
+      "text_en": "One bobby pin can migrate through an entire team by awards.",
+      "text_es": "Una horquilla puede viajar por todo un equipo antes de la premiación."
+    },
+    {
+      "id": "LORE_21",
+      "text_en": "The competition bun can survive atmospheric events science has not yet studied.",
+      "text_es": "El moño de competencia puede sobrevivir fenómenos atmosféricos que la ciencia aún no ha estudiado."
+    },
+    {
+      "id": "LORE_22",
+      "text_en": "Saluting is two seconds of pretending nothing weird has ever happened to you.",
+      "text_es": "Saludar es pasar dos segundos fingiendo que nunca te ha pasado nada raro."
+    },
+    {
+      "id": "LORE_23",
+      "text_en": "Everybody has one beam they trust more than the others for no rational reason.",
+      "text_es": "Todo el mundo tiene una viga en la que confía más que en las demás sin ninguna razón racional."
+    },
+    {
+      "id": "LORE_24",
+      "text_en": "A lucky water bottle becomes lucky after approximately one good meet.",
+      "text_es": "Una botella de agua se vuelve “de la suerte” después de aproximadamente una competencia buena."
+    },
+    {
+      "id": "LORE_25",
+      "text_en": "Meet bags contain at least five objects nobody will use.",
+      "text_es": "Los bolsos de competencia contienen al menos cinco objetos que nadie va a usar."
+    },
+    {
+      "id": "LORE_26",
+      "text_en": "There is no faster friendship than “do you have tape?”",
+      "text_es": "No existe amistad más rápida que “¿tienes tape?”"
+    },
+    {
+      "id": "LORE_27",
+      "text_en": "Every gymnast has stared at the start list like it personally offended her.",
+      "text_es": "Toda gimnasta ha mirado la lista de salida como si la hubiera ofendido personalmente."
+    },
+    {
+      "id": "LORE_28",
+      "text_en": "Floor corners have seen things.",
+      "text_es": "Las esquinas del suelo han visto cosas."
+    },
+    {
+      "id": "LORE_29",
+      "text_en": "Vault runways somehow know when you changed your steps.",
+      "text_es": "Las correderas de salto de alguna manera saben cuando cambiaste los pasos."
+    },
+    {
+      "id": "LORE_30",
+      "text_en": "The first turn after a break is legally allowed to be weird. Probably.",
+      "text_es": "El primer turno después de un descanso está legalmente autorizado a ser raro. Probablemente."
+    },
+    {
+      "id": "LORE_31",
+      "text_en": "Grips prefer to become problematic at the least convenient possible moment.",
+      "text_es": "Los grips prefieren ponerse problemáticos en el momento menos conveniente posible."
+    },
+    {
+      "id": "LORE_32",
+      "text_en": "Ponytail physics remain an underfunded research field.",
+      "text_es": "La física de las colas de caballo sigue siendo un campo de investigación sin suficiente presupuesto."
+    },
+    {
+      "id": "LORE_33",
+      "text_en": "If your teammate whispers “you got this,” science becomes temporarily irrelevant.",
+      "text_es": "Si tu compañera te susurra “tú puedes,” la ciencia deja de importar temporalmente."
+    },
+    {
+      "id": "LORE_34",
+      "text_en": "The floor music cut everybody hated at first eventually becomes sacred.",
+      "text_es": "El corte de música que todo el mundo odiaba al principio eventualmente se vuelve sagrado."
+    },
+    {
+      "id": "LORE_35",
+      "text_en": "There is always one warm-up mat migrating around the gym with no permanent address.",
+      "text_es": "Siempre hay una colchoneta de calentamiento migrando por el gym sin dirección fija."
+    },
+    {
+      "id": "LORE_36",
+      "text_en": "A scoreboard refresh has the dramatic timing of a season finale.",
+      "text_es": "La actualización del marcador tiene el timing dramático de un final de temporada."
+    },
+    {
+      "id": "LORE_37",
+      "text_en": "Judges sitting quietly at a table can generate unreasonable levels of suspense.",
+      "text_es": "Un grupo de jueces sentado tranquilamente en una mesa puede generar niveles absurdos de suspenso."
+    },
+    {
+      "id": "LORE_38",
+      "text_en": "The best teammate hugs usually happen before anyone knows the score.",
+      "text_es": "Los mejores abrazos de compañeras normalmente ocurren antes de que alguien sepa la nota."
+    },
+    {
+      "id": "LORE_39",
+      "text_en": "Every gymnast eventually learns that “pretty feet” is somehow both vague and extremely specific.",
+      "text_es": "Toda gimnasta termina aprendiendo que “pies bonitos” es a la vez muy vago y extremadamente específico."
+    },
+    {
+      "id": "LORE_40",
+      "text_en": "A rough warm-up can either mean absolutely nothing or become the entire plot. No one knows.",
+      "text_es": "Un calentamiento malo puede no significar absolutamente nada o convertirse en toda la trama. Nadie sabe."
+    },
+    {
+      "id": "LORE_41",
+      "text_en": "Somebody’s mom always has the thing everyone forgot.",
+      "text_es": "La mamá de alguien siempre tiene eso que todo el mundo olvidó."
+    },
+    {
+      "id": "LORE_42",
+      "text_en": "The person saying “I’m not nervous” has often not checked the rotation order yet.",
+      "text_es": "La persona diciendo “no estoy nerviosa” muchas veces todavía no ha revisado el orden de rotación."
+    },
+    {
+      "id": "LORE_43",
+      "text_en": "You will eventually know your teammate’s routine music better than several songs you actually chose to listen to.",
+      "text_es": "Eventualmente conocerás la música de la rutina de tu compañera mejor que varias canciones que tú sí escogiste escuchar."
+    },
+    {
+      "id": "LORE_44",
+      "text_en": "A bow can somehow survive more competitions than expected.",
+      "text_es": "Un lazo puede sobrevivir misteriosamente muchas más competencias de las esperadas."
+    },
+    {
+      "id": "LORE_45",
+      "text_en": "Every gym has at least one object nobody is allowed to throw away because “we still use that.”",
+      "text_es": "Todo gym tiene por lo menos un objeto que nadie puede botar porque “todavía usamos eso.”"
+    },
+    {
+      "id": "LORE_46",
+      "text_en": "“Last one” is gymnastics folklore.",
+      "text_es": "“La última” es folklore gimnástico."
+    },
+    {
+      "id": "LORE_47",
+      "text_en": "Post-meet food tastes approximately 38% better.",
+      "text_es": "La comida después de competir sabe aproximadamente 38% mejor."
+    },
+    {
+      "id": "LORE_48",
+      "text_en": "One clean turn can repair an unreasonable amount of mood.",
+      "text_es": "Un turno limpio puede reparar una cantidad poco razonable del estado de ánimo."
+    },
+    {
+      "id": "LORE_49",
+      "text_en": "The teammate who screams the loudest during your routine may actually be performing an essential service.",
+      "text_es": "La compañera que más grita durante tu rutina puede estar prestando un servicio esencial."
+    },
+    {
+      "id": "LORE_50",
+      "text_en": "Gymnastics culture is roughly 40% skills, 30% chalk, 20% inside jokes and 10% somebody asking where the tape went.",
+      "text_es": "La cultura de gimnasia es aproximadamente 40% habilidades, 30% tiza, 20% chistes internos y 10% alguien preguntando dónde quedó el tape."
+    }
+  ]
+}

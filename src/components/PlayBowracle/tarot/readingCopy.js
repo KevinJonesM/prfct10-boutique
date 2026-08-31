@@ -1,0 +1,3 @@
+import {BOW_COLORS} from '../../BowDesigner/bowOptions.js';
+export function tarotCopy(result,t){const root='bowracle.tarot.',get=key=>t(root+key);return {
+ title:t('bowracle.results.'+result.archetypeId+'.title'),message:t('bowracle.results.'+result.archetypeId+'.reading'),house:get('houses.'+result.house),prophecy:get('prophecies.'+result.prophecyId),coach:get('coaches.'+result.coachId),quest:get('quests.'+result.questId),law:get('laws.'+result.lawId),window:get('windows.'+result.windowId),powerColor:t('bow.colors.'+result.powerColorId),colors:[result.design.topColor,result.design.bottomColor].map(hex=>t('bow.colors.'+BOW_COLORS.find(c=>c.value===hex).id))};}

@@ -11,7 +11,7 @@ async function moduleUrl(url) {
   let source = stripTypeScriptTypes(await readFile(url,"utf8"));
   const imports = [...source.matchAll(/from\s+["'](\.[^"']+)["']/g)];
   for (const match of imports) {
-    const dependency = new URL(match[1]+".ts",url);
+    const dependency = new URL(/\.(?:js|ts)$/.test(match[1]) ? match[1] : match[1]+".ts",url);
     source = source.replace(match[0], 'from "'+await moduleUrl(dependency)+'"');
   }
   return "data:text/javascript;base64,"+Buffer.from(source).toString("base64");

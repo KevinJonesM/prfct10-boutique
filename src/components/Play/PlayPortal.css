@@ -1,0 +1,55 @@
+/* Portal-only refinements. Power Check keeps its existing design. */
+.play-world__orbit::after { display: none; }
+.play-world__hero-cta, .play-world__lede { position: relative; z-index: 2; }
+.play-world__welcome-stickers { position: absolute; top: 118px; right: 7%; display: flex; align-items: center; gap: 22px; pointer-events: none; }
+.play-welcome-sticker { border: 2px solid var(--world-ink); box-shadow: 4px 5px 0 var(--world-ink); font-family: var(--heading); font-weight: 900; }
+.play-welcome-sticker--club { position: relative; background: var(--world-blue); border-radius: 16px 3px 16px 3px; padding: 11px 40px 11px 15px; transform: rotate(-7deg); }
+.play-welcome-sticker--club small { display: block; font-size: 9px; letter-spacing: .18em; }
+.play-welcome-sticker--club b { display: block; font-size: 21px; letter-spacing: -.05em; }
+.play-welcome-sticker--club i { position: absolute; right: 9px; top: 15px; font-size: 27px; font-style: normal; color: var(--world-fuchsia); }
+.play-welcome-sticker--learn { display: flex; align-items: center; gap: 12px; padding: 14px; background: #ffd3e9; font-size: 11px; transform: rotate(5deg); }
+.play-welcome-sticker--learn b { font-size: 24px; }
+#play-experiences-title { scroll-margin-top: calc(var(--header-height, 70px) + 24px); }
+.play-mode-meaning { --mode-paper: #ffdbed; display: grid; grid-template-columns: 100px 1fr 44px; align-items: start; gap: 24px; padding: 32px clamp(24px, 5vw, 72px); background: var(--mode-paper); border-top: 2px solid var(--world-ink); animation: playPortalReveal .35s ease both; }
+.play-mode-meaning--bars { --mode-paper: #d2f0ff; }.play-mode-meaning--beam { --mode-paper: #e6d8ff; }.play-mode-meaning--floor { --mode-paper: #d3ffed; }.play-mode-meaning--allAround { --mode-paper: #fff8b0; }
+.play-mode-meaning__number { font: 900 80px/.95 var(--heading); letter-spacing: -.08em; opacity: .22; }
+.play-mode-meaning p { margin: 0; max-width: 800px; line-height: 1.6; }
+.play-mode-meaning p:first-child { font-size: 10px; letter-spacing: .12em; font-weight: 900; }
+.play-mode-meaning h3 { font: 900 clamp(26px,3vw,42px)/1 var(--heading); letter-spacing: -.04em; margin: 12px 0; }
+.play-mode-meaning button { width: 44px; height: 44px; background: #fffaf4; border: 2px solid var(--world-ink); font-size: 26px; }
+.play-world__portal { background-color: #fffaf4; background-image: linear-gradient(#215ac914 1px,transparent 1px),linear-gradient(90deg,#215ac914 1px,transparent 1px),linear-gradient(#215ac919 1px,transparent 1px),linear-gradient(90deg,#215ac919 1px,transparent 1px); background-size: 28px 28px,28px 28px,140px 140px,140px 140px; }
+.play-physics { position: relative; z-index: 2; margin: 0 0 32px; padding: 18px 22px; color: #2457b7; background: #f5faffd9; border: 1px solid #2457b760; }
+.play-physics header { display: flex; justify-content: space-between; gap: 14px; font: 700 11px/1.4 monospace; letter-spacing: .08em; }
+.play-physics header small { font-size: 9px; }
+.play-physics__studies { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 24px; margin-top: 20px; }
+.play-physics figure { margin: 0; min-width: 0; }
+.play-physics figure + figure { border-left: 1px dashed #2457b750; padding-left: 20px; }
+.play-physics figcaption { display: grid; gap: 7px; font: 13px/1.2 monospace; }
+.play-physics figcaption b { font-size: 9px; letter-spacing: .07em; }
+.play-physics svg { display: block; width: 100%; max-height: 100px; margin-top: 10px; fill: none; stroke: currentColor; stroke-width: 1.4; }
+.play-physics svg text { fill: currentColor; stroke: none; font: italic 13px monospace; }
+.play-physics svg circle { fill: currentColor; }
+.play-physics__curve { stroke-width: 2.5; }.play-physics__guide { stroke-dasharray: 4 5; opacity: .5; }.play-physics__axes { opacity: .65; }
+.play-world__detail { --detail-outline: #ffb7df; }
+.play-world__detail--blue { --detail-outline: #427bbd; }.play-world__detail--yellow { --detail-outline: #7b64c2; }.play-world__detail--lilac { --detail-outline: #7862b5; }.play-world__detail--mint { --detail-outline: #378b81; }.play-world__detail--pink { --detail-outline: #b84d84; }.play-world__detail--orange { --detail-outline: #ffc7b5; }.play-world__detail--purple { --detail-outline: #cdb4ff; }.play-world__detail--bow { --detail-outline: #bb568a; }
+.play-world__detail-copy h3 { color: #fff; -webkit-text-stroke: 1.5px var(--detail-outline); paint-order: stroke fill; text-shadow: 3px 3px 0 var(--detail-outline),5px 5px 0 var(--world-ink); line-height: .94; }
+.play-object[data-reveal="pending"] { opacity: 0; translate: 0 26px; }
+.play-object[data-reveal="visible"] { animation: playPortalReveal .55s cubic-bezier(.2,.7,.2,1) var(--entry-delay,0ms) both; }
+.play-object[data-reveal]:focus-visible { opacity: 1; translate: none; animation: none; }
+@keyframes playPortalReveal { from { opacity: 0; translate: 0 26px; } to { opacity: 1; translate: 0 0; } }
+@media(max-width: 920px) { .play-world__welcome-stickers { right: 5%; gap: 14px; }.play-welcome-sticker--club { display: none; } }
+@media(max-width: 620px) {
+  .play-world__welcome-stickers { top: 147px; right: 24px; }
+  .play-welcome-sticker--learn { padding: 5px 10px; font-size: 9px; box-shadow: 3px 3px 0 var(--world-ink); }
+  .play-welcome-sticker--learn b { font-size: 17px; }
+  .play-mode-meaning { grid-template-columns: 1fr 44px; gap: 12px; padding: 24px 20px; }.play-mode-meaning__number { display: none; }
+  .play-physics { padding: 15px; margin-bottom: 26px; }.play-physics header { flex-direction: column; gap: 4px; }
+  .play-physics__studies { grid-template-columns: 1fr; gap: 12px; margin-top: 16px; }
+  .play-physics figure { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-items: center; }
+  .play-physics figure + figure { padding: 12px 0 0; border-left: none; border-top: 1px dashed #2457b750; }
+  .play-physics figcaption { font-size: 11px; }.play-physics svg { margin: 0; }
+}
+@media(prefers-reduced-motion: reduce) {
+  .play-object[data-reveal], .play-mode-meaning { animation: none; opacity: 1; translate: none; }
+  .play-world__detail { transition: none; }
+}

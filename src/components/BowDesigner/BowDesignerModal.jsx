@@ -3,6 +3,7 @@ import { useI18n } from "../../i18n/I18nProvider";
 import useModalScrollLock from "../../utils/useModalScrollLock";
 import { createWhatsAppMessageLink } from "../../utils/whatsapp";
 import BowPreview from "./BowPreview";
+import { validateBowDesign } from "./validateBowDesign.js";
 import "./BowDesigner.css";
 import {
   BOW_COLORS,
@@ -75,12 +76,12 @@ function WhatsAppIcon() {
 
 const createInitialDesign = () => ({ ...INITIAL_BOW_DESIGN });
 
-export default function BowDesignerModal({ isOpen, onClose, openerRef, context = "shop" }) {
+export default function BowDesignerModal({ isOpen, onClose, openerRef, context = "shop", initialDesign, source, oracleCard }) {
   const { t } = useI18n();
-  const [design, setDesign] = useState(createInitialDesign);
+  const [design, setDesign] = useState(() => validateBowDesign(initialDesign) || createInitialDesign());
   const dialogRef = useRef(null);
   const closeRef = useRef(null);
-  const hasManualColorSelection = useRef(false);
+  const hasManualColorSelection = useRef(Boolean(validateBowDesign(initialDesign)));
   const code = useMemo(() => createBowCode(design), [design]);
   useModalScrollLock(isOpen);
 
@@ -173,7 +174,7 @@ export default function BowDesignerModal({ isOpen, onClose, openerRef, context =
     });
   };
 
-  const messageContext = context === "team" ? t("bow.teamContext") : "";
+  const messageContext = context === "team" ? t("bow.teamContext") : source === "THE_BOW_RACLE" ? t("bowracle.orderContext", { card: oracleCard }) : "";
   const message = hasTwoColors
     ? t("bow.whatsappMessagePair", {
         top: topLabel,

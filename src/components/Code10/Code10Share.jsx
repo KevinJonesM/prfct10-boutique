@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useI18n } from "../../i18n/I18nProvider";
 import { createCode10ShareSvg, createCode10Png, downloadCode10 } from "./shareCard.js";
+import { configLabels } from "./presentation.js";
 export default function Code10Share({ result, config, dev }) {
   const { t } = useI18n();
   const [format, setFormat] = useState("story");
@@ -8,7 +9,7 @@ export default function Code10Share({ result, config, dev }) {
   const [status, setStatus] = useState("");
   const [attempt, setAttempt] = useState(0);
   const [busy, setBusy] = useState(false);
-  const svg = useMemo(() => createCode10ShareSvg({ rawScore: result.rawScore, format, ...config, categoryLabel: t("code10.categories." + config.category), label: t("code10.labels." + result.labelKey), challengeLine: t("code10.challengeLine"), devLabel: t("code10.devShare"), dev }), [result.rawScore, result.labelKey, format, config, t, dev]);
+  const svg = useMemo(() => createCode10ShareSvg({ rawScore: result.rawScore, format, ...configLabels(config,t), label: t("code10.labels." + result.labelKey), challengeLine: t("code10.challengeLine"), devLabel: t("code10.devShare"), dev }), [result.rawScore, result.labelKey, format, config, t, dev]);
   useEffect(() => {
     let active = true;
     setImage(null); setStatus("");
@@ -22,7 +23,7 @@ export default function Code10Share({ result, config, dev }) {
     setBusy(true);
     const file = new File([blob], name, { type: "image/png" });
     try {
-      if (navigator.share && navigator.canShare?.({ files: [file] })) { await navigator.share({ files: [file], title: "PRFCT10 CODE 10" }); setStatus("shared"); }
+      if (navigator.share && navigator.canShare?.({ files: [file] })) { await navigator.share({ files: [file], title: "PRFCT10 CODE 10", text: t("code10.challengeLine") }); setStatus("shared"); }
       else { downloadCode10(blob, name); setStatus("downloaded"); }
     } catch(error) {
       if (error.name !== "AbortError") { downloadCode10(blob, name); setStatus("downloaded"); }

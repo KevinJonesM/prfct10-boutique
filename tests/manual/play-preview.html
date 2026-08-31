@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PRFCT10 · Responsive QA</title>
+<style>body{margin:0;padding:18px;background:#e8e8e8;font:14px system-ui}nav{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px}a{color:#151515}iframe{display:block;border:0;background:white}h1{font-size:16px}</style>
+<h1>Preview del sitio real · sin alterar datos ni estados de la aplicación</h1>
+<nav><a href="?route=play&width=390">PLAY / 390</a><a href="?route=code-10&width=390">CODE 10 / 390</a><a href="?route=play&width=1440">PLAY / 1440</a><a href="?route=code-10&width=1440">CODE 10 / 1440</a></nav>
+<p><output id="metrics">Cargando…</output></p>
+<iframe title="Preview responsive PRFCT10" height="2300"></iframe>
+<script type="module">
+const params=new URLSearchParams(location.search);
+const frame=document.querySelector('iframe');
+frame.width=['375','390','430','768','1024','1440'].includes(params.get('width')) ? params.get('width') : '390';
+frame.addEventListener('load',()=>{
+  const doc=frame.contentDocument;
+  const report=()=>{
+    const width=doc.documentElement.clientWidth;
+    const overflow=doc.documentElement.scrollWidth-width;
+    const colors=[...doc.querySelectorAll('.c10-field [aria-checked="true"]')].map(el=>frame.contentWindow.getComputedStyle(el).backgroundColor);
+    document.querySelector('#metrics').textContent=`Viewport: ${frame.contentWindow.innerWidth}px. Desbordamiento horizontal: ${overflow}px. Selecciones: ${colors.join(' / ')}.`;
+  };
+  new ResizeObserver(report).observe(doc.body);
+  new MutationObserver(report).observe(doc.body,{subtree:true,attributes:true,childList:true});
+  report();
+});
+frame.src=params.get('route')==='the-bow-racle' ? '/play/the-bow-racle' : params.get('route')==='code-10' ? '/play/code-10' : '/play';
+</script>
+</html>

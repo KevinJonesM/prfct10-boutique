@@ -1,0 +1,35 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Bow-racle export QA</title>
+<style>body{font:15px system-ui;background:#eee}#cards{display:flex;gap:20px;align-items:start}#cards img{width:340px}#measure{position:absolute;left:-10000px}</style>
+<h1>Bow-racle · real export pipeline</h1><pre id="report">Running…</pre><div id="cards"></div><div id="measure"></div>
+<script type="module">
+import {translations} from '/src/i18n/translations.js';
+import {createReading,assignedDesign,bowracleResults,bowracleQuests,bowracleLore} from '/src/components/PlayBowracle/bowracleEngine.js';
+import {createBowracleSvg,CARD_FORMATS} from '/src/components/PlayBowracle/bowracleCardSvg.js';
+import {svgToPng} from '/src/components/Play/svgExport.js';
+import {createBowCode} from '/src/components/BowDesigner/bowOptions.js';
+const report=document.querySelector('#report'),measure=document.querySelector('#measure');
+const failures=[];let count=0;
+try{
+for(const locale of ['en','es'])for(const card of bowracleResults)for(const format of ['story','feed']){
+ const t=(key)=>key.split('.').reduce((o,k)=>o?.[k],translations[locale])??key;
+ const result=createReading({selectedCards:['THE_SPOTLIGHT','THE_COMEBACK','THE_FULL_OUT'],colorId:'black',charmId:'BUTTERFLY',creatureId:'BLACK_CAT',moodId:'SOFT_BUT_DANGEROUS'});
+ result.archetypeId=card.id;result.cardNumber=card.number;result.design=assignedDesign('black',card,'FOCUS');
+ result.bowCode=createBowCode(result.design);
+ // Longest bilingual quest/lore exercise the tight Feed layout too.
+ result.questId=[...bowracleQuests].sort((a,b)=>b['text_'+locale].length-a['text_'+locale].length)[0].id;
+ result.loreId=[...bowracleLore].sort((a,b)=>b['text_'+locale].length-a['text_'+locale].length)[0].id;
+ const svg=createBowracleSvg(result,t,format,`qa-${count}`);
+ const parsed=new DOMParser().parseFromString(svg,'image/svg+xml');
+ if(parsed.querySelector('parsererror'))throw Error(parsed.querySelector('parsererror').textContent);
+ measure.innerHTML=svg;
+ for(const node of measure.querySelectorAll('text')){const box=node.getBBox();if(box.x<60||box.x+box.width>1020||box.y<60||box.y+box.height>CARD_FORMATS[format].height-48)failures.push(`${locale}/${card.id}/${format}: text margin ${node.textContent}`);}
+ const blob=await svgToPng(svg,CARD_FORMATS[format]);
+ const bitmap=await createImageBitmap(blob);
+ if(bitmap.width!==1080||bitmap.height!==CARD_FORMATS[format].height)failures.push('Wrong PNG dimensions');
+ bitmap.close();
+ if(card.id==='ELECTRIC_COMEBACK'&&locale==='es'){const img=new Image();img.src=URL.createObjectURL(blob);img.alt=`${format} actual exported PNG`;document.querySelector('#cards').append(img);}
+ count++;report.textContent=`${count}/120 bilingual card exports checked.\n${failures.join('\n')||'No XML, dimension or text-margin errors.'}`;
+}
+report.textContent+='\nCOMPLETE';
+}catch(error){report.textContent+=`\nFAIL: ${error.stack}`;}
+</script></html>

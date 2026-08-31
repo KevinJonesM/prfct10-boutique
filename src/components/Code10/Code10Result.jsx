@@ -3,16 +3,18 @@ import { useI18n } from "../../i18n/I18nProvider";
 import { getGameResult, questionText } from "./engine.js";
 import Code10VintageScoreboard from "./Code10VintageScoreboard";
 import Code10Share from "./Code10Share";
+import { configLabels } from "./presentation.js";
 export default function Code10Result({ game, config, onReplay, onConfigure, dev }) {
   const { t, locale } = useI18n();
   const [review, setReview] = useState("missed");
+  const labels = configLabels(config,t);
   const result = useMemo(()=>getGameResult(game),[game]);
   const rows = game.questions.filter((q,i)=>review==="all" || !game.answers[i].correct);
   return <section className={"c10-result "+(result.rawScore===10 ? "c10-result--perfect":"")}>
     <div className="c10-result__hero"><p className="c10-kicker">{t("code10.result")}</p>
       <Code10VintageScoreboard score={result.vintageDisplayScore} rawScore={result.rawScore} animate />
       <div className="c10-result__identity"><strong>{result.formattedScore}</strong><h1 data-c10-focus tabIndex="-1">{t("code10.labels."+result.labelKey)}</h1><p>{t("code10.correctCount",{count:result.rawScore})} · {t("code10.accuracy",{count:result.accuracy})}</p>
-      <p>{config.program} {config.division} / {t("code10.categories."+config.category)}</p>
+      <p>{labels.program} {labels.division} / {labels.categoryLabel}</p>
       <b>{t(result.rawScore===10 ? "code10.perfectLine":result.incorrectAnswers===1 ? "code10.resultLineOne":"code10.resultLine",{count:result.incorrectAnswers})}</b></div>
     </div>
     <section className="c10-review" aria-label={t("code10.review")}><div className="c10-actions">

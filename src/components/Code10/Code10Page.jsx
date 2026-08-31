@@ -7,6 +7,7 @@ import Code10Builder from "./Code10Builder";
 import Code10Question from "./Code10Question";
 import Code10Result from "./Code10Result";
 import "./Code10.css";
+import { configLabels, hasSpanishQuestion } from "./presentation.js";
 
 const RECENT_KEY = "prfct10-code10:last-question-ids";
 function readRecent() {
@@ -24,6 +25,7 @@ export default function Code10Page({ onBackToPlay }) {
   const mounted = useRef(true);
   const starting = useRef(false);
   const root = useRef(null);
+  const labels = configLabels(config,t);
   useEffect(()=>{ mounted.current=true; return ()=>{mounted.current=false;}; },[]);
   useEffect(()=>{
     const target = root.current?.querySelector("[data-c10-focus]");
@@ -59,11 +61,11 @@ export default function Code10Page({ onBackToPlay }) {
       <p className="c10-lede">{t("code10.intro")}</p>
       <div className="c10-actions"><button className="c10-button" onClick={()=>setScreen("builder")}>{t("code10.start")} ↗</button><button className="c10-link" onClick={()=>setScreen("builder")}>{t("code10.build")}</button></div>
       <p className="c10-kicker c10-hero__note">{t("code10.heroNote")}</p></div>
-      <div className="c10-hero__graphic"><div className="c10-registration" aria-hidden="true"><span>ENTRY / 001</span><b>10</b><span>CODE 10 · PRFCT10 PLAY</span></div><Code10VintageScoreboard score={10000} size="compact" /><span className="c10-edition">XCEL / 01—10</span></div>
+      <div className="c10-hero__graphic"><div className="c10-registration" aria-hidden="true"><span>{t("code10.entry")} / 001</span><b>10</b><span>CODE 10 · PRFCT10 PLAY</span></div><Code10VintageScoreboard score={10000} size="compact" /><span className="c10-edition">Xcel / 01—10</span></div>
     </header>}
     {screen==="builder" && <><Code10Builder config={config} onChange={setConfig} onStart={start} busy={busy} dev={dev}/><button className="c10-link" onClick={()=>setScreen("hero")}>← {t("code10.back")}</button></>}
-    {screen==="empty" && <section className="c10-empty"><span className="c10-empty__number" aria-hidden="true">10</span><p className="c10-kicker">CODE 10 / {config.program} {config.division}</p><h1 tabIndex="-1" data-c10-focus>{t("code10."+problem)}</h1><p>{t("code10.emptyText")}</p><button className="c10-button" onClick={()=>setScreen("builder")}>{t("code10.retry")} ↗</button></section>}
-    {screen==="game" && game && <><p className="c10-kicker c10-game-label">{config.program} {config.division} · {t("code10.categories."+config.category)}</p>{locale==="es" && <p className="c10-note">{t("code10.english")}</p>}<Code10Question game={game} dispatch={dispatch}/></>}
+    {screen==="empty" && <section className="c10-empty"><span className="c10-empty__number" aria-hidden="true">10</span><p className="c10-kicker">CODE 10 / {labels.program} {labels.division}</p><h1 tabIndex="-1" data-c10-focus>{t("code10."+problem)}</h1><p>{t("code10.emptyText")}</p><button className="c10-button" onClick={()=>setScreen("builder")}>{t("code10.retry")} ↗</button></section>}
+    {screen==="game" && game && <><p className="c10-kicker c10-game-label">{labels.program} {labels.division} · {labels.categoryLabel}</p>{locale==="es" && !hasSpanishQuestion(game.questions[game.index]) && <p className="c10-note">{t("code10.english")}</p>}<Code10Question game={game} dispatch={dispatch}/></>}
     {screen==="result" && game && <Code10Result game={game} config={config} onReplay={start} onConfigure={()=>setScreen("builder")} dev={dev}/>}
     <footer className="c10-footer"><span>PRFCT10 PLAY / CODE 10</span><span>{t("code10.heroNote")}</span><b>10.000</b></footer>
   </main>;

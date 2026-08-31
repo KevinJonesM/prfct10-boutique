@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Tarot export QA</title>
+<style>body{font:15px system-ui;background:#eee}#cards{display:flex;gap:20px;align-items:start}#cards img{width:300px}#measure{position:absolute;left:-10000px}</style>
+<h1>Tarot · real PNG export pipeline</h1><pre id="report">Running…</pre><div id="cards"></div><div id="measure"></div>
+<script type="module">
+import {translations} from '/src/i18n/translations.js';
+import {createTarotReading} from '/src/components/PlayBowracle/tarot/readingEngine.js';
+import {archetypes,quests,gymLaws,BOWRACLE_HOUSES} from '/src/components/PlayBowracle/tarot/content.js';
+import {createTarotSvg} from '/src/components/PlayBowracle/tarot/cardSvg.js';
+import {CARD_FORMATS} from '/src/components/PlayBowracle/bowracleCardSvg.js';
+import {svgToPng} from '/src/components/Play/svgExport.js';
+const report=document.querySelector('#report'),measure=document.querySelector('#measure'),failures=[];let count=0;
+window.addEventListener('error',e=>{report.textContent+='\nERROR '+e.message;});
+try{
+for(const locale of ['en','es'])for(const archetype of archetypes)for(const format of ['story','feed'])for(const kind of ['reading','house']){
+ const t=key=>key.split('.').reduce((o,k)=>o?.[k],translations[locale])??key;
+ const result=createTarotReading({majorArcanaIds:['the-stick','the-flight'],minorArcanaIds:['vault-ace-the-run','bars-ace-the-swing','floor-ace-music']});
+ result.archetypeId=archetype.id;result.house=BOWRACLE_HOUSES[count%7].id;
+ const svg=createTarotSvg(result,t,format,{kind,firstName:'Alexandra',prefix:'qa-'+count});
+ const parsed=new DOMParser().parseFromString(svg,'image/svg+xml');
+ if(parsed.querySelector('parsererror'))throw Error(parsed.querySelector('parsererror').textContent);
+ measure.innerHTML=svg;
+ for(const node of measure.querySelectorAll('text')){const b=node.getBBox();if(b.x<60||b.x+b.width>1020||b.y<60||b.y+b.height>CARD_FORMATS[format].height-40)failures.push(`${locale}/${archetype.id}/${format}/${kind}: margin ${node.textContent}`);}
+ const blob=await svgToPng(svg,CARD_FORMATS[format]),bitmap=await createImageBitmap(blob);
+ if(bitmap.width!==1080||bitmap.height!==CARD_FORMATS[format].height)failures.push('Wrong PNG dimensions');bitmap.close();
+ if(archetype===archetypes[0]&&locale==='es'){const img=new Image();img.src=URL.createObjectURL(blob);img.alt=format+' '+kind;document.querySelector('#cards').append(img);}
+ count++;report.textContent=count+'/240 exports checked.\n'+(failures.join('\n')||'No XML, dimension or margin errors.');
+}
+report.textContent+='\nCOMPLETE';
+}catch(error){report.textContent+='\nFAIL '+error.stack;}
+</script></html>

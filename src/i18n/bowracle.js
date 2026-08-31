@@ -1,0 +1,101 @@
+import { archetypeCopy } from '../components/PlayBowracle/bowracleArchetypes.js';
+import { colorMeaningCopy } from '../components/PlayBowracle/bowracleColorMeanings.js';
+import {bowracleContent,bowracleV2En,bowracleV2Es} from './bowracleV2.js';
+import {tarotTranslations} from './bowracleTarot.js';
+
+export const bowracleEn = {
+  tarot:tarotTranslations('en'),
+  shuffle:'Shuffle the cards',
+  name:'THE BOW-RACLE', tagline:'Pick a card. Follow the color. Reveal your bow.',
+  supporting:'Your colors have something to say.', tile:'Pick a card. Find your bow.',
+  description:'A little intuition, a color story and a bow that feels like you today. Your own collectible reading awaits.',
+  backPlay:'Back to PLAY', back:'Previous page', next:'Follow the feeling', ask:'Ask the Bow-racle', surprise:'Surprise me',
+  intro:'No right answers. Pick what feels right. The Bow-racle will take it from there.',
+  disclaimer:'Just for fun. Not a prediction. Keep whatever part of the message feels like yours.',
+  diary:'a little color. a little intuition. all you.', edition:'THE COLOR DIARIES / VOL. 01', deckLabel:'Your twelve-card deck',
+  checkTitle:'How are you showing up today?', checkHint:'You don’t have to feel the same as yesterday.',
+  cardTitle:'Let one catch your eye.', cardHint:'Twelve cards. Twelve kinds of strength. Pick the one you keep coming back to.',
+  colorTitle:'Which color is calling you?', colorHint:'Pick the color you can’t stop looking at.',
+  secondTitle:'Every energy has another side.', secondHint:'Pick the color that balances it. Two different colors, one story.',
+  sparkTitle:'A little light, your way.', finishTitle:'How should it catch the light?', centerTitle:'What sits at the center?', sizeTitle:'How big is your energy today?',
+  finalTitle:'One last thing…', finalHint:'What do you need a little more of today? This part is optional.', skip:'Let the card decide',
+  reviewTitle:'Does this feel like you?', reviewHint:'The Bow-racle can suggest. You get the last word.',
+  keep:'Keep the reading', refine:'Make it more me', refineTitle:'Make it more you.', refineHint:'A different color? A little less sparkle? Changing your mind is part of the fun.',
+  firstColor:'Your first color', secondColor:'Your second color', saveChanges:'Keep these choices', cancel:'Keep my earlier choices',
+  chosen:'Chosen', choose:'Pick something that feels right to turn the page.', sameColor:'Your second color needs to be different from your first.',
+  revealTitle:'Your bow found you.', revealHint:'This one feels like you.', reading:'Your reading', colorStory:'Your color story', tinyNote:'tiny note:', affirmation:'Your affirmation',
+  cardLabel:'Your Bow-racle collectible card', cardNumber:'CARD', realCode:'YOUR BOW CODE',
+  realTitle:'And yes — this bow can actually exist.', realText:'Take your exact colors and details into the real Bow Lab. Confirm or tweak them there, then use the existing order flow.',
+  makeReal:'Make this bow real', tweak:'Tweak it first', again:'Ask again',
+  download:'Download my card', share:'Share my card', story:'Story · 9:16', feed:'Feed · 4:5',
+  preparing:'Preparing your card…', downloaded:'Your PNG is ready to keep.', shared:'Your card was shared.',
+  exportError:'Your card couldn’t be prepared. Try again — your reading is still here.', retry:'Try export again',
+  resume:'Open my saved reading', saved:'A reading is waiting on this device.', clear:'Clear saved reading',
+  storageError:'Your browser couldn’t save this reading. Download your card to keep it.',
+  orderContext:'Source: THE BOW-RACLE · Card: {card}',
+  finishNotes:{classicTulle:'soft + effortless',shimmer:'a little light',glitter:'let it sparkle'},
+  centerNotes:{blackBand:'clean + grounded',silver:'clear light',goldStones:'main-event energy',blackStones:'quiet power',neon:'electric'},
+  checkIn:{
+    boost:{label:'I need a boost',energy:'Momentum',reading:'Today you’re choosing a little momentum. You can start small.'},
+    shine:{label:'I’m ready to shine',energy:'Presence',reading:'Today you’re making room to be seen. Enjoy your own moment.'},
+    focus:{label:'I need to lock in',energy:'Attention',reading:'Today you’re choosing where your attention goes. The noise can wait.'},
+    calm:{label:'I want to feel calm',energy:'Calm',reading:'Today you’re choosing a gentler rhythm. Calm still counts as power.'},
+    brave:{label:'I’m feeling brave',energy:'Courage',reading:'Today you’re leaving room for a brave first step. It doesn’t have to be a big one.'},
+    reset:{label:'I need a reset',energy:'Renewal',reading:'Today you’re choosing a fresh page. The last routine doesn’t have to write the next one.'}
+  },
+  needs:{
+    trust:{label:'Trust',affirmation:'I trust what I practiced.'},courage:{label:'Courage',affirmation:'I can be brave without feeling fearless.'},
+    focus:{label:'Focus',affirmation:'My attention belongs to my next moment.'},calm:{label:'Calm',affirmation:'I don’t have to rush to be ready.'},
+    joy:{label:'Joy',affirmation:'I can make room for the part I love.'},patience:{label:'Patience',affirmation:'I can give my progress a little time.'},
+    presence:{label:'Presence',affirmation:'I belong in the moment I worked for.'},freshStart:{label:'A fresh start',affirmation:'I can turn the page without erasing my progress.'}
+  },
+  archetypes:archetypeCopy('en'), colors:colorMeaningCopy('en'), ...bowracleContent('en'), ...bowracleV2En
+};
+export const bowracleEs = {
+  tarot:tarotTranslations('es'),
+  shuffle:'Mezclar las cartas',
+  name:'THE BOW-RACLE', tagline:'Elige una carta. Sigue el color. Revela tu lazo.',
+  supporting:'Tus colores tienen algo que decir.', tile:'Elige una carta. Encuentra tu lazo.',
+  description:'Un poquito de intuición, una historia de color y un lazo que se sienta como tú hoy. Tu lectura coleccionable te espera.',
+  backPlay:'Volver a PLAY', back:'Página anterior', next:'Sigue esa sensación', ask:'Pregúntale al Bow-racle', surprise:'Sorpréndeme',
+  intro:'No hay respuestas correctas. Elige lo que te guste. El Bow-racle se encarga del resto.',
+  disclaimer:'Solo por diversión. No es una predicción. Quédate con la parte del mensaje que sientas tuya.',
+  diary:'un poquito de color. un poquito de intuición. muy tú.', edition:'DIARIOS DE COLOR / VOL. 01', deckLabel:'Tu mazo de doce cartas',
+  checkTitle:'¿Cómo llegas hoy?', checkHint:'No tienes que sentirte igual que ayer.',
+  cardTitle:'Deja que una te llame.', cardHint:'Doce cartas. Doce formas de fuerza. Elige esa que vuelves a mirar.',
+  colorTitle:'¿Qué color te está llamando?', colorHint:'Elige ese color que no puedes dejar de mirar.',
+  secondTitle:'Toda energía tiene otra cara.', secondHint:'Elige el color que la equilibra. Dos colores distintos, una historia.',
+  sparkTitle:'Un poquito de luz, a tu manera.', finishTitle:'¿Cómo quieres que atrape la luz?', centerTitle:'¿Qué va en el centro?', sizeTitle:'¿De qué tamaño se siente tu energía hoy?',
+  finalTitle:'Una última cosita…', finalHint:'¿Qué necesitas un poquito más hoy? Esta parte es opcional.', skip:'Que la carta elija',
+  reviewTitle:'¿Se siente como tú?', reviewHint:'El Bow-racle sugiere. Tú tienes la última palabra.',
+  keep:'Me quedo con esta lectura', refine:'Hacerlo más mío', refineTitle:'Hazlo más tú.', refineHint:'¿Otro color? ¿Un poquito menos de brillo? Cambiar de opinión es parte del juego.',
+  firstColor:'Tu primer color', secondColor:'Tu segundo color', saveChanges:'Me quedo con estos detalles', cancel:'Conservar mis elecciones anteriores',
+  chosen:'Elegida', choose:'Elige lo que te guste para pasar la página.', sameColor:'Tu segundo color debe ser distinto al primero.',
+  revealTitle:'Tu lazo te encontró.', revealHint:'Este se siente como tú.', reading:'Tu lectura', colorStory:'Tu historia de color', tinyNote:'una notita:', affirmation:'Tu afirmación',
+  cardLabel:'Tu carta coleccionable del Bow-racle', cardNumber:'CARTA', realCode:'EL CÓDIGO DE TU LAZO',
+  realTitle:'Y sí — este lazo puede existir de verdad.', realText:'Lleva tus colores y detalles exactos al Bow Lab de la tienda. Confírmalos o ajústalos allí y sigue el proceso de pedido habitual.',
+  makeReal:'Hacer real este lazo', tweak:'Ajustarlo primero', again:'Preguntar de nuevo',
+  download:'Descargar mi carta', share:'Compartir mi carta', story:'Story · 9:16', feed:'Feed · 4:5',
+  preparing:'Preparando tu carta…', downloaded:'Tu PNG ya está listo para guardar.', shared:'Tu carta se compartió.',
+  exportError:'No pudimos preparar tu carta. Inténtalo otra vez; tu lectura sigue aquí.', retry:'Preparar la imagen otra vez',
+  resume:'Abrir mi lectura guardada', saved:'Hay una lectura esperando en este dispositivo.', clear:'Borrar la lectura guardada',
+  storageError:'Tu navegador no pudo guardar la lectura. Descarga tu carta para conservarla.',
+  orderContext:'Origen: THE BOW-RACLE · Carta: {card}',
+  finishNotes:{classicTulle:'suave + sin esfuerzo',shimmer:'un poquito de luz',glitter:'que brille'},
+  centerNotes:{blackBand:'simple + firme',silver:'luz clara',goldStones:'energía de gran momento',blackStones:'fuerza serena',neon:'eléctrico'},
+  checkIn:{
+    boost:{label:'Necesito un impulso',energy:'Impulso',reading:'Hoy eliges un poquito de impulso. Puedes empezar de a poco.'},
+    shine:{label:'Estoy lista para brillar',energy:'Presencia',reading:'Hoy te das espacio para dejarte ver. Disfruta tu momento.'},
+    focus:{label:'Necesito concentrarme',energy:'Atención',reading:'Hoy eliges dónde poner tu atención. El ruido puede esperar.'},
+    calm:{label:'Quiero sentir calma',energy:'Calma',reading:'Hoy eliges un ritmo más suave. La calma también cuenta como fuerza.'},
+    brave:{label:'Me siento valiente',energy:'Valentía',reading:'Hoy dejas espacio para un primer paso valiente. No tiene que ser enorme.'},
+    reset:{label:'Necesito reiniciar',energy:'Renovación',reading:'Hoy eliges una página nueva. La última rutina no tiene que escribir la siguiente.'}
+  },
+  needs:{
+    trust:{label:'Confianza',affirmation:'Confío en lo que practiqué.'},courage:{label:'Valentía',affirmation:'Puedo ser valiente sin dejar de sentir miedo.'},
+    focus:{label:'Enfoque',affirmation:'Mi atención está en mi próximo momento.'},calm:{label:'Calma',affirmation:'No tengo que correr para estar lista.'},
+    joy:{label:'Alegría',affirmation:'Puedo darle espacio a lo que disfruto.'},patience:{label:'Paciencia',affirmation:'Puedo darle tiempo a mi progreso.'},
+    presence:{label:'Presencia',affirmation:'Pertenezco al momento por el que trabajé.'},freshStart:{label:'Un nuevo comienzo',affirmation:'Puedo pasar la página sin borrar mi progreso.'}
+  },
+  archetypes:archetypeCopy('es'), colors:colorMeaningCopy('es'), ...bowracleContent('es'), ...bowracleV2Es
+};

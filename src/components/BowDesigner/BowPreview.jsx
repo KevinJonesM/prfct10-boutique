@@ -65,7 +65,7 @@ function prefixSvgIds(svg, prefix) {
   return svg;
 }
 
-function prepareSvg({ prefix, topColor, bottomColor, finish, centerStyle }) {
+export function prepareSvg({ prefix, topColor, bottomColor, finish, centerStyle }) {
   const texture = {
     classicTulle: { mesh: 0.54, glitter: 0.03, sparkle: 0.16 },
     shimmer: { mesh: 0.46, glitter: 0.3, sparkle: 0.5 },

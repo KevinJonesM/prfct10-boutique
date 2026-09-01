@@ -13,7 +13,7 @@ window.addEventListener('error',e=>{report.textContent+='\nERROR '+e.message;});
 try{
 for(const locale of ['en','es'])for(const archetype of archetypes)for(const format of ['story','feed'])for(const kind of ['reading','house']){
  const t=key=>key.split('.').reduce((o,k)=>o?.[k],translations[locale])??key;
- const result=createTarotReading({majorArcanaIds:['the-stick','the-flight'],minorArcanaIds:['vault-ace-the-run','bars-ace-the-swing','floor-ace-music']});
+ const result=createTarotReading({majorArcanaIds:['the-stick','the-flight'],minorArcanaIds:['daily-empty-bottle','daily-forgot-grips','daily-rip']});
  result.archetypeId=archetype.id;result.house=BOWRACLE_HOUSES[count%7].id;
  const svg=createTarotSvg(result,t,format,{kind,firstName:'Alexandra',prefix:'qa-'+count});
  const parsed=new DOMParser().parseFromString(svg,'image/svg+xml');

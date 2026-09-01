@@ -7,21 +7,21 @@ import {createBowCode,INITIAL_BOW_DESIGN} from '../src/components/BowDesigner/bo
 import {validateBowDesign} from '../src/components/BowDesigner/validateBowDesign.js';
 import {tarotCopy} from '../src/components/PlayBowracle/tarot/readingCopy.js';
 import {bowracleEn,bowracleEs} from '../src/i18n/bowracle.js';
-const base={majorArcanaIds:['the-stick','the-flight'],minorArcanaIds:['vault-ace-the-run','bars-ace-the-swing','floor-ace-music']};
-test('table contains 22 Major + 56 Minor, four suits of 14 and seven unranked Houses',()=>{
- assert.equal(MAJOR_ARCANA.length,22);assert.equal(MINOR_ARCANA.length,56);assert.equal(BOWRACLE_HOUSES.length,7);
- assert.equal(new Set([...MAJOR_ARCANA,...MINOR_ARCANA].map(c=>c.id)).size,78);
- for(const suit of ['VAULT','BARS','BEAM','FLOOR']){const cards=MINOR_ARCANA.filter(c=>c.suit===suit);assert.equal(cards.length,14);assert.equal(new Set(cards.map(c=>c.rank)).size,14);}
+const base={majorArcanaIds:['the-stick','the-flight'],minorArcanaIds:['daily-empty-bottle','daily-forgot-grips','daily-rip']};
+test('table contains 22 Major + 30 Daily Chaos cards, five families of six and seven unranked Houses',()=>{
+ assert.equal(MAJOR_ARCANA.length,22);assert.equal(MINOR_ARCANA.length,30);assert.equal(BOWRACLE_HOUSES.length,7);
+ assert.equal(new Set([...MAJOR_ARCANA,...MINOR_ARCANA].map(c=>c.id)).size,52);
+ for(const family of ['SURVIVAL_BAG','COACH_ENERGY','BODY_SUFFERING','SKILL_ERA','GYM_CHAOS']){const cards=MINOR_ARCANA.filter(c=>c.family===family);assert.equal(cards.length,6);assert.ok(cards.every(c=>c.accent&&c.hook?.en&&c.visualConcept?.en));}
  assert.equal(PROPHECIES.length,5);assert.equal(COACH_FORECASTS.length,6);assert.ok(quests.length>=50);assert.ok(gymLaws.length>=50);
 });
 test('selection refuses over-limit, under-limit, duplicate, cross-deck and missing cards',()=>{
  for(const [deck,max] of [[MAJOR_ARCANA,2],[MINOR_ARCANA,3]]){let ids=[];for(let i=0;i<max;i++)ids=toggleCard(ids,deck[i].id,max);assert.deepEqual(toggleCard(ids,deck[max].id,max),ids);assert.equal(toggleCard(ids,ids[0],max).length,max-1);assert.ok(validSelection(ids,deck,max));assert.ok(!validSelection(ids.slice(1),deck,max));}
  for(const majorArcanaIds of [[],['the-stick'],['the-stick','the-stick'],['bad','the-stick'],['the-stick','the-flight','the-fall']])assert.equal(createTarotReading({...base,majorArcanaIds}),null);
- for(const minorArcanaIds of [[],base.minorArcanaIds.slice(0,2),[...base.minorArcanaIds,'beam-ace-mount'],['the-stick',...base.minorArcanaIds.slice(1)]])assert.equal(createTarotReading({...base,minorArcanaIds}),null);
+ for(const minorArcanaIds of [[],base.minorArcanaIds.slice(0,2),[...base.minorArcanaIds,MINOR_ARCANA[3].id],['the-stick',...base.minorArcanaIds.slice(1)]])assert.equal(createTarotReading({...base,minorArcanaIds}),null);
  assert.equal(createTarotReading(null),null);
 });
 test('card order and optional names never change reading, House or assigned bow',()=>{
- const result=createTarotReading(base);assert.ok(result);assert.equal(result.house,'NOVA');
+ const result=createTarotReading(base);assert.ok(result);assert.equal(result.house,'AXIS');
  for(const firstName of [undefined,'','Sofia','Valentina','<svg>'])assert.deepEqual(createTarotReading({...base,firstName,majorArcanaIds:[...base.majorArcanaIds].reverse(),minorArcanaIds:[...base.minorArcanaIds].reverse()}),result);
  assert.equal(cleanFirstName('<Sofia>\n'),'Sofia');assert.equal(cleanFirstName('x'.repeat(99)).length,30);
  assert.equal(result.bowCode,createBowCode(result.design));assert.deepEqual(validateBowDesign(tarotHandoff(result)),result.design);

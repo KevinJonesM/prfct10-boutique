@@ -1,131 +1,56 @@
-/* PLAY corkboard cards only: the game screens and hero keep their styling. */
-.play-world__objects {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  grid-template-rows: 270px 180px 195px;
-  grid-auto-rows: auto;
-  align-items: stretch;
-  gap: 25px 24px;
-  padding: 22px 8px 26px;
-}
-.play-world__objects .play-object {
-  grid-column: auto;
-  grid-row: auto;
-  min-width: 0;
-  min-height: 0;
-  margin: 0;
-  padding: 42px 26px 54px;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  text-align: center;
-  border-width: 1.5px;
-  box-shadow: 5px 7px 0 #19151fe6;
-  overflow: hidden;
-}
-.play-world__objects .play-object strong {
-  font-family: Impact, "Arial Narrow", sans-serif;
-  font-weight: 900;
-  font-size: clamp(25px, 3.1vw, 44px);
-  letter-spacing: .015em;
-  line-height: 1.04;
-  max-width: 100%;
-  text-wrap: balance;
-}
-.play-world__objects .play-object__number {
-  position: absolute;
-  top: 18px;
-  left: 20px;
-  font: 700 11px/1 monospace;
-  letter-spacing: .12em;
-}
-.play-world__objects .play-object__status {
-  position: absolute;
-  bottom: 23px;
-  left: 20px;
-  right: 62px;
-  text-align: left;
-  font-size: 9px;
-  line-height: 1.4;
-  letter-spacing: .09em;
-}
-.play-world__objects .play-object--power { padding-top: 35px; justify-content: flex-start; }
-.play-world__objects .play-object--power strong { font-size: clamp(29px, 3.4vw, 46px); max-width: 210px; text-shadow: 2px 3px 0 #b0006b; }
-.play-world__objects .play-object--power .play-object__silhouette {
-  height: 133px;
-  width: 140px;
-  right: calc(50% - 70px);
-  top: auto;
-  bottom: 46px;
-  opacity: 1;
-  transform: rotate(3deg);
-}
-.play-world__objects .play-object--code10 { gap: 18px; padding: 48px 24px 58px; }
-.play-world__objects .play-object--code10 strong { font-size: clamp(44px, 5.7vw, 78px); letter-spacing: -.01em; color: #201b31; text-shadow: 3px 3px 0 #fffaf4; white-space: nowrap; }
-.play-world__objects .play-object__caption { max-width: 240px; padding: 0; border: 0; font-size: 10px; line-height: 1.5; text-wrap: balance; }
-.play-world__objects .core-lab-art { position: relative; display: block; width: min(100%,260px); height: 155px; flex-shrink: 0; }
-.core-lab-art svg { display: block; width: 100%; height: 100%; overflow: visible; }
-.core-lab-art__gymnast { position: absolute; right: 0; bottom: 3px; width: 115px; height: 135px; background: #ec008c; mask: var(--gymnast-mask) center/contain no-repeat; -webkit-mask: var(--gymnast-mask) center/contain no-repeat; transform: rotate(12deg); }
-.play-world__objects .play-object--bow { padding-top: 38px; justify-content: flex-start; background-color: #fff5ea; }
-.play-world__objects .play-object--bow strong { font-family: Georgia, serif; font-style: italic; font-size: clamp(30px,3.6vw,49px); letter-spacing: -.05em; text-transform: none; }
-.play-world__objects .play-object--bow .play-object__sticker { width: 65%; height: 125px; top: auto; bottom: 45px; right: 17.5%; transform: rotate(-8deg); filter: drop-shadow(5px 6px 0 #80d8ed); }
-.play-world__objects .play-object--gymnast strong { font-size: clamp(25px,2.7vw,38px); }
-.play-world__objects .play-object--glossary strong { font-family: Georgia,serif; font-size: clamp(25px,2.8vw,39px); font-style: italic; letter-spacing: -.04em; }
-.play-world__objects .play-object--challenge strong { font-size: clamp(25px,2.7vw,36px); }
-.play-world__objects .play-object--didYouKnow strong { font-family: Georgia,serif; font-size: clamp(25px,2.7vw,36px); font-style: italic; letter-spacing: -.04em; }
-.play-world__objects .play-object--tabata strong { font-size: clamp(34px,4vw,57px); letter-spacing: .07em; }
-.play-world__objects .play-object--bling strong { font-size: clamp(32px,3.5vw,49px); text-shadow: 2px 2px 0 #382161; }
-/* A pin, not a second button: its head, collar and needle stay decorative. */
-.play-world__objects .play-object__pin { position: absolute; right: 16px; bottom: 13px; width: 30px; height: 35px; transform: rotate(-24deg); pointer-events: none; filter: drop-shadow(3px 4px 1px #0005); }
-.play-object__pin::before { content: ""; position: absolute; width: 3px; height: 15px; bottom: 0; left: 14px; background: linear-gradient(90deg,#96969c,#dedee3,#57575e); clip-path: polygon(0 0,100% 0,60% 100%,40% 100%); }
-.play-object__pin i { position: absolute; top: 8px; left: 9px; width: 13px; height: 17px; border-radius: 4px 4px 6px 6px; background: linear-gradient(90deg,#111,#49484c 40%,#131316 75%); }
-.play-object__pin b { position: absolute; top: 1px; left: 3px; width: 25px; height: 14px; border-radius: 50%; background: radial-gradient(ellipse at 35% 25%,#67666c 0,#29292e 32%,#08080b 75%); border: 1px solid #08080b; box-shadow: 0 3px 0 #09090b; }
-.play-world__objects .play-object:focus-visible { outline: 3px solid #15111f; outline-offset: 5px; }
-/* Uneven pinned notes: Core Lab anchors two rows; smaller notes collect around it. */
-.play-world__objects .play-object--power { grid-column: 1 / 5; grid-row: 1; --card-tilt: -3deg; }
-.play-world__objects .play-object--code10 { grid-column: 5 / 9; grid-row: 1 / 3; --card-tilt: 2.2deg; }
-.play-world__objects .play-object--bow { grid-column: 9 / 13; grid-row: 1; --card-tilt: -3.4deg; }
-.play-world__objects .play-object--gymnast { grid-column: 1 / 5; grid-row: 2; --card-tilt: 2deg; }
-.play-world__objects .play-object--glossary { grid-column: 9 / 13; grid-row: 2; --card-tilt: 3deg; }
-.play-world__objects .play-object--challenge { grid-column: 1 / 5; grid-row: 3; --card-tilt: -2deg; }
-.play-world__objects .play-object--didYouKnow { grid-column: 5 / 8; grid-row: 3; --card-tilt: 3deg; }
-.play-world__objects .play-object--tabata { grid-column: 8 / 10; grid-row: 3; --card-tilt: -4deg; }
-.play-world__objects .play-object--bling { grid-column: 10 / 13; grid-row: 3; --card-tilt: 2deg; }
-.play-world__objects .play-object { transform: rotate(var(--card-tilt)); }
-.play-world__objects .play-object.is-active { transform: rotate(var(--card-tilt)) !important; }
-.play-world__objects .play-object:hover { transform: translateY(-4px) rotate(var(--card-tilt)) !important; }
-.play-world__objects .play-object--power strong { font-size: clamp(30px,3vw,40px); }
-.play-world__objects .play-object--power .play-object__silhouette { height: 105px; bottom: 42px; }
-.play-world__objects .play-object--code10 strong { font-size: clamp(42px,5vw,68px); }
-.play-world__objects .play-object--tabata { padding-left: 12px; padding-right: 12px; }
-.play-world__objects .play-object--tabata strong { font-size: clamp(25px,2.8vw,40px); letter-spacing: .02em; }
-@media(max-width: 1000px) and (min-width: 621px) {
-  .play-world__objects { gap: 30px 24px; grid-template-columns: repeat(2,minmax(0,1fr)); grid-template-rows: auto; align-items: center; }
-  .play-world__objects .play-object { grid-column: auto; grid-row: auto; min-height: 190px; padding-left: 20px; padding-right: 20px; }
-  .play-world__objects .play-object--power, .play-world__objects .play-object--bow { min-height: 280px; }
-  .play-world__objects .play-object--code10 { min-height: 395px; gap: 8px; }
-  .play-world__objects .play-object--bling { grid-column: 1 / 3; width: 62%; justify-self: center; }
-  .play-world__objects .play-object--code10 strong { font-size: clamp(34px,5vw,54px); }
-  .play-world__objects .play-object--bow strong { font-size: 31px; }
-}
-@media(max-width: 620px) {
-  .play-world__objects { grid-template-columns: minmax(0,1fr); grid-template-rows: auto; gap: 28px; padding: 12px 9px; }
-  .play-world__objects .play-object { grid-column: auto; grid-row: auto; min-height: 178px; margin-right: 12px; --card-tilt: -2deg; }
-  .play-world__objects .play-object:nth-child(even) { margin-left: 14px; margin-right: 0; --card-tilt: 2.5deg; }
-  .play-world__objects .play-object strong { font-size: 34px; }
-  .play-world__objects .play-object--power, .play-world__objects .play-object--bow { min-height: 300px; }
-  .play-world__objects .play-object--power strong { font-size: 39px; }
-  .play-world__objects .play-object--code10 { min-height: 360px; }
-  .play-world__objects .play-object--code10 strong { font-size: clamp(43px,14vw,66px); }
-  .play-world__objects .play-object--bow strong { font-size: 42px; }
-}
-@media(prefers-reduced-motion: reduce) {
-  .play-world__objects .play-object:hover { transform: rotate(var(--card-tilt)) !important; }
-}
-.play-world__objects .play-object--bow strong { font-size:clamp(25px,2.8vw,39px); max-width:250px; }
-.play-world__objects .play-object__oracle-deck { position:absolute; width:144px; height:130px; bottom:45px; left:calc(50% - 72px); pointer-events:none; }
-.play-object__oracle-deck .br-card-back { position:absolute; inset:0 auto auto 0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; border:4px solid #fff9ef; outline:1px solid #29213b; background:#d8c2f0; border-radius:9px; width:84px; height:123px; transform:rotate(-15deg); color:#29213b; box-shadow:2px 4px 0 #29213b44; }
-.play-object__oracle-deck .br-card-back:nth-child(2){left:54px;transform:rotate(13deg);background:#d2f3e8}
-.play-object__oracle-deck .br-card-back>span,.play-object__oracle-deck .br-card-back>i,.play-object__oracle-deck .br-card-back>small{display:none}
-.play-object__oracle-deck .br-card-back>b{font:700 9px/1.1 Georgia,serif;text-align:center;letter-spacing:0}
-.play-object__oracle-deck .br-symbol{height:48px;width:48px;display:block}
+.play-world__objects { display:grid!important;grid-template-columns:repeat(12,minmax(0,1fr))!important;grid-template-rows:310px 245px 245px!important;gap:18px!important;min-height:0!important;padding:0!important;position:relative;z-index:3; }
+.play-object { --card-bg:var(--play-wax);--card-fg:var(--play-ink);--card-accent:var(--play-luminous-blue);background:var(--card-bg);border:2px solid var(--play-ink);box-shadow:var(--shadow-offset-sm);color:var(--card-fg);isolation:isolate;min-width:0;overflow:hidden;position:relative;transition:transform var(--motion-medium) var(--ease-editorial),box-shadow var(--motion-medium) var(--ease-editorial); }
+.play-object::after { border:1px solid color-mix(in srgb,var(--card-fg) 50%,transparent);content:"";inset:8px;pointer-events:none;position:absolute;z-index:4; }
+.play-object:hover,.play-object:focus-within { box-shadow:var(--shadow-offset-md);transform:translateY(-7px);z-index:8; }.play-object:focus-within { outline:3px solid var(--play-luminous-blue);outline-offset:4px; }
+.play-object__main { background:transparent;border:0;color:inherit;cursor:pointer;display:flex;flex-direction:column;height:100%;inset:0;padding:22px;position:absolute;text-align:left;width:100%;z-index:2; }.play-object__main:disabled { color:inherit;cursor:default;opacity:1; }.play-object__main:focus{outline:0}
+.play-object__topline { align-items:center;display:flex;justify-content:space-between;position:relative;z-index:5; }.play-object__topline b,.play-object__topline small { font:900 9px/1 var(--heading);letter-spacing:.13em; }.play-object.is-featured .play-object__topline small { background:var(--play-ink);color:#fff;padding:6px 8px; }
+.play-object__main>strong { font:900 clamp(30px,4.2vw,66px)/.84 var(--heading);letter-spacing:-.06em;margin:24px 0 10px;max-width:76%;position:relative;text-wrap:balance;z-index:3;transition:font-stretch var(--motion-fast),transform var(--motion-fast); }
+.play-object__hook { border-left:4px solid var(--card-accent);font:900 9px/1.35 var(--heading);letter-spacing:.1em;max-width:58%;padding-left:9px;position:relative;z-index:3; }
+.play-object__status { bottom:18px;font:900 8px/1 var(--heading);left:22px;letter-spacing:.13em;position:absolute;z-index:5; }
+.play-object__enter { align-items:center;bottom:14px;display:flex;gap:7px;position:absolute;right:16px;z-index:7; }.play-object__enter small { font:900 8px/1 var(--heading);letter-spacing:.1em;opacity:0;transform:translateX(8px);transition:opacity var(--motion-fast),transform var(--motion-fast); }.play-object__enter b { background:var(--play-ink);border-radius:50%;color:#fff;display:grid;font:900 17px/1 var(--heading);height:36px;place-items:center;transition:transform var(--motion-fast);width:36px; }.play-object[data-available="true"]:hover .play-object__enter small,.play-object[data-available="true"]:focus-within .play-object__enter small{opacity:1;transform:none}.play-object[data-available="true"]:hover .play-object__enter b,.play-object[data-available="true"]:focus-within .play-object__enter b{transform:translate(2px,-2px)}
+.play-object__save { align-items:center;background:transparent;border:0;color:inherit;cursor:pointer;display:flex;font:900 8px/1 var(--heading);gap:5px;letter-spacing:.1em;position:absolute;right:18px;top:51px;z-index:8; }.play-object__save:first-letter{font-size:18px}.play-object__save span{opacity:0;transition:opacity var(--motion-fast)}.play-object__save:hover span,.play-object__save:focus-visible span{opacity:1}.play-object__save.is-saved{color:var(--card-accent)}
+.portal-art { pointer-events:none;position:absolute;z-index:1; }
+
+/* 01 — energy scanner */
+.play-object--power { --card-bg:var(--play-pop-pink);--card-fg:var(--play-ink);--card-accent:#b8ec48;grid-column:1/7;grid-row:1/3; }
+.play-object--power::before { background:radial-gradient(circle at 15% 85%,var(--play-luminous-blue) 0 2px,transparent 2.5px) 0 0/19px 19px,linear-gradient(90deg,transparent 49%,#12111825 50%,transparent 51%);content:"";inset:0;position:absolute; }
+.play-object--power .play-object__main>strong { color:#fff;font-size:clamp(56px,7vw,106px);max-width:68%;text-shadow:4px 4px 0 var(--play-ink); }
+.portal-art--power { inset:0; }.portal-figure { background:var(--card-accent);bottom:22px;filter:drop-shadow(8px 0 0 var(--play-luminous-blue));height:73%;mask:center/contain no-repeat var(--silhouette-image);position:absolute;right:4%;transform:rotate(4deg);width:46%; }.portal-scan { background:linear-gradient(90deg,transparent,var(--play-luminous-blue),#fff,var(--play-luminous-blue),transparent);box-shadow:0 0 16px #fff;height:3px;left:43%;opacity:0;position:absolute;right:2%;top:12%; }.portal-metrics { background:rgba(18,17,24,.88);color:#fff;display:grid;gap:5px;opacity:0;padding:10px;position:absolute;right:4%;top:52%;transform:translateX(8px); }.portal-metrics i { font:900 8px/1 monospace;font-style:normal;letter-spacing:.08em; }.play-object--power:hover .portal-scan,.play-object--power:focus-within .portal-scan { animation:powerScan 1s ease-out;opacity:1; }.play-object--power:hover .portal-metrics,.play-object--power:focus-within .portal-metrics { opacity:1;transform:none;transition:.3s .18s; }
+
+/* 02 — fashion science */
+.play-object--code10 { --card-bg:var(--play-maize);--card-accent:var(--play-luminous-blue);grid-column:7/10;grid-row:1; }
+.play-object--code10::before { background:linear-gradient(90deg,transparent 95%,#12111818 95%),linear-gradient(transparent 95%,#12111818 95%);background-size:25px 25px;content:"";inset:0;position:absolute; }.play-object--code10 .play-object__main>strong { max-width:60%; }.portal-art--core { inset:0; }.portal-art--core .core-lab-art { bottom:18px;height:165px;position:absolute;right:-18px;width:58%; }.portal-processing { background:var(--play-luminous-blue);bottom:52px;color:#fff;font:900 7px/1 var(--heading);letter-spacing:.1em;opacity:0;padding:6px;position:absolute;right:13px; }.portal-art--core>i { background:var(--play-luminous-blue);border-radius:50%;height:6px;opacity:.25;position:absolute;right:21px;top:24px;width:6px; }.portal-art--core>i:nth-of-type(2){right:34px}.portal-art--core>i:nth-of-type(3){right:47px}.play-object--code10:hover .portal-processing,.play-object--code10:focus-within .portal-processing{animation:coreProcess .8s steps(2);opacity:1}.play-object--code10:hover .portal-art--core>i,.play-object--code10:focus-within .portal-art--core>i{background:#fff;box-shadow:0 0 8px var(--play-luminous-blue);opacity:1}
+
+/* 03 — secret deck */
+.play-object--bow { --card-bg:var(--play-plum);--card-fg:#fff;--card-accent:#8fa8ff;grid-column:10/13;grid-row:1/3;background:radial-gradient(circle at 70% 24%,#3454f560,transparent 28%),linear-gradient(155deg,var(--play-plum),#452160 70%,#23132f); }
+.play-object--bow::before { background:radial-gradient(circle,#fff 0 1px,transparent 1.5px) 0 0/28px 31px;content:"";inset:0;opacity:.28;position:absolute; }.play-object--bow .play-object__main>strong { font-family:Georgia,serif;font-size:clamp(34px,3.8vw,59px);font-style:italic;max-width:100%;text-align:center;text-transform:none; }.play-object--bow .play-object__hook { border-color:var(--play-maize);max-width:85%; }.portal-art--bow { bottom:42px;left:0;right:0;height:250px; }.portal-stars { color:var(--play-maize);font-size:25px;left:15%;opacity:.5;position:absolute;top:-3px;width:70%; }.portal-art--bow .play-object__oracle-deck { height:205px;left:50%;position:absolute;top:24px;transform:translateX(-50%);width:190px; }.portal-art--bow .br-card-back { transition:transform var(--motion-medium) var(--ease-editorial); }.portal-art--bow small { bottom:0;color:var(--play-lilac);font:900 7px/1 var(--heading);left:0;letter-spacing:.12em;opacity:0;position:absolute;text-align:center;width:100%; }.play-object--bow:hover .br-card-back:first-child,.play-object--bow:focus-within .br-card-back:first-child{filter:drop-shadow(0 10px 14px #3454f5);transform:translateY(-8px) rotate(-13deg)}.play-object--bow:hover .portal-stars,.play-object--bow:focus-within .portal-stars{animation:bowStars 1s ease}.play-object--bow:hover .portal-art--bow small,.play-object--bow:focus-within .portal-art--bow small{opacity:1;transition:opacity .3s .15s}
+
+/* 04 — sports cover */
+.play-object--gymnast { --card-bg:var(--play-luminous-blue);--card-fg:#fff;--card-accent:var(--play-flourish);grid-column:7/10;grid-row:2; }.play-object--gymnast .play-object__main>strong { font-size:clamp(25px,2.6vw,39px);max-width:70%; }.portal-art--gymnast { inset:0; }.portal-art--gymnast img { bottom:-15px;filter:drop-shadow(6px 0 0 var(--play-flourish));height:85%;object-fit:contain;position:absolute;right:-1%;transition:transform var(--motion-medium);width:42%; }.portal-crop { bottom:28px;color:var(--play-maize);font:900 40px/2 monospace;position:absolute;right:5%;white-space:pre; }.portal-art--gymnast div { bottom:55px;display:grid;gap:4px;left:22px;opacity:0;position:absolute; }.portal-art--gymnast i { font:900 7px/1 var(--heading);font-style:normal;letter-spacing:.12em; }.play-object--gymnast:hover img,.play-object--gymnast:focus-within img{transform:translateX(-7px) scale(1.04)}.play-object--gymnast:hover .portal-art--gymnast div,.play-object--gymnast:focus-within .portal-art--gymnast div{opacity:1;transition:.3s .12s}
+
+/* 05 — living dictionary */
+.play-object--glossary { --card-bg:var(--play-lilac);--card-accent:var(--play-maize);grid-column:1/5;grid-row:3; }.play-object--glossary .play-object__main>strong { font-family:Georgia,serif;font-style:italic; }.portal-art--glossary { bottom:46px;display:flex;gap:5px;left:22px;right:18px; }.portal-art--glossary span { background:var(--play-offline-blue);color:#fff;font:900 7px/1 var(--heading);letter-spacing:.06em;max-width:0;opacity:0;overflow:hidden;padding:6px 0;transition:max-width .4s,padding .4s,opacity .3s; }.play-object--glossary:hover .portal-art--glossary span,.play-object--glossary:focus-within .portal-art--glossary span{max-width:90px;opacity:1;padding-inline:6px}
+
+/* 06 — mission briefing */
+.play-object--challenge { --card-bg:var(--play-serene);--card-fg:var(--play-deep-green);--card-accent:var(--play-energy-orange);grid-column:5/9;grid-row:3; }.play-object--challenge .play-object__main>strong { font-size:clamp(28px,3vw,44px);max-width:78%; }.portal-art--challenge { bottom:46px;left:22px;right:20px; }.portal-art--challenge span,.portal-art--challenge b { font:900 9px/1 var(--heading);letter-spacing:.1em; }.portal-art--challenge b { opacity:0;margin-left:8px; }.portal-art--challenge i { background:var(--play-energy-orange);display:block;height:5px;margin-top:9px;transform:scaleX(.08);transform-origin:left; }.play-object--challenge:hover .portal-art--challenge b,.play-object--challenge:focus-within .portal-art--challenge b{opacity:1}.play-object--challenge:hover .portal-art--challenge i,.play-object--challenge:focus-within .portal-art--challenge i{transform:scaleX(1);transition:transform .8s var(--ease-editorial)}
+
+/* 07 — pop trivia */
+.play-object--didYouKnow { --card-bg:var(--play-flourish);--card-accent:var(--play-energy-orange);grid-column:9/13;grid-row:3; }.play-object--didYouKnow .play-object__main>strong { font-family:Georgia,serif;font-size:clamp(27px,3vw,44px);font-style:italic;max-width:68%; }.portal-art--trivia { inset:0; }.portal-art--trivia b { color:var(--play-energy-orange);font:900 150px/.8 Georgia,serif;position:absolute;right:28px;top:58px;transition:transform var(--motion-fast); }.portal-art--trivia span { background:var(--play-luminous-blue);color:#fff;font:900 7px/1 var(--heading);letter-spacing:.1em;opacity:0;padding:7px;position:absolute;right:19px;top:33px;transform:translateY(-5px); }.portal-art--trivia i { color:var(--play-maize);font-size:36px;font-style:normal;position:absolute;right:99px;top:85px; }.play-object--didYouKnow:hover .portal-art--trivia b,.play-object--didYouKnow:focus-within .portal-art--trivia b{transform:rotate(5deg) scale(1.05)}.play-object--didYouKnow:hover .portal-art--trivia span,.play-object--didYouKnow:focus-within .portal-art--trivia span{opacity:1;transform:none;transition:.25s}
+
+/* 08 — timer poster */
+.play-object--tabata { --card-bg:var(--play-energy-orange);--card-fg:var(--play-ink);--card-accent:var(--play-luminous-blue);grid-column:1/6;grid-row:4;min-height:245px; }.play-object--tabata .play-object__main>strong { font-size:clamp(45px,5vw,72px); }.portal-art--tabata { bottom:35px;right:20px;top:65px;width:46%; }.portal-art--tabata strong { color:#fff;font:900 clamp(44px,6vw,80px)/1 var(--heading);letter-spacing:-.08em;text-shadow:3px 3px 0 var(--play-deep-green); }.portal-art--tabata strong span{color:var(--play-maize)}.portal-art--tabata div{display:flex;gap:4px}.portal-art--tabata i{background:var(--play-luminous-blue);height:8px;flex:1}.play-object--tabata:hover .portal-art--tabata strong,.play-object--tabata:focus-within .portal-art--tabata strong{animation:tabataPulse .55s ease}.play-object--tabata:hover .portal-art--tabata i:nth-child(even),.play-object--tabata:focus-within .portal-art--tabata i:nth-child(even){transform:scaleY(2);transition:.25s}
+
+/* 09 — gem software */
+.play-object--bling { --card-bg:var(--play-lilac);--card-accent:var(--play-luminous-blue);grid-column:6/13;grid-row:4;min-height:245px;background:linear-gradient(125deg,var(--play-lilac),#eef1ff 45%,var(--play-luminous-blue)); }.play-object--bling .play-object__main>strong { font-size:clamp(45px,5.5vw,82px); }.portal-art--bling { background:linear-gradient(#12111818 1px,transparent 1px),linear-gradient(90deg,#12111818 1px,transparent 1px);background-size:23px 23px;inset:58px 25px 25px 52%;opacity:.65; }.portal-art--bling span { color:var(--play-maize);filter:drop-shadow(3px 3px 0 var(--play-luminous-blue));font:900 58px/1 var(--heading);position:absolute; }.portal-art--bling span:nth-child(1){left:10%;top:10%}.portal-art--bling span:nth-child(2){right:10%;top:25%}.portal-art--bling span:nth-child(3){bottom:4%;left:42%}.portal-art--bling i{bottom:10%;font-size:24px;font-style:normal;position:absolute;right:42%}.play-object--bling:hover .portal-art--bling span,.play-object--bling:focus-within .portal-art--bling span{animation:blingSweep .7s ease}
+
+@keyframes powerScan{from{top:12%}to{top:88%}}@keyframes coreProcess{50%{filter:brightness(1.4)}}@keyframes bowStars{50%{opacity:1;transform:translateY(-8px)}}@keyframes tabataPulse{50%{transform:scale(.94)}}@keyframes blingSweep{50%{filter:brightness(2) drop-shadow(0 0 8px #fff);transform:translateY(-4px)}}
+
+@media(max-width:1050px){.play-world__objects{grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:auto!important}.play-object{grid-column:auto!important;grid-row:auto!important;min-height:260px}.play-object--power,.play-object--bow{min-height:430px}.play-object--tabata,.play-object--bling{min-height:250px}.play-object--bow{grid-row:span 2!important}}
+@media(max-width:680px){.play-world__objects{display:flex!important;flex-direction:column;gap:16px!important}.play-object{flex:none;min-height:265px;width:100%}.play-object--power,.play-object--bow{min-height:420px}.play-object__main>strong{font-size:44px}.play-object--power .play-object__main>strong{font-size:62px}.play-object--bow .play-object__main>strong{font-size:42px}.play-object__save span{display:none}.play-object__enter small{display:none}.portal-art--tabata{width:45%}}
+@media(prefers-reduced-motion:reduce){.play-object,.play-object *{transition:none!important}.play-object:hover,.play-object:focus-within{transform:none}.play-object:hover .portal-scan,.play-object:focus-within .portal-scan,.play-object:hover .portal-stars,.play-object:focus-within .portal-stars,.play-object:hover .portal-art--tabata strong,.play-object:focus-within .portal-art--tabata strong,.play-object:hover .portal-art--bling span,.play-object:focus-within .portal-art--bling span{animation:none}}
+
+.portal-art--bow .br-card-back{align-items:center;background:var(--play-lilac);border:3px solid var(--play-wax);border-radius:8px;box-shadow:3px 5px 0 #08060b99;color:var(--play-plum);display:flex;flex-direction:column;height:154px;justify-content:center;left:10px;outline:1px solid var(--play-plum);position:absolute;top:14px;transform:rotate(-12deg);width:104px}.portal-art--bow .br-card-back:nth-child(2){background:#d7eeff;left:74px;transform:rotate(10deg)}.portal-art--bow .br-card-back>span,.portal-art--bow .br-card-back>i,.portal-art--bow .br-card-back>small{display:none}.portal-art--bow .br-card-back>b{font:700 8px/1.1 Georgia,serif;text-align:center}.portal-art--bow .br-symbol{display:block;height:55px;width:55px}
+@media(max-width:680px){.play-object{min-height:280px}.play-object--code10{min-height:330px}.play-object--bow .play-object__main>strong{margin-top:30px}.play-object--code10 .play-object__hook{max-width:42%}.play-object--code10 .portal-art--core .core-lab-art{height:150px;right:-30px;width:62%}.portal-art--bow{height:235px}.portal-art--bow .play-object__oracle-deck{transform:translateX(-50%) scale(.92)}}
+.play-world__objects > .play-object{display:block;padding:0}.play-object > .play-object__main{position:absolute}.play-object > .play-object__save{position:absolute}
+@media(max-width:620px){.play-world__objects .play-object{margin-left:0;margin-right:0}}
+.play-object--bow .play-object__main>strong,.play-object--bow .play-object__hook{z-index:9}

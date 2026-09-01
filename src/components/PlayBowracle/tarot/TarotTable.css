@@ -17,4 +17,9 @@
 .bt-page-heading h1{scroll-margin-top:110px}
 .bt-card-turn{display:block}
 .br-motion-paused .bt-card,.br-motion-paused .bt-house-reveal,.br-motion-paused .bt-emblem,.br-motion-paused .bt-tray-slot{animation:none;opacity:1;translate:none}
+/* Daily Chaos cards keep the approved engraved stock and reveal their family accent. */
+.bt-card-front:has(.bt-card-face[style*="--card-accent"]){background:linear-gradient(145deg,#fff9ed,color-mix(in srgb,var(--card-accent,#dcc6ed) 42%,#fff9ed));border-color:var(--card-accent,#dcf69b)}
+.bt-card-face[style*="--card-accent"]{background:linear-gradient(145deg,#fff9ed,color-mix(in srgb,var(--card-accent,#dcc6ed) 38%,#fff9ed));border-radius:64px 64px 9px 9px}
+.bt-card-face[style*="--card-accent"]>svg{color:var(--card-accent,#754385)}
+.bt-card-face>b{font:900 8px/1.2 Arial,sans-serif;letter-spacing:.12em}
 @media print{.bt-shell .br-nav,.bt-shell .br-footer,.bt-result-actions,.bt-collectible .br-share{display:none}.bt-shell{color:#251630;background:white}.bt-collectible{position:static}.bt-card-preview{print-color-adjust:exact;-webkit-print-color-adjust:exact}}

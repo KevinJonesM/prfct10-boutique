@@ -37,6 +37,7 @@ const PlayPage = lazy(() => import("./components/Play/PlayPage"));
 const PowerCheckPage = lazy(() => import("./components/Play/PowerCheckPage"));
 const Code10Page = lazy(() => import("./components/Code10/Code10Page"));
 const PlayBowracle = lazy(() => import("./components/PlayBowracle/PlayBowracle"));
+const SecretBowGarden = lazy(() => import("./components/SecretBowGarden/SecretBowGarden"));
 const PlayTeaser = lazy(() => import("./components/Play/PlayTeaser"));
 
 // TODO Shopify: Source complementary products from Shopify Search & Discovery.
@@ -739,7 +740,8 @@ const storePathByView = {
   play: "/play",
   powerCheck: "/play/power-check",
   code10: "/play/code-10",
-  bowracle: "/play/the-bow-racle"
+  bowracle: "/play/the-bow-racle",
+  secretBowGarden: "/play/secret-bow-garden"
 };
 
 const pageSeoByView = {
@@ -755,6 +757,7 @@ const pageSeoByView = {
   powerCheck: "powerCheck",
   code10: "code10",
   bowracle: "bowracle",
+  secretBowGarden: "bowracle",
   search: "search",
   cart: "cart"
 };
@@ -998,7 +1001,7 @@ export default function App() {
   };
 
   const showPlay = (view = "play") => {
-    const nextView = ["powerCheck", "code10", "bowracle"].includes(view) ? view : "play";
+    const nextView = ["powerCheck", "code10", "bowracle", "secretBowGarden"].includes(view) ? view : "play";
     setIsCartDrawerOpen(false);
     setSearchQuery("");
     setSelectedProduct(null);
@@ -1101,7 +1104,7 @@ export default function App() {
         />
       ) : activeView === "play" ? (
         <>
-          <PlayPage onOpenPowerCheck={() => showPlay("powerCheck")} onOpenCode10={() => showPlay("code10")} onOpenBowracle={() => showPlay("bowracle")} />
+          <PlayPage onOpenPowerCheck={() => showPlay("powerCheck")} onOpenCode10={() => showPlay("code10")} onOpenBowracle={() => showPlay("bowracle")} onOpenSecretBowGarden={() => showPlay("secretBowGarden")} />
           <Footer
             onBackHome={showHome}
             onOpenDepartment={showBoutique}
@@ -1127,6 +1130,16 @@ export default function App() {
       ) : activeView === "bowracle" ? (
         <>
           <PlayBowracle onBackToPlay={() => showPlay("play")} onStoreHandoff={(payload) => {
+            if (!payload) return;
+            bowDesignerOpenerRef.current = document.activeElement;
+            setBowHandoff(payload);
+            setIsBowDesignerOpen(true);
+          }} />
+          <Footer onBackHome={showHome} onOpenDepartment={showBoutique} onOpenTeam={showTeam} onOpenShipping={showShipping} />
+        </>
+      ) : activeView === "secretBowGarden" ? (
+        <>
+          <SecretBowGarden onBackToPlay={() => showPlay("play")} onStoreHandoff={(payload) => {
             if (!payload) return;
             bowDesignerOpenerRef.current = document.activeElement;
             setBowHandoff(payload);

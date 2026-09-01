@@ -7,7 +7,14 @@ import {createBowCode,INITIAL_BOW_DESIGN} from '../src/components/BowDesigner/bo
 import {validateBowDesign} from '../src/components/BowDesigner/validateBowDesign.js';
 import {tarotCopy} from '../src/components/PlayBowracle/tarot/readingCopy.js';
 import {bowracleEn,bowracleEs} from '../src/i18n/bowracle.js';
+import {MASHUKI_LETTERS_V1} from '../src/components/PlayBowracle/mashukiLettersV1.js';
+import {MASHUKI_LETTERS_EN_V1} from '../src/components/PlayBowracle/mashukiLettersEnglishV1.js';
 const base={majorArcanaIds:['the-stick','the-flight'],minorArcanaIds:['daily-empty-bottle','daily-forgot-grips','daily-rip']};
+test('Mashuki V1 contains five canonical Spanish letters for each of exactly four bow Houses',()=>{
+ assert.equal(MASHUKI_LETTERS_V1.length,20);assert.equal(new Set(MASHUKI_LETTERS_V1.map(letter=>letter.id)).size,20);
+ assert.deepEqual(Object.fromEntries(['POISE','VELOCITY','POWER','FLIGHT'].map(house=>[house,MASHUKI_LETTERS_V1.filter(letter=>letter.house===house).length])),{POISE:5,VELOCITY:5,POWER:5,FLIGHT:5});
+ for(const letter of MASHUKI_LETTERS_V1){assert.ok(letter.body.es.length>=10);assert.ok(letter.title.es);assert.ok(letter.signoff.es);}
+});
 test('table contains 22 Major + 30 Daily Chaos cards, five families of six and seven unranked Houses',()=>{
  assert.equal(MAJOR_ARCANA.length,22);assert.equal(MINOR_ARCANA.length,30);assert.equal(BOWRACLE_HOUSES.length,7);
  assert.equal(new Set([...MAJOR_ARCANA,...MINOR_ARCANA].map(c=>c.id)).size,52);
@@ -37,17 +44,20 @@ test('secret code normalization, opt-in demo isolation and deterministic House',
  assert.equal((await resolveBowracleSecretCode('BWR-7K4N2')).reason,'unavailable');
  assert.equal((await resolveBowracleSecretCode('BWR-XXXXX',{demo:true})).reason,'invalid');
  assert.equal((await resolveBowracleSecretCode('P10-OM-CB-LM-SH-SI-M',{demo:true})).valid,false);
- for(const [code,house] of [['BWR-7K4N2','NOVA'],['BWR-P3M82','PRISM'],['BWR-F7X10','FLUX']]){
-  const record=await resolveBowracleSecretCode(code,{demo:true}),a=createSecretReading(record),b=createSecretReading({...record,firstName:'Sofia'});assert.deepEqual(a,b);assert.equal(a.house,house);assert.equal(a.bowCode,createBowCode(a.design));assert.ok(a.demo);assert.notEqual(a.code,a.bowCode);
+ for(const [code,house,secretHouse] of [['BWR-7K4N2','NOVA','POISE'],['BWR-P3M82','PRISM','VELOCITY'],['BWR-PWR10','VANTA','POWER'],['BWR-F7X10','FLUX','FLIGHT']]){
+  const record=await resolveBowracleSecretCode(code,{demo:true}),a=createSecretReading(record),b=createSecretReading({...record,firstName:'Sofia'});assert.deepEqual(a,b);assert.equal(a.house,house);assert.equal(a.secretHouse,secretHouse);assert.equal(a.bowCode,createBowCode(a.design));assert.ok(a.demo);assert.notEqual(a.code,a.bowCode);
  }
 });
+test('every public Secret Garden demo letter has complete English editorial copy',()=>{
+ for(const id of ['POI-TRUST-01','VEL-MOMENTUM-06','PWR-DISCIPLINE-12','FLT-CONFIDENCE-16']){const letter=MASHUKI_LETTERS_EN_V1[id];assert.ok(letter?.title);assert.ok(letter.body.length>=8);assert.equal(letter.signoff,'With love,');}
+});
 test('future secret resolver returns safe metadata and handles inactive/network/malformed records',async()=>{
- const good={house:'AXIS',status:'ACTIVE',readingSeed:'test',customerEmail:'not-returned',orderId:'not-returned'};
+ const good={house:'AXIS',secretHouse:'POISE',messageFamily:'SELF_TRUST',messageId:'POI-TRUST-01',status:'ACTIVE',readingSeed:'test',customerEmail:'not-returned',orderId:'not-returned'};
  const resolve=record=>resolveBowracleSecretCode('BWR-ABCDE',{lookup:async()=>record});
  const result=await resolve(good);assert.ok(result.valid);assert.ok(!('customerEmail' in result));assert.ok(!('orderId' in result));assert.ok(!result.demo);
  for(const status of ['EXPIRED','DISABLED','BAD'])assert.ok(!(await resolve({...good,status})).valid);
  for(const status of ['ACTIVE','LIMITED','SPECIAL_EDITION'])assert.ok((await resolve({...good,status})).valid);
- assert.ok(!(await resolve({...good,house:'BAD'})).valid);assert.ok(!(await resolve({...good,bowConfig:{topColor:'fake'}})).valid);
+ assert.ok(!(await resolve({...good,house:'BAD'})).valid);assert.ok(!(await resolve({...good,secretHouse:'FLIGHT'})).valid);assert.ok(!(await resolve({...good,messageId:'UNKNOWN'})).valid);assert.ok(!(await resolve({...good,bowConfig:{topColor:'fake'}})).valid);
  assert.equal((await resolveBowracleSecretCode('BWR-ABCDE',{lookup:async()=>{throw Error();}})).reason,'network');
 });
 test('V3 persistence contains only cards, not names or secret codes; invalid storage handled',async()=>{

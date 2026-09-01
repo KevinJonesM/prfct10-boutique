@@ -15,3 +15,20 @@
 @media(max-width:480px){.br-shell{border-radius:30px 30px 12px 12px}.br-shell .br-nav{align-items:start}.br-shell .br-nav>div{flex-direction:column-reverse;gap:0;align-items:end}.br-shell .br-nav>span{padding-top:12px}.br-shell .br-intro h1{font-size:clamp(35px,9.4vw,45px)}.br-shell .br-intro{padding-top:26px;padding-bottom:35px}.br-shell .br-intro .br-tagline{font-size:20px!important}.br-shell .br-deck{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 12px}.br-shell .br-deck-card{padding:18px 10px 12px;min-height:275px}.br-shell .br-deck-card__meaning{font-size:11px!important}.br-symbol-options{gap:12px}.br-symbol-options button{padding:22px 12px 16px;min-height:220px}.br-symbol-options strong{font-size:20px}.br-symbol-options span{font-size:12px}.br-shell .br-page-heading h1{font-size:34px}.br-shell .br-page-actions .br-button{max-width:68%}.br-shell .br-commerce{padding:25px 15px}.br-processing .br-fan{height:360px}}
 @media(prefers-reduced-motion:reduce){.br-shell *,.br-shell *::before,.br-shell *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.br-atmosphere .br-dust{opacity:.5}.br-atmosphere .br-light-leak{opacity:.4}.br-shell .br-card-back::after{display:none}.br-nebula{will-change:auto}.br-shell .br-reveal-back{display:none}.br-shell .br-reveal-front{opacity:1;transform:none}}
 @media print{.br-atmosphere{display:none}.br-shell{background:white;box-shadow:none}.br-clues{display:none}}
+
+/* Girly pop-culture oracle art direction. */
+.br-shell{--br-pink:#f03aaf;background:radial-gradient(ellipse at 80% 8%,#7339a5,transparent 45%),radial-gradient(ellipse at 0 60%,#8d255f,transparent 48%),#10071d;border-color:#f1b7ff99;box-shadow:0 0 0 1px #ffcaf277,0 18px 55px #24002d88;overflow:hidden}
+.br-shell::before{content:'';position:absolute;inset:0;z-index:0;border-radius:inherit;background:linear-gradient(180deg,#10071d66 0,#10071db3 34%,#10071df2 78%),url('/assets/bowracle/mystic-pop/oracle-chamber-v1.webp') top center/100% auto no-repeat;opacity:.9;pointer-events:none}
+.br-shell .br-button{border-color:#ffccf2cc;background:linear-gradient(115deg,#ff42b9,#a73bd3 62%,#40d9ef);box-shadow:0 0 0 3px #ffb8ed18,0 7px 28px #f037c45e}
+.br-shell .br-button--light{color:#32183f;background:linear-gradient(120deg,#fff6ff,#d7faff)}
+.br-shell .br-button:hover:not(:disabled){box-shadow:0 0 0 4px #8ef5ff22,0 9px 36px #fa5acb88;transform:translateY(-4px) scale(1.015)}
+.br-shell .br-kicker{color:#f5c8ff}.br-shell .br-note{color:#f2d5ff}.br-shell .br-intro h1{text-shadow:0 0 22px #ec8cff99,0 0 55px #69e8ff44}.br-shell .br-intro h1 em{color:#ffc6f1}.br-shell .br-intro__copy>p{color:#f3e4fa}.br-shell .br-saved{background:#efe0ff12;border-color:#f0c5ff66;color:#f1e3fa;backdrop-filter:blur(12px)}
+.br-shell .br-collectible{filter:drop-shadow(0 20px 35px #040008aa) drop-shadow(0 0 24px #ea65e955)}
+.br-shell .bt-card-preview{position:relative;padding:9px;border:1px solid #ffc8f4aa;border-radius:36px;background:linear-gradient(145deg,#ffbfe93b,#75f5ff24);box-shadow:inset 0 0 0 2px #fff5,0 0 34px #dd65ff4f}
+.br-shell .bt-card-preview>svg{border-radius:28px}
+.br-shell .br-commerce{background:linear-gradient(115deg,#71326099,#294d6999);border-color:#f0c7ff66;backdrop-filter:blur(12px)}
+.br-shell .br-format button{color:#f5e8fc;background:#241033cc;border-color:#e9b8f277;box-shadow:inset 0 0 12px #ff82d91a}
+.br-shell .br-format [aria-pressed=true]{background:linear-gradient(120deg,#ffd4f3,#c8f8ff);color:#28153b;border-color:#fff;box-shadow:0 0 20px #84edff55}
+.bt-draw-board,.bt-table{backdrop-filter:blur(12px);background:radial-gradient(circle at 24% 48%,#e182d42e,transparent 28%),linear-gradient(145deg,#210d34c4,#4d1453a8 62%,#12304c9c);border-color:#f0c5ff55;box-shadow:inset 0 0 65px #ff7bd221,0 18px 45px #06010aaa}
+.bt-drawn-slot{background:linear-gradient(145deg,#ffb4e60b,#8ceeff09)}.bt-drawn-slot.is-filled{filter:drop-shadow(0 0 16px #ed74df55)}
+.bt-card-zoom{background:#080210d9}.bt-card-zoom__panel{border-color:#ffd5f4;box-shadow:0 0 0 5px #dd9aff20,0 30px 90px #000,0 0 50px #e867ea66}

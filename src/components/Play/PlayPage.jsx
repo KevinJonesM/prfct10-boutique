@@ -28,7 +28,7 @@ const EXPERIENCES = [
   { id: "bling", number: "09", title: "BLING LAB", issue: "GEM MAP / 009", hook: "PLACE THE LIGHT. MAKE IT YOURS.", sticker: PLAY_STICKERS.crown }
 ];
 
-export default function PlayPage({ onOpenPowerCheck, onOpenCode10, onOpenBowracle }) {
+export default function PlayPage({ onOpenPowerCheck, onOpenCode10, onOpenBowracle, onOpenSecretBowGarden }) {
   const { locale, t } = useI18n();
   const [activeMode, setActiveMode] = useState(null);
   const portalTitle = useRef(null);
@@ -92,6 +92,17 @@ export default function PlayPage({ onOpenPowerCheck, onOpenCode10, onOpenBowracl
           <div className="play-world__section-title play-world__section-title--portal"><p>ACT 04 / 09 COLLECTIBLE WORLDS</p><h2 id="play-experiences-title" ref={portalTitle} tabIndex={-1}>{t("play.portal.world.experiencesTitle")}</h2><span>CHOOSE A COVER.<br />ENTER A NEW FREQUENCY.</span></div>
           <div className="play-world__portal-mark" aria-hidden="true">PLAY<br /><b>09</b></div>
           <div className="play-world__objects" ref={objects} aria-label={t("play.portal.world.experiencesLabel")}>{EXPERIENCES.map((item, index) => <PortalCard key={item.id} item={item} index={index} featured={daily.featuredIndex === index} saved={passport.saved.includes(item.id)} onSave={passport.toggleSaved} onOpen={launchExperience} locale={locale} />)}</div>
+        </section>
+
+        <section className="play-secret-entrance" aria-labelledby="play-secret-entrance-title">
+          <div className="play-secret-entrance__art" aria-hidden="true" />
+          <div className="play-secret-entrance__copy">
+            <p>✦ {locale === "es" ? "UNA ENTRADA SECRETA" : "A SECRET ENTRANCE"}</p>
+            <h2 id="play-secret-entrance-title">{locale === "es" ? "¿TU LAZO TIENE UN CÓDIGO SECRETO?" : "DOES YOUR BOW HAVE A SECRET CODE?"}</h2>
+            <span>{locale === "es" ? "Tu lazo guardó una carta para ti. Entra al jardín para abrirla." : "Your bow kept a letter for you. Enter the garden to open it."}</span>
+            <button type="button" onClick={onOpenSecretBowGarden}>{locale === "es" ? "ENTRAR AL JARDÍN SECRETO" : "ENTER THE SECRET BOW GARDEN"}<b aria-hidden="true">→</b></button>
+          </div>
+          <small>THE SECRET BOW GARDEN · OUTSIDE THE PLAY PASSPORT</small>
         </section>
 
         <PlayPassport experiences={EXPERIENCES} visited={passport.visited} locale={locale} />

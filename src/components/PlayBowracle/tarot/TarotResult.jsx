@@ -7,7 +7,7 @@ import {tarotHandoff,cleanFirstName} from './readingEngine.js';
 import {createTarotSvg} from './cardSvg.js';
 import BowracleShare from '../BowracleShare.jsx';
 import BowPreview from '../../BowDesigner/BowPreview.jsx';
-export default function TarotResult({result,firstName,t,onHandoff,onAgain,onSecret}){
+export default function TarotResult({result,firstName,t,onHandoff,onAgain}){
  const [format,setFormat]=useState('story'),[kind,setKind]=useState(result.mode==='house'?'house':'reading');
  const copy=tarotCopy(result,t),get=(key,vars)=>t('bowracle.tarot.'+key,vars),name=cleanFirstName(firstName);
  const renderer=useCallback((r,translate,f)=>createTarotSvg(r,translate,f,{kind,firstName:name}),[kind,name]);
@@ -21,6 +21,6 @@ export default function TarotResult({result,firstName,t,onHandoff,onAgain,onSecr
    <aside className="bt-collectible"><p className="br-kicker">{get('cardType')}</p><div className="br-format">{['reading','house'].map(id=><button type="button" key={id} aria-pressed={kind===id} onClick={()=>setKind(id)}>{get(id==='reading'?'readingCard':'houseCard')}</button>)}</div><div className="bt-card-preview" role="img" aria-label={get(kind==='house'?'houseCard':'readingCard')+' · '+copy.house.name} dangerouslySetInnerHTML={{__html:svg}}/><BowracleShare result={result} t={t} format={format} onFormat={setFormat} renderSvg={renderer} cardKind={kind}/></aside>
   </div>
   <section className="bt-assigned"><div className="bt-assigned-art"><BowPreview {...result.design}/></div><div><p className="br-kicker">11 / {get('yourBow')}</p><h2>{copy.colors.join(' + ')}</h2><p>{['finish','centerStyle','size'].map(key=>t('bow.options.'+result.design[key])).join(' · ')}</p><p>{get('realNote')}</p>{result.mode==='house'&&!result.hasPhysicalBow&&<p>{get('noPhysical')}</p>}<small>{get('productLabel')}</small><code>{result.bowCode}</code>{result.mode==='house'&&<><small>{get('secretLabel')}</small><code>{result.code}</code></>}<div className="br-actions"><button type="button" className="br-button" onClick={()=>onHandoff(tarotHandoff(result))}>{get('makeItReal')}</button><button type="button" className="br-link" onClick={()=>onHandoff(tarotHandoff(result))}>{get('refine')}</button></div></div></section>
-  <div className="br-actions bt-result-actions"><button type="button" className="br-button" onClick={onAgain}>{get('askAgain')}</button><button type="button" className="br-link" onClick={onSecret}>{get('secretCodeMode')}</button></div>
+  <div className="br-actions bt-result-actions"><button type="button" className="br-button" onClick={onAgain}>{get('askAgain')}</button></div>
  </div>;
 }

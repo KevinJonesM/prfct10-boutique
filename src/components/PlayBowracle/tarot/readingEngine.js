@@ -29,7 +29,7 @@ export function createSecretReading(resolved){
  if(!resolved?.valid||!BOWRACLE_HOUSES.some(h=>h.id===resolved.house)||!resolved.readingSeed)return null;
  const counts=Object.fromEntries(BOWRACLE_HOUSES.find(h=>h.id===resolved.house).tags.map(tag=>[tag,2]));
  const design=resolved.bowConfig?validateBowDesign(resolved.bowConfig):null;if(resolved.bowConfig&&!design)return null;
- return assemble(resolved.readingSeed,counts,resolved.house,{mode:'house',code:resolved.code,edition:resolved.edition,demo:resolved.demo,hasPhysicalBow:!!design,...(design?{design}:{})});
+ return assemble(resolved.readingSeed,counts,resolved.house,{mode:'house',secretHouse:resolved.secretHouse,messageFamily:resolved.messageFamily,messageId:resolved.messageId,bowCollection:resolved.bowCollection,bowName:resolved.bowName,code:resolved.code,edition:resolved.edition,demo:resolved.demo,hasPhysicalBow:!!design,...(design?{design}:{})});
 }
 export function tarotHandoff(result){const design=validateBowDesign(result?.design);return design?{...design,bowCode:createBowCode(design),oracleCard:result.house+' / '+result.archetypeId,source:'THE_BOW_RACLE'}:null;}
 // Persist only selected card IDs. No first name, secret code or customer details.

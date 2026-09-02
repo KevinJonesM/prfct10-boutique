@@ -22,14 +22,15 @@ const EXPERIENCES = [
   { id: "bow", number: "03", title: "THE BOW-RACLE", issue: "SECRET DECK / 003", hook: "ASK THE CARDS. KEEP THE BOW.", available: true },
   { id: "gymnast", number: "04", title: "GYMNAST OF THE DAY", issue: "ATHLETE FILE / 004", hook: "THREE CLUES. ONE LEGEND.", available: true, sticker: PLAY_STICKERS.gymnastRingPose },
   { id: "gymLol", number: "05", title: "GYM LOL", issue: "NEW FROM THE GROUP CHAT", hook: "BECAUSE PRACTICE IS ALREADY SERIOUS ENOUGH.", available: true },
-  { id: "glossary", number: "06", title: "GLOSSARY", issue: "WORD CULTURE / 006", hook: "SPEAK GYMNASTICS FLUENTLY.", sticker: PLAY_STICKERS.grips },
-  { id: "challenge", number: "07", title: "DAILY CHALLENGE", issue: "MOVE NOW / 007", hook: "ONE MISSION. YOUR MOMENTUM.", sticker: PLAY_STICKERS.gymnastTuck },
-  { id: "didYouKnow", number: "08", title: "DID YOU KNOW?", issue: "WAIT, WHAT? / 008", hook: "THE FACTS HAVE ENTERED THE CHAT.", sticker: PLAY_STICKERS.shootingStar },
-  { id: "tabata", number: "09", title: "TABATA", issue: "20:10 / 009", hook: "SHORT CLOCK. BIG ENERGY.", sticker: PLAY_STICKERS.boltBlue },
-  { id: "bling", number: "10", title: "BLING LAB", issue: "GEM MAP / 010", hook: "PLACE THE LIGHT. MAKE IT YOURS.", sticker: PLAY_STICKERS.crown }
+  { id: "truthOrDare", number: "06", title: "TRUTH OR DARE", issue: "ONE PHONE / TEAM ONLY", hook: "NO SCORES. NO JUDGES. JUST YOUR TEAM.", available: true },
+  { id: "glossary", number: "07", title: "GLOSSARY", issue: "WORD CULTURE / 007", hook: "SPEAK GYMNASTICS FLUENTLY.", sticker: PLAY_STICKERS.grips },
+  { id: "challenge", number: "08", title: "DAILY CHALLENGE", issue: "MOVE NOW / 008", hook: "ONE MISSION. YOUR MOMENTUM.", sticker: PLAY_STICKERS.gymnastTuck },
+  { id: "didYouKnow", number: "09", title: "DID YOU KNOW?", issue: "WAIT, WHAT? / 009", hook: "THE FACTS HAVE ENTERED THE CHAT.", sticker: PLAY_STICKERS.shootingStar },
+  { id: "tabata", number: "10", title: "TABATA", issue: "20:10 / 010", hook: "SHORT CLOCK. BIG ENERGY.", sticker: PLAY_STICKERS.boltBlue },
+  { id: "bling", number: "11", title: "BLING LAB", issue: "GEM MAP / 011", hook: "PLACE THE LIGHT. MAKE IT YOURS.", sticker: PLAY_STICKERS.crown }
 ];
 
-export default function PlayPage({ onOpenPowerCheck, onOpenCode10, onOpenBowracle, onOpenSecretBowGarden, onOpenGymnastOfDay, onOpenGymLol }) {
+export default function PlayPage({ onOpenPowerCheck, onOpenCode10, onOpenBowracle, onOpenSecretBowGarden, onOpenGymnastOfDay, onOpenGymLol, onOpenTruthOrDare }) {
   const { locale, t } = useI18n();
   const [activeMode, setActiveMode] = useState(null);
   const portalTitle = useRef(null);
@@ -55,6 +56,7 @@ export default function PlayPage({ onOpenPowerCheck, onOpenCode10, onOpenBowracl
     if (id === "code10") onOpenCode10();
     if (id === "gymnast") onOpenGymnastOfDay();
     if (id === "gymLol") onOpenGymLol();
+    if (id === "truthOrDare") onOpenTruthOrDare();
   };
 
   return (
@@ -92,7 +94,7 @@ export default function PlayPage({ onOpenPowerCheck, onOpenCode10, onOpenBowracl
         <TodayInPlay locale={locale} daily={daily} />
 
         <section className="play-world__portal" aria-labelledby="play-experiences-title">
-          <div className="play-world__section-title play-world__section-title--portal"><p>ACT 04 / 10 COLLECTIBLE WORLDS</p><h2 id="play-experiences-title" ref={portalTitle} tabIndex={-1}>{t("play.portal.world.experiencesTitle")}</h2><span>CHOOSE A COVER.<br />ENTER A NEW FREQUENCY.</span></div>
+          <div className="play-world__section-title play-world__section-title--portal"><p>ACT 04 / 11 COLLECTIBLE WORLDS</p><h2 id="play-experiences-title" ref={portalTitle} tabIndex={-1}>{t("play.portal.world.experiencesTitle")}</h2><span>CHOOSE A COVER.<br />ENTER A NEW FREQUENCY.</span></div>
           <div className="play-world__portal-mark" aria-hidden="true">PLAY<br /><b>10</b></div>
           <div className="play-world__objects" ref={objects} aria-label={t("play.portal.world.experiencesLabel")}>{EXPERIENCES.map((item, index) => <PortalCard key={item.id} item={item} index={index} featured={daily.featuredIndex === index} saved={passport.saved.includes(item.id)} onSave={passport.toggleSaved} onOpen={launchExperience} locale={locale} />)}</div>
         </section>

@@ -40,6 +40,7 @@ const PlayBowracle = lazy(() => import("./components/PlayBowracle/PlayBowracle")
 const SecretBowGarden = lazy(() => import("./components/SecretBowGarden/SecretBowGarden"));
 const GymnastOfDay = lazy(() => import("./components/GymnastOfDay/GymnastOfDay"));
 const GymLol = lazy(() => import("./components/GymLol/GymLol"));
+const TruthOrDare = lazy(() => import("./components/TruthOrDare/TruthOrDare"));
 const PlayTeaser = lazy(() => import("./components/Play/PlayTeaser"));
 
 // TODO Shopify: Source complementary products from Shopify Search & Discovery.
@@ -746,7 +747,8 @@ const storePathByView = {
   bowracleDeck: "/play/the-bow-racle/deck",
   secretBowGarden: "/play/secret-bow-garden",
   gymnastOfDay: "/play/gymnast-of-the-day",
-  gymLol: "/play/gym-lol"
+  gymLol: "/play/gym-lol",
+  truthOrDare: "/play/truth-or-dare"
 };
 
 const pageSeoByView = {
@@ -766,6 +768,7 @@ const pageSeoByView = {
   secretBowGarden: "bowracle",
   gymnastOfDay: "gymnastOfDay",
   gymLol: "gymLol",
+  truthOrDare: "truthOrDare",
   search: "search",
   cart: "cart"
 };
@@ -1009,7 +1012,7 @@ export default function App() {
   };
 
   const showPlay = (view = "play") => {
-    const nextView = ["powerCheck", "code10", "bowracle", "bowracleDeck", "secretBowGarden", "gymnastOfDay", "gymLol"].includes(view) ? view : "play";
+    const nextView = ["powerCheck", "code10", "bowracle", "bowracleDeck", "secretBowGarden", "gymnastOfDay", "gymLol", "truthOrDare"].includes(view) ? view : "play";
     setIsCartDrawerOpen(false);
     setSearchQuery("");
     setSelectedProduct(null);
@@ -1112,7 +1115,7 @@ export default function App() {
         />
       ) : activeView === "play" ? (
         <>
-          <PlayPage onOpenPowerCheck={() => showPlay("powerCheck")} onOpenCode10={() => showPlay("code10")} onOpenBowracle={() => showPlay("bowracle")} onOpenSecretBowGarden={() => showPlay("secretBowGarden")} onOpenGymnastOfDay={() => showPlay("gymnastOfDay")} onOpenGymLol={() => showPlay("gymLol")} />
+          <PlayPage onOpenPowerCheck={() => showPlay("powerCheck")} onOpenCode10={() => showPlay("code10")} onOpenBowracle={() => showPlay("bowracle")} onOpenSecretBowGarden={() => showPlay("secretBowGarden")} onOpenGymnastOfDay={() => showPlay("gymnastOfDay")} onOpenGymLol={() => showPlay("gymLol")} onOpenTruthOrDare={() => showPlay("truthOrDare")} />
           <Footer
             onBackHome={showHome}
             onOpenDepartment={showBoutique}
@@ -1165,6 +1168,11 @@ export default function App() {
       ) : activeView === "gymLol" ? (
         <>
           <GymLol onBackToPlay={() => showPlay("play")} />
+          <Footer onBackHome={showHome} onOpenDepartment={showBoutique} onOpenTeam={showTeam} onOpenShipping={showShipping} />
+        </>
+      ) : activeView === "truthOrDare" ? (
+        <>
+          <TruthOrDare onBackToPlay={() => showPlay("play")} />
           <Footer onBackHome={showHome} onOpenDepartment={showBoutique} onOpenTeam={showTeam} onOpenShipping={showShipping} />
         </>
       ) : activeView === "cart" ? (

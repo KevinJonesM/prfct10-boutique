@@ -241,6 +241,7 @@ const en = {
     code10: { title: "CODE 10 | PRFCT10 PLAY", description: "10 questions. 10 tenths. Know your gymnastics and protect the 10." },
     gymnastOfDay: { title: "Gymnast of the Day | PRFCT10 PLAY", description: "Three clues, four names and one verified gymnastics story in a fast daily mystery game." },
     gymLol: { title: "GYM LOL | PRFCT10 PLAY", description: "Gymnastics group-chat humor as bold, collectible typographic posters." },
+    truthOrDare: { title: "Truth or Dare | PRFCT10 PLAY", description: "A one-phone gymnastics team game with truths, dares, and locker-room chaos." },
     bowracle: { title: "THE BOW-RACLE | PRFCT10 PLAY", description: "Pick a card. Follow the color. Reveal your bow. A playful color reading and a collectible card." },
     powerCheck: { title: "PRFCT10 Power Check", description: "Make four quick picks and create a private, downloadable PRFCT10 Power Card." }
   },
@@ -486,6 +487,7 @@ const es = {
     code10: { title: "CODE 10 | PRFCT10 PLAY", description: "10 preguntas. 10 décimas. Conoce tu gimnasia y protege el 10." },
     gymnastOfDay: { title: "Gimnasta del día | PRFCT10 PLAY", description: "Tres pistas, cuatro nombres y una historia de gimnasia verificada en un misterio diario rápido." },
     gymLol: { title: "GYM LOL | PRFCT10 PLAY", description: "Humor del chat del equipo convertido en pósteres tipográficos coleccionables." },
+    truthOrDare: { title: "Truth or Dare | PRFCT10 PLAY", description: "Un juego de equipo de gimnasia para un solo teléfono, con verdades, retos y caos de vestuario." },
     bowracle: { title: "THE BOW-RACLE | PRFCT10 PLAY", description: "Elige una carta. Sigue el color. Revela tu lazo. Una lectura de color para jugar y una carta para guardar." },
     powerCheck: { title: "PRFCT10 Power Check", description: "Haz cuatro elecciones rápidas y crea una Power Card PRFCT10 privada y descargable." }
   },

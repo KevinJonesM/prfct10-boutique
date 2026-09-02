@@ -99,7 +99,7 @@ export function TodayInPlay({ locale, daily }) {
   );
 }
 
-const STAMPS = { power: "ϟ", code10: "10", bow: "◉", gymnast: "★", gymLol: "LOL", glossary: "ABC", challenge: "✓", didYouKnow: "?", tabata: "20", bling: "◇" };
+const STAMPS = { power: "ϟ", code10: "10", bow: "◉", gymnast: "★", gymLol: "LOL", truthOrDare: "T/D", glossary: "ABC", challenge: "✓", didYouKnow: "?", tabata: "20", bling: "◇" };
 
 export function PlayPassport({ experiences, visited, locale = "en" }) {
   const es = locale === "es";
@@ -128,6 +128,7 @@ function PortalArtwork({ item }) {
   if (item.id === "bow") return <div className="portal-art portal-art--bow" aria-hidden="true"><span className="portal-stars">✦　·　✧</span><div className="play-object__oracle-deck"><BowracleCardBack symbol="moon" /><BowracleCardBack symbol="star" /></div><small>THE CARDS HAVE NOTES.</small></div>;
   if (item.id === "gymnast") return <div className="portal-art portal-art--gymnast" aria-hidden="true"><span className="portal-crop">⌜　⌝<br />⌞　⌟</span><img src={item.sticker} alt="" /><div><i>EVENT</i><i>COUNTRY</i><i>ERA</i></div></div>;
   if (item.id === "gymLol") return <div className="portal-art portal-art--gym-lol" aria-hidden="true"><small>COACH SAID:</small><strong>“ONE MORE.”</strong><span>WE ALL KNOW<br />HOW THIS ENDS.</span><b>PRFCT10 ORIGINAL</b></div>;
+  if (item.id === "truthOrDare") return <div className="portal-art portal-art--truth-dare" aria-hidden="true"><i>FX</i><div><span>TRUTH</span><b>OR</b><span>DARE</span></div><small>ONE PHONE MODE</small></div>;
   if (item.id === "glossary") return <div className="portal-art portal-art--glossary" aria-hidden="true"><span>CAST</span><span>TAP</span><span>BLOCK</span><span>REGRASP</span></div>;
   if (item.id === "challenge") return <div className="portal-art portal-art--challenge" aria-hidden="true"><span>READY</span><b>→ SET → GO</b><i /></div>;
   if (item.id === "didYouKnow") return <div className="portal-art portal-art--trivia" aria-hidden="true"><b>?</b><span>WAIT, WHAT?</span><i>✦</i></div>;

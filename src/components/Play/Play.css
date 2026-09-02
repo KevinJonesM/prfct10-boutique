@@ -13,6 +13,7 @@
   color: var(--play-charcoal);
   min-height: calc(100dvh - var(--header-height));
   overflow: hidden;
+  margin-top: var(--header-height, 70px);
 }
 
 .play-eyebrow {

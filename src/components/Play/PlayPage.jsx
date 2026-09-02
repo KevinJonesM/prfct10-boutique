@@ -20,15 +20,16 @@ const EXPERIENCES = [
   { id: "power", number: "01", title: "POWER CHECK", issue: "ENERGY SCAN / 001", hook: "HOW ARE YOU LANDING TODAY?", available: true, silhouette: PLAY_STICKERS.gymnastBeamHandstand },
   { id: "code10", number: "02", title: "CORE LAB", issue: "MENTAL FILE / 010", hook: "10 QUESTIONS. CHASE THE 10.", available: true },
   { id: "bow", number: "03", title: "THE BOW-RACLE", issue: "SECRET DECK / 003", hook: "ASK THE CARDS. KEEP THE BOW.", available: true },
-  { id: "gymnast", number: "04", title: "GYMNAST OF THE DAY", issue: "ATHLETE FILE / 004", hook: "A NEW STORY TAKES THE COVER.", sticker: PLAY_STICKERS.gymnastRingPose },
-  { id: "glossary", number: "05", title: "GLOSSARY", issue: "WORD CULTURE / 005", hook: "SPEAK GYMNASTICS FLUENTLY.", sticker: PLAY_STICKERS.grips },
-  { id: "challenge", number: "06", title: "DAILY CHALLENGE", issue: "MOVE NOW / 006", hook: "ONE MISSION. YOUR MOMENTUM.", sticker: PLAY_STICKERS.gymnastTuck },
-  { id: "didYouKnow", number: "07", title: "DID YOU KNOW?", issue: "WAIT, WHAT? / 007", hook: "THE FACTS HAVE ENTERED THE CHAT.", sticker: PLAY_STICKERS.shootingStar },
-  { id: "tabata", number: "08", title: "TABATA", issue: "20:10 / 008", hook: "SHORT CLOCK. BIG ENERGY.", sticker: PLAY_STICKERS.boltBlue },
-  { id: "bling", number: "09", title: "BLING LAB", issue: "GEM MAP / 009", hook: "PLACE THE LIGHT. MAKE IT YOURS.", sticker: PLAY_STICKERS.crown }
+  { id: "gymnast", number: "04", title: "GYMNAST OF THE DAY", issue: "ATHLETE FILE / 004", hook: "THREE CLUES. ONE LEGEND.", available: true, sticker: PLAY_STICKERS.gymnastRingPose },
+  { id: "gymLol", number: "05", title: "GYM LOL", issue: "NEW FROM THE GROUP CHAT", hook: "BECAUSE PRACTICE IS ALREADY SERIOUS ENOUGH.", available: true },
+  { id: "glossary", number: "06", title: "GLOSSARY", issue: "WORD CULTURE / 006", hook: "SPEAK GYMNASTICS FLUENTLY.", sticker: PLAY_STICKERS.grips },
+  { id: "challenge", number: "07", title: "DAILY CHALLENGE", issue: "MOVE NOW / 007", hook: "ONE MISSION. YOUR MOMENTUM.", sticker: PLAY_STICKERS.gymnastTuck },
+  { id: "didYouKnow", number: "08", title: "DID YOU KNOW?", issue: "WAIT, WHAT? / 008", hook: "THE FACTS HAVE ENTERED THE CHAT.", sticker: PLAY_STICKERS.shootingStar },
+  { id: "tabata", number: "09", title: "TABATA", issue: "20:10 / 009", hook: "SHORT CLOCK. BIG ENERGY.", sticker: PLAY_STICKERS.boltBlue },
+  { id: "bling", number: "10", title: "BLING LAB", issue: "GEM MAP / 010", hook: "PLACE THE LIGHT. MAKE IT YOURS.", sticker: PLAY_STICKERS.crown }
 ];
 
-export default function PlayPage({ onOpenPowerCheck, onOpenCode10, onOpenBowracle, onOpenSecretBowGarden }) {
+export default function PlayPage({ onOpenPowerCheck, onOpenCode10, onOpenBowracle, onOpenSecretBowGarden, onOpenGymnastOfDay, onOpenGymLol }) {
   const { locale, t } = useI18n();
   const [activeMode, setActiveMode] = useState(null);
   const portalTitle = useRef(null);
@@ -52,6 +53,8 @@ export default function PlayPage({ onOpenPowerCheck, onOpenCode10, onOpenBowracl
     if (id === "power") onOpenPowerCheck();
     if (id === "bow") onOpenBowracle();
     if (id === "code10") onOpenCode10();
+    if (id === "gymnast") onOpenGymnastOfDay();
+    if (id === "gymLol") onOpenGymLol();
   };
 
   return (
@@ -89,8 +92,8 @@ export default function PlayPage({ onOpenPowerCheck, onOpenCode10, onOpenBowracl
         <TodayInPlay locale={locale} daily={daily} />
 
         <section className="play-world__portal" aria-labelledby="play-experiences-title">
-          <div className="play-world__section-title play-world__section-title--portal"><p>ACT 04 / 09 COLLECTIBLE WORLDS</p><h2 id="play-experiences-title" ref={portalTitle} tabIndex={-1}>{t("play.portal.world.experiencesTitle")}</h2><span>CHOOSE A COVER.<br />ENTER A NEW FREQUENCY.</span></div>
-          <div className="play-world__portal-mark" aria-hidden="true">PLAY<br /><b>09</b></div>
+          <div className="play-world__section-title play-world__section-title--portal"><p>ACT 04 / 10 COLLECTIBLE WORLDS</p><h2 id="play-experiences-title" ref={portalTitle} tabIndex={-1}>{t("play.portal.world.experiencesTitle")}</h2><span>CHOOSE A COVER.<br />ENTER A NEW FREQUENCY.</span></div>
+          <div className="play-world__portal-mark" aria-hidden="true">PLAY<br /><b>10</b></div>
           <div className="play-world__objects" ref={objects} aria-label={t("play.portal.world.experiencesLabel")}>{EXPERIENCES.map((item, index) => <PortalCard key={item.id} item={item} index={index} featured={daily.featuredIndex === index} saved={passport.saved.includes(item.id)} onSave={passport.toggleSaved} onOpen={launchExperience} locale={locale} />)}</div>
         </section>
 

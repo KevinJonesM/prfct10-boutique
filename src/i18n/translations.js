@@ -1,7 +1,9 @@
 import { code10En, code10Es } from "./code10.js";
 import { bowracleEn, bowracleEs } from "./bowracle.js";
+import { gymnastOfDayEn, gymnastOfDayEs } from "./gymnastOfDay.js";
 
 const en = {
+  gymnastOfDay: gymnastOfDayEn,
   bowracle: bowracleEn,
   code10: code10En,
   cartWhatsapp: { intro: "Hi PRFCT10, I would like help completing this order:", item: "- {quantity} × {name} ({price}{each})", each: " each", delivery: "Delivery preference: {preference}", zip: "ZIP code: {value}", phone: "Contact phone: {value}", email: "Email: {value}", note: "Note: {value}", closing: "Please confirm availability, final pricing, shipping, and return details before payment." },
@@ -237,6 +239,8 @@ const en = {
     cart: { title: "Your PRFCT10 Bag", description: "Review your selected PRFCT10 products and continue through assisted ordering support." },
     play: { title: "PRFCT10 PLAY | Your Gymnastics, Your Energy", description: "Discover PRFCT10 PLAY and find your meet-day energy with the interactive Power Check." },
     code10: { title: "CODE 10 | PRFCT10 PLAY", description: "10 questions. 10 tenths. Know your gymnastics and protect the 10." },
+    gymnastOfDay: { title: "Gymnast of the Day | PRFCT10 PLAY", description: "Three clues, four names and one verified gymnastics story in a fast daily mystery game." },
+    gymLol: { title: "GYM LOL | PRFCT10 PLAY", description: "Gymnastics group-chat humor as bold, collectible typographic posters." },
     bowracle: { title: "THE BOW-RACLE | PRFCT10 PLAY", description: "Pick a card. Follow the color. Reveal your bow. A playful color reading and a collectible card." },
     powerCheck: { title: "PRFCT10 Power Check", description: "Make four quick picks and create a private, downloadable PRFCT10 Power Card." }
   },
@@ -244,6 +248,7 @@ const en = {
 };
 
 const es = {
+  gymnastOfDay: gymnastOfDayEs,
   bowracle: bowracleEs,
   code10: code10Es,
   cartWhatsapp: { intro: "Hola PRFCT10, necesito ayuda para completar este pedido:", item: "- {quantity} × {name} ({price}{each})", each: " cada uno", delivery: "Preferencia de entrega: {preference}", zip: "Código postal: {value}", phone: "Teléfono de contacto: {value}", email: "Correo electrónico: {value}", note: "Nota: {value}", closing: "Por favor, confirmen la disponibilidad, el precio final, el envío y los detalles de devolución antes del pago." },
@@ -479,6 +484,8 @@ const es = {
     cart: { title: "Tu bolsa PRFCT10", description: "Revisa los productos seleccionados y continúa con el servicio de pedido asistido." },
     play: { title: "PRFCT10 PLAY | Tu gimnasia, tu energía", description: "Descubre PRFCT10 PLAY y encuentra tu energía para competir con el Power Check interactivo." },
     code10: { title: "CODE 10 | PRFCT10 PLAY", description: "10 preguntas. 10 décimas. Conoce tu gimnasia y protege el 10." },
+    gymnastOfDay: { title: "Gimnasta del día | PRFCT10 PLAY", description: "Tres pistas, cuatro nombres y una historia de gimnasia verificada en un misterio diario rápido." },
+    gymLol: { title: "GYM LOL | PRFCT10 PLAY", description: "Humor del chat del equipo convertido en pósteres tipográficos coleccionables." },
     bowracle: { title: "THE BOW-RACLE | PRFCT10 PLAY", description: "Elige una carta. Sigue el color. Revela tu lazo. Una lectura de color para jugar y una carta para guardar." },
     powerCheck: { title: "PRFCT10 Power Check", description: "Haz cuatro elecciones rápidas y crea una Power Card PRFCT10 privada y descargable." }
   },

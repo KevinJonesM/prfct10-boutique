@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import CoreLabArtwork from "./CoreLabArtwork";
 import { BowracleCardBack } from "../PlayBowracle/BowracleDeck";
+import GymLolLogo from "../GymLol/GymLolLogo";
 
 const STORAGE_KEY = "prfct10-play-passport-v1";
 
@@ -98,7 +99,7 @@ export function TodayInPlay({ locale, daily }) {
   );
 }
 
-const STAMPS = { power: "ϟ", code10: "10", bow: "◉", gymnast: "★", glossary: "ABC", challenge: "✓", didYouKnow: "?", tabata: "20", bling: "◇" };
+const STAMPS = { power: "ϟ", code10: "10", bow: "◉", gymnast: "★", gymLol: "LOL", glossary: "ABC", challenge: "✓", didYouKnow: "?", tabata: "20", bling: "◇" };
 
 export function PlayPassport({ experiences, visited, locale = "en" }) {
   const es = locale === "es";
@@ -126,6 +127,7 @@ function PortalArtwork({ item }) {
   if (item.id === "code10") return <div className="portal-art portal-art--core" aria-hidden="true"><CoreLabArtwork /><span className="portal-processing">PROCESSING…</span><i /><i /><i /></div>;
   if (item.id === "bow") return <div className="portal-art portal-art--bow" aria-hidden="true"><span className="portal-stars">✦　·　✧</span><div className="play-object__oracle-deck"><BowracleCardBack symbol="moon" /><BowracleCardBack symbol="star" /></div><small>THE CARDS HAVE NOTES.</small></div>;
   if (item.id === "gymnast") return <div className="portal-art portal-art--gymnast" aria-hidden="true"><span className="portal-crop">⌜　⌝<br />⌞　⌟</span><img src={item.sticker} alt="" /><div><i>EVENT</i><i>COUNTRY</i><i>ERA</i></div></div>;
+  if (item.id === "gymLol") return <div className="portal-art portal-art--gym-lol" aria-hidden="true"><small>COACH SAID:</small><strong>“ONE MORE.”</strong><span>WE ALL KNOW<br />HOW THIS ENDS.</span><b>PRFCT10 ORIGINAL</b></div>;
   if (item.id === "glossary") return <div className="portal-art portal-art--glossary" aria-hidden="true"><span>CAST</span><span>TAP</span><span>BLOCK</span><span>REGRASP</span></div>;
   if (item.id === "challenge") return <div className="portal-art portal-art--challenge" aria-hidden="true"><span>READY</span><b>→ SET → GO</b><i /></div>;
   if (item.id === "didYouKnow") return <div className="portal-art portal-art--trivia" aria-hidden="true"><b>?</b><span>WAIT, WHAT?</span><i>✦</i></div>;
@@ -141,7 +143,7 @@ export function PortalCard({ item, index, featured, saved, onSave, onOpen, local
     <article className={`play-object play-object--${item.id}${featured ? " is-featured" : ""}`} style={{ "--entry-delay": `${index % 3 * 90}ms` }} data-available={available ? "true" : "false"}>
       <button className="play-object__main" type="button" onClick={() => available && onOpen(item.id)} disabled={!available} aria-label={label}>
         <span className="play-object__topline"><b>{item.number}</b><small>{featured ? (es ? "ELECCIÓN DE HOY" : "TODAY'S PICK") : item.issue}</small></span>
-        <strong>{item.title}</strong>
+        <strong>{item.id === "gymLol" ? <GymLolLogo variant="portal" /> : item.title}</strong>
         <span className="play-object__hook">{item.hook}</span>
         <PortalArtwork item={item} />
         <span className="play-object__status">{available ? (es ? "DISPONIBLE AHORA" : "AVAILABLE NOW") : (es ? "MUY PRONTO" : "COMING SOON")}</span>

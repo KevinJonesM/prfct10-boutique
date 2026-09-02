@@ -36,6 +36,8 @@ export default function GymLol({ onBackToPlay }) {
   const intro = language === "es" ? "El chat de tu equipo entró a Play." : "Your team group chat has entered Play.";
   const back = language === "es" ? "Volver a PLAY" : "Back to PLAY";
   const lines = useMemo(() => joke.lines[language], [joke, language]);
+  const copyLength = useMemo(() => lines.reduce((total, line) => total + line.text.length, 0), [lines]);
+  const density = copyLength > 94 ? "tight" : copyLength > 80 ? "compact" : "standard";
   const typeVoices = ["condensed", "serif"];
 
   const react = option => {
@@ -73,7 +75,7 @@ export default function GymLol({ onBackToPlay }) {
         <button type="button" onClick={onBackToPlay}>← {back}</button>
       </header>
 
-      <section className={`gym-lol__poster${changing ? " is-changing" : ""}`} aria-labelledby="gym-lol-title" aria-live="polite">
+      <section className={`gym-lol__poster gym-lol__poster--${density}${changing ? " is-changing" : ""}`} aria-labelledby="gym-lol-title" aria-live="polite">
         <div className="gym-lol__topline">
           <h1 id="gym-lol-title"><GymLolLogo variant="poster" /><span className="gym-lol__sr-only">GYM LOL</span></h1>
         </div>

@@ -1,5 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import { GYM_LOL_JOKES, GYM_LOL_PALETTE, GYM_LOL_REACTIONS, chooseNextJoke } from "../src/components/GymLol/gymLolData.js";
 
 test("Gym LOL ships exactly 100 unique bilingual curated jokes", () => {
@@ -38,4 +39,17 @@ test("reaction sets remain optional, short and bilingual", () => {
     assert.ok(group.label.en && group.label.es);
     assert.ok(group.options.every(option => option.en && option.es));
   }
+});
+
+test("poster stays Instagram 3:4, adapts long copy, and keeps the nav logo white", async () => {
+  const [css, logoCss, component] = await Promise.all([
+    readFile(new URL("../src/components/GymLol/GymLol.css", import.meta.url), "utf8"),
+    readFile(new URL("../src/components/GymLol/GymLolLogo.css", import.meta.url), "utf8"),
+    readFile(new URL("../src/components/GymLol/GymLol.jsx", import.meta.url), "utf8")
+  ]);
+  assert.match(css, /aspect-ratio:3\/4/);
+  assert.match(css, /gym-lol__poster--compact/);
+  assert.match(css, /gym-lol__poster--tight/);
+  assert.match(component, /copyLength > 94/);
+  assert.doesNotMatch(logoCss, /gym-lol-logo--nav\{filter:brightness\(0\)/);
 });

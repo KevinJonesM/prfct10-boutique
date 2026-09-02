@@ -120,6 +120,8 @@ const en = {
           floor: "Let your personality take up space. Full Out is expression, joy and showing up as yourself. It’s not about being perfect; it’s about being present.",
           allAround: "You have more than one strength. Total Motion celebrates all your different sides: focused, playful, brave, calm. You get to choose what you need today."
         },
+        summaries: { vault: "Start before you feel completely ready.", bars: "Adapt, reconnect, and find your rhythm.", beam: "Focus on the one thing in front of you.", floor: "Take up space and express yourself.", allAround: "Choose the strength you need today." },
+        tapToDecode: "TAP TO DECODE",
         physics: { label: "Motion notebook", note: "IDEALIZED SKETCHES · NOT TO SCALE", flight: "FLIGHT + VELOCITY", rotation: "ROTATION + INERTIA", fall: "FREE FALL" },
         colorYourPower: "COLOR YOUR POWER",
         frequenciesLabel: "POWER FREQUENCIES",
@@ -366,6 +368,8 @@ const es = {
           floor: "Dale espacio a tu personalidad. Con Todo significa expresarte, disfrutar y ser tú misma. No se trata de hacerlo perfecto, sino de estar presente.",
           allAround: "Tienes más de una fortaleza. Movimiento Total celebra tus distintas facetas: enfoque, alegría, valentía y calma. Tú eliges cuál necesitas hoy."
         },
+        summaries: { vault: "Empieza antes de sentirte totalmente lista.", bars: "Adáptate, reconecta y encuentra tu ritmo.", beam: "Enfócate en lo que tienes enfrente.", floor: "Ocupa tu espacio y exprésate.", allAround: "Elige la fortaleza que necesitas hoy." },
+        tapToDecode: "TOCA PARA DESCIFRAR",
         physics: { label: "Cuaderno de movimiento", note: "ESQUEMAS IDEALIZADOS · SIN ESCALA", flight: "VUELO + VELOCIDAD", rotation: "GIRO + INERCIA", fall: "CAÍDA LIBRE" },
         colorYourPower: "COLOREA TU PODER",
         frequenciesLabel: "FRECUENCIAS DE PODER",

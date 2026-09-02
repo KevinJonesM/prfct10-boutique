@@ -1,0 +1,1900 @@
+{
+  "major": [
+    {
+      "id": "the-stick",
+      "number": 1,
+      "name": "THE STICK",
+      "shortMeaning": {
+        "en": "Control, precision and finishing what you started.",
+        "es": "Control, precisión y terminar lo que empezaste."
+      },
+      "tags": [
+        "FOCUS",
+        "PRECISION",
+        "CONFIDENCE"
+      ],
+      "microcopy": {
+        "en": "A landing is a decision.",
+        "es": "Un aterrizaje es una decisión."
+      },
+      "symbol": "landing-line",
+      "visualConcept": {
+        "en": "Gymnast legs completing a perfectly controlled landing.",
+        "es": "Piernas de gimnasta completando un aterrizaje perfectamente controlado."
+      },
+      "houseAffinity": [
+        "AXIS",
+        "VANTA"
+      ]
+    },
+    {
+      "id": "the-chalk",
+      "number": 2,
+      "name": "THE CHALK",
+      "shortMeaning": {
+        "en": "Preparation, ritual and useful chaos.",
+        "es": "Preparación, ritual y caos útil."
+      },
+      "tags": [
+        "RESET",
+        "TEAM",
+        "CHAOS"
+      ],
+      "microcopy": {
+        "en": "A little mess before business.",
+        "es": "Un poco de desastre antes de ponerse serias."
+      },
+      "symbol": "chalk-cloud",
+      "visualConcept": {
+        "en": "Two hands clapping chalk into mystical smoke.",
+        "es": "Dos manos chocando magnesio que se convierte en humo místico."
+      },
+      "houseAffinity": [
+        "HALO",
+        "FLUX"
+      ]
+    },
+    {
+      "id": "the-rip",
+      "number": 3,
+      "name": "THE RIP",
+      "shortMeaning": {
+        "en": "An inconvenience is not the ending.",
+        "es": "Una incomodidad no es el final."
+      },
+      "tags": [
+        "COMEBACK",
+        "RESILIENCE",
+        "COURAGE"
+      ],
+      "microcopy": {
+        "en": "Very inconvenient. Still not the ending.",
+        "es": "Muy inconveniente. Igual no es el final."
+      },
+      "symbol": "taped-palm",
+      "visualConcept": {
+        "en": "A taped gymnast palm treated like a sacred repaired relic.",
+        "es": "Una palma de gimnasta con tape tratada como una reliquia reparada."
+      },
+      "houseAffinity": [
+        "FLUX",
+        "VANTA"
+      ]
+    },
+    {
+      "id": "the-salute",
+      "number": 4,
+      "name": "THE SALUTE",
+      "shortMeaning": {
+        "en": "Presence, confidence and the courage to be seen.",
+        "es": "Presencia, seguridad y el valor de ser vista."
+      },
+      "tags": [
+        "SPOTLIGHT",
+        "CONFIDENCE",
+        "GRACE"
+      ],
+      "microcopy": {
+        "en": "Act like you meant it.",
+        "es": "Haz como si lo hubieras planeado."
+      },
+      "symbol": "salute",
+      "visualConcept": {
+        "en": "A gymnast silhouette saluting beneath a radiant burst.",
+        "es": "Silueta de gimnasta saludando bajo un resplandor."
+      },
+      "houseAffinity": [
+        "PRISM",
+        "LUMA"
+      ]
+    },
+    {
+      "id": "the-block",
+      "number": 5,
+      "name": "THE BLOCK",
+      "shortMeaning": {
+        "en": "Power, commitment and upward momentum.",
+        "es": "Poder, compromiso e impulso."
+      },
+      "tags": [
+        "FIRE",
+        "MOMENTUM",
+        "PRECISION"
+      ],
+      "microcopy": {
+        "en": "Halfway is not a direction.",
+        "es": "A medias no es una dirección."
+      },
+      "symbol": "vault-block",
+      "visualConcept": {
+        "en": "Hands contacting a vault table with energy shooting upward.",
+        "es": "Manos bloqueando sobre la mesa de salto con energía subiendo."
+      },
+      "houseAffinity": [
+        "NOVA",
+        "AXIS"
+      ]
+    },
+    {
+      "id": "the-flight",
+      "number": 6,
+      "name": "THE FLIGHT",
+      "shortMeaning": {
+        "en": "Trust, flow and letting go at the right moment.",
+        "es": "Confianza, fluidez y saber soltar en el momento correcto."
+      },
+      "tags": [
+        "FLOW",
+        "TRUST",
+        "COURAGE"
+      ],
+      "microcopy": {
+        "en": "At some point you actually have to leave the ground.",
+        "es": "En algún momento sí tienes que despegar del suelo."
+      },
+      "symbol": "flight-arc",
+      "visualConcept": {
+        "en": "Gymnast silhouette traveling through a celestial trajectory.",
+        "es": "Silueta de gimnasta viajando por una trayectoria celestial."
+      },
+      "houseAffinity": [
+        "LUMA",
+        "NOVA"
+      ]
+    },
+    {
+      "id": "the-wobble",
+      "number": 7,
+      "name": "THE WOBBLE",
+      "shortMeaning": {
+        "en": "Recovery, controlled chaos and staying in the game.",
+        "es": "Recuperación, caos controlado y seguir en juego."
+      },
+      "tags": [
+        "CHAOS",
+        "COMEBACK",
+        "MISCHIEF"
+      ],
+      "microcopy": {
+        "en": "Still on the beam. Technically iconic.",
+        "es": "Sigues en la viga. Técnicamente icónica."
+      },
+      "symbol": "beam-pulse",
+      "visualConcept": {
+        "en": "A beam crossed by a wild seismograph line that returns to center.",
+        "es": "Una viga atravesada por una línea loca que finalmente vuelve al centro."
+      },
+      "houseAffinity": [
+        "FLUX",
+        "HALO"
+      ]
+    },
+    {
+      "id": "the-grip",
+      "number": 8,
+      "name": "THE GRIP",
+      "shortMeaning": {
+        "en": "Support, tools and knowing when to hold or release.",
+        "es": "Apoyo, herramientas y saber cuándo sostener o soltar."
+      },
+      "tags": [
+        "FOCUS",
+        "PRECISION",
+        "TRUST"
+      ],
+      "microcopy": {
+        "en": "Emotional support equipment.",
+        "es": "Equipo de apoyo emocional."
+      },
+      "symbol": "gymnastics-grips",
+      "visualConcept": {
+        "en": "Gymnastics grips displayed like mystical sacred objects.",
+        "es": "Grips de gimnasia presentados como objetos sagrados."
+      },
+      "houseAffinity": [
+        "AXIS",
+        "VANTA"
+      ]
+    },
+    {
+      "id": "full-out",
+      "number": 9,
+      "name": "FULL OUT",
+      "shortMeaning": {
+        "en": "Commitment without further negotiation.",
+        "es": "Compromiso sin seguir negociando."
+      },
+      "tags": [
+        "FIRE",
+        "COURAGE",
+        "SPOTLIGHT"
+      ],
+      "microcopy": {
+        "en": "Commitment, but airborne.",
+        "es": "Compromiso, pero en el aire."
+      },
+      "symbol": "twisting-spiral",
+      "visualConcept": {
+        "en": "A twisting trajectory drawn like a mystical engineering diagram.",
+        "es": "Trayectoria de giro como un diagrama de ingeniería mística."
+      },
+      "houseAffinity": [
+        "NOVA",
+        "PRISM"
+      ]
+    },
+    {
+      "id": "the-reset",
+      "number": 10,
+      "name": "THE RESET",
+      "shortMeaning": {
+        "en": "A new turn deserves new information.",
+        "es": "Un nuevo turno merece información nueva."
+      },
+      "tags": [
+        "RESET",
+        "CALM",
+        "FOCUS"
+      ],
+      "microcopy": {
+        "en": "The previous one is already over.",
+        "es": "El anterior ya terminó."
+      },
+      "symbol": "circular-arrow-star",
+      "visualConcept": {
+        "en": "Circular reset arrow orbiting a four-point star.",
+        "es": "Flecha circular rodeando una estrella de cuatro puntas."
+      },
+      "houseAffinity": [
+        "LUMA",
+        "AXIS"
+      ]
+    },
+    {
+      "id": "the-spotlight",
+      "number": 11,
+      "name": "THE SPOTLIGHT",
+      "shortMeaning": {
+        "en": "Visibility, charisma and taking up your moment.",
+        "es": "Visibilidad, carisma y ocupar tu momento."
+      },
+      "tags": [
+        "SPOTLIGHT",
+        "CHARISMA",
+        "CONFIDENCE"
+      ],
+      "microcopy": {
+        "en": "Visible on purpose.",
+        "es": "Visible a propósito."
+      },
+      "symbol": "spotlight",
+      "visualConcept": {
+        "en": "A dramatic light cone illuminating a gymnast.",
+        "es": "Un cono de luz dramático iluminando una gimnasta."
+      },
+      "houseAffinity": [
+        "PRISM",
+        "NOVA"
+      ]
+    },
+    {
+      "id": "the-comeback",
+      "number": 12,
+      "name": "THE COMEBACK",
+      "shortMeaning": {
+        "en": "Returning without pretending nothing happened.",
+        "es": "Volver sin fingir que nada pasó."
+      },
+      "tags": [
+        "COMEBACK",
+        "RESILIENCE",
+        "COURAGE"
+      ],
+      "microcopy": {
+        "en": "Different version. Same girl.",
+        "es": "Versión diferente. La misma niña."
+      },
+      "symbol": "returning-star",
+      "visualConcept": {
+        "en": "A falling star curving upward and returning brighter.",
+        "es": "Una estrella que cae, gira y regresa más brillante."
+      },
+      "houseAffinity": [
+        "FLUX",
+        "VANTA"
+      ]
+    },
+    {
+      "id": "the-fall",
+      "number": 13,
+      "name": "THE FALL",
+      "shortMeaning": {
+        "en": "The mistake happened. It does not get your whole identity.",
+        "es": "El error ocurrió. No se queda con toda tu identidad."
+      },
+      "tags": [
+        "RESILIENCE",
+        "COMEBACK",
+        "RESET"
+      ],
+      "microcopy": {
+        "en": "Falling is an event. Not a biography.",
+        "es": "Caerse es un evento. No una biografía."
+      },
+      "symbol": "falling-star",
+      "visualConcept": {
+        "en": "A falling star or interrupted trajectory turning into a reset symbol.",
+        "es": "Una estrella cayendo o trayectoria interrumpida convirtiéndose en reset."
+      },
+      "houseAffinity": [
+        "FLUX",
+        "VANTA"
+      ]
+    },
+    {
+      "id": "the-spot",
+      "number": 14,
+      "name": "THE SPOT",
+      "shortMeaning": {
+        "en": "Support does not cancel strength.",
+        "es": "Aceptar apoyo no cancela tu fortaleza."
+      },
+      "tags": [
+        "TRUST",
+        "TEAM",
+        "COURAGE"
+      ],
+      "microcopy": {
+        "en": "Strong girls still use support.",
+        "es": "Las fuertes también aceptan ayuda."
+      },
+      "symbol": "supporting-hands",
+      "visualConcept": {
+        "en": "Supporting hands beneath an abstract gymnast trajectory.",
+        "es": "Manos de apoyo debajo de una trayectoria gimnástica."
+      },
+      "houseAffinity": [
+        "HALO",
+        "LUMA"
+      ]
+    },
+    {
+      "id": "the-correction",
+      "number": 15,
+      "name": "THE CORRECTION",
+      "shortMeaning": {
+        "en": "The useful information you may already have heard six times.",
+        "es": "La información útil que posiblemente ya escuchaste seis veces."
+      },
+      "tags": [
+        "FOCUS",
+        "DISCIPLINE",
+        "PRECISION"
+      ],
+      "microcopy": {
+        "en": "Yes. That correction. Again.",
+        "es": "Sí. Esa corrección. Otra vez."
+      },
+      "symbol": "pencil-arrow",
+      "visualConcept": {
+        "en": "Technical arrows correcting a gymnast shape like a sacred diagram.",
+        "es": "Flechas técnicas corrigiendo una posición como diagrama sagrado."
+      },
+      "houseAffinity": [
+        "AXIS",
+        "VANTA"
+      ]
+    },
+    {
+      "id": "the-fear",
+      "number": 16,
+      "name": "THE FEAR",
+      "shortMeaning": {
+        "en": "Fear may be present without being in charge.",
+        "es": "El miedo puede estar presente sin estar a cargo."
+      },
+      "tags": [
+        "COURAGE",
+        "TRUST",
+        "PATIENCE"
+      ],
+      "microcopy": {
+        "en": "Fear may come. It does not get a vote.",
+        "es": "El miedo puede venir. No tiene voto."
+      },
+      "symbol": "eye-flame",
+      "visualConcept": {
+        "en": "A nervous eye surrounded by controlled rays rather than horror imagery.",
+        "es": "Un ojo nervioso rodeado de rayos controlados, sin estética de horror."
+      },
+      "houseAffinity": [
+        "NOVA",
+        "LUMA"
+      ]
+    },
+    {
+      "id": "the-routine",
+      "number": 17,
+      "name": "THE ROUTINE",
+      "shortMeaning": {
+        "en": "The whole thing matters more than one imperfect piece.",
+        "es": "El conjunto importa más que una sola parte imperfecta."
+      },
+      "tags": [
+        "FLOW",
+        "DISCIPLINE",
+        "PRECISION"
+      ],
+      "microcopy": {
+        "en": "One skill is not the whole story.",
+        "es": "Un elemento no es toda la historia."
+      },
+      "symbol": "connected-path",
+      "visualConcept": {
+        "en": "Several gymnastics symbols connected into one continuous path.",
+        "es": "Varios símbolos gimnásticos conectados en una sola trayectoria."
+      },
+      "houseAffinity": [
+        "AXIS",
+        "LUMA"
+      ]
+    },
+    {
+      "id": "the-score",
+      "number": 18,
+      "name": "THE SCORE",
+      "shortMeaning": {
+        "en": "A number can measure a routine without measuring a person.",
+        "es": "Un número puede medir una rutina sin medir a una persona."
+      },
+      "tags": [
+        "PATIENCE",
+        "CONFIDENCE",
+        "PRECISION"
+      ],
+      "microcopy": {
+        "en": "A number can describe a routine. Not a person.",
+        "es": "Un número describe una rutina. No una persona."
+      },
+      "symbol": "scoreboard",
+      "visualConcept": {
+        "en": "A mystical vintage gymnastics scoreboard.",
+        "es": "Un scoreboard vintage de gimnasia con estética mística."
+      },
+      "houseAffinity": [
+        "AXIS",
+        "VANTA"
+      ]
+    },
+    {
+      "id": "the-rotation",
+      "number": 19,
+      "name": "THE ROTATION",
+      "shortMeaning": {
+        "en": "Change, waiting and adapting to what comes next.",
+        "es": "Cambio, espera y adaptación a lo que sigue."
+      },
+      "tags": [
+        "ADAPTABILITY",
+        "PATIENCE",
+        "FOCUS"
+      ],
+      "microcopy": {
+        "en": "Your event is coming. Please stop checking.",
+        "es": "Tu aparato viene. Por favor deja de revisar."
+      },
+      "symbol": "four-event-wheel",
+      "visualConcept": {
+        "en": "A four-part wheel representing Vault, Bars, Beam and Floor.",
+        "es": "Rueda de cuatro partes representando Salto, Barras, Viga y Suelo."
+      },
+      "houseAffinity": [
+        "FLUX",
+        "AXIS"
+      ]
+    },
+    {
+      "id": "the-wait",
+      "number": 20,
+      "name": "THE WAIT",
+      "shortMeaning": {
+        "en": "Not yet does not mean never.",
+        "es": "Todavía no no significa nunca."
+      },
+      "tags": [
+        "PATIENCE",
+        "TRUST",
+        "DISCIPLINE"
+      ],
+      "microcopy": {
+        "en": "Not yet is not the same as never.",
+        "es": "Todavía no no es lo mismo que nunca."
+      },
+      "symbol": "hourglass-star",
+      "visualConcept": {
+        "en": "An hourglass filled with stars, chalk and tiny skill symbols.",
+        "es": "Reloj de arena lleno de estrellas, magnesio y símbolos de skills."
+      },
+      "houseAffinity": [
+        "LUMA",
+        "VANTA"
+      ]
+    },
+    {
+      "id": "the-podium",
+      "number": 21,
+      "name": "THE PODIUM",
+      "shortMeaning": {
+        "en": "Recognition, achievement and permission to enjoy it.",
+        "es": "Reconocimiento, logro y permiso para disfrutarlo."
+      },
+      "tags": [
+        "SPOTLIGHT",
+        "JOY",
+        "CONFIDENCE"
+      ],
+      "microcopy": {
+        "en": "Enjoy the moment. Then take the medal off eventually.",
+        "es": "Disfruta el momento. Después eventualmente quítate la medalla."
+      },
+      "symbol": "podium-star",
+      "visualConcept": {
+        "en": "A podium turned into a radiant mystical monument.",
+        "es": "Un podio convertido en monumento místico radiante."
+      },
+      "houseAffinity": [
+        "PRISM",
+        "HALO"
+      ]
+    },
+    {
+      "id": "the-ten",
+      "number": 22,
+      "name": "THE TEN",
+      "shortMeaning": {
+        "en": "Excellence without becoming owned by perfection.",
+        "es": "Excelencia sin convertirse en esclava de la perfección."
+      },
+      "tags": [
+        "PRECISION",
+        "CONFIDENCE",
+        "DISCIPLINE",
+        "SPOTLIGHT"
+      ],
+      "microcopy": {
+        "en": "Chase it. Don't let it chase you.",
+        "es": "Persíguelo. No dejes que él te persiga."
+      },
+      "symbol": "perfect-ten",
+      "visualConcept": {
+        "en": "A radiant 10.000 treated as the sacred final symbol of the deck.",
+        "es": "Un 10.000 radiante tratado como símbolo sagrado final del mazo."
+      },
+      "houseAffinity": [
+        "AXIS",
+        "PRISM"
+      ]
+    }
+  ],
+  "minor": [
+    {
+      "id": "vault-ace-the-run",
+      "suit": "VAULT",
+      "rank": "ACE",
+      "number": 1,
+      "name": "THE RUN",
+      "tags": [
+        "MOMENTUM",
+        "COURAGE"
+      ],
+      "meaning": {
+        "en": "Momentum begins before the table.",
+        "es": "El impulso empieza antes de la mesa."
+      },
+      "humorLine": {
+        "en": "The runway is not coming toward you.",
+        "es": "La pista no va a venir hacia ti."
+      },
+      "houseAffinity": [
+        "NOVA"
+      ]
+    },
+    {
+      "id": "vault-2-the-hurdle",
+      "suit": "VAULT",
+      "rank": "TWO",
+      "number": 2,
+      "name": "THE HURDLE",
+      "tags": [
+        "PRECISION",
+        "MOMENTUM"
+      ],
+      "meaning": {
+        "en": "Small timing creates big consequences.",
+        "es": "Un pequeño timing crea grandes consecuencias."
+      },
+      "humorLine": {
+        "en": "Tiny step. Ridiculous responsibility.",
+        "es": "Un pasito. Una responsabilidad ridícula."
+      },
+      "houseAffinity": [
+        "AXIS",
+        "NOVA"
+      ]
+    },
+    {
+      "id": "vault-3-the-board",
+      "suit": "VAULT",
+      "rank": "THREE",
+      "number": 3,
+      "name": "THE BOARD",
+      "tags": [
+        "FIRE",
+        "PRECISION"
+      ],
+      "meaning": {
+        "en": "You cannot negotiate with physics forever.",
+        "es": "No puedes negociar con la física eternamente."
+      },
+      "humorLine": {
+        "en": "Yes, you actually have to hit it.",
+        "es": "Sí, de verdad tienes que pegarle."
+      },
+      "houseAffinity": [
+        "NOVA",
+        "AXIS"
+      ]
+    },
+    {
+      "id": "vault-4-the-entry",
+      "suit": "VAULT",
+      "rank": "FOUR",
+      "number": 4,
+      "name": "THE ENTRY",
+      "tags": [
+        "FOCUS",
+        "DISCIPLINE"
+      ],
+      "meaning": {
+        "en": "How you enter changes what comes next.",
+        "es": "Cómo entras cambia lo que viene después."
+      },
+      "humorLine": {
+        "en": "The table noticed your angle.",
+        "es": "La mesa vio tu ángulo."
+      },
+      "houseAffinity": [
+        "AXIS"
+      ]
+    },
+    {
+      "id": "vault-5-the-table",
+      "suit": "VAULT",
+      "rank": "FIVE",
+      "number": 5,
+      "name": "THE TABLE",
+      "tags": [
+        "COURAGE",
+        "FIRE"
+      ],
+      "meaning": {
+        "en": "Commit before contact.",
+        "es": "Comprométete antes del contacto."
+      },
+      "humorLine": {
+        "en": "She is large. She is padded. She still requires respect.",
+        "es": "Es grande. Tiene padding. Igual exige respeto."
+      },
+      "houseAffinity": [
+        "NOVA",
+        "VANTA"
+      ]
+    },
+    {
+      "id": "vault-6-the-rise",
+      "suit": "VAULT",
+      "rank": "SIX",
+      "number": 6,
+      "name": "THE RISE",
+      "tags": [
+        "MOMENTUM",
+        "FLOW"
+      ],
+      "meaning": {
+        "en": "Power becomes lift when direction is clear.",
+        "es": "El poder se convierte en vuelo cuando la dirección está clara."
+      },
+      "humorLine": {
+        "en": "Up would be useful here.",
+        "es": "Subir sería bastante útil aquí."
+      },
+      "houseAffinity": [
+        "NOVA",
+        "LUMA"
+      ]
+    },
+    {
+      "id": "vault-7-the-attack",
+      "suit": "VAULT",
+      "rank": "SEVEN",
+      "number": 7,
+      "name": "THE ATTACK",
+      "tags": [
+        "FIRE",
+        "COURAGE",
+        "MOMENTUM"
+      ],
+      "meaning": {
+        "en": "Commitment starts on the runway.",
+        "es": "El compromiso empieza en la pista."
+      },
+      "humorLine": {
+        "en": "Less ceremony. More running.",
+        "es": "Menos ceremonia. Más correr."
+      },
+      "houseAffinity": [
+        "NOVA"
+      ]
+    },
+    {
+      "id": "vault-8-the-repetition",
+      "suit": "VAULT",
+      "rank": "EIGHT",
+      "number": 8,
+      "name": "THE REPETITION",
+      "tags": [
+        "DISCIPLINE",
+        "PATIENCE"
+      ],
+      "meaning": {
+        "en": "Useful repetitions are rarely glamorous.",
+        "es": "Las repeticiones útiles rara vez son glamorosas."
+      },
+      "humorLine": {
+        "en": "Again. Ancient vault tradition.",
+        "es": "Otra vez. Antigua tradición de salto."
+      },
+      "houseAffinity": [
+        "AXIS",
+        "VANTA"
+      ]
+    },
+    {
+      "id": "vault-9-the-almost",
+      "suit": "VAULT",
+      "rank": "NINE",
+      "number": 9,
+      "name": "THE ALMOST",
+      "tags": [
+        "PATIENCE",
+        "COMEBACK"
+      ],
+      "meaning": {
+        "en": "Almost is evidence, not failure.",
+        "es": "Casi es evidencia, no fracaso."
+      },
+      "humorLine": {
+        "en": "Annoyingly close remains close.",
+        "es": "Irritantemente cerca sigue siendo cerca."
+      },
+      "houseAffinity": [
+        "FLUX",
+        "LUMA"
+      ]
+    },
+    {
+      "id": "vault-10-the-landing",
+      "suit": "VAULT",
+      "rank": "TEN",
+      "number": 10,
+      "name": "THE LANDING",
+      "tags": [
+        "PRECISION",
+        "CONFIDENCE"
+      ],
+      "meaning": {
+        "en": "Finish the skill you started.",
+        "es": "Termina el elemento que comenzaste."
+      },
+      "humorLine": {
+        "en": "The floor would appreciate one location.",
+        "es": "El piso agradecería una sola ubicación."
+      },
+      "houseAffinity": [
+        "AXIS",
+        "VANTA"
+      ]
+    },
+    {
+      "id": "vault-rookie",
+      "suit": "VAULT",
+      "rank": "ROOKIE",
+      "number": 11,
+      "name": "THE VAULT ROOKIE",
+      "tags": [
+        "COURAGE",
+        "CURIOSITY"
+      ],
+      "meaning": {
+        "en": "Being new is allowed.",
+        "es": "Está permitido ser nueva."
+      },
+      "humorLine": {
+        "en": "Nobody was born knowing where the board goes.",
+        "es": "Nadie nació sabiendo dónde va el trampolín."
+      },
+      "houseAffinity": [
+        "HALO",
+        "NOVA"
+      ]
+    },
+    {
+      "id": "vault-teammate",
+      "suit": "VAULT",
+      "rank": "TEAMMATE",
+      "number": 12,
+      "name": "THE RUNWAY HYPE GIRL",
+      "tags": [
+        "TEAM",
+        "JOY",
+        "MOMENTUM"
+      ],
+      "meaning": {
+        "en": "Sometimes confidence arrives through somebody else's scream.",
+        "es": "A veces la confianza llega mediante el grito de otra persona."
+      },
+      "humorLine": {
+        "en": "Has screamed GO with absolutely no technical information attached.",
+        "es": "Ha gritado VAMOS sin aportar absolutamente ninguna información técnica."
+      },
+      "houseAffinity": [
+        "HALO"
+      ]
+    },
+    {
+      "id": "vault-coach",
+      "suit": "VAULT",
+      "rank": "COACH",
+      "number": 13,
+      "name": "THE VAULT COACH",
+      "tags": [
+        "FOCUS",
+        "DISCIPLINE",
+        "PRECISION"
+      ],
+      "meaning": {
+        "en": "The correction was probably about the run.",
+        "es": "La corrección probablemente era sobre la carrera."
+      },
+      "humorLine": {
+        "en": "No, running faster was not the entire assignment.",
+        "es": "No, correr más rápido no era toda la tarea."
+      },
+      "houseAffinity": [
+        "AXIS",
+        "VANTA"
+      ]
+    },
+    {
+      "id": "vault-queen",
+      "suit": "VAULT",
+      "rank": "QUEEN",
+      "number": 14,
+      "name": "THE POWER QUEEN",
+      "tags": [
+        "FIRE",
+        "CONFIDENCE",
+        "SPOTLIGHT"
+      ],
+      "meaning": {
+        "en": "Power with direction becomes presence.",
+        "es": "El poder con dirección se convierte en presencia."
+      },
+      "humorLine": {
+        "en": "She did not ask the runway for permission.",
+        "es": "No le pidió permiso a la pista."
+      },
+      "houseAffinity": [
+        "NOVA",
+        "PRISM"
+      ]
+    },
+    {
+      "id": "bars-ace-the-swing",
+      "suit": "BARS",
+      "rank": "ACE",
+      "number": 1,
+      "name": "THE SWING",
+      "tags": [
+        "FLOW",
+        "TRUST"
+      ],
+      "meaning": {
+        "en": "Momentum works better when you stop fighting it.",
+        "es": "El impulso funciona mejor cuando dejas de pelear con él."
+      },
+      "humorLine": {
+        "en": "Physics is trying to help. Suspicious, but true.",
+        "es": "La física intenta ayudarte. Sospechoso, pero cierto."
+      },
+      "houseAffinity": [
+        "LUMA",
+        "AXIS"
+      ]
+    },
+    {
+      "id": "bars-2-the-tap",
+      "suit": "BARS",
+      "rank": "TWO",
+      "number": 2,
+      "name": "THE TAP",
+      "tags": [
+        "PRECISION",
+        "FOCUS"
+      ],
+      "meaning": {
+        "en": "Timing lives inside tiny shapes.",
+        "es": "El timing vive dentro de pequeñas posiciones."
+      },
+      "humorLine": {
+        "en": "Yes, that tiny shape mattered.",
+        "es": "Sí, esa posición diminuta importaba."
+      },
+      "houseAffinity": [
+        "AXIS"
+      ]
+    },
+    {
+      "id": "bars-3-the-cast",
+      "suit": "BARS",
+      "rank": "THREE",
+      "number": 3,
+      "name": "THE CAST",
+      "tags": [
+        "MOMENTUM",
+        "DISCIPLINE"
+      ],
+      "meaning": {
+        "en": "Direction before height.",
+        "es": "Dirección antes de altura."
+      },
+      "humorLine": {
+        "en": "Vertical has filed a missing-person report.",
+        "es": "La vertical presentó una denuncia de persona desaparecida."
+      },
+      "houseAffinity": [
+        "AXIS",
+        "NOVA"
+      ]
+    },
+    {
+      "id": "bars-4-the-kip",
+      "suit": "BARS",
+      "rank": "FOUR",
+      "number": 4,
+      "name": "THE KIP",
+      "tags": [
+        "PATIENCE",
+        "PRECISION"
+      ],
+      "meaning": {
+        "en": "Some skills become simple only after being complicated for months.",
+        "es": "Algunos elementos se vuelven simples después de ser complicados durante meses."
+      },
+      "humorLine": {
+        "en": "Everybody remembers the kip era.",
+        "es": "Todo el mundo recuerda su era del kip."
+      },
+      "houseAffinity": [
+        "FLUX",
+        "AXIS"
+      ]
+    },
+    {
+      "id": "bars-5-the-handstand",
+      "suit": "BARS",
+      "rank": "FIVE",
+      "number": 5,
+      "name": "THE HANDSTAND",
+      "tags": [
+        "PRECISION",
+        "DISCIPLINE"
+      ],
+      "meaning": {
+        "en": "The line matters.",
+        "es": "La línea importa."
+      },
+      "humorLine": {
+        "en": "Almost vertical remains emotionally controversial.",
+        "es": "Casi vertical sigue siendo emocionalmente controversial."
+      },
+      "houseAffinity": [
+        "AXIS",
+        "VANTA"
+      ]
+    },
+    {
+      "id": "bars-6-the-giant",
+      "suit": "BARS",
+      "rank": "SIX",
+      "number": 6,
+      "name": "THE GIANT",
+      "tags": [
+        "FLOW",
+        "COURAGE",
+        "TRUST"
+      ],
+      "meaning": {
+        "en": "Big circles need commitment.",
+        "es": "Los círculos grandes necesitan compromiso."
+      },
+      "humorLine": {
+        "en": "Stopping halfway is rarely the aesthetic.",
+        "es": "Pararse a mitad de camino rara vez es la estética."
+      },
+      "houseAffinity": [
+        "NOVA",
+        "LUMA"
+      ]
+    },
+    {
+      "id": "bars-7-the-release",
+      "suit": "BARS",
+      "rank": "SEVEN",
+      "number": 7,
+      "name": "THE RELEASE",
+      "tags": [
+        "COURAGE",
+        "TRUST"
+      ],
+      "meaning": {
+        "en": "You cannot regrasp something you never release.",
+        "es": "No puedes volver a agarrar algo que nunca soltaste."
+      },
+      "humorLine": {
+        "en": "Very rude that letting go is part of this.",
+        "es": "Muy grosero que soltar sea parte de esto."
+      },
+      "houseAffinity": [
+        "NOVA",
+        "LUMA"
+      ]
+    },
+    {
+      "id": "bars-8-the-regrasp",
+      "suit": "BARS",
+      "rank": "EIGHT",
+      "number": 8,
+      "name": "THE REGRASP",
+      "tags": [
+        "FOCUS",
+        "TRUST",
+        "PRECISION"
+      ],
+      "meaning": {
+        "en": "Let go. Find it again.",
+        "es": "Suelta. Encuéntrala otra vez."
+      },
+      "humorLine": {
+        "en": "Bars: an elaborate trust exercise with wood and fiberglass.",
+        "es": "Barras: un elaborado ejercicio de confianza con madera y fibra."
+      },
+      "houseAffinity": [
+        "AXIS",
+        "LUMA"
+      ]
+    },
+    {
+      "id": "bars-9-one-more-turn",
+      "suit": "BARS",
+      "rank": "NINE",
+      "number": 9,
+      "name": "THE ONE MORE TURN",
+      "tags": [
+        "PATIENCE",
+        "DISCIPLINE",
+        "CHAOS"
+      ],
+      "meaning": {
+        "en": "One more is not mathematically defined.",
+        "es": "One more no tiene definición matemática."
+      },
+      "humorLine": {
+        "en": "Nobody has successfully established what one more means.",
+        "es": "Nadie ha logrado establecer qué significa exactamente one more."
+      },
+      "houseAffinity": [
+        "FLUX",
+        "VANTA"
+      ]
+    },
+    {
+      "id": "bars-10-dismount",
+      "suit": "BARS",
+      "rank": "TEN",
+      "number": 10,
+      "name": "THE DISMOUNT",
+      "tags": [
+        "COURAGE",
+        "PRECISION",
+        "CONFIDENCE"
+      ],
+      "meaning": {
+        "en": "The routine still needs an ending.",
+        "es": "La rutina todavía necesita un final."
+      },
+      "humorLine": {
+        "en": "Please exit the apparatus with intention.",
+        "es": "Por favor abandona el aparato con intención."
+      },
+      "houseAffinity": [
+        "NOVA",
+        "AXIS"
+      ]
+    },
+    {
+      "id": "bars-rookie",
+      "suit": "BARS",
+      "rank": "ROOKIE",
+      "number": 11,
+      "name": "THE BAR ROOKIE",
+      "tags": [
+        "CURIOSITY",
+        "PATIENCE"
+      ],
+      "meaning": {
+        "en": "Hands learn things slowly.",
+        "es": "Las manos aprenden lentamente."
+      },
+      "humorLine": {
+        "en": "The first rip always feels politically motivated.",
+        "es": "El primer rip siempre parece políticamente motivado."
+      },
+      "houseAffinity": [
+        "HALO",
+        "FLUX"
+      ]
+    },
+    {
+      "id": "bars-teammate",
+      "suit": "BARS",
+      "rank": "TEAMMATE",
+      "number": 12,
+      "name": "THE CHALK DEALER",
+      "tags": [
+        "TEAM",
+        "MISCHIEF",
+        "JOY"
+      ],
+      "meaning": {
+        "en": "Somebody always knows where the chalk is.",
+        "es": "Alguien siempre sabe dónde está el magnesio."
+      },
+      "humorLine": {
+        "en": "Everybody needs something. She somehow has it.",
+        "es": "Todo el mundo necesita algo. Ella misteriosamente lo tiene."
+      },
+      "houseAffinity": [
+        "HALO"
+      ]
+    },
+    {
+      "id": "bars-coach",
+      "suit": "BARS",
+      "rank": "COACH",
+      "number": 13,
+      "name": "THE BAR COACH",
+      "tags": [
+        "FOCUS",
+        "DISCIPLINE",
+        "PATIENCE"
+      ],
+      "meaning": {
+        "en": "Timing corrections may return repeatedly.",
+        "es": "Las correcciones de timing pueden regresar repetidamente."
+      },
+      "humorLine": {
+        "en": "The coach has said tap approximately seventeen ways.",
+        "es": "El coach ha dicho tap aproximadamente de diecisiete maneras."
+      },
+      "houseAffinity": [
+        "AXIS",
+        "VANTA"
+      ]
+    },
+    {
+      "id": "bars-queen",
+      "suit": "BARS",
+      "rank": "QUEEN",
+      "number": 14,
+      "name": "THE SWING QUEEN",
+      "tags": [
+        "FLOW",
+        "CONFIDENCE",
+        "GRACE"
+      ],
+      "meaning": {
+        "en": "Power can look effortless when timing becomes instinct.",
+        "es": "El poder puede parecer fácil cuando el timing se vuelve instinto."
+      },
+      "humorLine": {
+        "en": "Apparently gravity has accepted her terms.",
+        "es": "Al parecer la gravedad aceptó sus condiciones."
+      },
+      "houseAffinity": [
+        "LUMA",
+        "PRISM"
+      ]
+    },
+    {
+      "id": "beam-ace-mount",
+      "suit": "BEAM",
+      "rank": "ACE",
+      "number": 1,
+      "name": "THE MOUNT",
+      "tags": [
+        "FOCUS",
+        "CONFIDENCE"
+      ],
+      "meaning": {
+        "en": "The routine starts before the first skill.",
+        "es": "La rutina empieza antes del primer elemento."
+      },
+      "humorLine": {
+        "en": "You chose to climb onto this thing.",
+        "es": "Tú decidiste subirte a esta cosa."
+      },
+      "houseAffinity": [
+        "AXIS",
+        "VANTA"
+      ]
+    },
+    {
+      "id": "beam-2-line",
+      "suit": "BEAM",
+      "rank": "TWO",
+      "number": 2,
+      "name": "THE LINE",
+      "tags": [
+        "PRECISION",
+        "FOCUS"
+      ],
+      "meaning": {
+        "en": "Direction matters more when there are only four inches.",
+        "es": "La dirección importa más cuando solo hay cuatro pulgadas."
+      },
+      "humorLine": {
+        "en": "Straight is suddenly a personality requirement.",
+        "es": "De pronto ir derecho es un requisito de personalidad."
+      },
+      "houseAffinity": [
+        "AXIS"
+      ]
+    },
+    {
+      "id": "beam-3-releve",
+      "suit": "BEAM",
+      "rank": "THREE",
+      "number": 3,
+      "name": "THE RELEVÉ",
+      "tags": [
+        "GRACE",
+        "PRECISION"
+      ],
+      "meaning": {
+        "en": "Small details change the entire picture.",
+        "es": "Los pequeños detalles cambian toda la imagen."
+      },
+      "humorLine": {
+        "en": "Your ankles have received another assignment.",
+        "es": "Tus tobillos recibieron otra tarea."
+      },
+      "houseAffinity": [
+        "LUMA",
+        "AXIS"
+      ]
+    },
+    {
+      "id": "beam-4-turn",
+      "suit": "BEAM",
+      "rank": "FOUR",
+      "number": 4,
+      "name": "THE TURN",
+      "tags": [
+        "FOCUS",
+        "TRUST"
+      ],
+      "meaning": {
+        "en": "Pick a spot. Finish the thought.",
+        "es": "Elige un punto. Termina la idea."
+      },
+      "humorLine": {
+        "en": "The beam remains the same width during the turn.",
+        "es": "La viga sigue teniendo el mismo ancho durante el giro."
+      },
+      "houseAffinity": [
+        "AXIS",
+        "LUMA"
+      ]
+    },
+    {
+      "id": "beam-5-leap",
+      "suit": "BEAM",
+      "rank": "FIVE",
+      "number": 5,
+      "name": "THE LEAP",
+      "tags": [
+        "GRACE",
+        "COURAGE"
+      ],
+      "meaning": {
+        "en": "Amplitude requires commitment.",
+        "es": "La amplitud exige compromiso."
+      },
+      "humorLine": {
+        "en": "Half a split has entered the chat.",
+        "es": "Medio split entró al chat."
+      },
+      "houseAffinity": [
+        "LUMA",
+        "NOVA"
+      ]
+    },
+    {
+      "id": "beam-6-acro",
+      "suit": "BEAM",
+      "rank": "SIX",
+      "number": 6,
+      "name": "THE ACRO",
+      "tags": [
+        "COURAGE",
+        "FOCUS",
+        "TRUST"
+      ],
+      "meaning": {
+        "en": "You cannot watch the whole skill while doing it.",
+        "es": "No puedes observar todo el elemento mientras lo haces."
+      },
+      "humorLine": {
+        "en": "At some point the hands and feet must negotiate privately.",
+        "es": "En algún momento manos y pies deben negociar en privado."
+      },
+      "houseAffinity": [
+        "NOVA",
+        "VANTA"
+      ]
+    },
+    {
+      "id": "beam-7-pause",
+      "suit": "BEAM",
+      "rank": "SEVEN",
+      "number": 7,
+      "name": "THE PAUSE",
+      "tags": [
+        "PATIENCE",
+        "CHAOS"
+      ],
+      "meaning": {
+        "en": "Thinking longer does not make the beam wider.",
+        "es": "Pensar más tiempo no hace la viga más ancha."
+      },
+      "humorLine": {
+        "en": "The meeting in your head is running overtime.",
+        "es": "La reunión en tu cabeza se extendió demasiado."
+      },
+      "houseAffinity": [
+        "FLUX",
+        "VANTA"
+      ]
+    },
+    {
+      "id": "beam-8-save",
+      "suit": "BEAM",
+      "rank": "EIGHT",
+      "number": 8,
+      "name": "THE SAVE",
+      "tags": [
+        "COMEBACK",
+        "CONTROLLED_CHAOS"
+      ],
+      "meaning": {
+        "en": "Recovery counts.",
+        "es": "Recuperarse cuenta."
+      },
+      "humorLine": {
+        "en": "Ugly survival is still survival.",
+        "es": "Sobrevivir feo sigue siendo sobrevivir."
+      },
+      "houseAffinity": [
+        "FLUX"
+      ]
+    },
+    {
+      "id": "beam-9-four-inches",
+      "suit": "BEAM",
+      "rank": "NINE",
+      "number": 9,
+      "name": "THE FOUR INCHES",
+      "tags": [
+        "FOCUS",
+        "PRECISION",
+        "MISCHIEF"
+      ],
+      "meaning": {
+        "en": "Apparently this is enough space.",
+        "es": "Al parecer este espacio es suficiente."
+      },
+      "humorLine": {
+        "en": "Four inches. Completely reasonable sport.",
+        "es": "Cuatro pulgadas. Deporte totalmente razonable."
+      },
+      "houseAffinity": [
+        "FLUX",
+        "AXIS"
+      ]
+    },
+    {
+      "id": "beam-10-dismount",
+      "suit": "BEAM",
+      "rank": "TEN",
+      "number": 10,
+      "name": "THE DISMOUNT",
+      "tags": [
+        "COURAGE",
+        "CONFIDENCE"
+      ],
+      "meaning": {
+        "en": "Finish with intention.",
+        "es": "Termina con intención."
+      },
+      "humorLine": {
+        "en": "Please leave the beam before starting your review.",
+        "es": "Por favor bájate de la viga antes de comenzar tu análisis."
+      },
+      "houseAffinity": [
+        "NOVA",
+        "AXIS"
+      ]
+    },
+    {
+      "id": "beam-rookie",
+      "suit": "BEAM",
+      "rank": "ROOKIE",
+      "number": 11,
+      "name": "THE BEAM ROOKIE",
+      "tags": [
+        "COURAGE",
+        "PATIENCE"
+      ],
+      "meaning": {
+        "en": "Confidence is allowed to arrive slowly.",
+        "es": "La confianza puede llegar lentamente."
+      },
+      "humorLine": {
+        "en": "Walking used to be easier on the floor.",
+        "es": "Caminar era más fácil cuando era en el piso."
+      },
+      "houseAffinity": [
+        "LUMA",
+        "HALO"
+      ]
+    },
+    {
+      "id": "beam-teammate",
+      "suit": "BEAM",
+      "rank": "TEAMMATE",
+      "number": 12,
+      "name": "THE BEAM WHISPERER",
+      "tags": [
+        "TEAM",
+        "CALM"
+      ],
+      "meaning": {
+        "en": "One quiet voice can reset an entire turn.",
+        "es": "Una voz tranquila puede resetear un turno entero."
+      },
+      "humorLine": {
+        "en": "Somehow says breathe at exactly the annoying correct time.",
+        "es": "De alguna manera dice respira justo en el momento irritantemente correcto."
+      },
+      "houseAffinity": [
+        "HALO",
+        "LUMA"
+      ]
+    },
+    {
+      "id": "beam-coach",
+      "suit": "BEAM",
+      "rank": "COACH",
+      "number": 13,
+      "name": "THE BEAM COACH",
+      "tags": [
+        "FOCUS",
+        "PRECISION",
+        "PATIENCE"
+      ],
+      "meaning": {
+        "en": "The beam does not need another committee meeting.",
+        "es": "La viga no necesita otra reunión de comité."
+      },
+      "humorLine": {
+        "en": "The coach said go. The cards agree.",
+        "es": "El coach dijo ya. Las cartas coinciden."
+      },
+      "houseAffinity": [
+        "AXIS",
+        "VANTA"
+      ]
+    },
+    {
+      "id": "beam-queen",
+      "suit": "BEAM",
+      "rank": "QUEEN",
+      "number": 14,
+      "name": "THE UNBOTHERED QUEEN",
+      "tags": [
+        "CALM",
+        "CONFIDENCE",
+        "GRACE"
+      ],
+      "meaning": {
+        "en": "Calm can be a competitive weapon.",
+        "es": "La calma puede ser un arma competitiva."
+      },
+      "humorLine": {
+        "en": "Looks relaxed. Suspicious.",
+        "es": "Se ve relajada. Sospechoso."
+      },
+      "houseAffinity": [
+        "VANTA",
+        "LUMA"
+      ]
+    },
+    {
+      "id": "floor-ace-music",
+      "suit": "FLOOR",
+      "rank": "ACE",
+      "number": 1,
+      "name": "THE MUSIC",
+      "tags": [
+        "FLOW",
+        "JOY",
+        "CHARISMA"
+      ],
+      "meaning": {
+        "en": "The routine begins when the first sound hits.",
+        "es": "La rutina comienza cuando suena la primera nota."
+      },
+      "humorLine": {
+        "en": "Your teammates already know every beat.",
+        "es": "Tus compañeras ya conocen cada beat."
+      },
+      "houseAffinity": [
+        "PRISM",
+        "HALO"
+      ]
+    },
+    {
+      "id": "floor-2-corner",
+      "suit": "FLOOR",
+      "rank": "TWO",
+      "number": 2,
+      "name": "THE CORNER",
+      "tags": [
+        "FOCUS",
+        "CHAOS"
+      ],
+      "meaning": {
+        "en": "A small square for very large internal conversations.",
+        "es": "Un pequeño rincón para enormes conversaciones internas."
+      },
+      "humorLine": {
+        "en": "Three seconds to reconsider every decision that brought you here.",
+        "es": "Tres segundos para reconsiderar todas las decisiones que te trajeron aquí."
+      },
+      "houseAffinity": [
+        "FLUX",
+        "VANTA"
+      ]
+    },
+    {
+      "id": "floor-3-dance",
+      "suit": "FLOOR",
+      "rank": "THREE",
+      "number": 3,
+      "name": "THE DANCE",
+      "tags": [
+        "GRACE",
+        "CREATIVITY",
+        "CHARISMA"
+      ],
+      "meaning": {
+        "en": "Movement deserves intention between the skills too.",
+        "es": "El movimiento también merece intención entre los elementos."
+      },
+      "humorLine": {
+        "en": "Yes, the arms are part of the routine.",
+        "es": "Sí, los brazos también forman parte de la rutina."
+      },
+      "houseAffinity": [
+        "PRISM",
+        "LUMA"
+      ]
+    },
+    {
+      "id": "floor-4-leap",
+      "suit": "FLOOR",
+      "rank": "FOUR",
+      "number": 4,
+      "name": "THE LEAP",
+      "tags": [
+        "GRACE",
+        "COURAGE"
+      ],
+      "meaning": {
+        "en": "Amplitude is not created through wishing.",
+        "es": "La amplitud no aparece por desearla."
+      },
+      "humorLine": {
+        "en": "The split has requested additional evidence.",
+        "es": "El split solicitó pruebas adicionales."
+      },
+      "houseAffinity": [
+        "LUMA",
+        "NOVA"
+      ]
+    },
+    {
+      "id": "floor-5-pass",
+      "suit": "FLOOR",
+      "rank": "FIVE",
+      "number": 5,
+      "name": "THE PASS",
+      "tags": [
+        "FIRE",
+        "MOMENTUM",
+        "COURAGE"
+      ],
+      "meaning": {
+        "en": "Run like the skill is expecting you.",
+        "es": "Corre como si el elemento te estuviera esperando."
+      },
+      "humorLine": {
+        "en": "The corner meeting has adjourned.",
+        "es": "La reunión de la esquina terminó."
+      },
+      "houseAffinity": [
+        "NOVA"
+      ]
+    },
+    {
+      "id": "floor-6-twist",
+      "suit": "FLOOR",
+      "rank": "SIX",
+      "number": 6,
+      "name": "THE TWIST",
+      "tags": [
+        "FLOW",
+        "PRECISION"
+      ],
+      "meaning": {
+        "en": "Rotation loves commitment.",
+        "es": "La rotación ama el compromiso."
+      },
+      "humorLine": {
+        "en": "Stopping halfway remains an unpopular strategy.",
+        "es": "Pararse a la mitad sigue siendo una estrategia poco popular."
+      },
+      "houseAffinity": [
+        "NOVA",
+        "AXIS"
+      ]
+    },
+    {
+      "id": "floor-7-breath",
+      "suit": "FLOOR",
+      "rank": "SEVEN",
+      "number": 7,
+      "name": "THE BREATH",
+      "tags": [
+        "CALM",
+        "RESET"
+      ],
+      "meaning": {
+        "en": "Breathing is still available during routines.",
+        "es": "Respirar sigue estando permitido durante las rutinas."
+      },
+      "humorLine": {
+        "en": "Groundbreaking information.",
+        "es": "Información revolucionaria."
+      },
+      "houseAffinity": [
+        "LUMA",
+        "HALO"
+      ]
+    },
+    {
+      "id": "floor-8-rhythm",
+      "suit": "FLOOR",
+      "rank": "EIGHT",
+      "number": 8,
+      "name": "THE RHYTHM",
+      "tags": [
+        "FLOW",
+        "DISCIPLINE"
+      ],
+      "meaning": {
+        "en": "Timing is movement's invisible architecture.",
+        "es": "El timing es la arquitectura invisible del movimiento."
+      },
+      "humorLine": {
+        "en": "Your music did not speed up. Probably.",
+        "es": "Tu música no se aceleró. Probablemente."
+      },
+      "houseAffinity": [
+        "PRISM",
+        "AXIS"
+      ]
+    },
+    {
+      "id": "floor-9-face",
+      "suit": "FLOOR",
+      "rank": "NINE",
+      "number": 9,
+      "name": "THE FACE",
+      "tags": [
+        "SPOTLIGHT",
+        "CHARISMA",
+        "MISCHIEF"
+      ],
+      "meaning": {
+        "en": "Performance includes the face.",
+        "es": "La interpretación incluye la cara."
+      },
+      "humorLine": {
+        "en": "Tragic news: choreography reaches the eyebrows.",
+        "es": "Noticias trágicas: la coreografía llega hasta las cejas."
+      },
+      "houseAffinity": [
+        "PRISM"
+      ]
+    },
+    {
+      "id": "floor-10-final-pose",
+      "suit": "FLOOR",
+      "rank": "TEN",
+      "number": 10,
+      "name": "THE FINAL POSE",
+      "tags": [
+        "CONFIDENCE",
+        "SPOTLIGHT"
+      ],
+      "meaning": {
+        "en": "Whatever happened before this, sell the ending.",
+        "es": "Pase lo que pase antes, vende el final."
+      },
+      "humorLine": {
+        "en": "The audience does not need your live technical review.",
+        "es": "El público no necesita tu análisis técnico en vivo."
+      },
+      "houseAffinity": [
+        "PRISM",
+        "VANTA"
+      ]
+    },
+    {
+      "id": "floor-rookie",
+      "suit": "FLOOR",
+      "rank": "ROOKIE",
+      "number": 11,
+      "name": "THE FLOOR ROOKIE",
+      "tags": [
+        "JOY",
+        "CURIOSITY"
+      ],
+      "meaning": {
+        "en": "Performance is also a skill.",
+        "es": "La interpretación también es un skill."
+      },
+      "humorLine": {
+        "en": "Nobody arrives knowing what to do with their hands.",
+        "es": "Nadie llega sabiendo qué hacer con las manos."
+      },
+      "houseAffinity": [
+        "HALO",
+        "PRISM"
+      ]
+    },
+    {
+      "id": "floor-teammate",
+      "suit": "FLOOR",
+      "rank": "TEAMMATE",
+      "number": 12,
+      "name": "THE FLOOR-MUSIC EXPERT",
+      "tags": [
+        "TEAM",
+        "JOY",
+        "MISCHIEF"
+      ],
+      "meaning": {
+        "en": "Team memory stores everybody's soundtrack.",
+        "es": "La memoria del equipo guarda la música de todas."
+      },
+      "humorLine": {
+        "en": "Has never performed your routine. Knows every beat anyway.",
+        "es": "Nunca ha hecho tu rutina. Igual conoce cada beat."
+      },
+      "houseAffinity": [
+        "HALO"
+      ]
+    },
+    {
+      "id": "floor-coach",
+      "suit": "FLOOR",
+      "rank": "COACH",
+      "number": 13,
+      "name": "THE FLOOR COACH",
+      "tags": [
+        "PRECISION",
+        "CHARISMA",
+        "DISCIPLINE"
+      ],
+      "meaning": {
+        "en": "Yes, presentation is part of the correction.",
+        "es": "Sí, la presentación es parte de la corrección."
+      },
+      "humorLine": {
+        "en": "Apparently pointed feet did not become optional during dance.",
+        "es": "Al parecer los empeines no se volvieron opcionales durante la danza."
+      },
+      "houseAffinity": [
+        "AXIS",
+        "PRISM"
+      ]
+    },
+    {
+      "id": "floor-queen",
+      "suit": "FLOOR",
+      "rank": "QUEEN",
+      "number": 14,
+      "name": "THE MAIN EVENT",
+      "tags": [
+        "SPOTLIGHT",
+        "CHARISMA",
+        "CONFIDENCE"
+      ],
+      "meaning": {
+        "en": "Performance and confidence occupy the floor together.",
+        "es": "Performance y confianza ocupan el suelo juntas."
+      },
+      "humorLine": {
+        "en": "The floor was always going to notice.",
+        "es": "El suelo siempre iba a darse cuenta."
+      },
+      "houseAffinity": [
+        "PRISM",
+        "NOVA"
+      ]
+    }
+  ]
+}

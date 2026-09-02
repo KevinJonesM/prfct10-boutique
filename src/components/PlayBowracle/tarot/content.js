@@ -1,5 +1,7 @@
 // Curated owner content. Expansion targets are not fabricated production inventory.
-export {MAJOR_ARCANA,MINOR_ARCANA,BOWRACLE_HOUSES,HOUSE_TAG_WEIGHTS,PROPHECIES,COACH_FORECASTS,MANIFESTATION_WINDOWS,POWER_COLORS,LUCKY_NUMBERS} from '../data/bowracleContent.js';
+export {BOWRACLE_HOUSES,HOUSE_TAG_WEIGHTS,PROPHECIES,COACH_FORECASTS,MANIFESTATION_WINDOWS,POWER_COLORS,LUCKY_NUMBERS} from '../data/bowracleContent.js';
+export {CLASSIC_MAJOR_ARCANA as MAJOR_ARCANA,CLASSIC_MINOR_ARCANA as MINOR_ARCANA,CLASSIC_DECK_78} from './deck78/classicDeck78.js';
+export {DAILY_CHAOS_CARDS} from '../data/bowracleDailyChaosDeck.js';
 import {TODAY_QUESTS,SECRET_GYM_LAWS} from '../data/bowracleContent.js';
 import {bowracleQuests,bowracleLore,bowracleResults} from '../bowracleEngine.js';
 const legacyLine=item=>({id:'owner-v2-'+item.id,tags:item.energyTags,prose:{en:item.text_en,es:item.text_es},training:item.type==='training'});

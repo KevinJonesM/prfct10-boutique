@@ -2,7 +2,8 @@ import {MAJOR_ARCANA,MINOR_ARCANA,BOWRACLE_HOUSES,HOUSE_TAG_WEIGHTS,PROPHECIES,C
 import {assignedDesign} from '../bowracleEngine.js';
 import {BOW_COLORS,createBowCode} from '../../BowDesigner/bowOptions.js';
 import {validateBowDesign} from '../../BowDesigner/validateBowDesign.js';
-export const TAROT_STORAGE_KEY='prfct10-bowracle-table-v3';
+export const TAROT_STORAGE_KEY='prfct10-bowracle-table-v4';
+export const MAJOR_DRAW_COUNT=3,MINOR_DRAW_COUNT=7;
 export const hash=value=>[...value].reduce((n,c)=>(Math.imul(n,31)+c.charCodeAt(0))>>>0,17);
 export const cleanFirstName=value=>typeof value==='string'?value.replace(/[\u0000-\u001f<>]/g,'').trim().slice(0,30):'';
 export function toggleCard(ids,id,limit){return ids.includes(id)?ids.filter(value=>value!==id):ids.length<limit?[...ids,id]:ids;}
@@ -16,10 +17,10 @@ function assemble(seed,counts,house,extra){
  const dominantTags=Object.keys(counts).sort((a,b)=>counts[b]-counts[a]||a.localeCompare(b));
  const design=extra.design||assignedDesign(powerColor.id,archetype,dominantTags[0]);
  if(!validateBowDesign(design))return null;
- return {version:3,seed,house,dominantTags,archetypeId:archetype.id,prophecyId:choose(PROPHECIES,counts,seed,'prophecy').id,coachId:choose(COACH_FORECASTS,counts,seed,'coach').id,questId:choose(quests,counts,seed,'quest').id,lawId:choose(gymLaws,counts,seed,'law').id,windowId:MANIFESTATION_WINDOWS[hash(seed+'window')%MANIFESTATION_WINDOWS.length].id,luckyNumber:luckyNumber(seed),powerColorId:BOW_COLORS.find(c=>c.value===design.topColor).id,design,bowCode:createBowCode(design),...extra};
+ return {version:4,seed,house,dominantTags,archetypeId:archetype.id,prophecyId:choose(PROPHECIES,counts,seed,'prophecy').id,coachId:choose(COACH_FORECASTS,counts,seed,'coach').id,questId:choose(quests,counts,seed,'quest').id,lawId:choose(gymLaws,counts,seed,'law').id,windowId:MANIFESTATION_WINDOWS[hash(seed+'window')%MANIFESTATION_WINDOWS.length].id,luckyNumber:luckyNumber(seed),powerColorId:BOW_COLORS.find(c=>c.value===design.topColor).id,design,bowCode:createBowCode(design),...extra};
 }
 export function createTarotReading(input){
- if(!input||!validSelection(input.majorArcanaIds,MAJOR_ARCANA,2)||!validSelection(input.minorArcanaIds,MINOR_ARCANA,3))return null;
+ if(!input||!validSelection(input.majorArcanaIds,MAJOR_ARCANA,MAJOR_DRAW_COUNT)||!validSelection(input.minorArcanaIds,MINOR_ARCANA,MINOR_DRAW_COUNT))return null;
  const majorArcanaIds=[...input.majorArcanaIds].sort(),minorArcanaIds=[...input.minorArcanaIds].sort();
  const seed=JSON.stringify([majorArcanaIds,minorArcanaIds]),counts={};
  for(const [deck,ids,weight] of [[MAJOR_ARCANA,majorArcanaIds,2],[MINOR_ARCANA,minorArcanaIds,1]])for(const id of ids)for(const tag of deck.find(card=>card.id===id).tags)counts[tag]=(counts[tag]||0)+weight;
@@ -33,5 +34,5 @@ export function createSecretReading(resolved){
 }
 export function tarotHandoff(result){const design=validateBowDesign(result?.design);return design?{...design,bowCode:createBowCode(design),oracleCard:result.house+' / '+result.archetypeId,source:'THE_BOW_RACLE'}:null;}
 // Persist only selected card IDs. No first name, secret code or customer details.
-export function saveTarotReading(storage,result){try{if(result?.mode!=='reading'||!createTarotReading(result))return false;storage.setItem(TAROT_STORAGE_KEY,JSON.stringify({version:3,majorArcanaIds:result.majorArcanaIds,minorArcanaIds:result.minorArcanaIds}));return true;}catch{return false;}}
-export function readTarotReading(storage){try{const input=JSON.parse(storage.getItem(TAROT_STORAGE_KEY));return input?.version===3?createTarotReading(input):null;}catch{return null;}}
+export function saveTarotReading(storage,result){try{if(result?.mode!=='reading'||!createTarotReading(result))return false;storage.setItem(TAROT_STORAGE_KEY,JSON.stringify({version:4,majorArcanaIds:result.majorArcanaIds,minorArcanaIds:result.minorArcanaIds}));return true;}catch{return false;}}
+export function readTarotReading(storage){try{const input=JSON.parse(storage.getItem(TAROT_STORAGE_KEY));return input?.version===4?createTarotReading(input):null;}catch{return null;}}

@@ -741,6 +741,7 @@ const storePathByView = {
   powerCheck: "/play/power-check",
   code10: "/play/code-10",
   bowracle: "/play/the-bow-racle",
+  bowracleDeck: "/play/the-bow-racle/deck",
   secretBowGarden: "/play/secret-bow-garden"
 };
 
@@ -757,6 +758,7 @@ const pageSeoByView = {
   powerCheck: "powerCheck",
   code10: "code10",
   bowracle: "bowracle",
+  bowracleDeck: "bowracle",
   secretBowGarden: "bowracle",
   search: "search",
   cart: "cart"
@@ -1001,7 +1003,7 @@ export default function App() {
   };
 
   const showPlay = (view = "play") => {
-    const nextView = ["powerCheck", "code10", "bowracle", "secretBowGarden"].includes(view) ? view : "play";
+    const nextView = ["powerCheck", "code10", "bowracle", "bowracleDeck", "secretBowGarden"].includes(view) ? view : "play";
     setIsCartDrawerOpen(false);
     setSearchQuery("");
     setSelectedProduct(null);
@@ -1127,9 +1129,11 @@ export default function App() {
           <Code10Page onBackToPlay={() => showPlay("play")} />
           <Footer onBackHome={showHome} onOpenDepartment={showBoutique} onOpenTeam={showTeam} onOpenShipping={showShipping} />
         </>
+      ) : activeView === "bowracleDeck" ? (
+        <PlayBowracle gallery onBackToPlay={() => showPlay("bowracle")} />
       ) : activeView === "bowracle" ? (
         <>
-          <PlayBowracle onBackToPlay={() => showPlay("play")} onStoreHandoff={(payload) => {
+          <PlayBowracle onBackToPlay={() => showPlay("play")} onOpenDeck={()=>showPlay("bowracleDeck")} onStoreHandoff={(payload) => {
             if (!payload) return;
             bowDesignerOpenerRef.current = document.activeElement;
             setBowHandoff(payload);
